@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 class Persona{
+protected:
 	//Datos de una persona
 	string nombre; 
 	string apellido; 
@@ -16,7 +17,7 @@ class Persona{
 	int mes_nac;
 	int anio_nac;
 	int edad;
-	public:
+public:
 		///Constructor de la clase Persona con sus paramentros por defecto
 		Persona(string nom = "", string ape = "", string mail = "", string sex = "", 
 		string tel = "", string loc = "", int dni = 0, int dia = 0, int mes = 0, int anio = 0); 
