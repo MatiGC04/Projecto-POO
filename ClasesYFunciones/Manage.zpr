@@ -15,7 +15,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=ManejoDeFechas.h
+current_source=ManejoDeFechas.cpp
 path_char=\
 [source]
 path=main.cpp
@@ -27,7 +27,7 @@ cursor=13:6
 open=true
 [source]
 path=ManejoDeFechas.cpp
-cursor=0:0
+cursor=20:28
 open=true
 [header]
 path=persona.h
@@ -35,7 +35,7 @@ cursor=7:18
 open=true
 [header]
 path=ManejoDeFechas.h
-cursor=0:0
+cursor=8:8
 open=true
 [config]
 name=Debug

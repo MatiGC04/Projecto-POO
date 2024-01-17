@@ -6,14 +6,15 @@ struct Fecha{
 	int dia;
 	int mes;
 	int anio;
+	time_t time;
 };
 Fecha FechaHoy();
-int DifMeses(Fecha F1,Fecha F2);
 bool AnioBiciesto(Fecha F1);
 bool ConfirmacionFecha(Fecha F1);
 std::string Fecha_a_texto(Fecha F1);
 bool operator<(Fecha F1, Fecha F2);
 bool operator==(Fecha F1,Fecha F2);
+int DifDias(Fecha F1, Fecha F2);
 
 
 #endif
