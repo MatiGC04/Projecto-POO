@@ -8,16 +8,7 @@
 #include <vector>
 using namespace std;
 
-
-class Couch : public Persona{
-private:
-	int CBU;
-public:
-	Couch(string nom, string ape, string mail, string sex,string tel, 
-		  string loc, int dni, int dia, int mes, int anio, int CBU=0);
-	int verCBU();
-};
-
+///
 struct Plan{
 	string nombre_plan;
 	vector<Couch>C;
@@ -27,23 +18,48 @@ struct Plan{
 //sobrecargo operador = para utilizarlo en el constructor del cliente
 
 /*Plan operator= (Plan x){
-	this nombre_plan= x.nombre_plan; //INVESTIGAR PORQUE NO FUNCIONA
-	this C=B.C;
-	this precio=x.precio;
-	return this;
+this nombre_plan= x.nombre_plan; //INVESTIGAR PORQUE NO FUNCIONA
+this C=B.C;
+this precio=x.precio;
+return this;
 }*/
+
+///
+
+class Couch : public Persona{
+private:
+	int cbu;
+	string alias;
+public:
+	Couch(string, string , string , string, string ,string, int , int , int , int ,  //<-atributos Persona 
+			int CBU=0);//<-atributo Couch 
+	int ver_cbu();
+	string ver_alias();
+};
+
 
 
 class Cliente : public Persona{
 private:
 	int telefono_emergencias;
 	Plan tipo_de_plan; //charclar si tipo de plan será struct o class
+	
 	bool estado_pago;
+	
+	//registro el pago del cliente
+	Fecha pago;
 public:
-	Cliente(string nom = "", string ape = "", string mail = "", string sex = "", 
-			string tel = "", string loc = "", int dni = 0, int dia = 0, int mes = 0, 
-			int anio = 0, int temergencias=0);
+	Cliente(string , string , string , string , 
+			string , string, int, int, int, 
+			int, int );
 	void agregar_plan(Plan t_plan);
-	bool ver_deuda();
+	
+	//calcular cuantos dias falta para que se venza 
+	Fecha vencimiento();
+	
+	//devuelve si el cliente esta en estado de deuda o no
+	bool debe();
+	//el cliente paga la deuda
+	void pagar_cuota();
 };
 
