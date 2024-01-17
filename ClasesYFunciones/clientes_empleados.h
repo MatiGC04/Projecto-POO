@@ -26,12 +26,12 @@ struct Plan{
 
 //sobrecargo operador = para utilizarlo en el constructor del cliente
 
-Plan operator= (Plan x){
+/*Plan operator= (Plan x){
 	this nombre_plan= x.nombre_plan; //INVESTIGAR PORQUE NO FUNCIONA
 	this C=B.C;
 	this precio=x.precio;
 	return this;
-}
+}*/
 
 
 class Cliente : public Persona{
@@ -42,8 +42,8 @@ private:
 public:
 	Cliente(string nom = "", string ape = "", string mail = "", string sex = "", 
 			string tel = "", string loc = "", int dni = 0, int dia = 0, int mes = 0, 
-			int anio = 0, int temergencias=0, Plan tdplan);
-	
+			int anio = 0, int temergencias=0);
+	void agregar_plan(Plan t_plan);
 	bool ver_deuda();
 };
 
