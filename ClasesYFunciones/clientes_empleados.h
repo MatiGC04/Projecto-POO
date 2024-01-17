@@ -26,10 +26,10 @@ struct Plan{
 
 //sobrecargo operador = para utilizarlo en el constructor del cliente
 
-void operator= (Plan other){
-	this nombre_plan= other.nombre_plan; //INVESTIGAR PORQUE NO FUNCIONA
-	//this C=B.C;
-	this precio=other.precio;
+Plan operator= (Plan x){
+	this nombre_plan= x.nombre_plan; //INVESTIGAR PORQUE NO FUNCIONA
+	this C=B.C;
+	this precio=x.precio;
 	return this;
 }
 
