@@ -16,10 +16,18 @@ Cliente::Cliente(string nom, string ape, string mail, string sex,string tel,
 
 }
 
-bool Cliente::debe(){return estado_pago;}
 
 void Cliente::agregar_plan(Plan t_plan){
 	tipo_de_plan= t_plan;
+}
+
+bool Cliente::debe(){
+	return estado_pago;
+}
+
+void Cliente::pagar_cuota(){
+	estado_pago=true;
+	//falta actualizar La fecha del pago ->Fecha pago;
 }
 
 

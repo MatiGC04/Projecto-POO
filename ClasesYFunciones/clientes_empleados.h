@@ -54,6 +54,9 @@ private:
 	
 	//registro el pago del cliente
 	Fecha pago;
+	
+	//plantear si se desea agregar un archivo .text 
+	//o binary para que cada cliente tenga su rutina
 public:
 	Cliente(string , string , string , string , 
 			string , string, int, int, int, 
