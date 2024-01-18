@@ -5,26 +5,11 @@
 
 #include <string>
 #include <persona.h>
+#include <ManejoDeFechas.h>
 #include <vector>
 using namespace std;
 
-///
-struct Plan{
-	string nombre_plan;
-	vector<Couch>C;
-	int precio;
-};
 
-//sobrecargo operador = para utilizarlo en el constructor del cliente
-
-/*Plan operator= (Plan x){
-this nombre_plan= x.nombre_plan; //INVESTIGAR PORQUE NO FUNCIONA
-this C=B.C;
-this precio=x.precio;
-return this;
-}*/
-
-///
 
 class Couch : public Persona{
 private:
@@ -37,7 +22,28 @@ public:
 	string ver_alias();
 };
 
+///
+struct Plan{
+	string nombre_plan;
+	vector<Couch>C;
+	int precio;
+	
+	
+	//sobrecargo operador =
+	Plan operator= (Plan copia){
+		nombre_plan=copia.nombre_plan;
+		C=copia.C;
+		precio=copia.precio;
+		
+		return *this;
+	}
+};
 
+
+
+
+
+///
 
 class Cliente : public Persona{
 private:
