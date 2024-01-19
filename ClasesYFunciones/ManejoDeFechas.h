@@ -15,6 +15,7 @@ std::string Fecha_a_texto(Fecha F1);
 bool operator<(Fecha F1, Fecha F2);
 bool operator==(Fecha F1,Fecha F2);
 int DifDias(Fecha F1, Fecha F2);
-
+Fecha ConvertFecha(int dia, int mes, int anio);
+Fecha FechaVencimiento(Fecha F1);
 
 #endif
