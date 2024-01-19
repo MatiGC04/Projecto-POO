@@ -15,7 +15,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=clientes_empleados.cpp
+current_source=clientes_empleados.h
 path_char=\
 [source]
 path=main.cpp
@@ -31,7 +31,7 @@ cursor=20:28
 open=true
 [source]
 path=clientes_empleados.cpp
-cursor=14:48
+cursor=28:18
 open=true
 [header]
 path=persona.h
@@ -41,7 +41,7 @@ path=ManejoDeFechas.h
 cursor=0:0
 [header]
 path=clientes_empleados.h
-cursor=60:25
+cursor=75:47
 open=true
 [config]
 name=Debug

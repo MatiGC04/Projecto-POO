@@ -7,6 +7,7 @@ struct Fecha{
 	int mes;
 	int anio;
 	time_t time;
+
 };
 Fecha FechaHoy();
 bool AnioBiciesto(Fecha F1);

@@ -10,10 +10,11 @@ Cliente::Cliente(string nom, string ape, string mail, string sex,string tel,
 										sex, tel, loc, dni,
 										dia, mes , anio){
 	estado_pago=true;
-	telefono_emergencias=temergencias;
+	tel_emergencias=temergencias;
 	
-	///cargar fecha actual del sistema dentro de ->Fecha pago;<-
-
+	//si se carga un nuevo cliente es porque ya pago la mensualidad
+	//por lo tanto actualizo la fecha del pago al dia actual
+	fecha_pago= FechaHoy();
 }
 
 
@@ -21,13 +22,24 @@ void Cliente::agregar_plan(Plan t_plan){
 	tipo_de_plan= t_plan;
 }
 
+///retornar los dias que falta para que se venza la cuota
+int Cliente::dias_faltantes(){
+	Fecha hoy =FechaHoy();
+	
+	return DifDias(fecha_pago, hoy);
+}
+
 bool Cliente::debe(){
 	return estado_pago;
 }
 
+
+//
 void Cliente::pagar_cuota(){
 	estado_pago=true;
-	//falta actualizar La fecha del pago ->Fecha pago;
+	
+	//Falta chequear la sobrecarga del operador = del sturct Fecha
+	fecha_pago=FechaHoy();
 }
 
 
