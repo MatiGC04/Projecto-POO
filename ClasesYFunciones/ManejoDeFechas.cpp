@@ -37,6 +37,23 @@ Fecha ConvertFecha(int dia, int mes, int anio){
 	
 }
 	
+///Funcion convertir fecha a string
+string Fecha_a_texto(Fecha F1){
+	return to_string(F1.dia)+"/"+to_string(F1.mes)+"/"+to_string(F1.anio);
+}
+	
+	
+	
+///Verifica si el anio es biciesto o no
+bool AnioBiciesto(Fecha F1){
+	if(F1.anio%100==0){
+		if(F1.anio%400==0)return true;
+		return false;
+	}
+	else if(F1.anio%4==0) return true;
+	return false;
+}
+	
 ///Calcula la fecha de vencimiento del pago abonado
 Fecha FechaVencimiento(Fecha F1){
 	F1.time=F1.time+31*24*60*60;
@@ -47,15 +64,7 @@ Fecha FechaVencimiento(Fecha F1){
 	return F1;
 }
 
-///Verifica si el anio es biciesto o no
-bool AnioBiciesto(Fecha F1){
-	if(F1.anio%100==0){
-		if(F1.anio%400==0)return true;
-		return false;
-	}
-	else if(F1.anio%4==0) return true;
-	return false;
-}
+
 
 ///Confirma que la fecha ingresada es valida
 bool ConfirmacionFecha(Fecha F1){
@@ -88,7 +97,7 @@ bool ConfirmacionFecha(Fecha F1){
 }
 
 ///Implementacion para comparar fechas
-bool operator<(Fecha F1, Fecha F2){ //chequear
+bool operator<(Fecha F1, Fecha F2){
 	if(F1.anio<F2.anio){
 		return true;
 	}
@@ -115,10 +124,7 @@ bool operator==(Fecha F1,Fecha F2){
 	return true;
 }
 
-///Funcion convertir fecha a string
-std::string Fecha_a_texto(Fecha F1){
-	return std::to_string(F1.dia)+"/"+std::to_string(F1.mes)+"/"+std::to_string(F1.anio);
-}
+
 	
 ///Funcion para obtener la diferencia en dias entre dos fechas
 int DifDias(Fecha F1,Fecha F2){
@@ -130,3 +136,8 @@ int DifDias(Fecha F1,Fecha F2){
 
 }
 	
+///Sobrecarga de operador << para mostrar por pantalla variables tipo fecha
+ostream &operator<<(ostream &o, Fecha F1){
+	o<<F1.dia<<"/"<<F1.mes<<"/"<<F1.anio;
+	return o;
+}
