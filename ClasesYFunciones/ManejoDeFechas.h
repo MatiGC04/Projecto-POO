@@ -6,12 +6,7 @@ struct Fecha{
 	int dia;
 	int mes;
 	int anio;
-<<<<<<< HEAD
-	time_t time;
-
-=======
 	std::time_t time;
->>>>>>> d562afb1b6b7774bacbac9ff5fe46547833ec259
 };
 Fecha FechaHoy();
 Fecha ConvertFecha(int dia, int mes, int anio);

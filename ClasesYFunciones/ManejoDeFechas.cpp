@@ -36,6 +36,7 @@ Fecha ConvertFecha(int dia, int mes, int anio){
 	return Fecha1;
 	
 }
+
 	
 ///Funcion convertir fecha a string
 string Fecha_a_texto(Fecha F1){
