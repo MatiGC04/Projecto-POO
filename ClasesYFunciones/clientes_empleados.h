@@ -80,5 +80,8 @@ public:
 	bool debe();
 	//el cliente paga la deuda
 	void pagar_cuota();
+	
+	//ver estado de cuota
+	void chequear_cuota();
 };
 
