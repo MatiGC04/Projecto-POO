@@ -33,7 +33,14 @@ bool Cliente::debe(){
 	return estado_pago;
 }
 
-
+void Cliente:: chequear_cuota(){
+	Fecha hoy =FechaHoy();
+	int delta_dias= DifDias(fecha_pago, hoy);
+	
+	if(delta_dias>31){
+		estado_pago=false;
+	}
+}
 //
 void Cliente::pagar_cuota(){
 	estado_pago=true;
