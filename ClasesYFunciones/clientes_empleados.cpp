@@ -1,14 +1,11 @@
 #include <clientes_empleados.h>
 
 #include <string>
-using namespace std;
 ///Metodos class Cliente
 
-Cliente::Cliente(string nom, string ape, string mail, string sex,string tel, 
-			 string loc, int dni, int dia, int mes, int anio,/*<-atributos de clase persona*/ 
-			 int temergencias=0): Persona(nom, ape, mail , 
-										sex, tel, loc, dni,
-										dia, mes , anio){
+Cliente::Cliente(std::string nom, std::string ape, std::string mail, std::string sex, std::string tel, std::string dir, 
+			std::string loc, int dni, int dia, int mes, int anio, int temergencias=0): 
+			persona(nom, ape, mail , sex, tel, dir, loc, dni,dia, mes , anio){
 	estado_pago=true;
 	tel_emergencias=temergencias;
 	
@@ -53,6 +50,6 @@ void Cliente::pagar_cuota(){
 ///Metodos de class Couch
 int Couch::ver_cbu(){return cbu;}
 
-string Couch::ver_alias(){return alias;}
+std::string Couch::ver_alias(){return alias;}
 
 

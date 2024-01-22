@@ -1,58 +1,95 @@
 #include <persona.h>
 #include <string>
-using namespace std;
-Persona::Persona(string nom, string ape, string mail, string sex,string tel, 
-				 string loc, int dni, int dia, int mes, int anio){
+#include "ManejoDeFechas.h"
+
+persona::persona(std::string nom, std::string ape, std::string mail, std::string sexo, std::string tel, 
+				 std::string dir, std::string loc, int dni, int dia, int mes, int anio){
 	nombre = nom;
 	apellido = ape;
 	email = mail;
-	sexo = sex; 
+	this->sexo = sexo; 
 	telefono = tel;
+	direccion = dir;
 	localidad = loc;
-	dia_nac = dia;
-	mes_nac = mes;
-	anio_nac = anio;
 	DNI = dni;
-	/*edad = funcion para obtener la fecha actual
-	calcular en base a la fecha actual y el nacimiento la edad
-	*/
+	fecha_nacimiento = ConvertFecha(dia,mes,anio);
+	
 }
 ///Desarrollo de los métodos para obtener la información de la persona
-string Persona::ver_nombre(){
+std::string persona::ver_nombre(){
 	return nombre;
 }
-string Persona::ver_apellido(){
+std::string persona::ver_apellido(){
 	return apellido;
 }
 
-string Persona::ver_email(){
+std::string persona::ver_email(){
 	return email;
 }
-string Persona::ver_tel(){
+std::string persona::ver_tel(){
 	return telefono;
 }
-string Persona::ver_dir(){
+std::string persona::ver_dir(){
 	return direccion;
 }
-string Persona::ver_loc(){
+std::string persona::ver_loc(){
 	return localidad;
 }
-string Persona::ver_sexo(){
+std::string persona::ver_sexo(){
 	return sexo;
 }
-int Persona::ver_anioN(){
-	return anio_nac;
+int persona::ver_anioN(){
+	return fecha_nacimiento.anio;
 }
-int Persona::ver_mesN(){
-	return mes_nac;
+int persona::ver_mesN(){
+	return fecha_nacimiento.mes;
 }
-int Persona::ver_diaN(){
-	return dia_nac;
+int persona::ver_diaN(){
+	return fecha_nacimiento.dia;
 }
-int Persona::ver_edad(){
+int persona::ver_edad(){
+	int edad;
+	Fecha fecha_actual = FechaHoy();
+	edad = fecha_actual.anio - fecha_nacimiento.anio;
+	if(fecha_nacimiento.mes > fecha_actual.mes){
+		edad = edad-1;
+	}else{
+		if (fecha_nacimiento.mes == fecha_actual.mes){
+			if(fecha_nacimiento.dia > fecha_actual.dia){
+				edad = edad-1;
+			}
+		}
+	}
 	return edad;
 }
-int Persona::ver_DNI(){
+int persona::ver_DNI(){
 	return DNI;
 }
+void persona::modificar_nombre(std::string nom){
+	nombre = nom;
+}
+void persona::modificar_apellido(std::string ape){
+	apellido = ape;
+}
+void persona::modificar_email(std::string mail){
+	email = mail;
+}
+void persona::modificar_tel(std::string tel){
+	telefono = tel;
+}
+void persona::modificar_dir(std::string dir){
+	direccion = dir;
+}
+void persona::modificar_loc(std::string loc){
+	localidad = loc;
+}
+void persona::modificar_sexo(std::string sexo){
+	this->sexo = sexo;
+}
 
+void persona::modificar_DNI(int dni){
+	DNI = dni;
+}
+void persona::modificar_fecha_nacimiento(int dia, int mes, int anio){
+	fecha_nacimiento = ConvertFecha(dia,mes,anio);
+}
