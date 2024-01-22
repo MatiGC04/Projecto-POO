@@ -1,7 +1,6 @@
 #include <ManejoDeFechas.h>
 #include <string>
 #include <ctime>
-using namespace std;
 
 ///Funcion que utiliza el tipo de dato ctime 
 ///(tm_year devuelve los anios que pasaron desde 1900 y tm_mon devuelve el mes 
@@ -38,8 +37,8 @@ Fecha ConvertFecha(int dia, int mes, int anio){
 }
 	
 ///Funcion convertir fecha a string
-string Fecha_a_texto(Fecha F1){
-	return to_string(F1.dia)+"/"+to_string(F1.mes)+"/"+to_string(F1.anio);
+std::string Fecha_a_texto(Fecha F1){
+	return std::to_string(F1.dia)+"/"+std::to_string(F1.mes)+"/"+std::to_string(F1.anio);
 }
 	
 	
@@ -137,7 +136,7 @@ int DifDias(Fecha F1,Fecha F2){
 }
 	
 ///Sobrecarga de operador << para mostrar por pantalla variables tipo fecha
-ostream &operator<<(ostream &o, Fecha F1){
+std::ostream &operator<<(std::ostream &o, Fecha F1){
 	o<<F1.dia<<"/"<<F1.mes<<"/"<<F1.anio;
 	return o;
 }
