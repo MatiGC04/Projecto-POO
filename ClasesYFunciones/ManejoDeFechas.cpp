@@ -35,6 +35,7 @@ fecha ConvertFecha(int dia, int mes, int anio){
 	return Fecha1;
 	
 }
+
 	
 ///Funcion convertir fecha a string
 std::string Fecha_a_texto(fecha F1){

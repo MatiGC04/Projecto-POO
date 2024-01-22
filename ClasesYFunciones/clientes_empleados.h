@@ -7,25 +7,26 @@
 #include <persona.h>
 #include <ManejoDeFechas.h>
 #include <vector>
-using namespace std;
 
 
 
-class Couch : public Persona{
+
+
+class Couch : public persona{
 private:
 	int cbu;
-	string alias;
+	std::string alias;
 public:
-	Couch(string, string , string , string, string ,string, int , int , int , int ,  //<-atributos Persona 
+	Couch(std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, int, int, int,  //<-atributos Persona 
 			int CBU=0);//<-atributo Couch 
 	int ver_cbu();
-	string ver_alias();
+	std::string ver_alias();
 };
 
 ///
 struct Plan{
-	string nombre_plan;
-	vector<Couch>C;
+	std::string nombre_plan;
+	std::vector<Couch> C;
 	int precio;
 	
 	
@@ -55,7 +56,7 @@ struct Plan{
 
 ///
 
-class Cliente : public Persona{
+class Cliente : public persona{
 private:
 	int tel_emergencias;
 	Plan tipo_de_plan; //charclar si tipo de plan será struct o class
@@ -68,9 +69,9 @@ private:
 	//plantear si se desea agregar un archivo .text 
 	//o binary para que cada cliente tenga su rutina
 public:
-	Cliente(string , string , string , string , 
-			string , string, int, int, int, 
-			int, int );
+	Cliente(std::string, std::string, std::string, std::string, 
+			std::string, std::string, std::string, int, int, int, 
+			int, int);
 	void agregar_plan(Plan t_plan);
 	
 	//calcular cuantos dias falta para que se venza 
