@@ -2,12 +2,14 @@
 #include <string>
 #include <ctime>
 
-///Funcion que utiliza el tipo de dato ctime 
-///(tm_year devuelve los anios que pasaron desde 1900 y tm_mon devuelve el mes 
-///actual desde iniciando a contar desde 0) para obtener dia, mes y anio */
+/**
+* Funcion que utiliza el tipo de dato ctime 
+* (tm_year devuelve los anios que pasaron desde 1900 y tm_mon devuelve el mes 
+* actual desde iniciando a contar desde 0) para obtener dia, mes y anio.
+**/
 fecha FechaHoy(){
-	time_t hoy= time(0);
-	tm *time = localtime(&hoy);
+	time_t hoy= time(0);		///La funcion time(nullptr) devuelve una variable time_t que contiene los segundos desde una epoca(01/01/1969 21:00hs) hasta hoy.
+	tm *time = localtime(&hoy);	///La funcion localtime recibe una direccion de una variable time_t y devuelve un puntero a tm (struct que tiene datos como anio, dia, mes y mas).
 	fecha aux;
 	aux.anio= time->tm_year+1900;
 	aux.mes= time->tm_mon+1;
@@ -16,8 +18,10 @@ fecha FechaHoy(){
 	return aux;
 }
 
-///Ingresando dia, mes y anio retorna una variable tipo fecha
-///para poder realizar operaciones con ella
+/**
+* Ingresando dia, mes y anio retorna una variable tipo fecha
+* para poder realizar operaciones con ella.
+**/
 fecha ConvertFecha(int dia, int mes, int anio){
 	time_t hoy= time(0);
 	tm *F=localtime(&hoy);
@@ -31,9 +35,10 @@ fecha ConvertFecha(int dia, int mes, int anio){
 	Fecha1.dia=dia;
 	Fecha1.anio=anio;
 	Fecha1.mes=mes;
-	Fecha1.time=mktime(F);
-	return Fecha1;
-	
+	Fecha1.time=mktime(F);		///La funcion mktime recibe un puntero a tm y utiliza tm_sec, tm_min, tm_hour, tm_day, tm_mon y tm_year como datos para devolver una variable
+								///tipo time_t con los segundos desde la epoca (01/01/1969 21:00hs) hasta la fecha que almacenaba el puntero tm.
+	return Fecha1;				
+
 }
 
 	
