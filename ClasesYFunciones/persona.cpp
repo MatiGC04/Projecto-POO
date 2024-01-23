@@ -49,7 +49,7 @@ int persona::ver_diaN(){
 }
 int persona::ver_edad(){
 	int edad;
-	Fecha fecha_actual = FechaHoy();
+	fecha fecha_actual = FechaHoy();
 	edad = fecha_actual.anio - fecha_nacimiento.anio;
 	if(fecha_nacimiento.mes > fecha_actual.mes){
 		edad = edad-1;

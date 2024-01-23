@@ -7,6 +7,14 @@ struct fecha{
 	int mes;
 	int anio;
 	std::time_t time;
+	
+	fecha operator=(fecha otra){
+		dia=otra.dia;
+		mes=otra.mes;
+		anio=otra.anio;
+		time=otra.time;
+		return *this;
+	}
 };
 fecha FechaHoy();
 fecha ConvertFecha(int dia, int mes, int anio);

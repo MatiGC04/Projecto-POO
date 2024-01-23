@@ -12,26 +12,26 @@
 
 
 
-class Couch : public persona{
+class couch : public persona{
 private:
 	int cbu;
 	std::string alias;
 public:
-	Couch(std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, int, int, int,  //<-atributos Persona 
+	couch(std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, int, int, int,  //<-atributos Persona 
 			int CBU=0);//<-atributo Couch 
 	int ver_cbu();
 	std::string ver_alias();
 };
 
 ///
-struct Plan{
+struct plan{
 	std::string nombre_plan;
-	std::vector<Couch> C;
+	std::vector<couch> C;
 	int precio;
 	
 	
 	//sobrecargo operador =
-	Plan operator= (Plan copia){
+	plan operator= (plan copia){
 		nombre_plan=copia.nombre_plan;
 		C=copia.C;
 		precio=copia.precio;
@@ -56,29 +56,31 @@ struct Plan{
 
 ///
 
-class Cliente : public persona{
+class cliente : public persona{
 private:
-	int tel_emergencias;
-	Plan tipo_de_plan; //charclar si tipo de plan será struct o class
+	std::string tel_emergencias;
+	plan tipo_de_plan; 
 	
 	bool estado_pago;
 	
 	//registro el pago del cliente
-	Fecha fecha_pago;
+	fecha fecha_pago;
 	
 	//plantear si se desea agregar un archivo .text 
 	//o binary para que cada cliente tenga su rutina
 public:
-	Cliente(std::string, std::string, std::string, std::string, 
+	cliente(std::string, std::string, std::string, std::string, 
 			std::string, std::string, std::string, int, int, int, 
-			int, int);
-	void agregar_plan(Plan t_plan);
+			int, std::string);
+	
+	void agregar_plan(plan t_plan);
 	
 	//calcular cuantos dias falta para que se venza 
 	int dias_faltantes();
 	
 	//devuelve si el cliente esta en estado de deuda o no
 	bool debe();
+	
 	//el cliente paga la deuda
 	void pagar_cuota();
 	

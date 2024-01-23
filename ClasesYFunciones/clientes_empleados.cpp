@@ -3,8 +3,8 @@
 #include <string>
 ///Metodos class Cliente
 
-Cliente::Cliente(std::string nom, std::string ape, std::string mail, std::string sex, std::string tel, std::string dir, 
-			std::string loc, int dni, int dia, int mes, int anio, int temergencias=0): 
+cliente::cliente(std::string nom, std::string ape, std::string mail, std::string sex, std::string tel, std::string dir, 
+			std::string loc, int dni, int dia, int mes, int anio, std::string temergencias=""): 
 			persona(nom, ape, mail , sex, tel, dir, loc, dni,dia, mes , anio){
 	estado_pago=true;
 	tel_emergencias=temergencias;
@@ -15,23 +15,31 @@ Cliente::Cliente(std::string nom, std::string ape, std::string mail, std::string
 }
 
 
-void Cliente::agregar_plan(Plan t_plan){
+void cliente::agregar_plan(plan t_plan){
 	tipo_de_plan= t_plan;
 }
 
 ///retornar los dias que falta para que se venza la cuota
-int Cliente::dias_faltantes(){
-	Fecha hoy =FechaHoy();
+int cliente::dias_faltantes(){
+	int delta_dias= DifDias(fecha_pago,FechaHoy());
 	
-	return DifDias(fecha_pago, hoy);
+	
+	//si la diferencia de dias supera los 31 dias, es porque la fecha del pago se venció
+	//el estado_pago es falso-> a delta_dias, le resto 31 para que me muestre la cantidad de dias que lleva  vencida
+	if(estado_pago==false){
+		delta_dias=delta_dias-31;
+		//delta_dias=(-1)*delta_dias;
+		return delta_dias;
+	}
+	return delta_dias;
 }
 
-bool Cliente::debe(){
+bool cliente::debe(){
 	return estado_pago;
 }
 
-void Cliente:: chequear_cuota(){
-	Fecha hoy =FechaHoy();
+void cliente:: chequear_cuota(){
+	fecha hoy =FechaHoy();
 	int delta_dias= DifDias(fecha_pago, hoy);
 	
 	if(delta_dias>31){
@@ -39,7 +47,7 @@ void Cliente:: chequear_cuota(){
 	}
 }
 //
-void Cliente::pagar_cuota(){
+void cliente::pagar_cuota(){
 	estado_pago=true;
 	
 	//Falta chequear la sobrecarga del operador = del sturct Fecha
@@ -48,8 +56,8 @@ void Cliente::pagar_cuota(){
 
 
 ///Metodos de class Couch
-int Couch::ver_cbu(){return cbu;}
+int couch::ver_cbu(){return cbu;}
 
-std::string Couch::ver_alias(){return alias;}
+std::string couch::ver_alias(){return alias;}
 
 

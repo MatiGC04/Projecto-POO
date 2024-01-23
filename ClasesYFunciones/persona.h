@@ -13,7 +13,7 @@ protected:
 	std::string localidad; 
 	std::string sexo;	
 	int DNI; 
-	Fecha fecha_nacimiento;
+	fecha fecha_nacimiento;
 public:
 		///Constructor de la clase Persona con sus paramentros por defecto
 		persona(std::string nom = "", std::string ape = "", std::string mail = "", std::string sexo = "", 
