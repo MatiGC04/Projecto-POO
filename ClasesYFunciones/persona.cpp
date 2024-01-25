@@ -1,9 +1,12 @@
 #include <persona.h>
 #include <string>
 #include "ManejoDeFechas.h"
+#include <cstring>
+#include <fstream>
+using namespace std;
 
 persona::persona(std::string nom, std::string ape, std::string mail, std::string sexo, std::string tel, 
-				 std::string dir, std::string loc, int dni, int dia, int mes, int anio){
+				 std::string dir, std::string loc, std::string dni, int dia, int mes, int anio){
 	nombre = nom;
 	apellido = ape;
 	email = mail;
@@ -31,6 +34,9 @@ std::string persona::ver_tel(){
 }
 std::string persona::ver_dir(){
 	return direccion;
+}
+std::string persona::ver_DNI(){
+	return DNI;
 }
 std::string persona::ver_loc(){
 	return localidad;
@@ -62,9 +68,6 @@ int persona::ver_edad(){
 	}
 	return edad;
 }
-int persona::ver_DNI(){
-	return DNI;
-}
 void persona::modificar_nombre(std::string nom){
 	nombre = nom;
 }
@@ -93,3 +96,35 @@ void persona::modificar_DNI(int dni){
 void persona::modificar_fecha_nacimiento(int dia, int mes, int anio){
 	fecha_nacimiento = ConvertFecha(dia,mes,anio);
 }
+
+void persona::guardar_en_binario(std::ofstream &archivo){
+	registroPersona registro;
+	strcpy(registro.nombre,nombre.c_str());
+	strcpy(registro.apellido,apellido.c_str());
+	strcpy(registro.email,email.c_str());
+	strcpy(registro.telefono,telefono.c_str());
+	strcpy(registro.direccion,direccion.c_str());
+	strcpy(registro.sexo,sexo.c_str());
+	strcpy(registro.DNI,DNI.c_str());
+	registro.dia_nac = fecha_nacimiento.dia;
+	registro.mes_nac = fecha_nacimiento.mes;
+	registro.anio_nac = fecha_nacimiento.anio;
+	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
+}
+
+void persona::leer_desde_binario(std::ifstream &archivo){
+	registroPersona registro;
+	archivo.read(reinterpret_cast<char*>(&registro),sizeof(registro));
+	nombre = registro.nombre;
+	apellido = registro.apellido;
+	email = registro.email;
+	telefono = registro.telefono;
+	direccion = registro.direccion;
+	localidad = registro.localidad;
+	sexo = registro.sexo;
+	DNI = registro.DNI;
+	fecha_nacimiento.dia = registro.dia_nac;
+	fecha_nacimiento.mes = registro.mes_nac;
+	fecha_nacimiento.anio = registro.anio_nac;
+}
+
