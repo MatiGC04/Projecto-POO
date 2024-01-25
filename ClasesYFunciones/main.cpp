@@ -9,17 +9,16 @@ int main (int argc, char *argv[]) {
 	/*Persona::Persona(string nom, string ape, string mail, string sex,string tel, 
 					 string loc, int dni, int dia, int mes, int anio)*/
 	persona usuario("angel","palacios","angeluis.0711@gmail.com","hombre","3435023500",
-					"Gobernador Enrique Mihura","Paraná",44556041,20,01,1960);
-	//cout<<usuario.ver_dir();
+					"Gobernador Enrique Mihura","ParanÃ¡","44556041",20,01,1960);
+	cout<<usuario.ver_DNI();
 	
 	
-	cliente c1("angel","palacios","angeluis.0711@gmail.com","hombre","3435023500",
-			   "Gobernador Enrique Mihura","Paraná",44556041,20,01,1960,"323232323");
+	/*cliente c1("angel","palacios","angeluis.0711@gmail.com","hombre","3435023500",
+			   "Gobernador Enrique Mihura","ParanÃ¡","44556041",20,01,1960,"323232323");*/
 	
-	cout<<c1.dias_faltantes();
-		
-	fecha hoy, mna;
-	
+
+	/*cout<<c1.dias_faltantes();*/
+
 	return 0;
 }
 
