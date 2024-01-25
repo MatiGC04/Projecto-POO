@@ -27,7 +27,7 @@ private:
 public:
 	
 	///Inicializa los datos del Couch 
-	couch(std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, int, int, int,  //<-atributos Persona 
+	couch(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, int, int,  //<-atributos Persona 
 		  std::string _cbu = "", std::string _alias = "");//<-atributo Couch
 	
 	///Metodos que devuelven los datos guardados
@@ -35,20 +35,21 @@ public:
 	std::string ver_alias();
 };
 
+
 /**
 * @brief struct que permite almacenar la informacion del plan que el cliente elige
 * Esta compuesta por el nombre del plan, el couch a cargo, el precio, y por ultimo la rutina del cliente
 */
 struct planCliente{
 	std::string nombre_plan;
-	couch couch_a_cargo;
+	couch couch_cargo;
 	int precio;
 	
 	
 	
 	planCliente operator= (planCliente copia){
 		nombre_plan=copia.nombre_plan;
-		couch_a_cargo=copia.couch_a_cargo;
+		couch_cargo=copia.couch_cargo;
 		precio=copia.precio;
 		/*
 		El return *this permite asignaciones en cadena:
@@ -64,6 +65,8 @@ struct planCliente{
 		return *this;
 	}
 };
+
+
 /**
 * @brief Clase que representa a los clientes que asistiran al gimnasio
 * Contiene un telefono de emergencia, una estructura de datos planCliente, y un tipo de dato bool y fecha, para tener un registro del
@@ -82,22 +85,35 @@ private:
 	  o binary para que cada cliente tenga su rutina */
 public:
 	cliente(std::string, std::string, std::string, std::string, 
-			std::string, std::string, std::string, int, int, int, 
+			std::string, std::string, std::string, std::string, int, int, 
 			int, std::string _tel_emergencias="");
 	
 	void agregar_plan(planCliente t_plan);
 	
+	
 	///Calcula cuantos dias falta para que se venzas 
 	int dias_faltantes();
 	
-	///Metodos que devuelven los datos guardados
+	///Metodos que devuelven los datos guardados:
 	bool ver_estado_pago();
+	fecha ver_fecha_pago();
+	
+	planCliente ver_plan(int n);
+	planCliente ver_plan(std::string _nombre_plan, couch c);
+	
+	
+	
+	
+	
 	
 	///Cuando el cliente realiza el pago se actualiza el estado_pago, y la fehca del pago
 	void pagar_cuota();
 	
 	///Controlar si la mensualidad esta vencida o no
 	void chequear_cuota();
+	
+	///Modificar Datos
+	
 };
 
 

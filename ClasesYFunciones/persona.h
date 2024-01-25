@@ -2,6 +2,19 @@
 #define PERSONA_H
 #include <string>
 #include "ManejoDeFechas.h"
+
+struct registroPersona{
+	char nombre[256];
+	char apellido[256];
+	char email[256];
+	char telefono[256];
+	char direccion[256];
+	char localidad[256];
+	char sexo[256];
+	char DNI[256];
+	int dia_nac, mes_nac, anio_nac;
+};
+
 class persona{
 protected:
 	//Datos de una persona
@@ -12,12 +25,12 @@ protected:
 	std::string direccion; 
 	std::string localidad; 
 	std::string sexo;	
-	int DNI; 
+	std::string DNI; 
 	fecha fecha_nacimiento;
 public:
 		///Constructor de la clase Persona con sus paramentros por defecto
 		persona(std::string nom = "", std::string ape = "", std::string mail = "", std::string sexo = "", 
-		std::string tel = "", std::string dir = "", std::string loc = "", int dni = 0, int dia = 0, int mes = 0, int anio = 0); 
+		std::string tel = "", std::string dir = "", std::string loc = "", std::string dni = "", int dia = 0, int mes = 0, int anio = 0); 
 		
 		std::string ver_nombre(); ///Método para obtener el nombre de la persona
 		std::string ver_apellido(); ///Método para obtener el apellido de la persona
@@ -26,11 +39,12 @@ public:
 		std::string ver_dir(); ///Método para obtener la dirección de la persona
 		std::string ver_loc(); ///Método para obtener la localidad de la persona
 		std::string ver_sexo(); ///Método para obtener el sexo de la persona
+		std::string ver_DNI(); ///Método para obtener el DNI de la persona
 		int ver_diaN(); ///Método para obtener el día de nacimiento de la persona
 		int ver_mesN(); ///Método para obtener el mes de nacimiento de la persona
 		int ver_anioN(); ///Método para obtener el año de nacimento de la persona
 		int ver_edad(); ///Método para obtener la edad de la persona
-		int ver_DNI(); ///Método para obtener el DNI de la persona
+		
 		
 		
 		void modificar_nombre(std::string nom);
@@ -43,6 +57,10 @@ public:
 		void modificar_DNI(int dni);
 		void modificar_fecha_nacimiento(int dia, int mes, int anio);
 		
+		/// guarda su registro en un archivo binario
+		void guardar_en_binario(std::ofstream &archivo);
+		/// lee su registro desde un archivo binario
+		void leer_desde_binario(std::ifstream &archivo);
 
 };
 
