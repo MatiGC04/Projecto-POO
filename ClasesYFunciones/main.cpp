@@ -17,6 +17,9 @@ int main (int argc, char *argv[]) {
 			   "Gobernador Enrique Mihura","Paraná",44556041,20,01,1960,"323232323");
 	
 	cout<<c1.dias_faltantes();
+		
+	fecha hoy, mna;
+	
 	return 0;
 }
 
