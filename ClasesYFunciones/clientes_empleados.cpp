@@ -12,6 +12,8 @@ couch::couch(std::string nom, std::string ape, std::string mail, std::string sex
 	
 	
 }
+
+
 std::string couch::ver_cbu(){return cbu;}
 
 std::string couch::ver_alias(){return alias;}
