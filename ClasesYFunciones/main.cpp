@@ -13,7 +13,10 @@ int main (int argc, char *argv[]) {
 
 	cout<<usuario.ver_DNI();*/
 	
-	
+	cliente pedrito("pedro","apellido","sadf@csmj.cs","hombre","3435202135","avenidasiempreviva","sprinfield","4535212",
+					4,11,1995,"343215121");
+	cout<<pedrito.ver_fecha_pago()<<endl;
+	cout<<pedrito.dias_faltantes();
 	return 0;	
 }
 

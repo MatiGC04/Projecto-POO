@@ -84,6 +84,7 @@ private:
 	/*plantear si se desea agregar un archivo .text 
 	  o binary para que cada cliente tenga su rutina */
 public:
+	
 	cliente(std::string, std::string, std::string, std::string, 
 			std::string, std::string, std::string, std::string, int, int, 
 			int, std::string _tel_emergencias="");
@@ -98,7 +99,7 @@ public:
 	bool ver_estado_pago();
 	fecha ver_fecha_pago();
 	
-	planCliente ver_plan(int n);
+	planCliente ver_plan(int pos);
 	planCliente ver_plan(std::string _nombre_plan, couch c);
 	
 	

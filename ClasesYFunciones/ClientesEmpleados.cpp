@@ -56,15 +56,14 @@ void cliente:: chequear_cuota(){
 
 
 
-
 int cliente::dias_faltantes(){
-	
-	this->chequear_cuota();
+	chequear_cuota();
 	if(estado_pago==true){
 		return DifDias(FechaHoy(),FechaVencimiento(fecha_pago));
 	}
 	return -1;
 }
+
 
 void cliente::pagar_cuota(){
 	estado_pago=true;
@@ -81,12 +80,12 @@ fecha cliente::ver_fecha_pago(){
 	return fecha_pago;
 }
 
-planCliente cliente::ver_plan(int n){
-	return planes[n];
+planCliente cliente::ver_plan(int pos){
+	return planes[pos];
 }
-//NOTE: "Creeria que no es necesario pedir un couch c"
+///NOTE: "Creeria que no es necesario pedir un couch c"
 planCliente cliente:: ver_plan(std::string _nombre_plan, couch c){
-	for(int i=0; i<planes.size(); i++){
+	for(unsigned i=0; i<planes.size(); i++){
 		if(planes[i].nombre_plan == _nombre_plan && planes[i].couch_cargo.ver_nombre()==c.ver_nombre()){
 			return planes[i];
 		}
