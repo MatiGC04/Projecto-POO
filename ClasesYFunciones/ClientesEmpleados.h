@@ -69,7 +69,7 @@ struct planCliente{
 
 /**
 * @brief Clase que representa a los clientes que asistiran al gimnasio
-* Contiene un telefono de emergencia, una estructura de datos planCliente, y un tipo de dato bool y fecha, para tener un registro del
+* Contiene un telefono de emergencia, una estructura de datos planCliente, un tipo de dato bool y fecha, para tener un registro del
 * pago que realiza el cliente, para que luego controlar el vencimiento de la mensualidad
 **/
 class cliente : public persona{
@@ -88,7 +88,7 @@ public:
 			std::string, std::string, std::string, std::string, int, int, 
 			int, std::string _tel_emergencias="");
 	
-	void agregar_plan(planCliente t_plan);
+	void agregar_plan(planCliente plan);
 	
 	
 	///Calcula cuantos dias falta para que se venzas 
@@ -102,11 +102,7 @@ public:
 	planCliente ver_plan(std::string _nombre_plan, couch c);
 	
 	
-	
-	
-	
-	
-	///Cuando el cliente realiza el pago se actualiza el estado_pago, y la fehca del pago
+	///Cuando el cliente realiza el pago se actualiza el estado_pago, y la fecha del pago
 	void pagar_cuota();
 	
 	///Controlar si la mensualidad esta vencida o no
