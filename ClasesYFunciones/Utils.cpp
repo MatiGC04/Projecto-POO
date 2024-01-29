@@ -1,22 +1,25 @@
+
 /**
-* @file ManejoDeFechas.cpp
-* @brief Implementaciones de funciones para el manejo de las fechas 
+* @file Utils.cpp
+* @brief Implementacion de utilidades y funciones para el manejo de las fechas.
+ 
 **/
-#include <ManejoDeFechas.h>
+#include "Utils.h"
 #include <string>
 #include <ctime>
 
 /**
 * Utiliza la libreria ctime para obtener la fecha actual (tm_year cuenta a 
-* a partir de 1900 y tm_mon desde 0.
-* La funcion time(nullptr) devuelve una variable time_t que contiene los 
-* segundos desde una epoca(01/01/1969 21:00hs) hasta hoy.
-* La funcion localtime recibe una direccion de una variable time_t y devuelve
-* un puntero a tm (struct que tiene datos como anio, dia, mes y mas).
+* a partir de 1900 y tm_mon desde 0).
+* La funcion time devuelve una variable time_t que contiene los segundos
+* desde una epoca (01/01/1969 21:00hs, UTC-03:00 Ciudad de buenos aires) hasta 
+* hoy.
+* La funcion localtime recibe una direccion de una variable time_t y devuelve un 
+* puntero a tm (struct que tiene datos como anio, dia, mes y mas).
 **/
 fecha FechaHoy(){
-	time_t hoy= time(0);		///
-	tm *time = localtime(&hoy);	///
+	time_t hoy= time(0);
+	tm *time = localtime(&hoy);	
 	fecha aux;
 	aux.anio= time->tm_year+1900;
 	aux.mes= time->tm_mon+1;
@@ -25,12 +28,13 @@ fecha FechaHoy(){
 	return aux;
 }
 
+	
 /**
 * Ingresando dia, mes y anio retorna una variable tipo fecha para poder realizar
 * operaciones con ella.
 * La funcion mktime recibe un puntero a tm y utiliza tm_sec, tm_min, tm_hour, 
 * tm_day, tm_mon y tm_year como datos para devolver una variable.
-* @param dia, mes y año de la fecha
+* @param dia, mes y anio de la fecha
 * @return variable tipo fecha
 **/
 fecha ConvertFecha(int dia, int mes, int anio){
@@ -50,6 +54,7 @@ fecha ConvertFecha(int dia, int mes, int anio){
 	return Fecha1;				
 
 }
+
 	
 /**
 * Funcion para convertir fecha a string
@@ -57,7 +62,8 @@ fecha ConvertFecha(int dia, int mes, int anio){
 * @return variable tipo string
 **/	
 std::string Fecha_a_texto(fecha F1){
-	return std::to_string(F1.dia)+"/"+std::to_string(F1.mes)+"/"+std::to_string(F1.anio);
+	return std::to_string(F1.dia)+"/"+std::to_string(F1.mes)+"/"+
+	std::to_string(F1.anio);
 }
 	
 	
@@ -74,6 +80,7 @@ bool AnioBiciesto(fecha F1){
 	return false;
 }
 
+	
 /**
 * Confirma que la fecha ingresada es valida
 * @param variable tipo fecha
@@ -106,6 +113,7 @@ bool ConfirmacionFecha(fecha F1){
 	return true;
 }
 
+	
 /**
 * Utiliza la funcion difftime de la libreria ctime que devuelve los segundos de
 * diferencia entre cada fecha, aplicando una conversion se obtinen los dias 
@@ -120,9 +128,10 @@ int DifDias(fecha F1, fecha F2){
 	return int(dif);
 }
 
+	
 /**
 * Calcula la fecha de vencimiento del pago abonado agregandole 31 dias a la 
-* fecha en la que pagó.
+* fecha en la que pagÃ³.
 * @param dato tipo fecha
 * @return dato tipo fecha
 **/	
@@ -135,6 +144,7 @@ fecha FechaVencimiento(fecha F1){
 	return F1;
 }
 
+	
 /**
 * Sobrecarga del operador menor 
 * @param datos tipo fecha
@@ -170,6 +180,7 @@ bool operator==(fecha F1,fecha F2){
 	return true;
 }
 
+
 /**
 * Sobrecarga del operador de salida para mostrar por pantalla
 * @param dato tipo ostream por referencia y variable tipo fecha.
@@ -178,4 +189,16 @@ bool operator==(fecha F1,fecha F2){
 std::ostream &operator<<(std::ostream &o, fecha F1){
 	o<<F1.dia<<"/"<<F1.mes<<"/"<<F1.anio;
 	return o;
+}
+
+
+/**
+* Funcion auxiliar que convierte los caracteres de una cadena a minuscula.
+* @param variable tipo string 
+**/
+void PasarMiniscula(std::string &txt){
+	int tam=txt.size();
+	for(int i=0;i<tam;i++){
+		txt[i]=std::tolower(txt[i]);
+	}
 }
