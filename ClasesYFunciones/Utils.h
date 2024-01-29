@@ -30,28 +30,28 @@ fecha FechaHoy();
 fecha ConvertFecha(int dia, int mes, int anio);
 
 ///@brief Funcion que recibe una fecha y retorna un string en formato dd/mm/aaaa
-std::string FechaTexto(fecha F1);
+std::string FechaTexto(fecha f1);
 
 ///@brief Funcion que valida si el anio de la fecha recibida es biciesto o no
-bool AnioBiciesto(fecha F1);
+bool AnioBiciesto(fecha f1);
 
 ///@brief Funcion que valida la fecha ingresada
-bool ConfirmacionFecha(fecha F1);
+bool ConfirmacionFecha(fecha f1);
 
 ///@brief Funcion que devuelve la diferencia de dias entre dos fechas
-int DifDias(fecha F1, fecha F2);
+int DifDias(fecha f1, fecha f2);
 
 ///@brief Funcion que agrega un mes a la fecha ingresada
-fecha FechaVencimiento(fecha F1);
+fecha FechaVencimiento(fecha f1);
 
 ///@brief Funcion encargada de validar si una fecha es menor que otra
-bool operator<(fecha F1, fecha F2);
+bool operator<(fecha f1, fecha f2);
 
 ///@brief Funcion encargada de validar si una fecha es igual a otra
-bool operator==(fecha F1,fecha F2);
+bool operator==(fecha f1,fecha f2);
 
 ///@brief Funcion encargada de mostrar por pantalla una fecha
-std::ostream &operator<<(std::ostream &o, fecha F1);
+std::ostream &operator<<(std::ostream &o, fecha f1);
 
 ///@brief Funcion que pasa todos los caracteres de una cadena txt a minuscula
 void PasarMiniscula(std::string &txt);
