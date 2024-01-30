@@ -13,7 +13,7 @@
 
 #include <string>
 #include <Persona.h>
-#include <ManejoDeFechas.h>
+#include <Utils.h>
 #include <vector>
 
 /**
@@ -168,6 +168,23 @@ public:
 	/// Método que guarda su registro en un archivo binario
 	void guardar_en_binario(std::ofstream &archivo) override;
 };
+
+bool CriterioNombreApellido(cliente p1, cliente p2);
+
+bool CriterioLocalidad(cliente p1, cliente p2);
+
+bool CriterioEdad(cliente p1, cliente p2);
+
+bool CriterioEmail(cliente p1, cliente p2);
+
+bool CriterioNombreApellido(couch c1, couch c2);
+
+bool CriterioLocalidad(couch c1, couch c2);
+
+bool CriterioEdad(couch c1, couch c2);
+
+bool CriterioEmail(couch c1, couch c2);
+
 
 
 #endif
