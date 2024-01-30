@@ -130,6 +130,11 @@ struct registroCliente{
 * Contiene un telefono de emergencia, una estructura de datos planCliente,
 * un tipo de dato bool y fecha, para tener un registro del pago que realiza el
 * cliente
+*
+* NOTE: como la variable bool estado_pago, esta ligada directamente al atributo fecha_pago, 
+* propongo quitarla y dejar solo la fecha del pago y cada vez que el usuario consulte
+* su mensualidad, solo invoque el metodo chequear_cuota().
+* Por eso mismo comenté el atributo estado_pago y el método ver_estado_pago().
 **/
 
 class cliente : public persona{
@@ -137,7 +142,7 @@ private:
 	/// Atributos de la clase cliente
 	std::string tel_emergencias;
 	std::vector<planCliente>planes; 
-	bool estado_pago;
+	//bool estado_pago; 
 	fecha fecha_pago;
 	
 public:
@@ -147,12 +152,14 @@ public:
 			int, std::string _tel_emergencias="");
 	
 	/// Métodos para obtener los atributos de un cliente
-	bool ver_estado_pago();
+	//bool ver_estado_pago();
 	fecha ver_fecha_pago();
 	planCliente ver_plan(int pos);
-	planCliente ver_plan(std::string _nombre_plan, couch c);
+	planCliente ver_plan(std::string _nombre_plan);
 	
-	/// Métodos para modificar los atributos de una persona
+	/// Métodos para modificar los atributos de Cliente	void modificar_tel_em(std::string tel_em_nuevo);
+	void modificar_plan(int pos, planCliente nuevo_plan);
+	
 	/// Método para agregar un plan al cliente
 	void agregar_plan(planCliente plan);
 	
@@ -167,8 +174,12 @@ public:
 	
 	/// Método que guarda su registro en un archivo binario
 	void guardar_en_binario(std::ofstream &archivo) override;
+	
+	
+	
 };
 
+///Criterios de comparacion
 bool CriterioNombreApellido(cliente p1, cliente p2);
 
 bool CriterioLocalidad(cliente p1, cliente p2);
