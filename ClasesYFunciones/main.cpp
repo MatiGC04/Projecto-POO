@@ -2,7 +2,7 @@
 #include <string>
 #include "Persona.h"
 #include "ManejoDeFechas.h"
-#include "ClientesEmpleados.h"
+#include "ClienteAndCouch.h"
 using namespace std;
 
 int main (int argc, char *argv[]) {
@@ -12,7 +12,6 @@ int main (int argc, char *argv[]) {
 					"Gobernador Enrique Mihura","Paraná","44556041",20,01,1960);
 
 	cout<<usuario.ver_DNI();*/
-	
 	cliente pedrito("pedro","apellido","sadf@csmj.cs","hombre","3435202135","avenidasiempreviva","sprinfield","4535212",
 					4,11,1995,"343215121");
 	cout<<pedrito.ver_fecha_pago()<<endl;
