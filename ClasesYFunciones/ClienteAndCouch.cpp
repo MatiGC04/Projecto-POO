@@ -158,10 +158,10 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 }
 
 
-///Implementación de los Criterios de comparación	
+///Implementación de los criterios de comparación	
 bool CriterioNombreApellido(cliente p1, cliente p2){
-	std::string txt1= p1.ver_nombre()+ " " + p1.ver_apellido();
-	std::string txt2= p2.ver_nombre()+ " " + p2.ver_apellido();
+	std::string txt1 = p1.ver_nombre() + " " + p1.ver_apellido();
+	std::string txt2 = p2.ver_nombre() + " " + p2.ver_apellido();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
 	return txt1<txt2;
@@ -169,51 +169,51 @@ bool CriterioNombreApellido(cliente p1, cliente p2){
 }
 	
 bool CriterioLocalidad(cliente p1, cliente p2){
-	std::string txt1= p1.ver_loc();
-	std::string txt2= p2.ver_loc();
+	std::string txt1 = p1.ver_loc();
+	std::string txt2 = p2.ver_loc();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
-	return txt1<txt2;
+	return txt1 < txt2;
 }
 	
 bool CriterioEdad(cliente p1, cliente p2){
-	return p1.ver_edad()<p2.ver_edad();
+	return p1.ver_edad() < p2.ver_edad();
 }
 	
 bool CriterioEmail(cliente p1, cliente p2){
-	std::string txt1= p1.ver_email();
-	std::string txt2= p2.ver_email();
+	std::string txt1 = p1.ver_email();
+	std::string txt2 = p2.ver_email();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
-	return txt1<txt2;
+	return txt1 < txt2;
 }
 	
 bool CriterioNombreApellido(couch c1, couch c2){
-	std::string txt1= c1.ver_nombre() + " " + c1.ver_apellido();
-	std::string txt2= c2.ver_nombre() + " " + c2.ver_apellido();
+	std::string txt1 = c1.ver_nombre() + " " + c1.ver_apellido();
+	std::string txt2 = c2.ver_nombre() + " " + c2.ver_apellido();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
-	return txt1<txt2;
+	return txt1 < txt2;
 }
 	
 bool CriterioLocalidad(couch c1, couch c2){
-	std::string txt1= c1.ver_loc();
-	std::string txt2= c2.ver_loc();
+	std::string txt1 = c1.ver_loc();
+	std::string txt2 = c2.ver_loc();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
-	return txt1<txt2;
+	return txt1 < txt2;
 }
 	
 bool CriterioEdad(couch c1, couch c2){
-	return c1.ver_edad()<c2.ver_edad();
+	return c1.ver_edad() < c2.ver_edad();
 }
 	
 bool CriterioEmail(couch c1, couch c2){
-	std::string txt1= c1.ver_email();
-	std::string txt2= c2.ver_email();
+	std::string txt1 = c1.ver_email();
+	std::string txt2 = c2.ver_email();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
-	return txt1<txt2;
+	return txt1 < txt2;
 }
 	
 

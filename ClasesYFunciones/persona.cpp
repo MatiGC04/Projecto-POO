@@ -98,8 +98,7 @@ void persona::modificar_loc(std::string localidad){
 void persona::modificar_sexo(std::string sexo){
 	this->sexo = sexo;
 }
-
-void persona::modificar_DNI(int dni){
+void persona::modificar_DNI(std::string dni){
 	this->dni = dni;
 }
 void persona::modificar_fecha_nacimiento(int dia, int mes, int anio){

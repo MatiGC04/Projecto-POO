@@ -77,27 +77,6 @@ struct planCliente{
 	couch couch_cargo;
 	int precio;
 	
-	planCliente operator= (planCliente copia){
-		nombre_plan = copia.nombre_plan;
-		couch_cargo = copia.couch_cargo;
-		precio = copia.precio;
-		/*
-		El return *this permite asignaciones en cadena:
-		Por ejemplo, si tienes tres objetos Plan llamados a, b y c, puedes
-		escribir a = b = c;. Esto funciona de la siguiente manera:
-		
-		*Primero, b = c se evalúa. El operador de asignación copia el contenido
-		de c en b y luego devuelve una referencia a b. Luego, a = (b = c) se
-		evalúa. Ahora, b = c es simplemente b (porque el operador de asignación 
-		devolvió una referencia a b). Entonces, esencialmente estás haciendo
-		a = b, que de nuevo copia el contenido y devuelve una referencia a a.
-		
-		*Si no tuvieras return *this en tu operador de asignación, no podrías
-		hacer asignaciones en cadena porque el operador de asignación no tendría
-		un valor de retorno válido. Por lo tanto, return *this es necesario para
-		permitir este tipo de operaciones en C++.*/
-		return *this;
-	}
 };
 
 /**
@@ -141,7 +120,7 @@ class cliente : public persona{
 private:
 	/// Atributos de la clase cliente
 	std::string tel_emergencias;
-	std::vector<planCliente>planes; 
+	std::vector<planCliente> planes; 
 	//bool estado_pago; 
 	fecha fecha_pago;
 	

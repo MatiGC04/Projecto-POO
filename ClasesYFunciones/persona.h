@@ -55,7 +55,7 @@ public:
 		void modificar_dir(std::string dir);
 		void modificar_loc(std::string loc);
 		void modificar_sexo(std::string sexo);
-		void modificar_DNI(int dni);
+		void modificar_DNI(std::string dni);
 		void modificar_fecha_nacimiento(int dia, int mes, int anio);
 		
 		
