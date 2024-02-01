@@ -45,6 +45,7 @@ void couch::guardar_en_binario(std::ofstream &archivo){
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
 
+/// Implementación del método para leer un couch en un archivo binario
 void couch::leer_en_binario(std::ifstream &archivo){
 	registroCouch registro;
 	archivo.read(reinterpret_cast<char*>(&registro), sizeof(registro));

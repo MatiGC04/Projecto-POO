@@ -29,16 +29,15 @@ struct planCliente{
 **/
 
 struct registroCliente{
-	char nombre[256];
-	char apellido[256];
-	char email[256];
-	char telefono[256];
-	char direccion[256];
-	char localidad[256];
-	char sexo[256];
-	char dni[256];
-	char telefono_emergencias[256];
-	char estado_pago[256];
+	char nombre[100];
+	char apellido[100];
+	char email[260];
+	char telefono[20];
+	char direccion[100];
+	char localidad[100];
+	char sexo[2];
+	char dni[20];
+	char telefono_emergencias[20];
 	int dia_pago, mes_pago, anio_pago;
 	int dia_nac, mes_nac, anio_nac;
 };
