@@ -4,7 +4,7 @@
 *@brief Implementación de los métodos de la clase couch y la clase cliente
 **/
 
-#include <ClienteAndCouch.h>
+#include <Couch.h>
 #include <string>
 #include <cstring>
 #include <fstream>

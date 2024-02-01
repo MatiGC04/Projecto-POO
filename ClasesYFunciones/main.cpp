@@ -17,6 +17,7 @@ int main (int argc, char *argv[]) {
 					4,11,1995,"343215121");
 	cout<<pedrito.ver_fecha_pago()<<endl;
 	cout<<pedrito.dias_faltantes();
+	
 	return 0;	
 }
 

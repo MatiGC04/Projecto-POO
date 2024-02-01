@@ -56,10 +56,15 @@ private:
 	std::string alias;
 	
 public:
+	
 	/// Constructor de la clase couch con sus paramentros por defecto
-	couch(std::string, std::string, std::string, std::string, std::string,
-		  std::string, std::string, std::string, int, int, int,std::string _cbu = "",
-		  std::string _alias = "");
+	couch(std::string nombre = "", std::string apellido = "",
+	std::string email = "", std::string sexo = "", std::string telefono = "",
+	std::string direccion = "", std::string localidad = "", std::string dni = "",
+	int dia = 0, int mes = 0, int anio = 0, std::string _cbu = "",
+	std::string _alias = "");
+	
+	
 	
 	/// Métodos para obtener los atributos de couch
 	std::string ver_cbu();
