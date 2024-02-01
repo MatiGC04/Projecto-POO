@@ -2,7 +2,8 @@
 #include <string>
 #include "Persona.h"
 #include "Utils.h"
-#include "ClienteAndCouch.h"
+#include "Cliente.h"
+#include "Couch.h"
 using namespace std;
 
 int main (int argc, char *argv[]) {
