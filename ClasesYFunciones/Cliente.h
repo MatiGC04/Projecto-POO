@@ -6,6 +6,7 @@
 #include <Utils.h>
 #include <Couch.h>
 #include <vector>
+
 /**
 * @brief struct que permite almacenar la informacion del plan que el cliente
 * elige. Esta compuesta por el nombre del plan, el couch a cargo, el precio, y
@@ -42,26 +43,23 @@ struct registroCliente{
 	int dia_nac, mes_nac, anio_nac;
 };
 
+
+
+
 /**
 * @brief Clase que representara a un cliente, clase que hereda de persona
 *
 * Contiene un telefono de emergencia, una estructura de datos planCliente,
 * un tipo de dato bool y fecha, para tener un registro del pago que realiza el
 * cliente
-*
-* NOTE: como la variable bool estado_pago, esta ligada directamente al atributo fecha_pago, 
-* propongo quitarla y dejar solo la fecha del pago y cada vez que el usuario consulte
-* su mensualidad, solo invoque el metodo chequear_cuota().
-* Por eso mismo comenté el atributo estado_pago y el método ver_estado_pago().
 **/
 
 class cliente : public persona{
 private:
-	/// Atributos de la clase cliente
-	std::string tel_emergencias;
+	
 	std::vector<planCliente> planes; 
-	//bool estado_pago; 
 	fecha fecha_pago;
+	std::string tel_emergencias;
 	
 public:
 	/// Constructor de la clase cliente con sus paramentros por defecto
@@ -69,42 +67,35 @@ public:
 			std::string, std::string, std::string, std::string, int, int, 
 			int, std::string _tel_emergencias="");
 	
-	/// Métodos para obtener los atributos de un cliente
-	//bool ver_estado_pago();
-	fecha ver_fecha_pago();
-	planCliente ver_plan(int pos);
-	planCliente ver_plan(std::string _nombre_plan);
+	///Obtener atributos o datos a partir de atributos
+	fecha ver_fecha_pago(); ///< devuelve la fecha en la que se pago
+	planCliente ver_plan(int pos); ///< devuelve el plan de acuerdo a la posicion
+	planCliente ver_plan(std::string _nombre_plan); ///< devuelve el plan a partir del nombre del mismo
+	int dias_faltantes(); ///< devuelve los dias que le quedan pagos
+	bool chequear_cuota(); ///< Método para obtener el estado actual de la cuota
 	
-	/// Métodos para modificar los atributos de Cliente
-	void modificar_tel_em(std::string tel_em_nuevo);
-	void modificar_plan(int pos, planCliente nuevo_plan);
 	
-	/// Método para agregar un plan al cliente
-	void agregar_plan(planCliente plan);
 	
-	/// Método para obtener los días faltantes antes del vencimiento de la cuota
-	int dias_faltantes();
+	void pagar_cuota(); ///< actualiza la fecha de pago
+	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
+	void modificar_plan(int pos, planCliente nuevo_plan); ///< atualiza el plan en la posicion enviada 
+	void agregar_plan(planCliente plan); ///< agrega un plan 
+	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
+	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
 	
-	/// Método para el pago de la cuota
-	void pagar_cuota();
-	
-	/// Método para obtener el estado actual de la cuota
-	bool chequear_cuota();
-	
-	/// Método que guarda su registro en un archivo binario
-	void guardar_en_binario(std::ofstream &archivo) override;
-	
-	/// Metodo que lee un registro de un archivo binario
-	void leer_en_binario(std::ifstream &archivo) override;
 	
 };
 
+/// @brief Funcion que compara dos clientes por su nombre y apellido
 bool CriterioNombreApellido(cliente p1, cliente p2);
 
+/// @brief Funcion que compara dos clientes por su localidad
 bool CriterioLocalidad(cliente p1, cliente p2);
 
+/// @brief Funcion que compara dos clientes por su edad
 bool CriterioEdad(cliente p1, cliente p2);
 
+/// @brief Funcion que comprar dos clientes por su direccion de correo electronico
 bool CriterioEmail(cliente p1, cliente p2);
 #endif
 
