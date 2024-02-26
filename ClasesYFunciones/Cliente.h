@@ -70,7 +70,7 @@ public:
 	///Obtener atributos o datos a partir de atributos
 	fecha ver_fecha_pago(); ///< devuelve la fecha en la que se pago
 	planCliente ver_plan(int pos); ///< devuelve el plan de acuerdo a la posicion
-	planCliente ver_plan(std::string _nombre_plan); ///< devuelve el plan a partir del nombre del mismo
+	std::vector<planCliente>::iterator ver_plan(std::string _nombre_plan); ///< devuelve el plan a partir del nombre del mismo
 	int dias_faltantes(); ///< devuelve los dias que le quedan pagos
 	bool chequear_cuota(); ///< Método para obtener el estado actual de la cuota
 	

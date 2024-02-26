@@ -1,6 +1,7 @@
 #include "Cliente.h"
 #include <cstring>
 #include <fstream>
+#include <vector>
 
 
 
@@ -27,14 +28,16 @@ planCliente cliente::ver_plan(int pos){
 /**
 * Realiza una busqueda del plan 
 * @param string nombre del plan
-* @return 
+* @return iterator de tipo vector<planCliente>
 **/	
-planCliente cliente:: ver_plan(std::string _nombre_plan){
-	for(unsigned i=0; i<planes.size(); i++){
-		if(planes[i].nombre_plan == _nombre_plan){
-			return planes[i];
+std::vector<planCliente>::iterator cliente::ver_plan(std::string _nombre_plan){
+	for(auto it=planes.begin(); it!=planes.end(); ++it){
+		if(it->nombre_plan == _nombre_plan){
+			return it;
 		}
+		
 	}
+	return planes.end();
 }
 
 /**

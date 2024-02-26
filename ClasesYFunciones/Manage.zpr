@@ -33,11 +33,11 @@ path=Persona.cpp
 cursor=7:15
 [source]
 path=Cliente.cpp
-cursor=97:44
+cursor=30:27
 open=true
 [source]
 path=Couch.cpp
-cursor=47:39
+cursor=70:22
 open=true
 [header]
 path=Utils.h
@@ -51,11 +51,11 @@ cursor=16:20
 open=true
 [header]
 path=Cliente.h
-cursor=26:46
+cursor=72:77
 open=true
 [header]
 path=Couch.h
-cursor=36:19
+cursor=38:14
 open=true
 [config]
 name=Debug
