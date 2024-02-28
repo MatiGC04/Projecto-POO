@@ -10,9 +10,7 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes)
 	if(archi_couchs.is_open()){
 		
 		int cantidad_de_couchs = archi_couchs.tellg()/sizeof(registroCouch); 
-		
 		vector_de_couchs.resize(cantidad_de_couchs);
-		
 		archi_couchs.seekg(0,std::ios::beg);
 		
 		for(int i=0;i<cantidad_de_couchs;i++) { 
@@ -27,9 +25,7 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes)
 	if(archi_clientes.is_open()){
 		
 		int cantidad_de_clientes = archi_clientes.tellg()/sizeof(registroCliente);
-		
 		vector_de_clientes.resize(cantidad_de_clientes);
-		
 		archi_clientes.seekg(0,std::ios::beg);
 		
 		for(int i = 0; i < cantidad_de_clientes; i++) { 
@@ -47,12 +43,11 @@ bool manage::guardar() {
 		return false;
 	}
 	
-	int cantidad_de_couchs = vector_de_couchs.size();
-	
-	for (int i = 0; i < cantidad_de_couchs; i++){
+	for (unsigned i = 0; i < vector_de_couchs.size(); i++){
 		vector_de_couchs[i].guardar_en_binario(archi_couchs);
 	}
 	archi_couchs.close();
+	
 	
 	
 	std::ofstream archi_clientes(nombre_archivo_clientes.c_str(),std::ios::binary|std::ios::trunc);
@@ -60,9 +55,7 @@ bool manage::guardar() {
 		return false;
 	}
 	
-	int cantidad_de_clientes = vector_de_clientes.size();
-	
-	for (int i = 0; i < cantidad_de_clientes; i++){
+	for (unsigned i = 0; i < vector_de_clientes.size(); i++){
 		vector_de_clientes[i].guardar_en_binario(archi_clientes);
 	}
 	archi_clientes.close();
