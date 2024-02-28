@@ -70,3 +70,9 @@ bool manage::guardar() {
 	return true;
 
 }
+
+///Implementacion de los Métodos para borrar couch y cliente
+void manage::borrar_cliente(int pos){
+	auto it=vector_de_clientes.begin();
+	
+}

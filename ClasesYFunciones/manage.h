@@ -22,5 +22,9 @@ public:
 	
 	bool guardar();
 	
+	///Métodos para borrar couch y clientes de los vectores 
+	void borrar_cliente(int pos);
+	void borrar_couch(int pos); //pensar método para actualizar los planes de los clientes en donde se encuentre dicho couch
+	
 };
 #endif
