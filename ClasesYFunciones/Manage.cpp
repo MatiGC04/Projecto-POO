@@ -1,3 +1,7 @@
+/**
+* @file Manage.cpp
+* @brief Declaraciones de todo lo necesario para trabajar con la clase Manage
+**/
 #include <Manage.h>
 #include <fstream>
 #include <vector>
@@ -63,9 +67,38 @@ bool manage::guardar() {
 	return true;
 
 }
+///Implementacion e los metodos para ver la cantidad de clientes y couchs
+int manage::cantidadCliente() {
+	return vector_de_clientes.size();
+}
+int manage::cantidadCouch(){
+	return vector_de_couchs.size();
+}
 
-///Implementacion de los Métodos para borrar couch y cliente
-void manage::borrar_cliente(int pos){
-	auto it=vector_de_clientes.begin();
-	
+///Implementaciones de los metodos para agregar couchs y clientes
+void manage::agregarCliente(const cliente &cl) {
+	vector_de_clientes.push_back(cl);
+}
+
+void manage::agregarCouch (const couch &ch){
+	vector_de_couchs.push_back(ch);
+}
+
+/* chequear
+cliente &manage::operator[](int i) {
+	return vector_de_clientes[i];
+}
+couch &manage::operator[](int i) {
+	return vector_de_couchs[i];
+}*/
+
+///Implemetaciones de métodos para borrar clientes y couchs de los vectores
+void manage::borrarCliente(int pos) {
+	vector_de_clientes.erase(vector_de_clientes.begin()+pos);
+}
+
+void manage::borrarCouch(int pos) {
+	vector_de_couchs.erase(vector_de_couchs.begin()+pos);
+	//desarrollar metodo de buscar el couch en todas las planillas de los clientes
+	//para luego eliminar las rutinas
 }
