@@ -32,6 +32,9 @@ public:
 		std::string telefono = "", std::string direccion = "", std::string localidad = "", std::string dni = "",
 		int dia = 0, int mes = 0, int anio = 0); 
 		
+		/// Valida que los datos cargados sean correctos 
+		std::string validar_datos();
+		
 		/// Métodos para obtener los atributos de una persona
 		std::string ver_nombre();
 		std::string ver_apellido();

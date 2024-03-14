@@ -32,7 +32,7 @@ struct registroCouch{
 	char nombre[100];
 	char apellido[100];
 	char email[260];
-	char telefono[20];
+	char telefono[25];
 	char direccion[100];
 	char localidad[100];
 	char sexo[2];
