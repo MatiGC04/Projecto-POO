@@ -11,19 +11,19 @@
 * Utiliza la libreria ctime para obtener la fecha actual (tm_year cuenta a 
 * a partir de 1900 y tm_mon desde 0).
 * La funcion time devuelve una variable time_t que contiene los segundos
-* desde una epoca (01/01/1969 21:00hs, UTC-03:00 Ciudad de buenos aires) hasta 
+* desde una epoca (31/12/1969 21:00hs, UTC-03:00 Ciudad de buenos aires) hasta 
 * hoy.
 * La funcion localtime recibe una direccion de una variable time_t y devuelve un 
 * puntero a tm (struct que tiene datos como anio, dia, mes y mas).
 **/
 fecha FechaHoy(){
-	time_t hoy= time(0);
+	time_t hoy = time(0);
 	tm *time = localtime(&hoy);	
 	fecha aux;
-	aux.anio= time->tm_year+1900;
-	aux.mes= time->tm_mon+1;
-	aux.dia= time->tm_mday;
-	aux.time= hoy;
+	aux.anio = time->tm_year+1900;
+	aux.mes = time->tm_mon+1;
+	aux.dia = time->tm_mday;
+	aux.time = hoy;
 	return aux;
 }
 
@@ -85,8 +85,8 @@ bool AnioBiciesto(fecha f1){
 * @param variable tipo fecha
 **/		
 bool ConfirmacionFecha(fecha f1){
-	int dias_feb=28;
-	if(AnioBiciesto(f1)) dias_feb=29;
+	int dias_feb = 28;
+	if(AnioBiciesto(f1)) dias_feb = 29;
 	if(f1.anio>0){
 		return false;
 	}
@@ -122,8 +122,8 @@ bool ConfirmacionFecha(fecha f1){
 * @return devuelve un entero, la diferencia de dias entre las fechas
 **/	
 int DifDias(fecha f1, fecha f2){
-	float dif=difftime(f2.time,f1.time);
-	dif= (dif)/(60*60*24);
+	float dif = difftime(f2.time,f1.time);
+	dif = (dif)/(60*60*24);
 	return int(dif);
 }
 
@@ -135,11 +135,11 @@ int DifDias(fecha f1, fecha f2){
 * @return dato tipo fecha
 **/	
 fecha FechaVencimiento(fecha f1){
-	f1.time=f1.time+31*24*60*60;
-	tm *vencimiento=localtime(&f1.time);
-	f1.anio=vencimiento->tm_year+1900;
-	f1.mes=vencimiento->tm_mon+1;
-	f1.dia=vencimiento->tm_mday;
+	f1.time = f1.time+31*24*60*60;
+	tm *vencimiento = localtime(&f1.time);
+	f1.anio = vencimiento->tm_year+1900;
+	f1.mes = vencimiento->tm_mon+1;
+	f1.dia = vencimiento->tm_mday;
 	return f1;
 }
 
@@ -190,13 +190,12 @@ std::ostream &operator<<(std::ostream &o, fecha f1){
 	return o;
 }
 
-
 /**
 * Funcion auxiliar que convierte los caracteres de una cadena a minuscula.
 * @param variable tipo string 
 **/
 void PasarMiniscula(std::string &txt){
-	int tam=txt.size();
+	int tam = txt.size();
 	for(int i=0;i<tam;i++){
 		txt[i]=std::tolower(txt[i]);
 	}

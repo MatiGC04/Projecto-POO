@@ -26,7 +26,7 @@ struct fecha{
 ///@brief Funcion que devuelve la fecha de hoy
 fecha FechaHoy();
 
-///@brief Funcion que recibe dia, mes y añio para devolver variable tipo fecha
+///@brief Funcion que recibe dia, mes y anio para devolver variable tipo fecha
 fecha ConvertFecha(int dia, int mes, int anio);
 
 ///@brief Funcion que recibe una fecha y retorna un string en formato dd/mm/aaaa

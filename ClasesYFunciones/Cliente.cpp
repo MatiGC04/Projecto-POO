@@ -90,8 +90,6 @@ void cliente::pagar_cuota(){
 
 
 
-
-
 ///Implementación del metódo que guarda el registro en un archivo binario
 void cliente::guardar_en_binario(std::ofstream &archivo){
 	registroCliente registro;
@@ -132,9 +130,6 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	fecha_pago = ConvertFecha(registro.dia_pago, registro.mes_pago, registro.anio_pago);
 	fecha_nacimiento = ConvertFecha(registro.dia_nac, registro.mes_nac, registro.anio_nac);
 }
-
-
-
 
 
 bool CriterioNombreApellido(cliente p1, cliente p2){

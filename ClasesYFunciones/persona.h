@@ -14,6 +14,7 @@
 * obtenerlos y modificarlos. Ademas contiene dos metodos virtuales puros para 
 * poder guardar y leer desde un archivo binario.
 **/
+
 class persona{
 protected:
 	/// Atributos de una persona

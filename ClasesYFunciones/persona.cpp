@@ -27,7 +27,7 @@ persona::persona(std::string nombre, std::string apellido, std::string email,
 }
 /// Implementación del método que valida los datos
 std:: string persona::validar_datos(){
-	std::string errores;
+	std::string errores = "";
 	if(nombre.size()==0){
 		errores+="El nombre no puede estar vacio \n";
 	}
@@ -35,33 +35,32 @@ std:: string persona::validar_datos(){
 		errores+="El nombre es demasiado largo \n";
 	}
 	if (apellido.size()==0){ 
-		errores+="El apellido no puede estar vacio\n";
+		errores+="El apellido no puede estar vacio \n";
 	}
 	if (apellido.size()>256) {
-		errores+="El apellido es demasiado largo\n";
+		errores+="El apellido es demasiado largo \n";
 	}
-	
 	if (telefono.size()>25){
-		errores+="El telefono es demasiado largo\n";
+		errores+="El telefono es demasiado largo \n";
 	}
 	if (direccion.size()>100){ 
-		errores+="La direccion es demasiado largo\n";
+		errores+="La direccion es demasiado largo \n";
 	}
 	if (localidad.size()>100){
-		errores+="La localidad es demasiado largo\n";
+		errores+="La localidad es demasiado largo \n";
 	}
 	if (email.size()>260){
-		errores+="El e-mail es demasiado largo\n";
+		errores+="El e-mail es demasiado largo \n";
 	}
 	
 	if(fecha_nacimiento.dia<0 || fecha_nacimiento.dia>31){
-		errores+="El dia de nacimiento debe estar entre 1 y 31, o vacio\n";
+		errores+="El dia de nacimiento debe estar entre 1 y 31, o vacio \n";
 	}
 	if(fecha_nacimiento.mes<0 || fecha_nacimiento.mes>12){
-		errores+="El mes de nacimiento debe estar entre 1 y 12, o vacio\n";
+		errores+="El mes de nacimiento debe estar entre 1 y 12, o vacio \n";
 	}
 	if(fecha_nacimiento.anio!=0 && fecha_nacimiento.anio<=1900){
-		errores+="El año de nacimiento no debe ser menor a 1900\n";
+		errores+="El año de nacimiento no debe ser menor a 1900 \n";
 	}
 	return errores;
 }

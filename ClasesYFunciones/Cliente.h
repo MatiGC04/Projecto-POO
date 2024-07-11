@@ -16,7 +16,6 @@ struct planCliente{
 	std::string nombre_plan;
 	couch couch_cargo;
 	int precio;
-	
 };
 
 /**
@@ -41,8 +40,6 @@ struct registroCliente{
 	int dia_pago, mes_pago, anio_pago;
 	int dia_nac, mes_nac, anio_nac;
 };
-
-
 
 
 /**
@@ -98,4 +95,22 @@ bool CriterioEdad(cliente p1, cliente p2);
 /// @brief Funcion que comprar dos clientes por su direccion de correo electronico
 bool CriterioEmail(cliente p1, cliente p2);
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
