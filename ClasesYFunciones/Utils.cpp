@@ -17,7 +17,7 @@
 * puntero a tm (struct que tiene datos como anio, dia, mes y mas).
 **/
 fecha FechaHoy(){
-	time_t hoy = time(0);
+	time_t hoy = time(nullptr);
 	tm *time = localtime(&hoy);	
 	fecha aux;
 	aux.anio = time->tm_year+1900;
@@ -37,7 +37,7 @@ fecha FechaHoy(){
 * @return variable tipo fecha
 **/
 fecha ConvertFecha(int dia, int mes, int anio){
-	time_t hoy= time(0);
+	time_t hoy= time(nullptr);
 	tm *f=localtime(&hoy);
 	f->tm_sec=0;
 	f->tm_min=0;

@@ -4,20 +4,16 @@
 #include "Utils.h"
 #include "Cliente.h"
 #include "Couch.h"
+#include <ctime>
 using namespace std;
 
 int main (int argc, char *argv[]) {
-	/*Persona::Persona(string nom, string ape, string mail, string sex,string tel, 
-					 string loc, int dni, int dia, int mes, int anio)/
-	persona usuario("angel","palacios","angeluis.0711@gmail.com","hombre","3435023500",
-					"Gobernador Enrique Mihura","Paraná","44556041",20,01,1960);
 
-	cout<<usuario.ver_DNI();*/
-	cliente pedrito("pedro","apellido","sadf@csmj.cs","hombre","3435202135","avenidasiempreviva","sprinfield","4535212",
-					4,11,1995,"343215121");
-	cout<<pedrito.ver_fecha_pago()<<endl;
-	cout<<pedrito.dias_faltantes();
 	
+	fecha a=FechaHoy();
+	tm *time=localtime(&a.time);
+	string fechita=asctime(time);
+	cout<<fechita;
 	return 0;	
 }
 
