@@ -10,6 +10,7 @@ public:
 	plan(std::string nombre = "", int precio = 0);
 	void modificar_precio(int nuevo_precio);
 	int ver_precio();
+	std::string nombre_plan();
 };
 
 #endif

@@ -9,7 +9,9 @@ private:
 	cliente c_subscritor;
 	public:
 	subscripcion(cliente c_subscritor, std::vector<plan> p_subscritos);
-	ver_precio_subscripcion();
+	int ver_precio_subscripcion();
+	void eliminar_plan_sub(std::string nom_plan);
+	bool plan_en_sub(std::string nom_plan);
 };
 
 #endif
