@@ -21,24 +21,12 @@ fecha cliente::ver_fecha_pago(){
 	return fecha_pago;
 }
 
-planCliente cliente::ver_plan(int pos){
-	return planes[pos];
-}
-
 /**
 * Realiza una busqueda del plan 
 * @param string nombre del plan
 * @return iterator de tipo vector<planCliente>
 **/	
-std::vector<planCliente>::iterator cliente::ver_plan(std::string _nombre_plan){
-	for(auto it=planes.begin(); it!=planes.end(); ++it){
-		if(it->nombre_plan == _nombre_plan){
-			return it;
-		}
-		
-	}
-	return planes.end();
-}
+
 
 /**
 * Implementación del método para obtener los días faltantes antes del
@@ -53,6 +41,7 @@ int cliente::dias_faltantes(){
 	}
 	return -1;
 }
+
 
 ///Implementación del método que para saber el estado actual de la cuota.
 bool cliente:: chequear_cuota(){
@@ -69,25 +58,11 @@ void cliente::modificar_tel_em(std::string tel_em_nuevo){
 	tel_emergencias=tel_em_nuevo;
 }
 
-void cliente::modificar_plan(int pos, planCliente nuevo_plan){
-	planes[pos]=nuevo_plan;
-	//NOTE:creo que con el dato de nuevo_plan bastaría
-} 
-
-
-///Implementación del método para agregar un plan a un cliente 
-void cliente::agregar_plan(planCliente plan){
-	planes.push_back(plan);
-}
-
-
-
 
 ///Implementación del método para el pago de la cuota
 void cliente::pagar_cuota(){
 	fecha_pago=FechaHoy();
 }
-
 
 
 ///Implementación del metódo que guarda el registro en un archivo binario

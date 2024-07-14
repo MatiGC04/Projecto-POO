@@ -15,7 +15,7 @@ tab_width=4
 tab_use_spaces=0
 explorer_path=.
 inherits_from=
-current_source=Subscripcion.h
+current_source=Cliente.h
 path_char=\
 [source]
 path=main.cpp
@@ -33,7 +33,7 @@ path=Persona.cpp
 cursor=29:25
 [source]
 path=Cliente.cpp
-cursor=132:0
+cursor=124:1
 open=true
 [source]
 path=Couch.cpp
@@ -51,7 +51,7 @@ path=Manage.h
 cursor=26:23
 [header]
 path=Cliente.h
-cursor=7:17
+cursor=29:35
 open=true
 [header]
 path=Couch.h

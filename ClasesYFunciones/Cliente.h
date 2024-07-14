@@ -7,16 +7,6 @@
 #include <Couch.h>
 #include <vector>
 
-/**
-* @brief struct que permite almacenar la informacion del plan que el cliente
-* elige. Esta compuesta por el nombre del plan, el couch a cargo, el precio, y
-* por ultimo la rutina del cliente
-*/
-struct planCliente{
-	std::string nombre_plan;
-	couch couch_cargo;
-	int precio;
-};
 
 /**
 * @brief Estructura auxiliar para usar con archivos binarios en la clase cliente
@@ -52,8 +42,6 @@ struct registroCliente{
 
 class cliente : public persona{
 private:
-	
-	std::vector<planCliente> planes; 
 	fecha fecha_pago;
 	std::string tel_emergencias;
 	
@@ -66,8 +54,6 @@ public:
 	
 	///Obtener atributos o datos a partir de atributos
 	fecha ver_fecha_pago(); ///< devuelve la fecha en la que se pago
-	planCliente ver_plan(int pos); ///< devuelve el plan de acuerdo a la posicion
-	std::vector<planCliente>::iterator ver_plan(std::string _nombre_plan); ///< devuelve el plan a partir del nombre del mismo
 	int dias_faltantes(); ///< devuelve los dias que le quedan pagos
 	bool chequear_cuota(); ///< Método para obtener el estado actual de la cuota
 	
@@ -75,8 +61,6 @@ public:
 	
 	void pagar_cuota(); ///< actualiza la fecha de pago
 	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
-	void modificar_plan(int pos, planCliente nuevo_plan); ///< atualiza el plan en la posicion enviada 
-	void agregar_plan(planCliente plan); ///< agrega un plan 
 	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
 	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
 	
