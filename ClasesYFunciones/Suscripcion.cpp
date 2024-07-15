@@ -4,7 +4,7 @@ suscripcion::suscripcion(cliente c_suscritor, plan p_subscritos, couch responsab
 	this->p_subscritos = p_subscritos;
 }
 
-fecha cliente::ver_fecha_pago(){
+fecha suscripcion::ver_fecha_pago(){
 	return fecha_pago;
 }
 
@@ -14,7 +14,7 @@ fecha cliente::ver_fecha_pago(){
 * @return si la fecha no esta vencida, retorna la diferencia de dias faltantes 
 * antes del vencimiento de esta, sino retorna -1.
 **/	
-int cliente::dias_faltantes(){
+int suscripcion::dias_faltantes(){
 	chequear_cuota();
 	if(chequear_cuota()==true){
 		return DifDias(FechaHoy(),FechaVencimiento(fecha_pago));
@@ -23,7 +23,7 @@ int cliente::dias_faltantes(){
 }
 
 ///Implementación del método que para saber el estado actual de la cuota.
-bool cliente:: chequear_cuota(){
+bool suscripcion:: chequear_cuota(){
 	fecha venc = FechaVencimiento(fecha_pago);
 	if(venc<FechaHoy()){
 		return false;
@@ -32,7 +32,7 @@ bool cliente:: chequear_cuota(){
 }
 
 ///Implementación del método para el pago de la cuota
-void cliente::pagar_cuota(){
+void suscripcion::pagar_cuota(){
 	fecha_pago=FechaHoy();
 }
 /*

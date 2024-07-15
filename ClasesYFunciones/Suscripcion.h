@@ -4,6 +4,7 @@
 #include "Cliente.h"
 #include "Plan.h"
 #include "Utils.h"
+#include "Couch.h"
 ///Se elimina suscripcion???
 
 class suscripcion{
