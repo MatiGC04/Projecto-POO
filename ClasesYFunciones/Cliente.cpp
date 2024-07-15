@@ -9,7 +9,6 @@ cliente::cliente (std::string nom, std::string ape, std::string mail, std::strin
 					int dia, int mes, int anio, std::string tel_emergencias): 
 	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes , anio){
 	this->tel_emergencias = tel_emergencias;
-	fecha_pago = FechaHoy();
 }
 
 /// Implementación de los métodos para modificar atributos 
@@ -29,13 +28,9 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.telefono_emergencias,tel_emergencias.c_str());
 	
-	registro.dia_pago = fecha_pago.dia;
-	registro.mes_pago = fecha_pago.mes;
-	registro.anio_pago = fecha_pago.anio;
 	
-	registro.dia_nac = fecha_nacimiento.dia;
-	registro.mes_nac = fecha_nacimiento.mes;
-	registro.anio_nac = fecha_nacimiento.anio;
+	
+	
 	
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
@@ -54,8 +49,7 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	dni = registro.dni;
 	tel_emergencias = registro.telefono_emergencias;
 	
-	fecha_pago = ConvertFecha(registro.dia_pago, registro.mes_pago, registro.anio_pago);
-	fecha_nacimiento = ConvertFecha(registro.dia_nac, registro.mes_nac, registro.anio_nac);
+
 }
 
 
