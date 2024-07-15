@@ -3,20 +3,29 @@
 #include <fstream>
 #include <vector>
 
-/// Implementaci髇 del constructor de la clase cliente
+/// Implementaci贸n del constructor de la clase cliente
 cliente::cliente (std::string nom, std::string ape, std::string mail, std::string sex, 
 					std::string tel, std::string dir, std::string loc,std::string dni, 
 					int dia, int mes, int anio, std::string tel_emergencias): 
 	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes , anio){
 	this->tel_emergencias = tel_emergencias;
+
+	//fecha_pago = FechaHoy();
 }
 
-/// Implementaci髇 de los m閠odos para modificar atributos 
+///Implementacion agregar_sus
+cliente::agregar_suscripcion(suscripcion sus){
+	suscripciones.pushback();
+=======
+
+}
+
+/// Implementaci贸n de los m茅todos para modificar atributos 
 void cliente::modificar_tel_em(std::string tel_em_nuevo){
 	tel_emergencias=tel_em_nuevo;
 }
 
-///Implementaci髇 del met骴o que guarda el registro en un archivo binario
+///Implementaci贸n del met贸do que guarda el registro en un archivo binario
 void cliente::guardar_en_binario(std::ofstream &archivo){
 	registroCliente registro;
 	strcpy(registro.nombre,nombre.c_str());
@@ -27,13 +36,17 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.sexo,sexo.c_str());
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.telefono_emergencias,tel_emergencias.c_str());
-	
-	
+
+
+	/*
+	registro.dia_pago = fecha_pago.dia;
+	registro.mes_pago = fecha_pago.mes;
+
 	
 	registro.dia_nac = fecha_nacimiento.dia;
 	registro.mes_nac = fecha_nacimiento.mes;
 	registro.anio_nac = fecha_nacimiento.anio;
-	
+	*/
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
 

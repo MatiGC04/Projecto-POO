@@ -5,7 +5,9 @@
 #include <Persona.h>
 #include <Utils.h>
 #include <Couch.h>
+
 #include <vector>
+#include "Suscripcion.h"
 
 
 /**
@@ -44,6 +46,7 @@ class cliente : public persona{
 private:
 	
 	std::string tel_emergencias;
+	std::vector<suscripcion>suscripciones;
 	
 public:
 	/// Constructor de la clase cliente con sus paramentros por defecto
@@ -57,8 +60,7 @@ public:
 	
 	
 	
-	
-	
+	void agregar_suscripcion(suscripcion sus);///<recibre una suscripcion y la guarda en el vector
 	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
 	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
 	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
