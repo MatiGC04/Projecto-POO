@@ -42,7 +42,7 @@ struct registroCliente{
 
 class cliente : public persona{
 private:
-	fecha fecha_pago;
+	
 	std::string tel_emergencias;
 	
 public:
@@ -53,13 +53,12 @@ public:
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
 	
 	///Obtener atributos o datos a partir de atributos
-	fecha ver_fecha_pago(); ///< devuelve la fecha en la que se pago
-	int dias_faltantes(); ///< devuelve los dias que le quedan pagos
-	bool chequear_cuota(); ///< Método para obtener el estado actual de la cuota
 	
 	
 	
-	void pagar_cuota(); ///< actualiza la fecha de pago
+	
+	
+	
 	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
 	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
 	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
