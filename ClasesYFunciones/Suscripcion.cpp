@@ -1,6 +1,5 @@
 #include "suscripcion.h"
-suscripcion::suscripcion(cliente c_suscritor, plan p_subscritos, couch responsable){
-	this->c_suscritor = c_suscritor;
+suscripcion::suscripcion(plan p_subscritos, couch responsable){
 	this->p_subscritos = p_subscritos;
 }
 

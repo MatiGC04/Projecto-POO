@@ -2,15 +2,19 @@
 #include <cstring>
 #include <fstream>
 #include <vector>
+#include "Suscripcion.h"
 
 /// Implementación del constructor de la clase cliente
 cliente::cliente (std::string nom, std::string ape, std::string mail, 
 				  std::string sex, std::string tel, std::string dir, 
 				  std::string loc, std::string dni, 
-				  int dia, int mes, int anio, std::string tel_emergencias): 
+				  int dia, int mes, int anio, std::string tel_emergencias, suscripcion *sub, unsigned cant_subs): 
 	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio){
 	this->fecha_pago = FechaHoy();
 	this->tel_emergencias = tel_emergencias;
+	for(unsigned i=0 ; i<cant_subs ; ++i){
+		subs.push_back(*(sub+i));
+	}
 }
 
 /// Implementación de los métodos para modificar atributos 

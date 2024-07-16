@@ -6,6 +6,7 @@
 #include <Utils.h>
 #include <Couch.h>
 #include <vector>
+#include "Suscripcion.h"
 
 
 /**
@@ -45,12 +46,13 @@ private:
 	
 	std::string tel_emergencias;
 	fecha fecha_pago;
+	std::vector<suscripcion> subs;
 public:
 	/// Constructor de la clase cliente con sus paramentros por defecto
 	cliente(std::string nombre = "", std::string apellido = "",
 			std::string email = "", std::string sexo = "", std::string telefono = "",
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
-			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
+			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="", suscripcion *sub = nullptr, unsigned cant_subs = 0);
 	
 	///Obtener atributos o datos a partir de atributos
 	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
