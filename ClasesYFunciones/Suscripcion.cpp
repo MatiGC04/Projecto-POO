@@ -37,20 +37,17 @@ void suscripcion::pagar_cuota(){
 }
 
 couch suscripcion::ver_couch_responsable(){
-	//el nombre es medio largo pq en el plan tambien hay un ver couch
 	return responsable;
 }
-
-
-/*
 int suscripcion::ver_precio_suscripcion(){
-	int precio;
-	for( unsigned i=0 ; i<p_subscritos.size() ; ++i ){
-		precio = precio + p_subscritos[i].ver_precio();
-	}
-	return precio;
+	return p_subscritos.ver_precio();
 }
 
+plan suscripcion::obtener_plan(){
+	return p_subscritos;
+}
+
+/*
 
 void suscripcion::eliminar_plan_sub(std::string nom_plan){ //notar que esta funcion no hace nada si el plan no esta en la subscripcion
 	for( auto it = p_subscritos.begin() ; it != p_subscritos.end() ; ++it ){

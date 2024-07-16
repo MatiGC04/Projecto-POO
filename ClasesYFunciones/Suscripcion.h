@@ -21,6 +21,7 @@ public:
 	int ver_precio_suscripcion();
 	int dias_faltantes(); ///< devuelve los dias que le quedan pagos
 	couch ver_couch_responsable();
+	plan obtener_plan();
 	
 	bool chequear_cuota(); ///< Método para obtener el estado actual de la cuota
 	void pagar_cuota(); ///< actualiza la fecha de pago

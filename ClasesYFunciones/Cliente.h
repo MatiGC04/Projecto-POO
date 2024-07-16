@@ -28,7 +28,6 @@ struct registroCliente{
 	char sexo[2];
 	char dni[20];
 	char telefono_emergencias[20];
-	fecha fecha_pago;
 	fecha fecha_nac;
 };
 
@@ -45,7 +44,6 @@ class cliente : public persona{
 private:
 	
 	std::string tel_emergencias;
-	fecha fecha_pago;
 	std::vector<suscripcion> subs;
 public:
 	/// Constructor de la clase cliente con sus paramentros por defecto
@@ -54,8 +52,14 @@ public:
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="", suscripcion *sub = nullptr, unsigned cant_subs = 0);
 	
+	std::string ver_tel_emergencia();
+	std::string ver_subscripcion(int pos);
+	int ver_precio_total();
+	
+	
 	///Obtener atributos o datos a partir de atributos
 	void agregar_sub(suscripcion sub);///< agrega una suscripcion nueva 
+	void eliminar_sub(int pos);///< elimina una suscripcion
 	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
 	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
 	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
