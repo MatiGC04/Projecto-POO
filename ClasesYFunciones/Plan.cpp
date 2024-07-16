@@ -11,6 +11,10 @@ void plan::modificar_precio(int nuevo_precio){
 int plan::ver_precio(){
 	return precio;
 }
+
+couch plan::ver_couch(int pos){
+	return p_couchs[pos];
+}
 std::string plan::nombre_plan(){
 	return nombre;
 }

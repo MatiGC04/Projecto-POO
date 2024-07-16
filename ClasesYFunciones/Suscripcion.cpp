@@ -1,6 +1,7 @@
 #include "suscripcion.h"
 suscripcion::suscripcion(plan p_subscritos, couch responsable){
 	this->p_subscritos = p_subscritos;
+	fecha_pago=FechaHoy();
 }
 
 fecha suscripcion::ver_fecha_pago(){
@@ -34,6 +35,12 @@ bool suscripcion:: chequear_cuota(){
 void suscripcion::pagar_cuota(){
 	fecha_pago=FechaHoy();
 }
+
+couch suscripcion::ver_couch_responsable(){
+	//el nombre es medio largo pq en el plan tambien hay un ver couch
+	return responsable;
+}
+
 
 /*
 int suscripcion::ver_precio_suscripcion(){

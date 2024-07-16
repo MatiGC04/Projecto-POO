@@ -17,6 +17,11 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 	}
 }
 
+/// Implementación de los metodos para agregar suscripciones
+void cliente::agregar_sub(suscripcion sub){
+	subs.push_back(sub);
+}
+
 /// Implementación de los métodos para modificar atributos 
 void cliente::modificar_tel_em(std::string tel_em_nuevo){
 	tel_emergencias=tel_em_nuevo;

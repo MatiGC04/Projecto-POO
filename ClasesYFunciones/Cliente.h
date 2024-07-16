@@ -55,6 +55,7 @@ public:
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="", suscripcion *sub = nullptr, unsigned cant_subs = 0);
 	
 	///Obtener atributos o datos a partir de atributos
+	void agregar_sub(suscripcion sub);///< agrega una suscripcion nueva 
 	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
 	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
 	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
