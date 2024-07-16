@@ -4,10 +4,12 @@
 #include <vector>
 
 /// Implementación del constructor de la clase cliente
-cliente::cliente (std::string nom, std::string ape, std::string mail, std::string sex, 
-					std::string tel, std::string dir, std::string loc,std::string dni, 
-					int dia, int mes, int anio, std::string tel_emergencias): 
-	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes , anio){
+cliente::cliente (std::string nom, std::string ape, std::string mail, 
+				  std::string sex, std::string tel, std::string dir, 
+				  std::string loc, std::string dni, 
+				  int dia, int mes, int anio, std::string tel_emergencias): 
+	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio){
+	this->fecha_pago = FechaHoy();
 	this->tel_emergencias = tel_emergencias;
 }
 
@@ -27,11 +29,8 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.sexo,sexo.c_str());
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.telefono_emergencias,tel_emergencias.c_str());
-	
-	
-	
-	
-	
+	registro.fecha_pago = fecha_pago;
+	registro.fecha_nac = fecha_nacimiento;
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
 
@@ -48,8 +47,8 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	sexo = registro.sexo;
 	dni = registro.dni;
 	tel_emergencias = registro.telefono_emergencias;
-	
-
+	fecha_nacimiento = registro.fecha_nac;
+	fecha_pago = registro.fecha_pago;
 }
 
 

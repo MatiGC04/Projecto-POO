@@ -39,9 +39,7 @@ void couch::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.cbu,cbu.c_str());
 	strcpy(registro.alias,alias.c_str());
-	registro.dia_nac = fecha_nacimiento.dia;
-	registro.mes_nac = fecha_nacimiento.mes;
-	registro.anio_nac = fecha_nacimiento.anio;
+	registro.fecha_nac = fecha_nacimiento;
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
 
@@ -58,7 +56,7 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	dni = registro.dni;
 	cbu = registro.cbu;
 	alias = registro.dni;
-	fecha_nacimiento = ConvertFecha(registro.dia_nac, registro.mes_nac, registro.anio_nac);
+	fecha_nacimiento = registro.fecha_nac;
 }
 
 

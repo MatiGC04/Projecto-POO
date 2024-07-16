@@ -63,8 +63,6 @@ public:
 		void modificar_fecha_nacimiento(int dia, int mes, int anio);
 		
 		
-		/* lee su registro desde un archivo binario
-		virtual void leer_desde_binario(std::ifstream &archivo);*/
 		/// Método virtual puro que guarda su registro en un archivo binario
 		virtual void guardar_en_binario(std::ofstream &archivo)=0;
 		

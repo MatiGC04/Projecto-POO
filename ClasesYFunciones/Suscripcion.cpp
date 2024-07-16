@@ -35,6 +35,7 @@ bool suscripcion:: chequear_cuota(){
 void suscripcion::pagar_cuota(){
 	fecha_pago=FechaHoy();
 }
+
 /*
 int suscripcion::ver_precio_suscripcion(){
 	int precio;
@@ -44,7 +45,7 @@ int suscripcion::ver_precio_suscripcion(){
 	return precio;
 }
 
-/*
+
 void suscripcion::eliminar_plan_sub(std::string nom_plan){ //notar que esta funcion no hace nada si el plan no esta en la subscripcion
 	for( auto it = p_subscritos.begin() ; it != p_subscritos.end() ; ++it ){
 			

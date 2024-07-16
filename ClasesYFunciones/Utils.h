@@ -21,13 +21,12 @@ struct fecha{
 	int dia;
 	int mes;
 	int anio;
-	std::time_t time;
 };
 ///@brief Funcion que devuelve la fecha de hoy
 fecha FechaHoy();
 
-///@brief Funcion que recibe dia, mes y anio para devolver variable tipo fecha
-fecha ConvertFecha(int dia, int mes, int anio);
+
+std::time_t ObtenerTime(fecha fech);
 
 ///@brief Funcion que recibe una fecha y retorna un string en formato dd/mm/aaaa
 std::string FechaTexto(fecha f1);

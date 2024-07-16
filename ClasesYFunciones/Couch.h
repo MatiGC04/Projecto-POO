@@ -39,7 +39,7 @@ struct registroCouch{
 	char dni[20];
 	char cbu[22];
 	char alias[20];
-	int dia_nac, mes_nac, anio_nac;
+	fecha fecha_nac;
 };
 
 /**
