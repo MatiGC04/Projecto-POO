@@ -54,6 +54,7 @@ public:
 	
 	std::string ver_tel_emergencia();
 	std::string ver_subscripcion(int pos);
+	std::string ver_subscripciones();
 	int ver_precio_total();
 	
 	

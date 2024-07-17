@@ -40,30 +40,11 @@ couch suscripcion::ver_couch_responsable(){
 	return responsable;
 }
 int suscripcion::ver_precio_suscripcion(){
-	return p_subscritos.ver_precio();
+	return p_subscritos.ver_precio_plan();
 }
 
 plan suscripcion::obtener_plan(){
 	return p_subscritos;
 }
 
-/*
 
-void suscripcion::eliminar_plan_sub(std::string nom_plan){ //notar que esta funcion no hace nada si el plan no esta en la subscripcion
-	for( auto it = p_subscritos.begin() ; it != p_subscritos.end() ; ++it ){
-			
-		if( (*it).nombre_plan() == nom_plan ){
-			p_subscritos.erase(it);
-		}
-	}
-}
-
-bool suscripcion::plan_en_sub(std::string nom_plan){
-	for( auto it= p_subscritos.begin() ; it != p_subscritos.end() ; ++it ){
-		if((*it).nombre_plan() == nom_plan){
-			return true;
-		}
-	}
-	return false;
-}
-*/

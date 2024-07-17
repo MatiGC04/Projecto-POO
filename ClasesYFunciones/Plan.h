@@ -13,8 +13,8 @@ class plan {
 public:
 	plan(std::string nombre = "", int precio = 0);
 	void modificar_precio(int nuevo_precio);
-	int ver_precio();
-	couch ver_couch(int pos);
+	int ver_precio_plan();
+	couch ver_couch_plan(int pos);
 	std::string nombre_plan();
 };
 
