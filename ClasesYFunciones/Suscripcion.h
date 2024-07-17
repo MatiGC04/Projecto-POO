@@ -9,11 +9,13 @@ class suscripcion{
 	
 private:
 	fecha fecha_pago;
-	plan p_subscritos;
+	plan p_subscrito;
 	couch responsable;
+	std::string nombre_rutina;
+	std::string dni_cliente;
 	
 public:
-	suscripcion(plan p_suscritos, couch responsable); ///< constructor 
+	suscripcion(plan p_suscrito, couch responsable, std::string dni_cliente); ///< constructor 
 	
 	/// Métodos para obtener los atributos de una suscripcion
 	

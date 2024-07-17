@@ -1,7 +1,11 @@
 #include "suscripcion.h"
-suscripcion::suscripcion(plan p_subscritos, couch responsable){
-	this->p_subscritos = p_subscritos;
+#include <fstream>
+suscripcion::suscripcion(plan p_subscrito, couch responsable, std::string dni_cliente){
+	this->p_subscrito = p_subscrito;
+	this->dni_cliente = dni_cliente;
 	fecha_pago=FechaHoy();
+	nombre_rutina = FechaTexto(fecha_pago)+"_"+dni_cliente+"_"+p_subscrito.ver_nombre_plan();
+	std::ofstream rutina(nombre_rutina);
 }
 
 fecha suscripcion::ver_fecha_pago(){
@@ -40,11 +44,11 @@ couch suscripcion::ver_couch_responsable(){
 	return responsable;
 }
 int suscripcion::ver_precio_suscripcion(){
-	return p_subscritos.ver_precio_plan();
+	return p_subscrito.ver_precio_plan();
 }
 
 plan suscripcion::obtener_plan(){
-	return p_subscritos;
+	return p_subscrito;
 }
 
 
