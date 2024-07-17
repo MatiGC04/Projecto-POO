@@ -6,7 +6,7 @@
 #include <fstream>
 #include <vector>
 
-manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes){
+manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones){
 	
 	nombre_archivo_couchs = nom_archivo_couchs;
 	std::ifstream archi_couchs(nombre_archivo_couchs.c_str(),std::ios::binary|std::ios::ate);
@@ -38,7 +38,18 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes)
 		archi_clientes.close();
 	}
 	
+	nombre_archivo_suscripciones = nom_archivo_suscripciones;
+	
+	
 }
+
+
+
+
+
+
+
+
 
 bool manage::guardar() {
 	

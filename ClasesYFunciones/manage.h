@@ -12,13 +12,17 @@ private:
 	
 	std::string nombre_archivo_clientes;
 	
+	std::string nombre_archivo_suscripciones;
+	
 	std::vector<couch> vector_de_couchs;
 
 	std::vector<cliente> vector_de_clientes;
-
+	
+	std::vector<suscripcion> vector_de_suscripciones;
+	
 public:
 	/// @brief Crea el objeto y carga los datos desde el archivo
-	manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes);
+	manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones);
 	
 	/// @brief Guarda los datos en el archivo
 	bool guardar();

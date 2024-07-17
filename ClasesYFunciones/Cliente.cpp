@@ -36,6 +36,7 @@ void cliente::eliminar_sub(int pos){
 	subs.erase(it);
 }
 
+/*
 std::string cliente::ver_subscripcion(int pos){
 	std::string txt_aux = "";
 	plan plan_aux = subs[pos].obtener_plan();
@@ -51,7 +52,7 @@ std::string cliente::ver_subscripciones(){
 	std::string txt_aux = "";
 	for(unsigned i=0; i<subs.size(); ++i){
 		plan plan_aux = subs[i].obtener_plan();
-		couch couch_aux = subs[i].ver_couch_responsable();
+		//couch couch_aux = subs[i].ver_couch_responsable();
 		
 		txt_aux = txt_aux + couch_aux.ver_nombre() + couch_aux.ver_apellido() + " ";
 		txt_aux = txt_aux + plan_aux.ver_nombre_plan() + " ";
@@ -59,6 +60,7 @@ std::string cliente::ver_subscripciones(){
 	}
 	return txt_aux;
 }
+*/
 
 /// Implementación de los metodos para agregar suscripciones
 void cliente::agregar_sub(suscripcion sub){
