@@ -3,30 +3,38 @@
 #include <vector>
 #include "Plan.h"
 #include "Utils.h"
-///Se elimina suscripcion???
+
+struct registroSuscripcion{
+	char nombre_rutina[100];
+	char id_couch[20];
+	char id_cliente[20];
+	char id_plan[100];
+	fecha fecha_pago;
+};
 
 class suscripcion{
 	
 private:
 	fecha fecha_pago;
-	plan p_subscrito;
+	std::string p_subscrito;
 	std::string dni_couch;
-	std::string nombre_rutina;
 	std::string dni_cliente;
+	std::string nombre_rutina;
 	
 public:
-	suscripcion(plan p_suscrito, std::string dni_couch, std::string dni_cliente); ///< constructor 
+	suscripcion(std::string p_suscrito, std::string dni_couch, std::string dni_cliente); ///< constructor 
 	
 	/// Métodos para obtener los atributos de una suscripcion
 	
 	fecha ver_fecha_pago();			///< devuelve la fecha en la que se pago
-	int ver_precio_suscripcion(); 	///< devuelve el precio de la sub
 	int dias_faltantes(); 			///< devuelve los dias que le quedan pagos
 	//std::string ver_couch_responsable(); 	///< devuelve el couch a cargo de la sub (va en manage)
 	plan obtener_plan(); 			///< devuelve el plan de la sub
 	
 	bool chequear_cuota(); 	///< Método para obtener el estado actual de la cuota
 	void pagar_cuota(); 	///< actualiza la fecha de pago
+	
+	void leer_en_binario(std::ifstream &archivo);
 };
 
 #endif

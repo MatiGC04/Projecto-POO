@@ -5,11 +5,18 @@
 #include "Couch.h"
 #include <fstream>
 
+struct registroPlan{
+	char nombre[100];
+	char rutina_base[100];
+	int precio[20];
+};
+
+
 class plan {
 	std::string nombre;
-	int precio;
 	std::vector<couch>p_couchs;
 	std::string nombre_rutina_base;
+	int precio;
 	
 public:
 	plan(std::string nombre = "", int precio = 0);

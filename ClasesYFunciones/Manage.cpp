@@ -5,6 +5,7 @@
 #include <Manage.h>
 #include <fstream>
 #include <vector>
+#include "Suscripcion.h"
 
 manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones){
 	
@@ -39,7 +40,21 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes,
 	}
 	
 	nombre_archivo_suscripciones = nom_archivo_suscripciones;
+	std::ifstream archi_suscripciones(nombre_archivo_suscripciones.c_str(),std::ios::binary|std::ios::ate);
 	
+	if(archi_suscripciones.is_open()){
+		
+		int cantidad_de_suscripciones = archi_suscripciones.tellg()/sizeof(registroSuscripcion);
+		
+		vector_de_suscripciones.resize(cantidad_de_suscripciones);
+		
+		archi_suscripciones.seekg(0,std::ios::beg);
+		
+		for(int i = 0; i < cantidad_de_suscripciones; i++) { 
+			vector_de_suscripciones[i].leer_en_binario(archi_suscripciones);
+		}
+		archi_suscripciones.close();
+	}
 	
 }
 

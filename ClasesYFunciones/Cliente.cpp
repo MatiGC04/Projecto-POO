@@ -21,14 +21,14 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 std::string cliente::ver_tel_emergencia(){
 	return tel_emergencias;
 }
-
+/* Para ver esto seguro va en el manage
 int cliente::ver_precio_total(){
 	int precio=0;
 	for(unsigned i=0; i<subs.size(); ++i){
 		precio = precio + subs[i].ver_precio_suscripcion();
 	}
 	return precio;
-}
+}*/
 
 void cliente::eliminar_sub(int pos){
 	auto it=subs.begin();

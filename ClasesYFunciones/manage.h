@@ -20,6 +20,8 @@ private:
 	
 	std::vector<suscripcion> vector_de_suscripciones;
 	
+	//falta agregar el vector de plan
+	
 public:
 	/// @brief Crea el objeto y carga los datos desde el archivo
 	manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones);
