@@ -22,7 +22,7 @@ private:
 	std::string nombre_rutina;
 	
 public:
-	suscripcion(std::string p_suscrito, std::string dni_couch, std::string dni_cliente); ///< constructor 
+	suscripcion(std::string p_suscrito="0", std::string dni_couch="0", std::string dni_cliente="0"); ///< constructor 
 	
 	/// Métodos para obtener los atributos de una suscripcion
 	

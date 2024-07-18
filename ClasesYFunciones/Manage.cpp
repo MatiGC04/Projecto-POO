@@ -5,7 +5,6 @@
 #include <Manage.h>
 #include <fstream>
 #include <vector>
-#include "Suscripcion.h"
 
 manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones){
 	
