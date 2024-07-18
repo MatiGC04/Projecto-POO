@@ -3,6 +3,8 @@
 #include "Couch.h"
 #include "Cliente.h"
 #include <vector>
+#include "Suscripcion.h"
+#include "Plan.h"
 
 
 class manage{
@@ -14,17 +16,20 @@ private:
 	
 	std::string nombre_archivo_suscripciones;
 	
+	std::string nombre_archivo_planes;
+	
 	std::vector<couch> vector_de_couchs;
 
 	std::vector<cliente> vector_de_clientes;
 	
 	std::vector<suscripcion> vector_de_suscripciones;
 	
-	//falta agregar el vector de plan
+	std::vector<plan> vector_de_planes;
+	
 	
 public:
 	/// @brief Crea el objeto y carga los datos desde el archivo
-	manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones);
+	manage(std::string nombre_archivo_couchs, std::string nombre_archivo_clientes, std::string nombre_archivo_suscripciones, std::string nombre_archivo_planes);
 	
 	/// @brief Guarda los datos en el archivo
 	bool guardar();

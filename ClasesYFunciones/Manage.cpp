@@ -6,9 +6,9 @@
 #include <fstream>
 #include <vector>
 
-manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes, std::string nom_archivo_suscripciones){
+manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_clientes, std::string nombre_archivo_suscripciones, std::string nombre_archivo_planes){
 	
-	nombre_archivo_couchs = nom_archivo_couchs;
+	this->nombre_archivo_couchs = nombre_archivo_couchs;
 	std::ifstream archi_couchs(nombre_archivo_couchs.c_str(),std::ios::binary|std::ios::ate);
 	
 	if(archi_couchs.is_open()){
@@ -22,8 +22,8 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes,
 		}
 		archi_couchs.close();
 	}
-	
-	nombre_archivo_clientes = nom_archivo_clientes;
+	//----------------------------------------------------//
+	this->nombre_archivo_clientes = nombre_archivo_clientes;
 	std::ifstream archi_clientes(nombre_archivo_clientes.c_str(),std::ios::binary|std::ios::ate);
 	
 	if(archi_clientes.is_open()){
@@ -37,9 +37,9 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes,
 		}
 		archi_clientes.close();
 	}
-	
-	nombre_archivo_suscripciones = nom_archivo_suscripciones;
-	std::ifstream archi_suscripciones(nombre_archivo_suscripciones.c_str(),std::ios::binary|std::ios::ate);
+	//----------------------------------------------------//
+	this->nombre_archivo_suscripciones = nombre_archivo_suscripciones;
+	std::ifstream archi_suscripciones(nombre_archivo_suscripciones.c_str(), std::ios::binary | std::ios::ate);
 	
 	if(archi_suscripciones.is_open()){
 		
@@ -54,7 +54,22 @@ manage::manage(std::string nom_archivo_couchs, std::string nom_archivo_clientes,
 		}
 		archi_suscripciones.close();
 	}
+	//----------------------------------------------------//
 	
+	this->nombre_archivo_planes = nombre_archivo_planes;
+	std::ifstream archi_planes(nombre_archivo_planes.c_str(),  std::ios::binary | std::ios::ate );
+	if(archi_planes.is_open()){
+		int cantidad_de_planes = archi_planes.tellg()/sizeof(registroPlan);
+		
+		vector_de_planes.resize(cantidad_de_planes);
+		
+		archi_planes.seekg(0, std::ios::beg);
+		
+		for(int i=0; i<cantidad_de_planes; ++i){
+			vector_de_planes[i].leer_en_binario(archi_planes);
+		}
+		archi_planes.close();
+	}
 }
 
 

@@ -1,5 +1,7 @@
 #include "suscripcion.h"
 #include <fstream>
+#include <cstring>
+using namespace std;
 suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::string dni_cliente){
 	this->p_subscrito = p_subscrito;
 	this->dni_cliente = dni_cliente;
@@ -49,9 +51,19 @@ plan suscripcion::obtener_plan(){
 void suscripcion::leer_en_binario(std::ifstream &archivo){
 	registroSuscripcion registro;
 	archivo.read(reinterpret_cast<char*>(&registro), sizeof(registro));
-	nombre_rutina = registro.nombre_rutina;
-	dni_cliente = registro.id_cliente;
-	dni_couch = registro.id_couch;
-	p_subscrito = registro.id_plan;
-	fecha_pago = registro.fecha_pago;
+	this->nombre_rutina = registro.nombre_rutina;
+	this->dni_cliente = registro.id_cliente;
+	this->dni_couch = registro.id_couch;
+	this->p_subscrito = registro.id_plan;
+	this->fecha_pago = registro.fecha_pago;
+}
+void suscripcion::guardar_en_binario(std::ofstream &archivo){
+	registroSuscripcion registro;
+	strcpy(registro.nombre_rutina, this->nombre_rutina.c_str());
+	strcpy(registro.id_couch, this->dni_couch.c_str());
+	strcpy(registro.id_cliente, this->dni_cliente.c_str());
+	strcpy(registro.id_plan, this->p_subscrito.c_str());
+	
+	this->fecha_pago = registro.fecha_pago;
+	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registro));
 }

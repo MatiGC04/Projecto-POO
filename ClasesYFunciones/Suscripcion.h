@@ -35,6 +35,7 @@ public:
 	void pagar_cuota(); 	///< actualiza la fecha de pago
 	
 	void leer_en_binario(std::ifstream &archivo);
+	void guardar_en_binario(std::ofstream &archivo);
 };
 
 #endif

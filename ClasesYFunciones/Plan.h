@@ -8,7 +8,7 @@
 struct registroPlan{
 	char nombre[100];
 	char rutina_base[100];
-	int precio[20];
+	int precio;
 };
 
 
@@ -25,6 +25,8 @@ public:
 	couch ver_couch_plan(int pos);
 	std::string ver_nombre_plan();
 	std::string ver_nombre_rutina();
+	void leer_en_binario(std::ifstream &archivo);
+	void guardar_en_binario(std::ofstream &archivo);
 };
 
 #endif
