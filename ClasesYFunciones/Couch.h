@@ -1,3 +1,13 @@
+/**
+* @file Couch.h
+* @brief Implementaciones de todo lo necesario para trabajar con la clase 
+* clase couch.
+*
+* 
+* Este archivo define la clase cliente y la clase couch, las funciones
+* auxiliares para compararlas y el struct de registro para poder guardar
+* y leer en archivo binarios
+**/
 #ifndef COUCH_H
 #define COUCH_H
 
@@ -5,19 +15,6 @@
 #include <Persona.h>
 #include <Utils.h>
 #include <vector>
-
-/**
-* @file Couch.h
-* @brief Implementaciones de todo lo necesario para trabajar con la clase 
-* clase couch
-*
-* 
-* Este archivo define la clase cliente y la clase couch, las funciones
-* auxiliares para compararlas y el struct de registro para poder guardar
-* y leer en archivo binarios
-**/
-
-
 
 /**
 * @brief Estructura auxiliar para usar con archivos binarios en la clase couch

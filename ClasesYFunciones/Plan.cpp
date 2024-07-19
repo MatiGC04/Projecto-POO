@@ -1,8 +1,13 @@
+/**
+* @file Plan.cpp
+* @brief Implementaciones de todo lo necesario para trabajar con la clase Plan.
+**/
 #include "Plan.h"
 #include <fstream>
 #include <cstring>
 using namespace std;
 
+/// Implementación del constructor de la clase Plan
 plan::plan(std::string nombre, int precio){
 	this->nombre = nombre;
 	this->precio = precio;
@@ -10,16 +15,47 @@ plan::plan(std::string nombre, int precio){
 	std::ofstream rutina_base(nombre_rutina_base);
 }
 
-void plan::modificar_precio(int nuevo_precio){
-	precio = nuevo_precio;
+/**
+* Implementacion del metodo que valida los datos ingresados.
+* El vector de couchs no es necesario pq ya posee un metodo propio
+* la clase cliente.
+**/
+std::string plan::validar_datos(){
+	std::string errores = "";
+	
+	if(nombre.size()==0){
+		errores+="El nombre no puede estar vacio \n";
+	}
+	if(nombre_rutina_base.size()==0){
+		errores+="La rutina no puede estar vacia \n";
+	}
+	if(precio<0){
+		errores+="El precio no puede ser negativo \n";
+	}
+	if(p_couchs.size()==0){
+		errores+="Falta un couch responsable del plan \n";
+	}
+	return errores;
 }
 
+/// Implementación del metodo para modificar el precio del plan.
+void plan::modificar_precio(int nuevo_precio){
+	if(nuevo_precio>=0){ //si el precio es negativo no se modifica 
+	precio = nuevo_precio;
+	}
+}
+
+///Implementaciónes de los métodos para obtener los atributos.
 int plan::ver_precio_plan(){
 	return precio;
 }
 
 couch plan::ver_couch_plan(int pos){
 	return p_couchs[pos];
+}
+
+std::vector<couch> plan::ver_couchs_plan(){
+	return p_couchs;
 }
 
 std::string plan::ver_nombre_plan(){
@@ -30,6 +66,8 @@ std::string plan::ver_nombre_rutina(){
 	return nombre_rutina_base;
 }
 
+
+///Implementación del metódo que leer el registro en un archivo binario.
 void plan::leer_en_binario(std::ifstream &archivo){
 	registroPlan registro;
 	archivo.read(reinterpret_cast<char*>(&registro), sizeof(registroPlan));
@@ -38,6 +76,7 @@ void plan::leer_en_binario(std::ifstream &archivo){
 	this->precio = registro.precio;
 }
 
+///Implementación del metódo que guarda el registro en un archivo binario.
 void plan::guardar_en_binario(std::ofstream &archivo){
 	registroPlan registro;
 	strcpy(registro.nombre, this->nombre.c_str());

@@ -1,6 +1,6 @@
 /**
 *@file Persona.cpp
-*@brief Implementación de los metodos de la clase persona
+*@brief Implementación de los metodos de la clase Persona.
 **/
 
 #include <persona.h>

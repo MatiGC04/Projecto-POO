@@ -1,3 +1,13 @@
+/**
+* @file Cliente.h
+* @brief Implementaciones de todo lo necesario para trabajar con la clase 
+* clase cliente
+*
+* 
+* Este archivo define la clase couch, las funciones auxiliares para
+* compararlas y el struct de registro para poder guardar y leer
+* en archivo binarios
+**/
 #ifndef CLIENTE_H
 #define CLIENTE_H
 

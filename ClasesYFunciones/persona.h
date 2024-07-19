@@ -1,6 +1,6 @@
 /**
 * @file Persona.h
-* @brief Declaracion de la clase persona
+* @brief Declaracion de la clase persona.
 **/
 #ifndef PERSONA_H
 #define PERSONA_H

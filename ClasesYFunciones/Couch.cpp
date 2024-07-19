@@ -1,9 +1,8 @@
-#include "Couch.h"
 /**
-*@file ClienteAndCouch.cpp
-*@brief Implementación de los métodos de la clase couch y la clase cliente
+*@file Couch.cpp
+*@brief Implementación de los métodos de la clase Couch.
 **/
-
+#include "Couch.h"
 #include <Couch.h>
 #include <string>
 #include <cstring>

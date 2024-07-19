@@ -1,3 +1,7 @@
+/**
+* @file Cliente.cpp
+* @brief Implementaciones de todo lo necesario para trabajar con la clase Cliente.
+**/
 #include "Cliente.h"
 #include <cstring>
 #include <fstream>

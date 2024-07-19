@@ -1,3 +1,7 @@
+/**
+*@file Manage.cpp
+*@brief Implementación de los métodos de la clase Manage.
+**/
 #ifndef MANAGE_H
 #define MANAGE_H
 #include "Couch.h"

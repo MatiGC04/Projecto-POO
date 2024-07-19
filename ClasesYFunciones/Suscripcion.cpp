@@ -1,3 +1,7 @@
+/**
+* @file Suscripcion.cpp
+* @brief Implementaciones de todo lo necesario para trabajar con la clase Suscripcion.
+**/
 #include "suscripcion.h"
 #include <fstream>
 #include <cstring>
