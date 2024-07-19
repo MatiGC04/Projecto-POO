@@ -37,22 +37,21 @@ public:
 	/// @brief Devuelve la cantida de clientes y couchs   de los vectores
 	int cantidadCliente();
 	int cantidadCouch();
+	int cantidadSuscripciones();
+	int cantidadPlanes();
 	
 	/// @brief Agrega cliente al arreglo
 	void agregarCliente(const cliente &cl);
 	/// @brief Agrega couch al arreglo
 	void agregarCouch (const couch &ch);
-	
-	/* chequear
-	///@brief Devuelve un registro para ver o modificar
-	cliente &operator[](int i);
-	couch &operator[](int i);
-	*/
+	void agregarPlan(const plan &p);
+	void agregarSuscripcion(const suscripcion &sub);
 	
 	/// @brief Métodos para borrar clientes y couch  de los vectores 
 	void borrarCliente(int pos);
-	void borrarCouch(int pos); //pensar método para actualizar los planes de los clientes en donde se encuentre dicho couch
-	
+	void borrarCouch(int pos);
+	void borrarSuscripcion(int pos);
+	void borrarPlan(int pos); 
 	/// @brief Ordenar vector (falta)
 };
 #endif

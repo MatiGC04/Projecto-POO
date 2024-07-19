@@ -83,10 +83,7 @@ manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_cli
 bool manage::guardar() {
 	
 	std::ofstream archi_couchs(nombre_archivo_couchs.c_str(), std::ios::binary|std::ios::trunc);
-	if (!archi_couchs.is_open()){ 
-		return false;
-	}
-	
+	if (!archi_couchs.is_open()) return false;
 	for (unsigned i = 0; i < vector_de_couchs.size(); i++){
 		vector_de_couchs[i].guardar_en_binario(archi_couchs);
 	}
@@ -95,15 +92,29 @@ bool manage::guardar() {
 	
 	
 	std::ofstream archi_clientes(nombre_archivo_clientes.c_str(),std::ios::binary|std::ios::trunc);
-	if (!archi_clientes.is_open()){ 
-		return false;
-	}
-	
+	if (!archi_clientes.is_open())return false;
 	for (unsigned i = 0; i < vector_de_clientes.size(); i++){
 		vector_de_clientes[i].guardar_en_binario(archi_clientes);
 	}
 	archi_clientes.close();
 
+	
+	
+	std::ofstream archi_suscripciones(nombre_archivo_suscripciones.c_str(), std::ios::binary|std::ios::trunc);
+	if(!archi_suscripciones.is_open()) return false;
+	for(unsigned i=0; i<vector_de_suscripciones.size(); ++i){
+		vector_de_suscripciones[i].guardar_en_binario(archi_suscripciones);
+	}
+	archi_suscripciones.close();
+	
+	
+	
+	std::ofstream archi_planes(nombre_archivo_planes.c_str(), std::ios::binary|std::ios::trunc);
+	if(!archi_planes.is_open()) return false;
+	for(unsigned i=0; i<vector_de_planes.size(); ++i){
+		vector_de_planes[i].guardar_en_binario(archi_suscripciones);
+	}
+	archi_planes.close();
 	return true;
 
 }
@@ -115,6 +126,13 @@ int manage::cantidadCouch(){
 	return vector_de_couchs.size();
 }
 
+int manage::cantidadSuscripciones(){
+	return vector_de_suscripciones.size();
+}
+int manage::cantidadPlanes(){
+	return vector_de_planes.size();
+}
+
 ///Implementaciones de los metodos para agregar couchs y clientes
 void manage::agregarCliente(const cliente &cl) {
 	vector_de_clientes.push_back(cl);
@@ -123,14 +141,12 @@ void manage::agregarCliente(const cliente &cl) {
 void manage::agregarCouch (const couch &ch){
 	vector_de_couchs.push_back(ch);
 }
-
-/* chequear
-cliente &manage::operator[](int i) {
-	return vector_de_clientes[i];
+void manage::agregarPlan(const plan &p){
+	vector_de_planes.push_back(p);
 }
-couch &manage::operator[](int i) {
-	return vector_de_couchs[i];
-}*/
+void manage::agregarSuscripcion(const suscripcion &sub){
+	vector_de_suscripciones.push_back(sub);
+}
 
 ///Implemetaciones de métodos para borrar clientes y couchs de los vectores
 void manage::borrarCliente(int pos) {
@@ -139,6 +155,32 @@ void manage::borrarCliente(int pos) {
 
 void manage::borrarCouch(int pos) {
 	vector_de_couchs.erase(vector_de_couchs.begin()+pos);
-	//desarrollar metodo de buscar el couch en todas las planillas de los clientes
-	//para luego eliminar las rutinas
+	
 }
+void manage::borrarSuscripcion(int pos){
+	vector_de_suscripciones.erase(vector_de_suscripciones.begin()+pos);
+}
+void manage::borrarPlan(int pos){
+	vector_de_planes.erase(vector_de_planes.begin()+pos);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
