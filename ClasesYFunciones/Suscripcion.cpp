@@ -44,7 +44,16 @@ void suscripcion::pagar_cuota(){
 }
 
 
-plan suscripcion::obtener_plan(){
+string suscripcion::ver_DNI_couch(){
+	return dni_couch;
+}
+string suscripcion::ver_DNI_cliente(){
+	return dni_cliente;
+}
+string suscripcion::ver_nombre_rutina(){
+	return nombre_rutina;
+}
+string suscripcion::ver_nombre_plan(){
 	return p_subscrito;
 }
 
@@ -66,4 +75,24 @@ void suscripcion::guardar_en_binario(std::ofstream &archivo){
 	
 	this->fecha_pago = registro.fecha_pago;
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registro));
+}
+
+
+//No estoy seguro de si va a servir pero lo programo y dps si no hace falta
+//se descarta, segun yo despues podemos utilizar estas funciones para mandarle
+//un puntero a funcion a sort y que ordene el vector de manage con estos criterios
+
+///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
+///para ordenar por fechas mas recientes deberiamos hacer lo contrario
+bool CriterioFechaPago(suscripcion sub1, suscripcion sub2){	
+	return !(sub1.ver_fecha_pago()<sub2.ver_fecha_pago());
+}
+bool CriterioDNICouch(suscripcion sub1, suscripcion sub2){
+	return sub1.ver_DNI_couch()<sub2.ver_DNI_couch();
+}
+bool CriterioDNICliente(suscripcion sub1, suscripcion sub2){
+	return sub1.ver_DNI_cliente()<sub2.ver_DNI_cliente();
+}
+bool CriterioNombre(suscripcion sub1, suscripcion sub2){
+	return sub1.ver_nombre_plan()<sub2.ver_nombre_plan();
 }

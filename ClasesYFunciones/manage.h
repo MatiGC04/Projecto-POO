@@ -37,8 +37,8 @@ public:
 	/// @brief Devuelve la cantidad de clientes, couchs, planes y suscripciones de los vectores correspondientes
 	int cantidadCliente();
 	int cantidadCouch();
-	int cantidadSuscripciones();
 	int cantidadPlanes();
+	int cantidadSuscripciones();
 	
 	/// @brief Metodos para agregar clientes, couchs, planes y suscripciones a sus arreglos correspondientes
 	void agregarCliente(const cliente &cl);
@@ -49,8 +49,9 @@ public:
 	/// @brief Métodos para borrar clientes, couchs, planes y suscripciones  de los arreglos correspondientes 
 	void borrarCliente(int pos);
 	void borrarCouch(int pos);
+	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
-	void borrarPlan(int pos); 
+	
 	/// @brief Ordenar vector (falta)
 };
 #endif

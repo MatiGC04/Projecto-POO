@@ -45,3 +45,14 @@ void plan::guardar_en_binario(std::ofstream &archivo){
 	registro.precio = this->precio;
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroPlan));
 }
+
+//No estoy seguro de si va a servir pero lo programo y dps si no hace falta
+//se descarta, segun yo despues podemos utilizar estas funciones para mandarle
+//un puntero a funcion a sort y que ordene el vector de manage con estos criterios
+bool CriterioPrecioPlan(plan p1, plan p2){
+	return p1.ver_precio_plan()<p2.ver_precio_plan();
+}
+bool CriterioNombre(plan p1, plan p2){
+	return p1.ver_nombre_plan()<p2.ver_nombre_plan();
+}
+

@@ -10,7 +10,6 @@ manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_cli
 	
 	this->nombre_archivo_couchs = nombre_archivo_couchs;
 	std::ifstream archi_couchs(nombre_archivo_couchs.c_str(),std::ios::binary|std::ios::ate);
-	
 	if(archi_couchs.is_open()){
 		
 		int cantidad_de_couchs = archi_couchs.tellg()/sizeof(registroCouch); 
@@ -22,10 +21,9 @@ manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_cli
 		}
 		archi_couchs.close();
 	}
-	//----------------------------------------------------//
+	
 	this->nombre_archivo_clientes = nombre_archivo_clientes;
 	std::ifstream archi_clientes(nombre_archivo_clientes.c_str(),std::ios::binary|std::ios::ate);
-	
 	if(archi_clientes.is_open()){
 		
 		int cantidad_de_clientes = archi_clientes.tellg()/sizeof(registroCliente);
@@ -37,16 +35,13 @@ manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_cli
 		}
 		archi_clientes.close();
 	}
-	//----------------------------------------------------//
+	
 	this->nombre_archivo_suscripciones = nombre_archivo_suscripciones;
 	std::ifstream archi_suscripciones(nombre_archivo_suscripciones.c_str(), std::ios::binary | std::ios::ate);
-	
 	if(archi_suscripciones.is_open()){
 		
 		int cantidad_de_suscripciones = archi_suscripciones.tellg()/sizeof(registroSuscripcion);
-		
 		vector_de_suscripciones.resize(cantidad_de_suscripciones);
-		
 		archi_suscripciones.seekg(0,std::ios::beg);
 		
 		for(int i = 0; i < cantidad_de_suscripciones; i++) { 
@@ -54,7 +49,6 @@ manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_cli
 		}
 		archi_suscripciones.close();
 	}
-	//----------------------------------------------------//
 	
 	this->nombre_archivo_planes = nombre_archivo_planes;
 	std::ifstream archi_planes(nombre_archivo_planes.c_str(),  std::ios::binary | std::ios::ate );
@@ -71,11 +65,6 @@ manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_cli
 		archi_planes.close();
 	}
 }
-
-
-
-
-
 
 
 
@@ -118,26 +107,30 @@ bool manage::guardar() {
 	return true;
 
 }
-///Implementacion e los metodos para ver la cantidad de clientes y couchs
+
+
+
+///Implemetaciones de métodos para ver la cantidad de clientes, couchs, planes 
+///y suscripciones
 int manage::cantidadCliente() {
 	return vector_de_clientes.size();
 }
 int manage::cantidadCouch(){
 	return vector_de_couchs.size();
 }
-
-int manage::cantidadSuscripciones(){
-	return vector_de_suscripciones.size();
-}
 int manage::cantidadPlanes(){
 	return vector_de_planes.size();
 }
+int manage::cantidadSuscripciones(){
+	return vector_de_suscripciones.size();
+}
 
-///Implementaciones de los metodos para agregar couchs y clientes
+
+///Implemetacion de métodos para agregar clientes, couchs, planes 
+///y suscripciones de los vectores
 void manage::agregarCliente(const cliente &cl) {
 	vector_de_clientes.push_back(cl);
 }
-
 void manage::agregarCouch (const couch &ch){
 	vector_de_couchs.push_back(ch);
 }
@@ -148,22 +141,22 @@ void manage::agregarSuscripcion(const suscripcion &sub){
 	vector_de_suscripciones.push_back(sub);
 }
 
-///Implemetaciones de métodos para borrar clientes y couchs de los vectores
+
+///Implemetacion de métodos para borrar clientes, couchs, planes 
+///y suscripciones de los vectores
 void manage::borrarCliente(int pos) {
 	vector_de_clientes.erase(vector_de_clientes.begin()+pos);
 }
-
 void manage::borrarCouch(int pos) {
 	vector_de_couchs.erase(vector_de_couchs.begin()+pos);
-	
+}
+
+void manage::borrarPlan(int pos){
+	vector_de_planes.erase(vector_de_planes.begin()+pos);
 }
 void manage::borrarSuscripcion(int pos){
 	vector_de_suscripciones.erase(vector_de_suscripciones.begin()+pos);
 }
-void manage::borrarPlan(int pos){
-	vector_de_planes.erase(vector_de_planes.begin()+pos);
-}
-
 
 
 

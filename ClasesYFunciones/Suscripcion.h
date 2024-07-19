@@ -28,9 +28,10 @@ public:
 	
 	fecha ver_fecha_pago();			///< devuelve la fecha en la que se pago
 	int dias_faltantes(); 			///< devuelve los dias que le quedan pagos
-	//std::string ver_couch_responsable(); 	///< devuelve el couch a cargo de la sub (va en manage)
-	plan obtener_plan(); 			///< devuelve el plan de la sub
-	
+	std::string ver_DNI_couch();
+	std::string ver_DNI_cliente();
+	std::string ver_nombre_rutina();
+	std::string ver_nombre_plan();
 	bool chequear_cuota(); 	///< Método para obtener el estado actual de la cuota
 	void pagar_cuota(); 	///< actualiza la fecha de pago
 	
