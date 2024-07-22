@@ -13,7 +13,7 @@
 
 class manage{
 private:
-	
+	/// @brief Atributos de la clase Manage
 	std::string nombre_archivo_couchs;
 	
 	std::string nombre_archivo_clientes;

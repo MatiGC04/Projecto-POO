@@ -33,17 +33,21 @@ struct registroSuscripcion{
 class suscripcion{
 	
 private:
+	/// @brief Atributos de la clase Suscripcion
 	fecha fecha_pago;
+	/// @brief Nombre del plan subscripto
 	std::string p_subscrito;
+	/// @brief DNI's de couchs y cliente, para una posterior busqueda
 	std::string dni_couch;
 	std::string dni_cliente;
+	/// @brief Nombre de la rutina, que es una concatenacion de los datos
 	std::string nombre_rutina;
 	
 public:
-	/// Constructor de la clase suscripcion con sus paramentros por defecto
+	/// @brief Constructor de la clase suscripcion con sus paramentros por defecto
 	suscripcion(std::string p_suscrito="0", std::string dni_couch="0", std::string dni_cliente="0"); ///< constructor 
 	
-	/// Métodos para obtener los atributos de una suscripcion
+	/// @brief  Métodos para obtener los atributos de una suscripcion
 	fecha ver_fecha_pago();			///< devuelve la fecha en la que se pago
 	int dias_faltantes(); 			///< devuelve los dias que le quedan pagos
 	std::string ver_DNI_couch();
@@ -51,13 +55,13 @@ public:
 	std::string ver_nombre_rutina();
 	std::string ver_nombre_plan();
 	
-	/// Método para obtener el estado actual de la cuota
+	/// @brief Método para obtener el estado actual de la cuota
 	bool chequear_cuota(); 	
 	
-	/// Actualiza la fecha de pago
+	/// @brief Actualiza la fecha de pago
 	void pagar_cuota(); 	
 	
-	/// Métodos para leer/guardar su registro en un archivo binario
+	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);
 	void guardar_en_binario(std::ofstream &archivo);
 };

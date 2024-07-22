@@ -48,13 +48,13 @@ struct registroCouch{
 
 class couch : public persona{
 private:
-	/// Atributos de couch
+	/// @brief Atributos de couch
 	std::string cbu;
 	std::string alias;
 	
 public:
 	
-	/// Constructor de la clase couch con sus paramentros por defecto
+	/// @brief Constructor de la clase couch con sus paramentros por defecto
 	couch(std::string nombre = "", std::string apellido = "",
 	std::string email = "", std::string sexo = "", std::string telefono = "",
 	std::string direccion = "", std::string localidad = "", std::string dni = "",
@@ -63,14 +63,14 @@ public:
 	
 	
 	
-	/// Métodos para obtener los atributos de couch
+	/// @brief  Métodos para obtener los atributos de couch
 	std::string ver_cbu();
 	std::string ver_alias();
 	
-	/// Método que guarda su registro en un archivo binario
+	/// @brief Método que guarda su registro en un archivo binario
 	void guardar_en_binario(std::ofstream &archivo) override;
 	
-	/// Metodo que lee un registro de un archivo binario
+	/// @brief Metodo que lee un registro de un archivo binario
 	void leer_en_binario(std::ifstream &archivo) override;
 };
 

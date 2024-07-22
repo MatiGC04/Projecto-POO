@@ -31,29 +31,31 @@ struct registroPlan{
 
 
 class plan {
+private:
+	/// @brief Atributos de la clase Plan
 	std::string nombre;
 	std::vector<couch>p_couchs;
 	std::string nombre_rutina_base;
 	int precio;
 	
 public:
-	/// Constructor de la clase Plan con sus paramentros por defecto
+	/// @brief Constructor de la clase Plan con sus paramentros por defecto
 	plan(std::string nombre = "", int precio = 0);
 	
-	/// Valida que los datos cargados sean correctos 
+	/// @brief Valida que los datos cargados sean correctos 
 	std::string validar_datos();
 	
-	/// Método para modificar el precio del plan
+	/// @brief Método para modificar el precio del plan
 	void modificar_precio(int nuevo_precio);
 	
-	///Métodos para obtener los atributos de una suscripcion
+	/// @brief Métodos para obtener los atributos de una suscripcion
 	int ver_precio_plan();
 	couch ver_couch_plan(int pos);
 	std::vector<couch> ver_couchs_plan(); ///< devuelve el vector completo de couchs
 	std::string ver_nombre_plan();
 	std::string ver_nombre_rutina();
 	
-	/// Métodos para leer/guardar su registro en un archivo binario
+	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);
 	void guardar_en_binario(std::ofstream &archivo);
 };
