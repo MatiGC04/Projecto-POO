@@ -5,7 +5,6 @@
 #include "suscripcion.h"
 #include <fstream>
 #include <cstring>
-using namespace std;
 suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::string dni_cliente){
 	this->p_subscrito = p_subscrito;
 	this->dni_cliente = dni_cliente;
@@ -48,16 +47,16 @@ void suscripcion::pagar_cuota(){
 }
 
 
-string suscripcion::ver_DNI_couch(){
+std::string suscripcion::ver_DNI_couch(){
 	return dni_couch;
 }
-string suscripcion::ver_DNI_cliente(){
+std::string suscripcion::ver_DNI_cliente(){
 	return dni_cliente;
 }
-string suscripcion::ver_nombre_rutina(){
+std::string suscripcion::ver_nombre_rutina(){
 	return nombre_rutina;
 }
-string suscripcion::ver_nombre_plan(){
+std::string suscripcion::ver_nombre_plan(){
 	return p_subscrito;
 }
 
