@@ -159,9 +159,37 @@ void manage::borrarSuscripcion(int pos){
 }
 
 
+couch BuscarDNI(std::vector<couch> v_couch, std::string DNI){
+	couch ch;
+	for(couch aux : v_couch){
+		if(aux.ver_DNI()==DNI) return aux;
+	}
+	return ch;
+}
 
+cliente BuscarDNI(std::vector<cliente> v_cliente, std::string DNI){
+	cliente cl;
+	for(cliente aux : v_cliente){
+		if(aux.ver_DNI()==DNI) return aux;
+	}
+	return cl;
+}
 
-
+plan BuscarPlan(std::vector<plan> v_plan, std::string nombre){
+	plan pl;
+	for(plan aux : v_plan){
+		if(aux.ver_nombre_plan()==nombre) return aux;
+	}
+	return pl;
+}
+	
+suscripcion BuscarSub(std::vector<suscripcion>v_suscripcion, std::string cliente_DNI, std::string nombre_plan){
+	suscripcion sub;
+	for(suscripcion aux : v_suscripcion){
+		if(aux.ver_nombre_plan()==nombre_plan and aux.ver_DNI_cliente()==cliente_DNI) return aux;
+	}
+	return sub;
+}
 
 
 
