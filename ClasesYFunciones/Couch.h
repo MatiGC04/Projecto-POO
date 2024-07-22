@@ -67,6 +67,10 @@ public:
 	std::string ver_cbu();
 	std::string ver_alias();
 	
+	/// @brief Metodos para editar cbu y alias del couch
+	void modificar_cbu(std::string cbu);
+	void modificar_alias(std::string alias);
+	
 	/// @brief Método que guarda su registro en un archivo binario
 	void guardar_en_binario(std::ofstream &archivo) override;
 	

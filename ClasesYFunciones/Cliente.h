@@ -62,18 +62,18 @@ public:
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="", suscripcion *sub = nullptr, unsigned cant_subs = 0);
 	
+	/// @brief Metodo para obtener atributo del dato
 	std::string ver_tel_emergencia();
-	std::string ver_subscripcion(int pos);
-	std::string ver_subscripciones();
-	int ver_precio_total();
+	
+	/// @brief Metodos para editar o agregar datos 
+	void agregar_sub(suscripcion sub); 
+	void eliminar_sub(int pos); 
+	void modificar_tel_em(std::string tel_em_nuevo); 
 	
 	
-	///Obtener atributos o datos a partir de atributos
-	void agregar_sub(suscripcion sub);///< agrega una suscripcion nueva 
-	void eliminar_sub(int pos);///< elimina una suscripcion
-	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
-	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
-	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
+	/// @brief Metodos para registrar los datos de la clase
+	void guardar_en_binario(std::ofstream &archivo) override; 
+	void leer_en_binario(std::ifstream &archivo) override; 
 	
 	
 };

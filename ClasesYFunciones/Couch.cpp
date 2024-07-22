@@ -26,6 +26,13 @@ std::string couch::ver_alias(){
 	return alias;
 }
 
+void couch::modificar_cbu(std::string cbu){
+	this->cbu=cbu;
+}
+void couch::modificar_alias(std::string alias){
+	this->alias=alias;
+}
+
 /// Implementación del método para guardar un couch en un archivo binario
 void couch::guardar_en_binario(std::ofstream &archivo){
 	registroCouch registro;

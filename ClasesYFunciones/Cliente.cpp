@@ -25,14 +25,6 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 std::string cliente::ver_tel_emergencia(){
 	return tel_emergencias;
 }
-/* Para ver esto seguro va en el manage
-int cliente::ver_precio_total(){
-	int precio=0;
-	for(unsigned i=0; i<subs.size(); ++i){
-		precio = precio + subs[i].ver_precio_suscripcion();
-	}
-	return precio;
-}*/
 
 void cliente::eliminar_sub(int pos){
 	auto it=subs.begin();
@@ -40,31 +32,6 @@ void cliente::eliminar_sub(int pos){
 	subs.erase(it);
 }
 
-/*
-std::string cliente::ver_subscripcion(int pos){
-	std::string txt_aux = "";
-	plan plan_aux = subs[pos].obtener_plan();
-	couch couch_aux = subs[pos].ver_couch_responsable();
-	
-	txt_aux = txt_aux + couch_aux.ver_nombre() + couch_aux.ver_apellido() + " ";
-	txt_aux = txt_aux + plan_aux.ver_nombre_plan() + " ";
-	txt_aux = txt_aux + FechaTexto( subs[pos].ver_fecha_pago() );
-	return txt_aux;
-}
-
-std::string cliente::ver_subscripciones(){
-	std::string txt_aux = "";
-	for(unsigned i=0; i<subs.size(); ++i){
-		plan plan_aux = subs[i].obtener_plan();
-		//couch couch_aux = subs[i].ver_couch_responsable();
-		
-		txt_aux = txt_aux + couch_aux.ver_nombre() + couch_aux.ver_apellido() + " ";
-		txt_aux = txt_aux + plan_aux.ver_nombre_plan() + " ";
-		txt_aux = txt_aux + FechaTexto( subs[i].ver_fecha_pago() ) + "\n" ;
-	}
-	return txt_aux;
-}
-*/
 
 /// Implementación de los metodos para agregar suscripciones
 void cliente::agregar_sub(suscripcion sub){
