@@ -1,6 +1,6 @@
 /**
 *@file Persona.cpp
-*@brief Implementación de los metodos de la clase persona
+*@brief Implementación de los metodos de la clase Persona.
 **/
 
 #include <persona.h>
@@ -22,7 +22,9 @@ persona::persona(std::string nombre, std::string apellido, std::string email,
 	this->direccion = direccion;
 	this->localidad = localidad;
 	this->dni = dni;
-	fecha_nacimiento = ConvertFecha(dia, mes, anio);
+	fecha_nacimiento.dia=dia;
+	fecha_nacimiento.mes=mes;
+	fecha_nacimiento.anio=anio;
 	
 }
 /// Implementación del método que valida los datos
@@ -142,7 +144,9 @@ void persona::modificar_DNI(std::string dni){
 	this->dni = dni;
 }
 void persona::modificar_fecha_nacimiento(int dia, int mes, int anio){
-	fecha_nacimiento = ConvertFecha(dia,mes,anio);
+	fecha_nacimiento.dia=dia;
+	fecha_nacimiento.mes=mes;
+	fecha_nacimiento.anio=anio;
 }
 
 

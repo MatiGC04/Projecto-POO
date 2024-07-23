@@ -1,9 +1,8 @@
-#include "Couch.h"
 /**
-*@file ClienteAndCouch.cpp
-*@brief Implementación de los métodos de la clase couch y la clase cliente
+*@file Couch.cpp
+*@brief Implementación de los métodos de la clase Couch.
 **/
-
+#include "Couch.h"
 #include <Couch.h>
 #include <string>
 #include <cstring>
@@ -27,6 +26,13 @@ std::string couch::ver_alias(){
 	return alias;
 }
 
+void couch::modificar_cbu(std::string cbu){
+	this->cbu=cbu;
+}
+void couch::modificar_alias(std::string alias){
+	this->alias=alias;
+}
+
 /// Implementación del método para guardar un couch en un archivo binario
 void couch::guardar_en_binario(std::ofstream &archivo){
 	registroCouch registro;
@@ -39,9 +45,7 @@ void couch::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.cbu,cbu.c_str());
 	strcpy(registro.alias,alias.c_str());
-	registro.dia_nac = fecha_nacimiento.dia;
-	registro.mes_nac = fecha_nacimiento.mes;
-	registro.anio_nac = fecha_nacimiento.anio;
+	registro.fecha_nac = fecha_nacimiento;
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
 
@@ -58,7 +62,7 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	dni = registro.dni;
 	cbu = registro.cbu;
 	alias = registro.dni;
-	fecha_nacimiento = ConvertFecha(registro.dia_nac, registro.mes_nac, registro.anio_nac);
+	fecha_nacimiento = registro.fecha_nac;
 }
 
 

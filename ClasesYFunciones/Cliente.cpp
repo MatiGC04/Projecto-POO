@@ -1,14 +1,41 @@
+/**
+* @file Cliente.cpp
+* @brief Implementaciones de todo lo necesario para trabajar con la clase Cliente.
+**/
 #include "Cliente.h"
 #include <cstring>
 #include <fstream>
 #include <vector>
+#include "Suscripcion.h"
+#include "Plan.h"
+#include "Couch.h"
 
 /// Implementación del constructor de la clase cliente
-cliente::cliente (std::string nom, std::string ape, std::string mail, std::string sex, 
-					std::string tel, std::string dir, std::string loc,std::string dni, 
-					int dia, int mes, int anio, std::string tel_emergencias): 
-	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes , anio){
+cliente::cliente (std::string nom, std::string ape, std::string mail, 
+				  std::string sex, std::string tel, std::string dir, 
+				  std::string loc, std::string dni, 
+				  int dia, int mes, int anio, std::string tel_emergencias, suscripcion *sub, unsigned cant_subs): 
+	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio){
 	this->tel_emergencias = tel_emergencias;
+	for(unsigned i=0 ; i<cant_subs ; ++i){
+		subs.push_back(*(sub+i));
+	}
+}
+
+std::string cliente::ver_tel_emergencia(){
+	return tel_emergencias;
+}
+
+void cliente::eliminar_sub(int pos){
+	auto it=subs.begin();
+	advance(it, pos);
+	subs.erase(it);
+}
+
+
+/// Implementación de los metodos para agregar suscripciones
+void cliente::agregar_sub(suscripcion sub){
+	subs.push_back(sub);
 }
 
 /// Implementación de los métodos para modificar atributos 
@@ -27,11 +54,7 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.sexo,sexo.c_str());
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.telefono_emergencias,tel_emergencias.c_str());
-	
-	
-	
-	
-	
+	registro.fecha_nac = fecha_nacimiento;
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
 }
 
@@ -48,8 +71,7 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	sexo = registro.sexo;
 	dni = registro.dni;
 	tel_emergencias = registro.telefono_emergencias;
-	
-
+	fecha_nacimiento = registro.fecha_nac;
 }
 
 

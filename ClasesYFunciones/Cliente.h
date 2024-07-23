@@ -1,3 +1,13 @@
+/**
+* @file Cliente.h
+* @brief Implementaciones de todo lo necesario para trabajar con la clase 
+* clase cliente
+*
+* 
+* Este archivo define la clase couch, las funciones auxiliares para
+* compararlas y el struct de registro para poder guardar y leer
+* en archivo binarios
+**/
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
@@ -6,6 +16,7 @@
 #include <Utils.h>
 #include <Couch.h>
 #include <vector>
+#include "Suscripcion.h"
 
 
 /**
@@ -27,8 +38,7 @@ struct registroCliente{
 	char sexo[2];
 	char dni[20];
 	char telefono_emergencias[20];
-	int dia_pago, mes_pago, anio_pago;
-	int dia_nac, mes_nac, anio_nac;
+	fecha fecha_nac;
 };
 
 
@@ -44,24 +54,26 @@ class cliente : public persona{
 private:
 	
 	std::string tel_emergencias;
-	
+	std::vector<suscripcion> subs;
 public:
 	/// Constructor de la clase cliente con sus paramentros por defecto
 	cliente(std::string nombre = "", std::string apellido = "",
 			std::string email = "", std::string sexo = "", std::string telefono = "",
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
-			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
+			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="", suscripcion *sub = nullptr, unsigned cant_subs = 0);
 	
-	///Obtener atributos o datos a partir de atributos
+	/// @brief Metodo para obtener atributo del dato
+	std::string ver_tel_emergencia();
+	
+	/// @brief Metodos para editar o agregar datos 
+	void agregar_sub(suscripcion sub); 
+	void eliminar_sub(int pos); 
+	void modificar_tel_em(std::string tel_em_nuevo); 
 	
 	
-	
-	
-	
-	
-	void modificar_tel_em(std::string tel_em_nuevo); ///< actualiza el numero de emergencia
-	void guardar_en_binario(std::ofstream &archivo) override; ///< guarda los registros del cliente en un binario
-	void leer_en_binario(std::ifstream &archivo) override; ///< lee los registros del cliente desde un binario
+	/// @brief Metodos para registrar los datos de la clase
+	void guardar_en_binario(std::ofstream &archivo) override; 
+	void leer_en_binario(std::ifstream &archivo) override; 
 	
 	
 };

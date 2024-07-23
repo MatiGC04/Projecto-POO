@@ -1,6 +1,6 @@
 /**
 * @file Persona.h
-* @brief Declaracion de la clase persona
+* @brief Declaracion de la clase persona.
 **/
 #ifndef PERSONA_H
 #define PERSONA_H
@@ -17,7 +17,7 @@
 
 class persona{
 protected:
-	/// Atributos de una persona
+	/// @brief Atributos de una persona
 	std::string nombre; 
 	std::string apellido; 
 	std::string email; 
@@ -28,15 +28,15 @@ protected:
 	std::string dni; 
 	fecha fecha_nacimiento;
 public:
-		/// Constructor de la clase persona con sus paramentros por defecto
+		/// @brief Constructor de la clase persona con sus paramentros por defecto
 		persona(std::string nombre = "", std::string apellido = "", std::string email = "", std::string sexo = "", 
 		std::string telefono = "", std::string direccion = "", std::string localidad = "", std::string dni = "",
 		int dia = 0, int mes = 0, int anio = 0); 
 		
-		/// Valida que los datos cargados sean correctos 
+		/// @brief Valida que los datos cargados sean correctos 
 		std::string validar_datos();
 		
-		/// Métodos para obtener los atributos de una persona
+		/// @brief Métodos para obtener los atributos de una persona
 		std::string ver_nombre();
 		std::string ver_apellido();
 		std::string ver_email();
@@ -51,7 +51,7 @@ public:
 		int ver_edad();
 		
 		
-		/// Métodos para modificar los atributos de una persona
+		/// @brief Métodos para modificar los atributos de una persona
 		void modificar_nombre(std::string nom);
 		void modificar_apellido(std::string ape);
 		void modificar_email(std::string mail);
@@ -63,12 +63,10 @@ public:
 		void modificar_fecha_nacimiento(int dia, int mes, int anio);
 		
 		
-		/* lee su registro desde un archivo binario
-		virtual void leer_desde_binario(std::ifstream &archivo);*/
-		/// Método virtual puro que guarda su registro en un archivo binario
+		/// @brief Método virtual puro que guarda su registro en un archivo binario
 		virtual void guardar_en_binario(std::ofstream &archivo)=0;
 		
-		/// Método virtual puro que lee un registro de un archivo binario
+		/// @brief Método virtual puro que lee un registro de un archivo binario
 		virtual void leer_en_binario(std::ifstream &archivo)=0;
 
 };

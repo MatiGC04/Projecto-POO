@@ -1,3 +1,13 @@
+/**
+* @file Couch.h
+* @brief Implementaciones de todo lo necesario para trabajar con la clase 
+* clase couch.
+*
+* 
+* Este archivo define la clase cliente y la clase couch, las funciones
+* auxiliares para compararlas y el struct de registro para poder guardar
+* y leer en archivo binarios
+**/
 #ifndef COUCH_H
 #define COUCH_H
 
@@ -5,19 +15,6 @@
 #include <Persona.h>
 #include <Utils.h>
 #include <vector>
-
-/**
-* @file Couch.h
-* @brief Implementaciones de todo lo necesario para trabajar con la clase 
-* clase couch
-*
-* 
-* Este archivo define la clase cliente y la clase couch, las funciones
-* auxiliares para compararlas y el struct de registro para poder guardar
-* y leer en archivo binarios
-**/
-
-
 
 /**
 * @brief Estructura auxiliar para usar con archivos binarios en la clase couch
@@ -39,7 +36,7 @@ struct registroCouch{
 	char dni[20];
 	char cbu[22];
 	char alias[20];
-	int dia_nac, mes_nac, anio_nac;
+	fecha fecha_nac;
 };
 
 /**
@@ -51,13 +48,13 @@ struct registroCouch{
 
 class couch : public persona{
 private:
-	/// Atributos de couch
+	/// @brief Atributos de couch
 	std::string cbu;
 	std::string alias;
 	
 public:
 	
-	/// Constructor de la clase couch con sus paramentros por defecto
+	/// @brief Constructor de la clase couch con sus paramentros por defecto
 	couch(std::string nombre = "", std::string apellido = "",
 	std::string email = "", std::string sexo = "", std::string telefono = "",
 	std::string direccion = "", std::string localidad = "", std::string dni = "",
@@ -66,14 +63,18 @@ public:
 	
 	
 	
-	/// Métodos para obtener los atributos de couch
+	/// @brief  Métodos para obtener los atributos de couch
 	std::string ver_cbu();
 	std::string ver_alias();
 	
-	/// Método que guarda su registro en un archivo binario
+	/// @brief Metodos para editar cbu y alias del couch
+	void modificar_cbu(std::string cbu);
+	void modificar_alias(std::string alias);
+	
+	/// @brief Método que guarda su registro en un archivo binario
 	void guardar_en_binario(std::ofstream &archivo) override;
 	
-	/// Metodo que lee un registro de un archivo binario
+	/// @brief Metodo que lee un registro de un archivo binario
 	void leer_en_binario(std::ifstream &archivo) override;
 };
 

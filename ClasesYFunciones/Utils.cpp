@@ -19,41 +19,27 @@
 fecha FechaHoy(){
 	time_t hoy = time(nullptr);
 	tm *time = localtime(&hoy);	
-	fecha aux;
-	aux.anio = time->tm_year+1900;
-	aux.mes = time->tm_mon+1;
-	aux.dia = time->tm_mday;
-	aux.time = hoy;
-	return aux;
+	fecha fech_aux;
+	fech_aux.anio = time->tm_year+1900;
+	fech_aux.mes = time->tm_mon+1;
+	fech_aux.dia = time->tm_mday;
+	return fech_aux;
 }
 
-	
-/**
-* Ingresando dia, mes y anio retorna una variable tipo fecha para poder realizar
-* operaciones con ella.
-* La funcion mktime recibe un puntero a tm y utiliza tm_sec, tm_min, tm_hour, 
-* tm_day, tm_mon y tm_year como datos para devolver una variable.
-* @param dia, mes y anio de la fecha
-* @return variable tipo fecha
-**/
-fecha ConvertFecha(int dia, int mes, int anio){
-	time_t hoy= time(nullptr);
+
+//insertar documentacion
+time_t ObtenerTime(fecha fech){
+	time_t hoy = time(nullptr);
 	tm *f=localtime(&hoy);
 	f->tm_sec=0;
 	f->tm_min=0;
 	f->tm_hour=0;
-	f->tm_mday=dia;
-	f->tm_mon=mes-1;
-	f->tm_year=anio-1900;
-	fecha fecha1;
-	fecha1.dia=dia;
-	fecha1.anio=anio;
-	fecha1.mes=mes;
-	fecha1.time=mktime(f);		
-	return fecha1;				
+	f->tm_mday=fech.dia;
+	f->tm_mon=fech.mes-1;
+	f->tm_year=fech.anio-1900;
+	return mktime(f);				
 
 }
-
 	
 /**
 * Funcion para convertir fecha a string
@@ -122,7 +108,8 @@ bool ConfirmacionFecha(fecha f1){
 * @return devuelve un entero, la diferencia de dias entre las fechas
 **/	
 int DifDias(fecha f1, fecha f2){
-	float dif = difftime(f2.time,f1.time);
+	
+	float dif = difftime(ObtenerTime(f2),ObtenerTime(f1));
 	dif = (dif)/(60*60*24);
 	return int(dif);
 }
@@ -130,17 +117,19 @@ int DifDias(fecha f1, fecha f2){
 	
 /**
 * Calcula la fecha de vencimiento del pago abonado agregandole 31 dias a la 
-* fecha en la que pagó.
+* fecha en la que paga.
 * @param dato tipo fecha
 * @return dato tipo fecha
 **/	
 fecha FechaVencimiento(fecha f1){
-	f1.time = f1.time+31*24*60*60;
-	tm *vencimiento = localtime(&f1.time);
-	f1.anio = vencimiento->tm_year+1900;
-	f1.mes = vencimiento->tm_mon+1;
-	f1.dia = vencimiento->tm_mday;
-	return f1;
+	time_t time_pago = ObtenerTime(f1);
+	time_pago = time_pago + 31*24*60*60;
+	tm *vencimiento = localtime(&time_pago);
+	fecha fech_pago;
+	fech_pago.anio = vencimiento->tm_year + 1900;
+	fech_pago.mes = vencimiento->tm_mon + 1;
+	fech_pago.dia = vencimiento->tm_mday;
+	return fech_pago;
 }
 
 	

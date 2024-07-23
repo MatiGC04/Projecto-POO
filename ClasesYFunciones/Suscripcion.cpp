@@ -1,7 +1,17 @@
+/**
+* @file Suscripcion.cpp
+* @brief Implementaciones de todo lo necesario para trabajar con la clase Suscripcion.
+**/
 #include "suscripcion.h"
-suscripcion::suscripcion(cliente c_suscritor, plan p_subscritos, couch responsable){
-	this->c_suscritor = c_suscritor;
-	this->p_subscritos = p_subscritos;
+#include <fstream>
+#include <cstring>
+suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::string dni_cliente){
+	this->p_subscrito = p_subscrito;
+	this->dni_cliente = dni_cliente;
+	this->dni_couch = dni_couch;
+	fecha_pago=FechaHoy();
+	nombre_rutina = FechaTexto(fecha_pago)+"_"+dni_cliente+"_"+p_subscrito;
+	std::ofstream rutina(nombre_rutina);
 }
 
 fecha suscripcion::ver_fecha_pago(){
@@ -35,31 +45,57 @@ bool suscripcion:: chequear_cuota(){
 void suscripcion::pagar_cuota(){
 	fecha_pago=FechaHoy();
 }
-/*
-int suscripcion::ver_precio_suscripcion(){
-	int precio;
-	for( unsigned i=0 ; i<p_subscritos.size() ; ++i ){
-		precio = precio + p_subscritos[i].ver_precio();
-	}
-	return precio;
+
+
+std::string suscripcion::ver_DNI_couch(){
+	return dni_couch;
+}
+std::string suscripcion::ver_DNI_cliente(){
+	return dni_cliente;
+}
+std::string suscripcion::ver_nombre_rutina(){
+	return nombre_rutina;
+}
+std::string suscripcion::ver_nombre_plan(){
+	return p_subscrito;
 }
 
-/*
-void suscripcion::eliminar_plan_sub(std::string nom_plan){ //notar que esta funcion no hace nada si el plan no esta en la subscripcion
-	for( auto it = p_subscritos.begin() ; it != p_subscritos.end() ; ++it ){
-			
-		if( (*it).nombre_plan() == nom_plan ){
-			p_subscritos.erase(it);
-		}
-	}
+void suscripcion::leer_en_binario(std::ifstream &archivo){
+	registroSuscripcion registro;
+	archivo.read(reinterpret_cast<char*>(&registro), sizeof(registro));
+	this->nombre_rutina = registro.nombre_rutina;
+	this->dni_cliente = registro.id_cliente;
+	this->dni_couch = registro.id_couch;
+	this->p_subscrito = registro.id_plan;
+	this->fecha_pago = registro.fecha_pago;
+}
+void suscripcion::guardar_en_binario(std::ofstream &archivo){
+	registroSuscripcion registro;
+	strcpy(registro.nombre_rutina, this->nombre_rutina.c_str());
+	strcpy(registro.id_couch, this->dni_couch.c_str());
+	strcpy(registro.id_cliente, this->dni_cliente.c_str());
+	strcpy(registro.id_plan, this->p_subscrito.c_str());
+	
+	this->fecha_pago = registro.fecha_pago;
+	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registro));
 }
 
-bool suscripcion::plan_en_sub(std::string nom_plan){
-	for( auto it= p_subscritos.begin() ; it != p_subscritos.end() ; ++it ){
-		if((*it).nombre_plan() == nom_plan){
-			return true;
-		}
-	}
-	return false;
+
+//No estoy seguro de si va a servir pero lo programo y dps si no hace falta
+//se descarta, segun yo despues podemos utilizar estas funciones para mandarle
+//un puntero a funcion a sort y que ordene el vector de manage con estos criterios
+
+///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
+///para ordenar por fechas mas recientes deberiamos hacer lo contrario
+bool CriterioFechaPago(suscripcion sub1, suscripcion sub2){	
+	return !(sub1.ver_fecha_pago()<sub2.ver_fecha_pago());
 }
-*/
+bool CriterioDNICouch(suscripcion sub1, suscripcion sub2){
+	return sub1.ver_DNI_couch()<sub2.ver_DNI_couch();
+}
+bool CriterioDNICliente(suscripcion sub1, suscripcion sub2){
+	return sub1.ver_DNI_cliente()<sub2.ver_DNI_cliente();
+}
+bool CriterioNombre(suscripcion sub1, suscripcion sub2){
+	return sub1.ver_nombre_plan()<sub2.ver_nombre_plan();
+}
