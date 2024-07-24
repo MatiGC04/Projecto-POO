@@ -5,13 +5,12 @@
 #include "Plan.h"
 #include <fstream>
 #include <cstring>
-using namespace std;
 
 /// Implementación del constructor de la clase Plan
 plan::plan(std::string nombre, int precio){
 	this->nombre = nombre;
 	this->precio = precio;
-	nombre_rutina_base = "rutina"+nombre+".txt";
+	nombre_rutina_base = "RutinasBases/rutina"+nombre+".txt";
 	std::ofstream rutina_base(nombre_rutina_base);
 }
 
