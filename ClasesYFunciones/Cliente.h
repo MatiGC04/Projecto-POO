@@ -52,22 +52,19 @@ struct registroCliente{
 
 class cliente : public persona{
 private:
-	
 	std::string tel_emergencias;
-	std::vector<suscripcion> subs;
+	
 public:
 	/// Constructor de la clase cliente con sus paramentros por defecto
 	cliente(std::string nombre = "", std::string apellido = "",
 			std::string email = "", std::string sexo = "", std::string telefono = "",
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
-			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="", suscripcion *sub = nullptr, unsigned cant_subs = 0);
+			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
 	
 	/// @brief Metodo para obtener atributo del dato
 	std::string ver_tel_emergencia();
 	
 	/// @brief Metodos para editar o agregar datos 
-	void agregar_sub(suscripcion sub); 
-	void eliminar_sub(int pos); 
 	void modificar_tel_em(std::string tel_em_nuevo); 
 	
 	

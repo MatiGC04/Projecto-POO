@@ -104,6 +104,7 @@ bool manage::guardar() {
 		vector_de_planes[i].guardar_en_binario(archi_suscripciones);
 	}
 	archi_planes.close();
+	
 	return true;
 
 }

@@ -14,29 +14,15 @@
 cliente::cliente (std::string nom, std::string ape, std::string mail, 
 				  std::string sex, std::string tel, std::string dir, 
 				  std::string loc, std::string dni, 
-				  int dia, int mes, int anio, std::string tel_emergencias, suscripcion *sub, unsigned cant_subs): 
+				  int dia, int mes, int anio, std::string tel_emergencias): 
 	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio){
 	this->tel_emergencias = tel_emergencias;
-	for(unsigned i=0 ; i<cant_subs ; ++i){
-		subs.push_back(*(sub+i));
-	}
 }
 
 std::string cliente::ver_tel_emergencia(){
 	return tel_emergencias;
 }
 
-void cliente::eliminar_sub(int pos){
-	auto it=subs.begin();
-	advance(it, pos);
-	subs.erase(it);
-}
-
-
-/// Implementación de los metodos para agregar suscripciones
-void cliente::agregar_sub(suscripcion sub){
-	subs.push_back(sub);
-}
 
 /// Implementación de los métodos para modificar atributos 
 void cliente::modificar_tel_em(std::string tel_em_nuevo){
