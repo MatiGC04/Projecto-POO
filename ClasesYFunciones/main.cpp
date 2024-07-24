@@ -29,8 +29,6 @@ int main (int argc, char *argv[]) {
 	
 	clientes.close();
 	
-	
-	
 	ifstream clientes_2("clientes.dat",ios::binary|ios::in);
 	
 	cliente m2_cliente;
@@ -41,9 +39,25 @@ int main (int argc, char *argv[]) {
 	*/
 	
 	plan m_plan("musculacion",12000);
+	m_plan.agregar_couch("45532124");
+	m_plan.agregar_couch("84422441");
 	
+	ofstream planes("planes.dat",ios::binary|ios::out|ios::app);
+	if(!planes.is_open()){
+		cout<<"No se pudo abrir el arhivo"<<endl;
+	}
+	m_plan.guardar_en_binario(planes);
 	
+	planes.close();
 	
+	ifstream planes_2("planes.dat",ios::binary|ios::in);
+	
+	plan m2_plan;
+	
+	m2_plan.leer_en_binario(planes_2);
+	/*
+	cout<<m2_plan.ver_couch_plan(0);
+	*/
 	
 	return 0;	
 }
