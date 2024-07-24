@@ -75,11 +75,11 @@ void plan::leer_en_binario(std::ifstream &archivo){
 	this->nombre_rutina_base = registro.rutina_base;
 	this->precio = registro.precio;
 	
-	p_couchs.clear(); // asegurarse de que el vector esté vacío antes de
+	p_couchs.erase(p_couchs.begin(), p_couchs.end()); // asegurarse de que el vector esté vacío antes de
 	//agregar elementos
 	
 	for (int i = 0; i < registro.num_couchs; ++i) {
-		std::string id_couch = registro.couchs[i];
+		std::string id_couch(registro.couchs[i],10);
 		p_couchs.push_back(id_couch);
 	}
 	
@@ -92,12 +92,11 @@ void plan::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.rutina_base, this->nombre_rutina_base.c_str());
 	registro.precio = this->precio;
 	
-	
 	registro.num_couchs = p_couchs.size();
 	
-	for (size_t i = 0; i < p_couchs.size(); ++i) {
-		std::strncpy(registro.couchs[i], p_couchs[i].c_str(),
-		sizeof(registro.couchs[i]));
+	
+	for (int i = 0; i < p_couchs.size(); ++i) {
+		std::strcpy(registro.couchs[i], p_couchs[i].c_str());
 	}
 	
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroPlan));
