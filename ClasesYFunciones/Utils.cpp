@@ -50,7 +50,11 @@ std::string FechaTexto(fecha f1){
 	return std::to_string(f1.dia)+"/"+std::to_string(f1.mes)+"/"+
 	std::to_string(f1.anio);
 }
-	
+
+std::string FechaArchivo(fecha f1){
+	return std::to_string(f1.dia)+"_"+std::to_string(f1.mes)+"_"+
+		std::to_string(f1.anio);
+}
 	
 /**
 * Verifica si el anio es biciesto o no

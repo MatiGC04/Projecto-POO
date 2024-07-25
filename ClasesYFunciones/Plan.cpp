@@ -11,8 +11,8 @@
 plan::plan(std::string nombre, int precio){
 	this->nombre = nombre;
 	this->precio = precio;
-	nombre_rutina_base = "RutinasBases/rutina"+nombre+".txt";
-	std::ofstream rutina_base(nombre_rutina_base);
+	nombre_rutina_base = "rutina"+nombre+".txt";
+	std::ofstream rutina_base("RutinasBases/"+nombre_rutina_base);
 }
 
 /**
