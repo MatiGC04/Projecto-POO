@@ -42,10 +42,10 @@ MyFrame2::MyFrame2( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_grid1->SetMargins( 0, 0 );
 
 	// Columns
-	m_grid1->SetColSize( 0, 142 );
+	m_grid1->SetColSize( 0, 172 );
 	m_grid1->SetColSize( 1, 80 );
 	m_grid1->SetColSize( 2, 115 );
-	m_grid1->SetColSize( 3, 164 );
+	m_grid1->SetColSize( 3, 221 );
 	m_grid1->EnableDragColMove( false );
 	m_grid1->EnableDragColSize( true );
 	m_grid1->SetColLabelValue( 0, wxT("Nombre y apellido") );
@@ -53,6 +53,7 @@ MyFrame2::MyFrame2( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_grid1->SetColLabelValue( 2, wxT("Fecha de pago") );
 	m_grid1->SetColLabelValue( 3, wxT("Telefono de emergencias") );
 	m_grid1->SetColLabelValue( 4, wxEmptyString );
+	m_grid1->SetColLabelSize( 30 );
 	m_grid1->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
@@ -65,21 +66,6 @@ MyFrame2::MyFrame2( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	// Cell Defaults
 	m_grid1->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
 	bSizer2->Add( m_grid1, 1, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxTOP|wxBOTTOM, 5 );
-
-	wxBoxSizer* bSizer4;
-	bSizer4 = new wxBoxSizer( wxHORIZONTAL );
-
-	wxBoxSizer* bSizer5;
-	bSizer5 = new wxBoxSizer( wxVERTICAL );
-
-	wxString m_choice1Choices[] = { wxT("Clientes"), wxT("Suscripciones"), wxT("Couchs"), wxT("Planes") };
-	int m_choice1NChoices = sizeof( m_choice1Choices ) / sizeof( wxString );
-	m_choice1 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice1NChoices, m_choice1Choices, 0 );
-	m_choice1->SetSelection( 0 );
-	bSizer5->Add( m_choice1, 0, wxALL, 5 );
-
-
-	bSizer4->Add( bSizer5, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
@@ -94,10 +80,7 @@ MyFrame2::MyFrame2( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer6->Add( m_button3, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer4->Add( bSizer6, 0, wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer2->Add( bSizer4, 0, wxEXPAND, 5 );
+	bSizer2->Add( bSizer6, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer2 );
