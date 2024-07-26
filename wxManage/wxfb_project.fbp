@@ -644,7 +644,7 @@
       <property name="minimum_size"></property>
       <property name="name">BaseClientes</property>
       <property name="pos"></property>
-      <property name="size">607,368</property>
+      <property name="size">722,455</property>
       <property name="style">wxDEFAULT_DIALOG_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
