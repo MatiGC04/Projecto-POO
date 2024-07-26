@@ -1,6 +1,6 @@
 #include "HijaAgregarCouch.h"
 
-HijaAgregarCouch::HijaAgregarCouch(wxWindow *parent) : BaseAgregarCouch(parent) {
+HijaAgregarCouch::HijaAgregarCouch(wxWindow *parent) : MyDialog3(parent) {
 	
 }
 

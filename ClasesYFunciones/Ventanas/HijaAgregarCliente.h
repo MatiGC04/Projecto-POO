@@ -2,7 +2,7 @@
 #define HIJAAGREGARCLIENTE_H
 #include "wxfb_project.h"
 
-class HijaAgregarCliente : public BaseAgregarCliente {
+class HijaAgregarCliente : public MyDialog1 {
 	
 private:
 	

@@ -1,15 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaPresentacion.h"
+#include "WinExample.h"
 
 IMPLEMENT_APP(Application)
-Application::Application(){
-	
-}
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaPresentacion *win = new HijaPresentacion(NULL);
+	WinExample *win = new WinExample(NULL);
 	win->Show();
 	return true;
 }
