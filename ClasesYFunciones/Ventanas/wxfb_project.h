@@ -22,6 +22,7 @@
 #include <wx/icon.h>
 #include <wx/sizer.h>
 #include <wx/grid.h>
+#include <wx/choice.h>
 #include <wx/frame.h>
 #include <wx/dialog.h>
 
@@ -40,13 +41,14 @@ class MyFrame2 : public wxFrame
 		wxTextCtrl* m_textCtrl1;
 		wxButton* m_button2;
 		wxGrid* m_grid1;
+		wxChoice* m_choice1;
 		wxButton* m_button5;
 		wxButton* m_button4;
 		wxButton* m_button3;
 
 	public:
 
-		MyFrame2( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 832,459 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		MyFrame2( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 529,334 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~MyFrame2();
 
