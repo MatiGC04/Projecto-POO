@@ -2,7 +2,7 @@
 #define HIJAAGREGARCOUCH_H
 #include "wxfb_project.h"
 
-class HijaAgregarCouch : public MyDialog3 {
+class HijaAgregarCouch : public BaseAgregarCouch {
 	
 private:
 	
