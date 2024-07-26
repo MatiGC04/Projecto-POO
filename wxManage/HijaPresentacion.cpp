@@ -1,6 +1,6 @@
 #include "HijaPresentacion.h"
 
-HijaPresentacion::HijaPresentacion(wxWindow *parent) : BasePresentacion(parent) {
+HijaPresentacion::HijaPresentacion(manage *aux, wxWindow *parent) : BasePresentacion(parent),m_manage(aux) {
 	
 }
 

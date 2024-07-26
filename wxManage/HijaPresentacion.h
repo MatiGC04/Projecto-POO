@@ -1,15 +1,16 @@
 #ifndef HIJAPRESENTACION_H
 #define HIJAPRESENTACION_H
 #include "wxfb_project.h"
+#include "manage.h"
 
 class HijaPresentacion : public BasePresentacion {
 	
 private:
-	
+	manage *m_manage;
 protected:
 	
 public:
-	HijaPresentacion(wxWindow *parent=NULL);
+	HijaPresentacion(manage *aux,wxWindow *parent=NULL);
 	~HijaPresentacion();
 };
 
