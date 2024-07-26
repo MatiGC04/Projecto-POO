@@ -56,6 +56,8 @@ public:
 	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
 	
+	cliente ObtenerCliente(int pos);
+	
 	/// @brief Ordenar vector (falta)
 };
 #endif

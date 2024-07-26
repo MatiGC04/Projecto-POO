@@ -20,25 +20,25 @@ BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Clientes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap1->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap1->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap1, 0, wxALL, 5 );
 
-	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Coachs.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap2->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap2->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap2, 0, wxALL, 5 );
 
-	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Planes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap3->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap3->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap3, 0, wxALL, 5 );
 
-	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Suscripciones.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap4->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap4->SetMaxSize( wxSize( 200,200 ) );
 
@@ -82,10 +82,22 @@ BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxStr
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickClientes ), NULL, this );
+	m_button3->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickCouchs ), NULL, this );
+	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickPlanes ), NULL, this );
+	m_button5->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickSuscripciones ), NULL, this );
 }
 
 BasePresentacion::~BasePresentacion()
 {
+	// Disconnect Events
+	m_button2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickClientes ), NULL, this );
+	m_button3->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickCouchs ), NULL, this );
+	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickPlanes ), NULL, this );
+	m_button5->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickSuscripciones ), NULL, this );
+
 }
 
 BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -115,30 +127,30 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer8->Add( bSizer9, 0, wxEXPAND, 5 );
 
-	m_grid2 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_grilla_clientes = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grid2->CreateGrid( 5, 5 );
-	m_grid2->EnableEditing( true );
-	m_grid2->EnableGridLines( true );
-	m_grid2->EnableDragGridSize( false );
-	m_grid2->SetMargins( 0, 0 );
+	m_grilla_clientes->CreateGrid( 5, 5 );
+	m_grilla_clientes->EnableEditing( true );
+	m_grilla_clientes->EnableGridLines( true );
+	m_grilla_clientes->EnableDragGridSize( false );
+	m_grilla_clientes->SetMargins( 0, 0 );
 
 	// Columns
-	m_grid2->EnableDragColMove( false );
-	m_grid2->EnableDragColSize( true );
-	m_grid2->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla_clientes->EnableDragColMove( false );
+	m_grilla_clientes->EnableDragColSize( true );
+	m_grilla_clientes->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
-	m_grid2->EnableDragRowSize( true );
-	m_grid2->SetRowLabelSize( 0 );
-	m_grid2->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla_clientes->EnableDragRowSize( true );
+	m_grilla_clientes->SetRowLabelSize( 0 );
+	m_grilla_clientes->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Label Appearance
 
 	// Cell Defaults
-	m_grid2->SetDefaultCellAlignment( wxALIGN_CENTER, wxALIGN_TOP );
-	bSizer8->Add( m_grid2, 1, wxEXPAND|wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_grilla_clientes->SetDefaultCellAlignment( wxALIGN_CENTER, wxALIGN_TOP );
+	bSizer8->Add( m_grilla_clientes, 1, wxEXPAND|wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );

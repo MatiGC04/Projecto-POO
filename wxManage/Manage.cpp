@@ -192,6 +192,9 @@ suscripcion BuscarSub(std::vector<suscripcion>v_suscripcion, std::string cliente
 	return sub;
 }
 
+cliente manage::ObtenerCliente(int pos){
+	return vector_de_clientes[pos];
+}
 
 
 

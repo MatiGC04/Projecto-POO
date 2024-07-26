@@ -8,6 +8,10 @@ class HijaPresentacion : public BasePresentacion {
 private:
 	manage *m_manage;
 protected:
+	void ClickClientes( wxCommandEvent& event )  override;
+	void ClickCouchs( wxCommandEvent& event )  override;
+	void ClickPlanes( wxCommandEvent& event )  override;
+	void ClickSuscripciones( wxCommandEvent& event )  override;
 	
 public:
 	HijaPresentacion(manage *aux,wxWindow *parent=NULL);
