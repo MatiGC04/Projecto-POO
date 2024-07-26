@@ -55,11 +55,6 @@ public:
 	std::string ver_nombre_rutina();
 	std::string ver_nombre_plan();
 	
-	/// @brief Método para obtener el estado actual de la cuota
-	bool chequear_cuota(); 	
-	
-	/// @brief Actualiza la fecha de pago
-	void pagar_cuota(); 	
 	
 	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);

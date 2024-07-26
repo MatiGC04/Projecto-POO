@@ -5,13 +5,14 @@
 #include "Plan.h"
 #include <fstream>
 #include <cstring>
+#include <string>
 
 /// Implementación del constructor de la clase Plan
 plan::plan(std::string nombre, int precio){
 	this->nombre = nombre;
 	this->precio = precio;
-	nombre_rutina_base = "RutinasBases/rutina"+nombre+".txt";
-	std::ofstream rutina_base(nombre_rutina_base);
+	nombre_rutina_base = "rutina"+nombre+".txt";
+	std::ofstream rutina_base("RutinasBases/"+nombre_rutina_base);
 }
 
 /**
@@ -49,11 +50,11 @@ int plan::ver_precio_plan(){
 	return precio;
 }
 
-couch plan::ver_couch_plan(int pos){
+std::string plan::ver_couch_plan(int pos){
 	return p_couchs[pos];
 }
 
-std::vector<couch> plan::ver_couchs_plan(){
+std::vector<std::string> plan::ver_couchs_plan(){
 	return p_couchs;
 }
 
@@ -73,6 +74,15 @@ void plan::leer_en_binario(std::ifstream &archivo){
 	this->nombre = registro.nombre;
 	this->nombre_rutina_base = registro.rutina_base;
 	this->precio = registro.precio;
+	
+	p_couchs.erase(p_couchs.begin(), p_couchs.end()); // asegurarse de que el vector esté vacío antes de
+	//agregar elementos
+	
+	for (int i = 0; i < registro.num_couchs; ++i) {
+		std::string id_couch(registro.couchs[i],10);
+		p_couchs.push_back(id_couch);
+	}
+	
 }
 
 ///Implementación del metódo que guarda el registro en un archivo binario.
@@ -81,8 +91,22 @@ void plan::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.nombre, this->nombre.c_str());
 	strcpy(registro.rutina_base, this->nombre_rutina_base.c_str());
 	registro.precio = this->precio;
+	
+	registro.num_couchs = p_couchs.size();
+	
+	
+	for (int i = 0; i < p_couchs.size(); ++i) {
+		std::strcpy(registro.couchs[i], p_couchs[i].c_str());
+	}
+	
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroPlan));
 }
+
+void plan::agregar_couch(std::string id_couch){
+	p_couchs.push_back(id_couch);
+}
+
+
 
 //No estoy seguro de si va a servir pero lo programo y dps si no hace falta
 //se descarta, segun yo despues podemos utilizar estas funciones para mandarle

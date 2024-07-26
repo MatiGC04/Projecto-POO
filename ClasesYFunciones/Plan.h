@@ -22,19 +22,26 @@
 * dinamicos contienen punteros y lo que en realidad se guardaria seria el
 * puntero y no la informacion a la que apunta. Esta estructura sirve de 
 * intermediaria para guardar y escribir los datos de una persona.
+*
+* Debido al problema de guardar punteros en binario decidimos sobredimensionar
+* un char de couchs para poder guardar el id de estos en binario. Este soporta
+* hasta 31 couchs por plan
 **/
+
 struct registroPlan{
 	char nombre[100];
 	char rutina_base[100];
 	int precio;
+	int num_couchs; //tamaño del vector
+	char couchs[5][10]; //asumiendo un tamaño máximo para los DNIs, por ejemplo,
+	//10 caracteres y un número máximo de 5 couchs
 };
-
 
 class plan {
 private:
 	/// @brief Atributos de la clase Plan
 	std::string nombre;
-	std::vector<couch>p_couchs;
+	std::vector<std::string>p_couchs;
 	std::string nombre_rutina_base;
 	int precio;
 	
@@ -50,14 +57,19 @@ public:
 	
 	/// @brief Métodos para obtener los atributos de una suscripcion
 	int ver_precio_plan();
-	couch ver_couch_plan(int pos);
-	std::vector<couch> ver_couchs_plan(); ///< devuelve el vector completo de couchs
+	std::string ver_couch_plan(int pos);
+	std::vector<std::string> ver_couchs_plan(); ///< devuelve el vector completo de couchs
 	std::string ver_nombre_plan();
 	std::string ver_nombre_rutina();
 	
 	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);
 	void guardar_en_binario(std::ofstream &archivo);
+	
+	void agregar_couch(std::string id_couch);
+	
+	
+	
 };
 
 #endif

@@ -31,6 +31,9 @@ std::time_t ObtenerTime(fecha fech);
 ///@brief Funcion que recibe una fecha y retorna un string en formato dd/mm/aaaa
 std::string FechaTexto(fecha f1);
 
+///@brief Funcion que recibe una fecha y retorna un string para usar en archivos
+std::string FechaArchivo(fecha f1);
+
 ///@brief Funcion que valida si el anio de la fecha recibida es biciesto o no
 bool AnioBiciesto(fecha f1);
 
