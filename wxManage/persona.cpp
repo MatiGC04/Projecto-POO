@@ -3,7 +3,7 @@
 *@brief Implementación de los metodos de la clase Persona.
 **/
 
-#include <persona.h>
+#include "persona.h"
 #include <string>
 #include "Utils.h"
 #include <cstring>
@@ -50,12 +50,6 @@ std:: string persona::validar_datos(){
 	}
 	if (localidad.size()>100){
 		errores+="La localidad es demasiado largo \n";
-	}
-	if (dni.size()>16){
-		errores+="El DNI es demasiado largo \n";
-	}
-	if (dni.size()<6){
-		errores+="El DNI es demasiado corto \n";
 	}
 	if (email.size()>260){
 		errores+="El e-mail es demasiado largo \n";

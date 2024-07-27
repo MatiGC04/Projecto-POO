@@ -19,18 +19,6 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 	this->tel_emergencias = tel_emergencias;
 }
 
-/// Implementacion del constructor de la clase cliente
-std::string cliente::validar_datos_cl(){
-	std::string error=validar_datos();
-	if(tel_emergencias.size()>25){
-		error+="El telefono de emergencias es demaciado largo \n";
-	}if(tel_emergencias==""){
-		error+="El telefono de emergencias esta vacio \n";
-	}
-	return error;
-}
-
-/// Implementacion del metodo para ver el tel de emergencias
 std::string cliente::ver_tel_emergencia(){
 	return tel_emergencias;
 }

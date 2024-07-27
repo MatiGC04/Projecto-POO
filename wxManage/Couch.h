@@ -12,8 +12,8 @@
 #define COUCH_H
 
 #include <string>
-#include <Persona.h>
-#include <Utils.h>
+#include "Persona.h"
+#include "Utils.h"
 #include <vector>
 
 /**
@@ -61,8 +61,7 @@ public:
 	int dia = 0, int mes = 0, int anio = 0, std::string _cbu = "",
 	std::string _alias = "");
 	
-	/// @brief Metodo que validar que cbu y alias esten ingresados correctamente
-	std::string validar_datos_ch();
+	
 	
 	/// @brief  Métodos para obtener los atributos de couch
 	std::string ver_cbu();
