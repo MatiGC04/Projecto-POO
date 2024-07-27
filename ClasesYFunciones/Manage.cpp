@@ -180,6 +180,11 @@ std::string manage::planesSuscritos(std::string dni_cliente){
 cliente manage::obtenerCliente(int pos){
 	return vector_de_clientes[pos];
 }
+
+couch manage::obtenerCouch(int pos){
+	return vector_de_couchs[pos];
+}
+
 suscripcion manage::obtenerSuscripcion(int pos){
 	return vector_de_suscripciones[pos];
 }

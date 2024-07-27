@@ -402,7 +402,7 @@ BasePresentacion::~BasePresentacion()
 
 }
 
-BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
@@ -429,30 +429,40 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 
 	bSizer8->Add( bSizer9, 0, wxEXPAND, 5 );
 
-	m_grid2 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_grilla_couchs = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grid2->CreateGrid( 5, 5 );
-	m_grid2->EnableEditing( true );
-	m_grid2->EnableGridLines( true );
-	m_grid2->EnableDragGridSize( false );
-	m_grid2->SetMargins( 0, 0 );
+	m_grilla_couchs->CreateGrid( 5, 5 );
+	m_grilla_couchs->EnableEditing( true );
+	m_grilla_couchs->EnableGridLines( true );
+	m_grilla_couchs->EnableDragGridSize( false );
+	m_grilla_couchs->SetMargins( 0, 0 );
 
 	// Columns
-	m_grid2->EnableDragColMove( false );
-	m_grid2->EnableDragColSize( true );
-	m_grid2->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla_couchs->SetColSize( 0, 152 );
+	m_grilla_couchs->SetColSize( 1, 80 );
+	m_grilla_couchs->SetColSize( 2, 80 );
+	m_grilla_couchs->SetColSize( 3, 80 );
+	m_grilla_couchs->SetColSize( 4, 80 );
+	m_grilla_couchs->EnableDragColMove( false );
+	m_grilla_couchs->EnableDragColSize( true );
+	m_grilla_couchs->SetColLabelValue( 0, wxT("Nombre y Apellido") );
+	m_grilla_couchs->SetColLabelValue( 1, wxT("DNI") );
+	m_grilla_couchs->SetColLabelValue( 2, wxT("Email") );
+	m_grilla_couchs->SetColLabelValue( 3, wxT("CBU") );
+	m_grilla_couchs->SetColLabelValue( 4, wxT("Alias") );
+	m_grilla_couchs->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
-	m_grid2->EnableDragRowSize( true );
-	m_grid2->SetRowLabelSize( 0 );
-	m_grid2->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla_couchs->EnableDragRowSize( true );
+	m_grilla_couchs->SetRowLabelSize( 0 );
+	m_grilla_couchs->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Label Appearance
 
 	// Cell Defaults
-	m_grid2->SetDefaultCellAlignment( wxALIGN_CENTER, wxALIGN_TOP );
-	bSizer8->Add( m_grid2, 1, wxEXPAND|wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL, 5 );
+	m_grilla_couchs->SetDefaultCellAlignment( wxALIGN_CENTER, wxALIGN_TOP );
+	bSizer8->Add( m_grilla_couchs, 1, wxALL|wxEXPAND|wxTOP, 5 );
 
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );

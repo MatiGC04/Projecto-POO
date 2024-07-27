@@ -56,7 +56,9 @@ public:
 	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
 	
+	/// @brief Metodos para retornar el objeto de la posicion indicada
 	cliente obtenerCliente(int pos);
+	couch obtenerCouch(int pos);
 	suscripcion obtenerSuscripcion(int pos);
 	
 	

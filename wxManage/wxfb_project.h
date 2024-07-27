@@ -145,7 +145,7 @@ class BasePresentacion : public wxFrame
 ///////////////////////////////////////////////////////////////////////////////
 /// Class BaseCouchs
 ///////////////////////////////////////////////////////////////////////////////
-class BaseCouchs : public wxDialog
+class BaseCouchs : public wxFrame
 {
 	private:
 
@@ -154,14 +154,14 @@ class BaseCouchs : public wxDialog
 		wxStaticText* m_staticText2;
 		wxTextCtrl* m_textCtrl2;
 		wxButton* m_button7;
-		wxGrid* m_grid2;
+		wxGrid* m_grilla_couchs;
 		wxButton* m_button9;
 		wxButton* m_button10;
 		wxButton* m_button8;
 
 	public:
 
-		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 563,397 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseCouchs();
 
