@@ -5,6 +5,7 @@
 #include "suscripcion.h"
 #include <fstream>
 #include <cstring>
+#include "Utils.h"
 suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::string dni_cliente){
 	this->p_subscrito = p_subscrito;
 	this->dni_cliente = dni_cliente;
@@ -61,10 +62,14 @@ void suscripcion::guardar_en_binario(std::ofstream &archivo){
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroSuscripcion));
 }
 
+bool suscripcion::estado_suscripcion(){
+	if(FechaVencimiento(fecha_pago) < FechaHoy()){
+		return false;
+	}else{
+		return true;
+	}
+}
 
-//No estoy seguro de si va a servir pero lo programo y dps si no hace falta
-//se descarta, segun yo despues podemos utilizar estas funciones para mandarle
-//un puntero a funcion a sort y que ordene el vector de manage con estos criterios
 
 ///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
 ///para ordenar por fechas mas recientes deberiamos hacer lo contrario

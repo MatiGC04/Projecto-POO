@@ -7,6 +7,7 @@
 #include <ctime>
 #include "Suscripcion.h"
 #include <fstream>
+#include "manage.h"
 using namespace std;
 /**(std::string nom, std::string ape, std::string mail, 
 std::string sex, std::string tel, std::string dir, 
@@ -16,6 +17,41 @@ persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio)*/
 
 
 int main (int argc, char *argv[]) {
+	/*
+	int x=1;
+	std::string plan;
+	std::string dni_coach;
+	std::string dni_client;
+	
+	ofstream suscripciones("suscripciones.dat",ios::binary|ios::out|ios::app);
+	if(!suscripciones.is_open()){
+		cout<<"No se pudo abrir el arhivo"<<endl;
+	}
+	
+	while(x != 0){
+		
+		cout<<"Agregar suscripcion: "<<endl;
+		
+		cout<<"Plan: "; cin>>plan; cout<<"Dni_coach: "; cin>>dni_coach; cout<<"Dni_client: "; cin>>dni_client;
+		
+		suscripcion sus(plan,dni_coach,dni_client);
+		
+		sus.guardar_en_binario(suscripciones);
+		
+		cout<<"Si quiere salir aprete 0: "; cin>>x;
+	}	
+	*/
+	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
+	
+	for(int i=0;i<mister_manage.cantidadSuscripciones();i++){
+		cout<<"Plan: "<<mister_manage.obtenerSuscripcion(i).ver_nombre_plan()<<endl;
+		cout<<"Dni_coach: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_couch()<<endl;
+		cout<<"Dni_client: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_cliente()<<endl;
+	}
+	
+	cout<<endl<<endl<<endl;
+	
+	cout<<mister_manage.planesSuscritos("44556041");
 	
 	return 0;	
 }

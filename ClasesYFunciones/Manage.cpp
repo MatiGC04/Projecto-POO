@@ -5,6 +5,8 @@
 #include <Manage.h>
 #include <fstream>
 #include <vector>
+#include <iomanip>
+using namespace std;
 
 manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_clientes, std::string nombre_archivo_suscripciones, std::string nombre_archivo_planes){
 	
@@ -158,6 +160,30 @@ void manage::borrarPlan(int pos){
 void manage::borrarSuscripcion(int pos){
 	vector_de_suscripciones.erase(vector_de_suscripciones.begin()+pos);
 }
+
+
+std::string manage::planesSuscritos(std::string dni_cliente){
+	
+	std::string planes = "";
+		
+	for(int i = 0;i < vector_de_suscripciones.size();i++) { 
+		
+		if(vector_de_suscripciones[i].ver_DNI_cliente() == dni_cliente && vector_de_suscripciones[i].estado_suscripcion()){
+			planes += vector_de_suscripciones[i].ver_nombre_plan() + " ";
+		}
+		
+	}
+	
+	return planes;
+}
+
+cliente manage::obtenerCliente(int pos){
+	return vector_de_clientes[pos];
+}
+suscripcion manage::obtenerSuscripcion(int pos){
+	return vector_de_suscripciones[pos];
+}
+
 
 
 couch BuscarDNI(std::vector<couch> v_couch, std::string DNI){

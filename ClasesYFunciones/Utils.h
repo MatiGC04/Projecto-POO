@@ -49,6 +49,10 @@ fecha FechaVencimiento(fecha f1);
 ///@brief Funcion encargada de validar si una fecha es menor que otra
 bool operator<(fecha f1, fecha f2);
 
+/*
+///@brief Funcion encargada de validar si una fecha es menor o igual que otra
+bool operator<=(fecha f1, fecha f2);*/
+
 ///@brief Funcion encargada de validar si una fecha es igual a otra
 bool operator==(fecha f1,fecha f2);
 

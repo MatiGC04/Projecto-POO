@@ -56,6 +56,10 @@ public:
 	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
 	
-	/// @brief Ordenar vector (falta)
+	cliente obtenerCliente(int pos);
+	suscripcion obtenerSuscripcion(int pos);
+	
+	
+	std::string planesSuscritos(std::string dni_cliente);
 };
 #endif

@@ -155,6 +155,9 @@ bool operator<(fecha f1, fecha f2){
 }
 
 
+
+
+
 /**
 * Sobrecarga del operador igual
 * @param datos tipo fecha
