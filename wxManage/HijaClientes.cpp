@@ -1,6 +1,8 @@
 #include "HijaClientes.h"
 #include "string_conv.h"
 #include "HijaClientesAgregar.h"
+#include <wx/wx.h>
+#include <wx/msgdlg.h>
 
 HijaClientes::HijaClientes(manage *aux,wxWindow *parent) : BaseClientes(parent), m_manage(aux) {
 	int cant_clientes=m_manage->cantidadCliente();
@@ -33,12 +35,16 @@ void HijaClientes::ClickSalirClientes( wxCommandEvent& event )  {
 void HijaClientes::ClickAgregar( wxCommandEvent& event )  {
 	HijaClientesAgregar nueva_ventana(m_manage,this);
 	if(nueva_ventana.ShowModal()==1){
-		
+		m_grilla_clientes->AppendRows(1); 
+		int pos_nuevo = m_manage->cantidadCliente()-1;
+		CargarFila(pos_nuevo);
+		m_grilla_clientes->SetGridCursor(pos_nuevo,0); 
+		m_grilla_clientes->SelectRow(pos_nuevo);
 	}
-	else{
-		
-	}
+
 }
+
+
 ///Todavia no se que hace, codigo adaptado del de novara
 void HijaClientes::ClickTamanio( wxSizeEvent& event )  {
 	// si cambia el tamanio de la ventana, estira los anchos de las columnas 
@@ -56,5 +62,15 @@ void HijaClientes::ClickTamanio( wxSizeEvent& event )  {
 	m_grilla_clientes->EndBatch();
 }
 
+
+void HijaClientes::ClickEliminar( wxCommandEvent& event )  {
+	int fila_actual = m_grilla_clientes->GetGridCursorRow();
+	int res = wxMessageBox(c_to_wx("¿Eliminar el registro?"), m_grilla_clientes->GetCellValue(fila_actual,0),wxYES_NO);
+	if(res==wxYES){
+		m_grilla_clientes->DeleteRows(fila_actual,1);
+		m_manage->borrarCliente(fila_actual);
+		m_manage->guardar();
+	}
+}
 
 

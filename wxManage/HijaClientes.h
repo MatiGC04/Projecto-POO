@@ -8,6 +8,9 @@ class HijaClientes : public BaseClientes {
 private:
 	manage *m_manage;
 protected:
+	//void ClickCancelarRegistro( wxCommandEvent& event )  override; no se por que los sigue creando a estos dos
+	//void ClickAceptarRegistro( wxCommandEvent& event )  override;
+	void ClickEliminar( wxCommandEvent& event )  override;
 	void ClickAgregar( wxCommandEvent& event )  override;
 	void ClickTamanio( wxSizeEvent& event )  override;
 	void ClickSalirClientes( wxCommandEvent& event )  override;

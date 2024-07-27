@@ -23,8 +23,8 @@
 #include <wx/sizer.h>
 #include <wx/grid.h>
 #include <wx/frame.h>
-#include <wx/statbmp.h>
 #include <wx/dialog.h>
+#include <wx/statbmp.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -49,6 +49,7 @@ class BaseClientes : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
 		virtual void ClickSalirClientes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -57,6 +58,55 @@ class BaseClientes : public wxFrame
 		BaseClientes( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,361 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseClientes();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseClientesAgregar
+///////////////////////////////////////////////////////////////////////////////
+class BaseClientesAgregar : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText12;
+		wxStaticText* m_staticText13;
+		wxTextCtrl* m_nombre;
+		wxStaticText* m_staticText131;
+		wxTextCtrl* m_apellido;
+		wxStaticText* m_staticText1311;
+		wxTextCtrl* m_DNI;
+		wxStaticText* m_staticText13111;
+		wxTextCtrl* m_sexo;
+		wxStaticText* m_staticText13112;
+		wxTextCtrl* m_mail;
+		wxStaticText* m_staticText13113;
+		wxTextCtrl* m_telefono;
+		wxStaticText* m_staticText132;
+		wxTextCtrl* m_localidad;
+		wxStaticText* m_staticText13114;
+		wxTextCtrl* m_direccion;
+		wxStaticText* m_staticText131141;
+		wxTextCtrl* m_telefono2;
+		wxStaticText* m_staticText131142;
+		wxTextCtrl* m_dia;
+		wxStaticText* m_staticText53;
+		wxTextCtrl* m_mes;
+		wxStaticText* m_staticText54;
+		wxTextCtrl* m_anio;
+		wxButton* m_button24;
+		wxButton* m_button23;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickCancelarRegistro( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAceptarRegistro( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BaseClientesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 690,450 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BaseClientesAgregar();
 
 };
 
@@ -114,48 +164,6 @@ class BaseCouchs : public wxDialog
 		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 563,397 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseCouchs();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BaseClientesAgregar
-///////////////////////////////////////////////////////////////////////////////
-class BaseClientesAgregar : public wxDialog
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText12;
-		wxStaticText* m_staticText13;
-		wxTextCtrl* m_textCtrl6;
-		wxStaticText* m_staticText131;
-		wxTextCtrl* m_textCtrl61;
-		wxStaticText* m_staticText1311;
-		wxTextCtrl* m_textCtrl611;
-		wxStaticText* m_staticText13111;
-		wxTextCtrl* m_textCtrl6111;
-		wxStaticText* m_staticText13112;
-		wxTextCtrl* m_textCtrl6112;
-		wxStaticText* m_staticText13113;
-		wxTextCtrl* m_textCtrl6113;
-		wxStaticText* m_staticText13114;
-		wxTextCtrl* m_textCtrl6114;
-		wxStaticText* m_staticText131141;
-		wxTextCtrl* m_textCtrl61141;
-		wxStaticText* m_staticText131142;
-		wxTextCtrl* m_textCtrl61142;
-		wxStaticText* m_staticText53;
-		wxTextCtrl* m_textCtrl43;
-		wxStaticText* m_staticText54;
-		wxTextCtrl* m_textCtrl44;
-		wxButton* m_button24;
-		wxButton* m_button23;
-
-	public:
-
-		BaseClientesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 690,450 ), long style = wxDEFAULT_DIALOG_STYLE );
-
-		~BaseClientesAgregar();
 
 };
 

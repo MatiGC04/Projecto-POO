@@ -8,6 +8,8 @@ class HijaClientesAgregar : public BaseClientesAgregar {
 private:
 	manage *m_manage;
 protected:
+	void ClickCancelarRegistro( wxCommandEvent& event )  override;
+	void ClickAceptarRegistro( wxCommandEvent& event )  override;
 	
 public:
 	HijaClientesAgregar(manage *aux, wxWindow *parent=NULL);
