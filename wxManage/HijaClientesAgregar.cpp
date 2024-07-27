@@ -1,6 +1,6 @@
 #include "HijaClientesAgregar.h"
 
-HijaClientesAgregar::HijaClientesAgregar(wxWindow *parent) : BaseClientesAgregar(parent) {
+HijaClientesAgregar::HijaClientesAgregar(manage *aux, wxWindow *parent) : BaseClientesAgregar(parent), m_manage(aux) {
 	
 }
 

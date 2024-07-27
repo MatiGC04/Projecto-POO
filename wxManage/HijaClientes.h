@@ -8,6 +8,7 @@ class HijaClientes : public BaseClientes {
 private:
 	manage *m_manage;
 protected:
+	void ClickAgregar( wxCommandEvent& event )  override;
 	void ClickTamanio( wxSizeEvent& event )  override;
 	void ClickSalirClientes( wxCommandEvent& event )  override;
 	

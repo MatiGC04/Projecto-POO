@@ -50,7 +50,7 @@
       <property name="minimum_size"></property>
       <property name="name">BaseClientes</property>
       <property name="pos"></property>
-      <property name="size">579,361</property>
+      <property name="size">660,361</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
@@ -368,10 +368,10 @@
             <property name="close_button">1</property>
             <property name="col_label_horiz_alignment">wxALIGN_CENTER</property>
             <property name="col_label_size">30</property>
-            <property name="col_label_values">&quot;Apellido y nombre&quot; &quot;DNI&quot; &quot;Fecha de pago&quot; &quot;Telefono de emergencias&quot;</property>
+            <property name="col_label_values">&quot;Apellido y nombre&quot; &quot;DNI&quot; &quot;Email&quot; &quot;Planes suscritos&quot; &quot;Telefono de emergencias&quot;</property>
             <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
-            <property name="cols">4</property>
-            <property name="column_sizes">182,93,111,172</property>
+            <property name="cols">5</property>
+            <property name="column_sizes">145,74,132,136,153</property>
             <property name="context_help"></property>
             <property name="context_menu">1</property>
             <property name="default_pane">0</property>
@@ -753,6 +753,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
+                    <event name="OnButtonClick">ClickAgregar</event>
                   </object>
                 </object>
               </object>

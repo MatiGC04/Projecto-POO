@@ -39,23 +39,25 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_grilla_clientes = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grilla_clientes->CreateGrid( 0, 4 );
+	m_grilla_clientes->CreateGrid( 0, 5 );
 	m_grilla_clientes->EnableEditing( false );
 	m_grilla_clientes->EnableGridLines( true );
 	m_grilla_clientes->EnableDragGridSize( false );
 	m_grilla_clientes->SetMargins( 0, 0 );
 
 	// Columns
-	m_grilla_clientes->SetColSize( 0, 182 );
-	m_grilla_clientes->SetColSize( 1, 93 );
-	m_grilla_clientes->SetColSize( 2, 111 );
-	m_grilla_clientes->SetColSize( 3, 172 );
+	m_grilla_clientes->SetColSize( 0, 145 );
+	m_grilla_clientes->SetColSize( 1, 74 );
+	m_grilla_clientes->SetColSize( 2, 132 );
+	m_grilla_clientes->SetColSize( 3, 136 );
+	m_grilla_clientes->SetColSize( 4, 153 );
 	m_grilla_clientes->EnableDragColMove( false );
 	m_grilla_clientes->EnableDragColSize( true );
 	m_grilla_clientes->SetColLabelValue( 0, wxT("Apellido y nombre") );
 	m_grilla_clientes->SetColLabelValue( 1, wxT("DNI") );
-	m_grilla_clientes->SetColLabelValue( 2, wxT("Fecha de pago") );
-	m_grilla_clientes->SetColLabelValue( 3, wxT("Telefono de emergencias") );
+	m_grilla_clientes->SetColLabelValue( 2, wxT("Email") );
+	m_grilla_clientes->SetColLabelValue( 3, wxT("Planes suscritos") );
+	m_grilla_clientes->SetColLabelValue( 4, wxT("Telefono de emergencias") );
 	m_grilla_clientes->SetColLabelSize( 30 );
 	m_grilla_clientes->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
@@ -109,6 +111,7 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 	// Connect Events
 	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseClientes::ClickTamanio ) );
 	m_button33->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
+	m_button8->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickAgregar ), NULL, this );
 }
 
 BaseClientes::~BaseClientes()
@@ -116,6 +119,7 @@ BaseClientes::~BaseClientes()
 	// Disconnect Events
 	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseClientes::ClickTamanio ) );
 	m_button33->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
+	m_button8->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickAgregar ), NULL, this );
 
 }
 
