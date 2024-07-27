@@ -2,7 +2,6 @@
 #include "HijaClientes.h"
 
 HijaPresentacion::HijaPresentacion(manage *aux, wxWindow *parent) : BasePresentacion(parent), m_manage(aux){
-	
 }
 
 HijaPresentacion::~HijaPresentacion() {
@@ -10,9 +9,8 @@ HijaPresentacion::~HijaPresentacion() {
 }
 
 void HijaPresentacion::ClickClientes( wxCommandEvent& event )  {
-	HijaClientes nueva_ventana(m_manage,this);
-	
-	event.Skip();
+	HijaClientes *nueva_ventana=new HijaClientes(m_manage,this);
+	nueva_ventana->Show();
 }
 
 void HijaPresentacion::ClickCouchs( wxCommandEvent& event )  {
@@ -26,4 +24,5 @@ void HijaPresentacion::ClickPlanes( wxCommandEvent& event )  {
 void HijaPresentacion::ClickSuscripciones( wxCommandEvent& event )  {
 	event.Skip();
 }
+
 

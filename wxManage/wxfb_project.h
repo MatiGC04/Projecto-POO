@@ -9,24 +9,55 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
-#include <wx/icon.h>
-#include <wx/statbmp.h>
+#include <wx/string.h>
+#include <wx/stattext.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
-#include <wx/string.h>
-#include <wx/sizer.h>
-#include <wx/button.h>
-#include <wx/frame.h>
-#include <wx/stattext.h>
 #include <wx/textctrl.h>
+#include <wx/button.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
+#include <wx/sizer.h>
 #include <wx/grid.h>
+#include <wx/frame.h>
+#include <wx/statbmp.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseClientes
+///////////////////////////////////////////////////////////////////////////////
+class BaseClientes : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText6;
+		wxStaticText* m_staticText2;
+		wxTextCtrl* m_textCtrl2;
+		wxButton* m_button7;
+		wxGrid* m_grilla_clientes;
+		wxButton* m_button33;
+		wxButton* m_button9;
+		wxButton* m_button10;
+		wxButton* m_button8;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
+		virtual void ClickSalirClientes( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BaseClientes( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 579,361 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseClientes();
+
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class BasePresentacion
@@ -57,31 +88,6 @@ class BasePresentacion : public wxFrame
 		BasePresentacion( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1183,492 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BasePresentacion();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BaseClientes
-///////////////////////////////////////////////////////////////////////////////
-class BaseClientes : public wxDialog
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText6;
-		wxStaticText* m_staticText2;
-		wxTextCtrl* m_textCtrl2;
-		wxButton* m_button7;
-		wxGrid* m_grilla_clientes;
-		wxButton* m_button9;
-		wxButton* m_button10;
-		wxButton* m_button8;
-
-	public:
-
-		BaseClientes( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 607,368 ), long style = wxDEFAULT_DIALOG_STYLE );
-
-		~BaseClientes();
 
 };
 

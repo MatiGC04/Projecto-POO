@@ -9,7 +9,7 @@ Application::Application():m_manage("couchs.dat","clientes.dat","suscripciones.d
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaPresentacion *win = new HijaPresentacion(NULL);
+	HijaPresentacion *win = new HijaPresentacion(&m_manage,NULL);
 	win->Show();
 	return true;
 }
