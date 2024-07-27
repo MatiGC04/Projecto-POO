@@ -55,6 +55,7 @@ public:
 	std::string ver_nombre_rutina();
 	std::string ver_nombre_plan();
 	
+	bool estado_suscripcion();
 	
 	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);

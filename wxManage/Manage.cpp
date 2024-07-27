@@ -196,7 +196,33 @@ cliente manage::ObtenerCliente(int pos){
 	return vector_de_clientes[pos];
 }
 
+suscripcion manage::obtenerSuscripcion(int pos){
+	return vector_de_suscripciones[pos];
+}
 
+couch manage::obtenerCouch(int pos){
+	return vector_de_couchs[pos];
+}
+
+plan manage::obtenerPlan(int pos){
+	return vector_de_planes[pos];
+}
+
+
+std::string manage::planesSuscritos(std::string dni_cliente){
+	
+	std::string planes = "";
+	
+	for(int i = 0;i < vector_de_suscripciones.size();i++) { 
+		
+		if(vector_de_suscripciones[i].ver_DNI_cliente() == dni_cliente && vector_de_suscripciones[i].estado_suscripcion()){
+			planes += vector_de_suscripciones[i].ver_nombre_plan() + " ";
+		}
+		
+	}
+	
+	return planes;
+}
 
 
 

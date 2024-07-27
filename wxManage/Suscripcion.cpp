@@ -61,6 +61,13 @@ void suscripcion::guardar_en_binario(std::ofstream &archivo){
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroSuscripcion));
 }
 
+bool suscripcion::estado_suscripcion(){
+	if(FechaVencimiento(fecha_pago) < FechaHoy()){
+		return false;
+	}else{
+		return true;
+	}
+}
 
 //No estoy seguro de si va a servir pero lo programo y dps si no hace falta
 //se descarta, segun yo despues podemos utilizar estas funciones para mandarle
