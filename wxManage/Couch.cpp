@@ -3,6 +3,7 @@
 *@brief Implementación de los métodos de la clase Couch.
 **/
 #include "Couch.h"
+#include <Couch.h>
 #include <string>
 #include <cstring>
 #include <fstream>
@@ -17,6 +18,18 @@ couch::couch(std::string nom, std::string ape, std::string mail, std::string sex
 	alias=_alias;
 }
 
+std::string couch::validar_datos_ch(){
+	std::string errores=validar_datos();
+	if(cbu.size()>22){
+		errores+="El cbu es demaciado largo \n";
+	}
+	if(alias.size()>20){
+		errores+="El alias es demaciado largo \n";
+	}
+	if(alias.size()<6){
+		errores+="El alias es demaciado corto \n";
+	}
+}
 /// Implementación de los métodos para obtener los atributos de couch
 std::string couch::ver_cbu(){
 	return cbu;
