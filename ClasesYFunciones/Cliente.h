@@ -12,7 +12,7 @@
 #define CLIENTE_H
 
 #include <string>
-#include <Persona.h>
+#include "Persona.h"
 #include <Utils.h>
 #include <Couch.h>
 #include <vector>
@@ -60,6 +60,9 @@ public:
 			std::string email = "", std::string sexo = "", std::string telefono = "",
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
+	
+	/// @brief Metodo que validar que el telefono de emergencia es valido
+	std::string validar_datos_cl();
 	
 	/// @brief Metodo para obtener atributo del dato
 	std::string ver_tel_emergencia();
