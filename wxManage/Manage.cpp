@@ -160,34 +160,36 @@ void manage::borrarSuscripcion(int pos){
 }
 
 
-couch BuscarDNI(std::vector<couch> v_couch, std::string DNI){
+couch manage::buscarCouchsDNI(std::string DNI, int pos){
 	couch ch;
-	for(couch aux : v_couch){
-		if(aux.ver_DNI()==DNI) return aux;
+	for(int i=pos; i<vector_de_couchs.size(); i++){
+		if(vector_de_couchs[i].ver_DNI()==DNI) return vector_de_couchs[i];
 	}
 	return ch;
 }
 
-cliente BuscarDNI(std::vector<cliente> v_cliente, std::string DNI){
+cliente manage::buscarClientesDNI(std::string DNI, int pos){
 	cliente cl;
-	for(cliente aux : v_cliente){
-		if(aux.ver_DNI()==DNI) return aux;
+	for(int i=pos; i<vector_de_clientes.size(); i++){
+		if(vector_de_clientes[i].ver_DNI()==DNI) return vector_de_clientes[i];
 	}
 	return cl;
 }
 
-plan BuscarPlan(std::vector<plan> v_plan, std::string nombre){
+plan manage::buscarPlanNombre(std::string nombre, int pos){
 	plan pl;
-	for(plan aux : v_plan){
-		if(aux.ver_nombre_plan()==nombre) return aux;
+	
+	for(int i=pos; i<vector_de_planes.size(); i++){
+		if(vector_de_planes[i].ver_nombre_plan()==nombre) return vector_de_planes[i];
 	}
 	return pl;
 }
 	
-suscripcion BuscarSub(std::vector<suscripcion>v_suscripcion, std::string cliente_DNI, std::string nombre_plan){
+suscripcion manage::buscarSub(std::string cliente_DNI, std::string nombre_plan, int pos){
 	suscripcion sub;
-	for(suscripcion aux : v_suscripcion){
-		if(aux.ver_nombre_plan()==nombre_plan and aux.ver_DNI_cliente()==cliente_DNI) return aux;
+	for(int i=pos; i<vector_de_suscripciones.size(); i++){
+		if(vector_de_suscripciones[i].ver_nombre_plan()==nombre_plan 
+		and vector_de_suscripciones[i].ver_DNI_cliente()==cliente_DNI) return vector_de_suscripciones[i];
 	}
 	return sub;
 }

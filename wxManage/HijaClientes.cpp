@@ -85,3 +85,7 @@ void HijaClientes::ClickEditar( wxCommandEvent& event )  {
 }
 
 
+void HijaClientes::ClickBuscar( wxCommandEvent& event )  {
+	event.Skip();
+}
+

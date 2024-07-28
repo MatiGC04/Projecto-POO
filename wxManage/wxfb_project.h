@@ -70,7 +70,7 @@ class BaseClientes : public wxFrame
 	protected:
 		wxStaticText* m_staticText6;
 		wxStaticText* m_staticText2;
-		wxTextCtrl* m_textCtrl2;
+		wxTextCtrl* m_buscar;
 		wxButton* m_button7;
 		wxGrid* m_grilla_clientes;
 		wxButton* m_button33;
@@ -80,6 +80,7 @@ class BaseClientes : public wxFrame
 
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
+		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickSalirClientes( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }

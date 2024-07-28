@@ -118,8 +118,8 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText2->Wrap( -1 );
 	bSizer9->Add( m_staticText2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_textCtrl2, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_buscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer9->Add( m_buscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_button7 = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer9->Add( m_button7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
@@ -201,6 +201,7 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	// Connect Events
 	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseClientes::ClickTamanio ) );
+	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickBuscar ), NULL, this );
 	m_button33->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
 	m_button9->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEditar ), NULL, this );
 	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEliminar ), NULL, this );
@@ -211,6 +212,7 @@ BaseClientes::~BaseClientes()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseClientes::ClickTamanio ) );
+	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickBuscar ), NULL, this );
 	m_button33->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
 	m_button9->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEditar ), NULL, this );
 	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEliminar ), NULL, this );

@@ -56,6 +56,10 @@ public:
 	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
 	
+	cliente buscarClientesDNI(std::string DNI, int pos=0);
+	couch buscarCouchsDNI(std::string DNI, int pos=0);
+	plan buscarPlanNombre(std::string DNI, int pos=0);
+	suscripcion buscarSub(std::string DNI, std::string nombre_plan, int pos=0);
 	
 	
 	cliente &ObtenerCliente(int pos);
