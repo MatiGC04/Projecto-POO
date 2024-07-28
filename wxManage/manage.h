@@ -58,10 +58,10 @@ public:
 	
 	
 	
-	cliente ObtenerCliente(int pos);
-	suscripcion obtenerSuscripcion(int pos);
-	couch obtenerCouch(int pos);
-	plan obtenerPlan(int plan);
+	cliente &ObtenerCliente(int pos);
+	suscripcion &obtenerSuscripcion(int pos);
+	couch &obtenerCouch(int pos);
+	plan &obtenerPlan(int plan);
 	
 	std::string planesSuscritos(std::string dni_cliente);
 	/// @brief Ordenar vector (falta)

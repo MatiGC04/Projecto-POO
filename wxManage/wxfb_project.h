@@ -9,24 +9,56 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
-#include <wx/string.h>
-#include <wx/stattext.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
+#include <wx/statbmp.h>
 #include <wx/gdicmn.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
-#include <wx/textctrl.h>
-#include <wx/button.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
-#include <wx/icon.h>
+#include <wx/string.h>
 #include <wx/sizer.h>
-#include <wx/grid.h>
+#include <wx/button.h>
 #include <wx/frame.h>
+#include <wx/stattext.h>
+#include <wx/textctrl.h>
+#include <wx/grid.h>
 #include <wx/dialog.h>
-#include <wx/statbmp.h>
 
 ///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BasePresentacion
+///////////////////////////////////////////////////////////////////////////////
+class BasePresentacion : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticBitmap* m_bitmap1;
+		wxStaticBitmap* m_bitmap2;
+		wxStaticBitmap* m_bitmap3;
+		wxStaticBitmap* m_bitmap4;
+		wxButton* m_button2;
+		wxButton* m_button3;
+		wxButton* m_button4;
+		wxButton* m_button5;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickClientes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickCouchs( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickPlanes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickSuscripciones( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BasePresentacion( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1183,492 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BasePresentacion();
+
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class BaseClientes
@@ -49,7 +81,7 @@ class BaseClientes : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
 		virtual void ClickSalirClientes( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickVereditar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 
@@ -59,6 +91,31 @@ class BaseClientes : public wxFrame
 		BaseClientes( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,361 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseClientes();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseCouchs
+///////////////////////////////////////////////////////////////////////////////
+class BaseCouchs : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText6;
+		wxStaticText* m_staticText2;
+		wxTextCtrl* m_textCtrl2;
+		wxButton* m_button7;
+		wxGrid* m_grilla_couchs;
+		wxButton* m_button9;
+		wxButton* m_button10;
+		wxButton* m_button8;
+
+	public:
+
+		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseCouchs();
 
 };
 
@@ -108,63 +165,6 @@ class BaseClientesAgregar : public wxDialog
 		BaseClientesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 690,450 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseClientesAgregar();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BasePresentacion
-///////////////////////////////////////////////////////////////////////////////
-class BasePresentacion : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticBitmap* m_bitmap1;
-		wxStaticBitmap* m_bitmap2;
-		wxStaticBitmap* m_bitmap3;
-		wxStaticBitmap* m_bitmap4;
-		wxButton* m_button2;
-		wxButton* m_button3;
-		wxButton* m_button4;
-		wxButton* m_button5;
-
-		// Virtual event handlers, override them in your derived class
-		virtual void ClickClientes( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickCouchs( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickPlanes( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickSuscripciones( wxCommandEvent& event ) { event.Skip(); }
-
-
-	public:
-
-		BasePresentacion( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1183,492 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
-		~BasePresentacion();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BaseCouchs
-///////////////////////////////////////////////////////////////////////////////
-class BaseCouchs : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText6;
-		wxStaticText* m_staticText2;
-		wxTextCtrl* m_textCtrl2;
-		wxButton* m_button7;
-		wxGrid* m_grilla_couchs;
-		wxButton* m_button9;
-		wxButton* m_button10;
-		wxButton* m_button8;
-
-	public:
-
-		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
-		~BaseCouchs();
 
 };
 

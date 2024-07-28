@@ -192,19 +192,19 @@ suscripcion BuscarSub(std::vector<suscripcion>v_suscripcion, std::string cliente
 	return sub;
 }
 
-cliente manage::ObtenerCliente(int pos){
+cliente &manage::ObtenerCliente(int pos){
 	return vector_de_clientes[pos];
 }
 
-suscripcion manage::obtenerSuscripcion(int pos){
+suscripcion &manage::obtenerSuscripcion(int pos){
 	return vector_de_suscripciones[pos];
 }
 
-couch manage::obtenerCouch(int pos){
+couch &manage::obtenerCouch(int pos){
 	return vector_de_couchs[pos];
 }
 
-plan manage::obtenerPlan(int pos){
+plan &manage::obtenerPlan(int pos){
 	return vector_de_planes[pos];
 }
 

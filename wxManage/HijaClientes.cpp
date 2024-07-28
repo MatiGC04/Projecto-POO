@@ -73,13 +73,12 @@ HijaClientes::~HijaClientes() {
 	
 }
 
-
-void HijaClientes::ClickVereditar( wxCommandEvent& event )  {
-	/*int pos=m_grilla_clientes->GetGridCursorRow();
-	HijaClientesEditar nueva_ventana(m_manage, pos , this);
+void HijaClientes::ClickEditar( wxCommandEvent& event )  {
+	int pos= m_grilla_clientes->GetGridCursorRow();
+	HijaClientesEditar nueva_ventana(m_manage,pos,this);
 	if(nueva_ventana.ShowModal()==1){
-		
-	}*/
+		CargarFila(pos);
+	}
 }
 
 

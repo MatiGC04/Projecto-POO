@@ -9,6 +9,97 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
+BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_GRAYTEXT ) );
+
+	wxBoxSizer* bSizer1;
+	bSizer1 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Clientes2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap1->SetMinSize( wxSize( 200,200 ) );
+	m_bitmap1->SetMaxSize( wxSize( 200,200 ) );
+
+	bSizer2->Add( m_bitmap1, 0, wxALL, 5 );
+
+	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Coachs2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap2->SetMinSize( wxSize( 200,200 ) );
+	m_bitmap2->SetMaxSize( wxSize( 200,200 ) );
+
+	bSizer2->Add( m_bitmap2, 0, wxALL, 5 );
+
+	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Planes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap3->SetMinSize( wxSize( 200,200 ) );
+	m_bitmap3->SetMaxSize( wxSize( 200,200 ) );
+
+	bSizer2->Add( m_bitmap3, 0, wxALL, 5 );
+
+	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Suscripciones.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap4->SetMinSize( wxSize( 200,200 ) );
+	m_bitmap4->SetMaxSize( wxSize( 200,200 ) );
+
+	bSizer2->Add( m_bitmap4, 0, wxALL, 5 );
+
+
+	bSizer1->Add( bSizer2, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer3;
+	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button2 = new wxButton( this, wxID_ANY, wxT("Clientes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button2->SetMinSize( wxSize( 200,-1 ) );
+	m_button2->SetMaxSize( wxSize( 200,-1 ) );
+
+	bSizer3->Add( m_button2, 1, wxALL, 5 );
+
+	m_button3 = new wxButton( this, wxID_ANY, wxT("Couchs"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button3->SetMinSize( wxSize( 200,-1 ) );
+	m_button3->SetMaxSize( wxSize( 200,-1 ) );
+
+	bSizer3->Add( m_button3, 1, wxALL, 5 );
+
+	m_button4 = new wxButton( this, wxID_ANY, wxT("Planes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button4->SetMinSize( wxSize( 200,-1 ) );
+	m_button4->SetMaxSize( wxSize( 200,-1 ) );
+
+	bSizer3->Add( m_button4, 1, wxALL, 5 );
+
+	m_button5 = new wxButton( this, wxID_ANY, wxT("Suscripciones"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button5->SetMinSize( wxSize( 200,-1 ) );
+	m_button5->SetMaxSize( wxSize( 200,-1 ) );
+
+	bSizer3->Add( m_button5, 1, wxALL, 5 );
+
+
+	bSizer1->Add( bSizer3, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer1 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickClientes ), NULL, this );
+	m_button3->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickCouchs ), NULL, this );
+	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickPlanes ), NULL, this );
+	m_button5->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickSuscripciones ), NULL, this );
+}
+
+BasePresentacion::~BasePresentacion()
+{
+	// Disconnect Events
+	m_button2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickClientes ), NULL, this );
+	m_button3->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickCouchs ), NULL, this );
+	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickPlanes ), NULL, this );
+	m_button5->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickSuscripciones ), NULL, this );
+
+}
+
 BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -111,7 +202,7 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 	// Connect Events
 	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseClientes::ClickTamanio ) );
 	m_button33->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
-	m_button9->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickVereditar ), NULL, this );
+	m_button9->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEditar ), NULL, this );
 	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEliminar ), NULL, this );
 	m_button8->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickAgregar ), NULL, this );
 }
@@ -121,10 +212,98 @@ BaseClientes::~BaseClientes()
 	// Disconnect Events
 	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseClientes::ClickTamanio ) );
 	m_button33->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
-	m_button9->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickVereditar ), NULL, this );
+	m_button9->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEditar ), NULL, this );
 	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEliminar ), NULL, this );
 	m_button8->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickAgregar ), NULL, this );
 
+}
+
+BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer8;
+	bSizer8 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("COUCHS"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText6->Wrap( -1 );
+	bSizer8->Add( m_staticText6, 0, wxALIGN_CENTER_HORIZONTAL|wxRIGHT|wxLEFT, 5 );
+
+	wxBoxSizer* bSizer9;
+	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText2 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText2->Wrap( -1 );
+	bSizer9->Add( m_staticText2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer9->Add( m_textCtrl2, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer9->Add( m_button7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer8->Add( bSizer9, 0, wxEXPAND, 5 );
+
+	m_grilla_couchs = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+
+	// Grid
+	m_grilla_couchs->CreateGrid( 5, 5 );
+	m_grilla_couchs->EnableEditing( true );
+	m_grilla_couchs->EnableGridLines( true );
+	m_grilla_couchs->EnableDragGridSize( false );
+	m_grilla_couchs->SetMargins( 0, 0 );
+
+	// Columns
+	m_grilla_couchs->SetColSize( 0, 152 );
+	m_grilla_couchs->SetColSize( 1, 80 );
+	m_grilla_couchs->SetColSize( 2, 80 );
+	m_grilla_couchs->SetColSize( 3, 80 );
+	m_grilla_couchs->SetColSize( 4, 80 );
+	m_grilla_couchs->EnableDragColMove( false );
+	m_grilla_couchs->EnableDragColSize( true );
+	m_grilla_couchs->SetColLabelValue( 0, wxT("Nombre y Apellido") );
+	m_grilla_couchs->SetColLabelValue( 1, wxT("DNI") );
+	m_grilla_couchs->SetColLabelValue( 2, wxT("Email") );
+	m_grilla_couchs->SetColLabelValue( 3, wxT("CBU") );
+	m_grilla_couchs->SetColLabelValue( 4, wxT("Alias") );
+	m_grilla_couchs->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Rows
+	m_grilla_couchs->EnableDragRowSize( true );
+	m_grilla_couchs->SetRowLabelSize( 0 );
+	m_grilla_couchs->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Label Appearance
+
+	// Cell Defaults
+	m_grilla_couchs->SetDefaultCellAlignment( wxALIGN_CENTER, wxALIGN_TOP );
+	bSizer8->Add( m_grilla_couchs, 1, wxALL|wxEXPAND|wxTOP, 5 );
+
+	wxBoxSizer* bSizer10;
+	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button9 = new wxButton( this, wxID_ANY, wxT("Ver/Editar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer10->Add( m_button9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_button10 = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer10->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_button8 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer10->Add( m_button8, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer8->Add( bSizer10, 0, wxALIGN_RIGHT, 5 );
+
+
+	this->SetSizer( bSizer8 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseCouchs::~BaseCouchs()
+{
 }
 
 BaseClientesAgregar::BaseClientesAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -311,185 +490,6 @@ BaseClientesAgregar::~BaseClientesAgregar()
 	m_button24->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientesAgregar::ClickCancelarRegistro ), NULL, this );
 	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientesAgregar::ClickAceptarRegistro ), NULL, this );
 
-}
-
-BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_GRAYTEXT ) );
-
-	wxBoxSizer* bSizer1;
-	bSizer1 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer2;
-	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Clientes2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
-	m_bitmap1->SetMinSize( wxSize( 200,200 ) );
-	m_bitmap1->SetMaxSize( wxSize( 200,200 ) );
-
-	bSizer2->Add( m_bitmap1, 0, wxALL, 5 );
-
-	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Coachs2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
-	m_bitmap2->SetMinSize( wxSize( 200,200 ) );
-	m_bitmap2->SetMaxSize( wxSize( 200,200 ) );
-
-	bSizer2->Add( m_bitmap2, 0, wxALL, 5 );
-
-	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Planes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
-	m_bitmap3->SetMinSize( wxSize( 200,200 ) );
-	m_bitmap3->SetMaxSize( wxSize( 200,200 ) );
-
-	bSizer2->Add( m_bitmap3, 0, wxALL, 5 );
-
-	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Suscripciones.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
-	m_bitmap4->SetMinSize( wxSize( 200,200 ) );
-	m_bitmap4->SetMaxSize( wxSize( 200,200 ) );
-
-	bSizer2->Add( m_bitmap4, 0, wxALL, 5 );
-
-
-	bSizer1->Add( bSizer2, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	wxBoxSizer* bSizer3;
-	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_button2 = new wxButton( this, wxID_ANY, wxT("Clientes"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_button2->SetMinSize( wxSize( 200,-1 ) );
-	m_button2->SetMaxSize( wxSize( 200,-1 ) );
-
-	bSizer3->Add( m_button2, 1, wxALL, 5 );
-
-	m_button3 = new wxButton( this, wxID_ANY, wxT("Couchs"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_button3->SetMinSize( wxSize( 200,-1 ) );
-	m_button3->SetMaxSize( wxSize( 200,-1 ) );
-
-	bSizer3->Add( m_button3, 1, wxALL, 5 );
-
-	m_button4 = new wxButton( this, wxID_ANY, wxT("Planes"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_button4->SetMinSize( wxSize( 200,-1 ) );
-	m_button4->SetMaxSize( wxSize( 200,-1 ) );
-
-	bSizer3->Add( m_button4, 1, wxALL, 5 );
-
-	m_button5 = new wxButton( this, wxID_ANY, wxT("Suscripciones"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_button5->SetMinSize( wxSize( 200,-1 ) );
-	m_button5->SetMaxSize( wxSize( 200,-1 ) );
-
-	bSizer3->Add( m_button5, 1, wxALL, 5 );
-
-
-	bSizer1->Add( bSizer3, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-
-	this->SetSizer( bSizer1 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-
-	// Connect Events
-	m_button2->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickClientes ), NULL, this );
-	m_button3->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickCouchs ), NULL, this );
-	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickPlanes ), NULL, this );
-	m_button5->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickSuscripciones ), NULL, this );
-}
-
-BasePresentacion::~BasePresentacion()
-{
-	// Disconnect Events
-	m_button2->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickClientes ), NULL, this );
-	m_button3->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickCouchs ), NULL, this );
-	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickPlanes ), NULL, this );
-	m_button5->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePresentacion::ClickSuscripciones ), NULL, this );
-
-}
-
-BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* bSizer8;
-	bSizer8 = new wxBoxSizer( wxVERTICAL );
-
-	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("COUCHS"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6->Wrap( -1 );
-	bSizer8->Add( m_staticText6, 0, wxALIGN_CENTER_HORIZONTAL|wxRIGHT|wxLEFT, 5 );
-
-	wxBoxSizer* bSizer9;
-	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText2 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText2->Wrap( -1 );
-	bSizer9->Add( m_staticText2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_textCtrl2, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_button7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer8->Add( bSizer9, 0, wxEXPAND, 5 );
-
-	m_grilla_couchs = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-
-	// Grid
-	m_grilla_couchs->CreateGrid( 5, 5 );
-	m_grilla_couchs->EnableEditing( true );
-	m_grilla_couchs->EnableGridLines( true );
-	m_grilla_couchs->EnableDragGridSize( false );
-	m_grilla_couchs->SetMargins( 0, 0 );
-
-	// Columns
-	m_grilla_couchs->SetColSize( 0, 152 );
-	m_grilla_couchs->SetColSize( 1, 80 );
-	m_grilla_couchs->SetColSize( 2, 80 );
-	m_grilla_couchs->SetColSize( 3, 80 );
-	m_grilla_couchs->SetColSize( 4, 80 );
-	m_grilla_couchs->EnableDragColMove( false );
-	m_grilla_couchs->EnableDragColSize( true );
-	m_grilla_couchs->SetColLabelValue( 0, wxT("Nombre y Apellido") );
-	m_grilla_couchs->SetColLabelValue( 1, wxT("DNI") );
-	m_grilla_couchs->SetColLabelValue( 2, wxT("Email") );
-	m_grilla_couchs->SetColLabelValue( 3, wxT("CBU") );
-	m_grilla_couchs->SetColLabelValue( 4, wxT("Alias") );
-	m_grilla_couchs->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
-
-	// Rows
-	m_grilla_couchs->EnableDragRowSize( true );
-	m_grilla_couchs->SetRowLabelSize( 0 );
-	m_grilla_couchs->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
-
-	// Label Appearance
-
-	// Cell Defaults
-	m_grilla_couchs->SetDefaultCellAlignment( wxALIGN_CENTER, wxALIGN_TOP );
-	bSizer8->Add( m_grilla_couchs, 1, wxALL|wxEXPAND|wxTOP, 5 );
-
-	wxBoxSizer* bSizer10;
-	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_button9 = new wxButton( this, wxID_ANY, wxT("Ver/Editar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer10->Add( m_button9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_button10 = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer10->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_button8 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer10->Add( m_button8, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer8->Add( bSizer10, 0, wxALIGN_RIGHT, 5 );
-
-
-	this->SetSizer( bSizer8 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-}
-
-BaseCouchs::~BaseCouchs()
-{
 }
 
 BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
