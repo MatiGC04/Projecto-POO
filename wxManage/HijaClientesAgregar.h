@@ -16,16 +16,6 @@ public:
 	~HijaClientesAgregar();
 };
 
-class HijaClientesEditar : public BaseClientesAgregar{
-private:
-	manage *m_manage;
-	int pos;
-protected:
-	void ClickCancelarRegistro( wxCommandEvent& event )  override;
-	void ClickAceptarRegistro( wxCommandEvent& event )  override;
-public:
-	HijaClientesEditar(manage *aux, int pos, wxWindow *parent=NULL);
-};
 
 #endif
 

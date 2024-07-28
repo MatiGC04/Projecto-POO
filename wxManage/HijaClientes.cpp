@@ -1,8 +1,11 @@
 #include "HijaClientes.h"
 #include "string_conv.h"
 #include "HijaClientesAgregar.h"
+#include "HijaClientesEditar.h"
+
 #include <wx/wx.h>
 #include <wx/msgdlg.h>
+
 
 HijaClientes::HijaClientes(manage *aux,wxWindow *parent) : BaseClientes(parent), m_manage(aux) {
 	int cant_clientes=m_manage->cantidadCliente();
