@@ -16,7 +16,7 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=persona.cpp
+current_source=HijaClientesAgregar.cpp
 path_char=\
 [source]
 path=Application.cpp
@@ -34,7 +34,7 @@ path=HijaCouchsAgregar.cpp
 cursor=0:0
 [source]
 path=HijaClientesAgregar.cpp
-cursor=37:1
+cursor=30:32
 open=true
 [source]
 path=HijaCouchs.cpp
@@ -55,7 +55,7 @@ path=Manage.cpp
 cursor=227:0
 [source]
 path=persona.cpp
-cursor=81:31
+cursor=79:30
 open=true
 [source]
 path=Plan.cpp
