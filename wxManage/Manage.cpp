@@ -226,7 +226,19 @@ std::string manage::planesSuscritos(std::string dni_cliente){
 	return planes;
 }
 
-
+int manage::buscarClientesNombre(std::string nomape, int pos){
+	PasarMiniscula(nomape);
+	if(nomape==""){
+		return -1;
+	}
+	for(int i=pos; i<vector_de_clientes.size(); i++){
+		cliente cl = vector_de_clientes[i];
+		std::string aux=cl.ver_apellido() + ", " + cl.ver_nombre();
+		PasarMiniscula(aux);
+		if(aux.find(nomape,0)!=std::string::npos) return i;
+	}
+	return -1;
+}
 
 
 

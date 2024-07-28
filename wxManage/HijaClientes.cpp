@@ -86,6 +86,23 @@ void HijaClientes::ClickEditar( wxCommandEvent& event )  {
 
 
 void HijaClientes::ClickBuscar( wxCommandEvent& event )  {
-	event.Skip();
+	int pos=m_grilla_clientes->GetGridCursorRow();
+	if (m_grilla_clientes->GetSelectedRows().GetCount()==0) pos=-1;
+	if(m_grilla_clientes->GetSelectedRows().GetCount()>1){
+		wxMessageBox("Usted a seleccionado demasiadas filas, seleccione 1 o menos porfavor.\nTenga en cuenta que se empezara a buscar apartir de esa fila en adelante, en caso de tener seleccionada la ultima fila se comenzara desde el inicio de la grilla.");	
+		return;
+	}
+	std::string nom = wx_to_std(m_buscar->GetValue());
+	int encontrado = m_manage->buscarClientesNombre(nom,pos+1);
+	if(encontrado==-1) encontrado = m_manage->buscarClientesNombre(nom,0);
+	if(encontrado==-1) wxMessageBox("No se encontraron coincidencias");
+	else{
+		m_grilla_clientes->SetGridCursor(encontrado,1);
+		m_grilla_clientes->SelectRow(encontrado);
+	}
+}
+
+void HijaClientes::EnterBuscar( wxCommandEvent& event )  {
+	ClickBuscar(event);
 }
 
