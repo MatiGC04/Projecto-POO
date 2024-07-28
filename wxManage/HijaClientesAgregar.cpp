@@ -66,9 +66,9 @@ HijaClientesEditar::HijaClientesEditar(manage *aux, int pos, wxWindow *parent): 
 	m_localidad->SetValue(wx_to_std(cl.ver_loc()));
 	m_direccion->SetValue(wx_to_std(cl.ver_dir()));
 	m_telefono2->SetValue(wx_to_std(cl.ver_tel_emergencia()));
-	m_dia->SetValue(wx_to_std(std::to_string(cl.ver_diaN())));
-	m_mes->SetValue(wx_to_std(std::to_string(cl.ver_mesN())));
-	m_anio->SetValue(wx_to_std(std::to_string(cl.ver_anioN())));
+	if(cl.ver_diaN()!=0) m_dia->SetValue(wx_to_std(std::to_string(cl.ver_diaN())));
+	if(cl.ver_mesN()!=0)m_mes->SetValue(wx_to_std(std::to_string(cl.ver_mesN())));
+	if(cl.ver_anioN()!=0)m_anio->SetValue(wx_to_std(std::to_string(cl.ver_anioN())));
 }
 void HijaClientesEditar::ClickAceptarRegistro( wxCommandEvent& event ){
 	std::string nombre,apellido,email,sexo,telefono,direccion,localidad,DNI,tel_emergencias;

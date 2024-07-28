@@ -50,6 +50,7 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.direccion,direccion.c_str());
 	strcpy(registro.sexo,sexo.c_str());
 	strcpy(registro.dni,dni.c_str());
+	strcpy(registro.localidad, localidad.c_str());
 	strcpy(registro.telefono_emergencias,tel_emergencias.c_str());
 	registro.fecha_nac = fecha_nacimiento;
 	archivo.write(reinterpret_cast<char*>(&registro),sizeof(registro));
@@ -67,6 +68,7 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	direccion = registro.direccion;
 	sexo = registro.sexo;
 	dni = registro.dni;
+	localidad = registro.localidad;
 	tel_emergencias = registro.telefono_emergencias;
 	fecha_nacimiento = registro.fecha_nac;
 }
