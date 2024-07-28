@@ -49,6 +49,7 @@ class BaseClientes : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
 		virtual void ClickSalirClientes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickVereditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 
