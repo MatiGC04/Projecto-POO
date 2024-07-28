@@ -32,7 +32,7 @@ struct registroCouch{
 	char telefono[25];
 	char direccion[100];
 	char localidad[100];
-	char sexo[2];
+	char sexo[1];
 	char dni[20];
 	char cbu[22];
 	char alias[20];
@@ -62,6 +62,8 @@ public:
 	std::string _alias = "");
 	
 	
+	/// @brief Metodo que validar que cbu y alias esten ingresados correctamente
+	std::string validar_datos_ch();
 	
 	/// @brief  Métodos para obtener los atributos de couch
 	std::string ver_cbu();

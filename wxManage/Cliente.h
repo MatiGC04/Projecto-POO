@@ -61,17 +61,18 @@ public:
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
 	
-	/// @brief Metodo para obtener atributo del dato
-	std::string ver_tel_emergencia();
-	
 	/// @brief Metodos para editar o agregar datos 
 	void modificar_tel_em(std::string tel_em_nuevo); 
 	
+	/// @brief Metodo que validar que el telefono de emergencia es valido
+	std::string validar_datos_cl();
+	
+	/// @brief Metodo para obtener atributo del dato
+	std::string ver_tel_emergencia();
 	
 	/// @brief Metodos para registrar los datos de la clase
 	void guardar_en_binario(std::ofstream &archivo) override; 
 	void leer_en_binario(std::ifstream &archivo) override; 
-	
 	
 };
 

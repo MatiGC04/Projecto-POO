@@ -64,6 +64,19 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	fecha_nacimiento = registro.fecha_nac;
 }
 
+std::string couch::validar_datos_ch(){
+	std::string errores=validar_datos();
+	if(cbu.size()>22){
+		errores+="El cbu es demaciado largo \n";
+	}
+	if(alias.size()>20){
+		errores+="El alias es demaciado largo \n";
+	}
+	if(alias.size()<6){
+		errores+="El alias es demaciado corto \n";
+	}
+}
+
 
 
 
