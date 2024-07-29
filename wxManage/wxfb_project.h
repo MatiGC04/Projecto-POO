@@ -83,7 +83,7 @@ class BaseClientes : public wxFrame
 		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
-		virtual void ClickFila( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickSalirClientes( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }

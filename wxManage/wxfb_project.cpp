@@ -204,7 +204,7 @@ BaseClientes::BaseClientes( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseClientes::EnterBuscar ), NULL, this );
 	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickBuscar ), NULL, this );
 	m_grilla_clientes->Connect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BaseClientes::DobleClickFila ), NULL, this );
-	m_grilla_clientes->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseClientes::ClickFila ), NULL, this );
+	m_grilla_clientes->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseClientes::ClickColumna ), NULL, this );
 	m_button33->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
 	m_button9->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEditar ), NULL, this );
 	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEliminar ), NULL, this );
@@ -218,7 +218,7 @@ BaseClientes::~BaseClientes()
 	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseClientes::EnterBuscar ), NULL, this );
 	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickBuscar ), NULL, this );
 	m_grilla_clientes->Disconnect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BaseClientes::DobleClickFila ), NULL, this );
-	m_grilla_clientes->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseClientes::ClickFila ), NULL, this );
+	m_grilla_clientes->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseClientes::ClickColumna ), NULL, this );
 	m_button33->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickSalirClientes ), NULL, this );
 	m_button9->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEditar ), NULL, this );
 	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseClientes::ClickEliminar ), NULL, this );

@@ -245,12 +245,12 @@ void manage::OrdenarClientes(CriterioOrdenClientes criterio){
 		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesNombreApellido); break;
 	case ORDEN_DNI:
 		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesDNI); break;
-	
 	case ORDEN_EMAIL:
 		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesEmail); break;
 	case ORDEN_TELEFONO_EMERGENCIAS:
 		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesTelefonoEmergencias); break;
 }
+	this->guardar();
 }
 
 

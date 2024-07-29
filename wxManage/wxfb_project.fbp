@@ -1024,7 +1024,7 @@
             <property name="window_name"></property>
             <property name="window_style"></property>
             <event name="OnGridCellLeftDClick">DobleClickFila</event>
-            <event name="OnGridLabelLeftClick">ClickFila</event>
+            <event name="OnGridLabelLeftClick">ClickColumna</event>
           </object>
         </object>
         <object class="sizeritem" expanded="false">
