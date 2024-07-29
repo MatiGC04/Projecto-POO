@@ -162,7 +162,7 @@ void manage::borrarSuscripcion(int pos){
 
 couch manage::buscarCouchsDNI(std::string DNI, int pos) const{
 	couch ch;
-	for(int i=pos; i<vector_de_couchs.size(); i++){
+	for(unsigned i=pos; i<vector_de_couchs.size(); i++){
 		if(vector_de_couchs[i].ver_DNI()==DNI) return vector_de_couchs[i];
 	}
 	return ch;
@@ -170,7 +170,7 @@ couch manage::buscarCouchsDNI(std::string DNI, int pos) const{
 
 cliente manage::buscarClientesDNI(std::string DNI, int pos) const{
 	cliente cl;
-	for(int i=pos; i<vector_de_clientes.size(); i++){
+	for(unsigned i=pos; i<vector_de_clientes.size(); i++){
 		if(vector_de_clientes[i].ver_DNI()==DNI) return vector_de_clientes[i];
 	}
 	return cl;
@@ -179,7 +179,7 @@ cliente manage::buscarClientesDNI(std::string DNI, int pos) const{
 plan manage::buscarPlanNombre(std::string nombre, int pos) const{
 	plan pl;
 	
-	for(int i=pos; i<vector_de_planes.size(); i++){
+	for(unsigned i=pos; i<vector_de_planes.size(); i++){
 		if(vector_de_planes[i].ver_nombre_plan()==nombre) return vector_de_planes[i];
 	}
 	return pl;
@@ -187,7 +187,7 @@ plan manage::buscarPlanNombre(std::string nombre, int pos) const{
 	
 suscripcion manage::buscarSub(std::string cliente_DNI, std::string nombre_plan, int pos) const{
 	suscripcion sub;
-	for(int i=pos; i<vector_de_suscripciones.size(); i++){
+	for(unsigned i=pos; i<vector_de_suscripciones.size(); i++){
 		if(vector_de_suscripciones[i].ver_nombre_plan()==nombre_plan 
 		and vector_de_suscripciones[i].ver_DNI_cliente()==cliente_DNI) return vector_de_suscripciones[i];
 	}
@@ -215,7 +215,7 @@ std::string manage::planesSuscritos(std::string dni_cliente) const{
 	
 	std::string planes = "";
 	
-	for(int i = 0;i < vector_de_suscripciones.size();i++) { 
+	for(unsigned i = 0;i < vector_de_suscripciones.size();i++) { 
 		
 		if(vector_de_suscripciones[i].ver_DNI_cliente() == dni_cliente && vector_de_suscripciones[i].estado_suscripcion()){
 			planes += vector_de_suscripciones[i].ver_nombre_plan() + " ";
@@ -231,7 +231,7 @@ int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	if(nomape==""){
 		return -1;
 	}
-	for(int i=pos; i<vector_de_clientes.size(); i++){
+	for(unsigned i=pos; i<vector_de_clientes.size(); i++){
 		cliente cl = vector_de_clientes[i];
 		std::string aux=cl.ver_apellido() + ", " + cl.ver_nombre();
 		PasarMiniscula(aux);
