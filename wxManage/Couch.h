@@ -11,10 +11,8 @@
 #ifndef COUCH_H
 #define COUCH_H
 
-#include <string>
 #include "Persona.h"
-#include "Utils.h"
-#include <vector>
+#include <string>
 
 /**
 * @brief Estructura auxiliar para usar con archivos binarios en la clase couch
@@ -61,13 +59,9 @@ public:
 	int dia = 0, int mes = 0, int anio = 0, std::string _cbu = "",
 	std::string _alias = "");
 	
-	
-	/// @brief Metodo que validar que cbu y alias esten ingresados correctamente
-	std::string validar_datos_ch();
-	
 	/// @brief  Métodos para obtener los atributos de couch
-	std::string ver_cbu();
-	std::string ver_alias();
+	std::string ver_cbu() const;
+	std::string ver_alias() const;
 	
 	/// @brief Metodos para editar cbu y alias del couch
 	void modificar_cbu(std::string cbu);
@@ -78,16 +72,19 @@ public:
 	
 	/// @brief Metodo que lee un registro de un archivo binario
 	void leer_en_binario(std::ifstream &archivo) override;
+	
+	/// @brief Metodo que validar que cbu y alias esten ingresados correctamente
+	std::string validar_datos_ch() const;
+	
 };
 
-
-bool CriterioNombreApellido(couch c1, couch c2);
-
-bool CriterioLocalidad(couch c1, couch c2);
-
-bool CriterioEdad(couch c1, couch c2);
-
-bool CriterioEmail(couch c1, couch c2);
-
+///@brief Funcion que compara dos couch por su nombre y apellido
+bool CriterioCouchNombreApellido(couch c1, couch c2);
+///@brief Funcion que compara dos couchs por su localidad
+bool CriterioCouchLocalidad(couch c1, couch c2);
+///@brief Funcion que compara dos couch por su edad
+bool CriterioCouchEdad(couch c1, couch c2);
+///@brief Funcion que compara dos couch por su email
+bool CriterioCouchEmail(couch c1, couch c2);
 #endif
 

@@ -10,8 +10,6 @@
 **/
 #ifndef SUSCRIPCION_H
 #define SUSCRIPCION_H
-#include <vector>
-#include "Plan.h"
 #include "Utils.h"
 
 /**
@@ -48,18 +46,23 @@ public:
 	suscripcion(std::string p_suscrito="0", std::string dni_couch="0", std::string dni_cliente="0"); ///< constructor 
 	
 	/// @brief  Métodos para obtener los atributos de una suscripcion
-	fecha ver_fecha_pago();			///< devuelve la fecha en la que se pago
-	int dias_faltantes(); 			///< devuelve los dias que le quedan pagos
-	std::string ver_DNI_couch();
-	std::string ver_DNI_cliente();
-	std::string ver_nombre_rutina();
-	std::string ver_nombre_plan();
+	fecha ver_fecha_pago() const;			///< devuelve la fecha en la que se pago
+	int dias_faltantes() const; 			///< devuelve los dias que le quedan pagos
+	std::string ver_DNI_couch() const;
+	std::string ver_DNI_cliente() const;
+	std::string ver_nombre_rutina() const;
+	std::string ver_nombre_plan() const;
 	
-	bool estado_suscripcion();
+	bool estado_suscripcion() const;
 	
 	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);
 	void guardar_en_binario(std::ofstream &archivo);
 };
+
+bool CriterioSuscripcionFechaPago(suscripcion sub1, suscripcion sub2);
+bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2);
+bool CriterioSuscripcionDNICliente(suscripcion sub1, suscripcion sub2);
+bool CriterioSuscripcionNombre(suscripcion sub1, suscripcion sub2);
 
 #endif

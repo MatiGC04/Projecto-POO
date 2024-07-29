@@ -5,11 +5,6 @@
 #include "Cliente.h"
 #include <cstring>
 #include <fstream>
-#include <vector>
-#include "Suscripcion.h"
-#include "Plan.h"
-#include "Couch.h"
-
 /// Implementación del constructor de la clase cliente
 cliente::cliente (std::string nom, std::string ape, std::string mail, 
 				  std::string sex, std::string tel, std::string dir, 
@@ -19,7 +14,7 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 	this->tel_emergencias = tel_emergencias;
 }
 /// Implementacion del constructor de la clase cliente
-std::string cliente::validar_datos_cl(){
+std::string cliente::validar_datos_cl() const{
 	std::string error=validar_datos();
 	if(tel_emergencias.size()>25){
 		error+="El telefono de emergencias es demaciado largo \n";
@@ -30,7 +25,7 @@ std::string cliente::validar_datos_cl(){
 }
 
 /// Implementacion del metodo para ver el tel de emergencias
-std::string cliente::ver_tel_emergencia(){
+std::string cliente::ver_tel_emergencia() const{
 	return tel_emergencias;
 }
 
@@ -73,7 +68,11 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	fecha_nacimiento = registro.fecha_nac;
 }
 
-
+/**
+* Devuelve true si la combinacion "apellido, nombre" de el primer cliente esta
+* antes segun el orden alfabetico que el apellido y nombre de el segundo cliente.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
 bool CriterioClientesNombreApellido(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_nombre() + " " + p1.ver_apellido();
 	std::string txt2 = p2.ver_nombre() + " " + p2.ver_apellido();
@@ -81,19 +80,12 @@ bool CriterioClientesNombreApellido(cliente p1, cliente p2){
 	PasarMiniscula(txt2);
 	return txt1<txt2;	
 }
-	
-bool CriterioClientesLocalidad(cliente p1, cliente p2){
-	std::string txt1 = p1.ver_loc();
-	std::string txt2 = p2.ver_loc();
-	PasarMiniscula(txt1);
-	PasarMiniscula(txt2);
-	return txt1 < txt2;
-}
-	
-bool CriterioClientesEdad(cliente p1, cliente p2){
-	return p1.ver_edad() < p2.ver_edad();
-}
 
+/**
+* Devuelve true si el email de el primer cliente esta antes segun el 
+* orden alfabetico que el email de el segundo cliente.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
 bool CriterioClientesEmail(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_email();
 	std::string txt2 = p2.ver_email();
@@ -101,6 +93,12 @@ bool CriterioClientesEmail(cliente p1, cliente p2){
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
 }
+	
+/**
+* Devuelve true si el DNI de el primer cliente esta antes segun el 
+* orden alfabetico que el DNI de el segundo cliente.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
 bool CriterioClientesDNI(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_DNI();
 	std::string txt2 = p2.ver_DNI();
@@ -109,7 +107,11 @@ bool CriterioClientesDNI(cliente p1, cliente p2){
 	return txt1 < txt2;
 }
 	
-	
+/**
+* Devuelve true si el telefono de eme. de el primer cliente esta antes segun el 
+* orden alfabetico que el telefono de eme. de el segundo cliente.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
 bool CriterioClientesTelefonoEmergencias(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_tel_emergencia();
 	std::string txt2 = p2.ver_tel_emergencia();

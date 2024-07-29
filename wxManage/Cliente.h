@@ -13,10 +13,6 @@
 
 #include <string>
 #include "Persona.h"
-#include "Utils.h"
-#include "Couch.h"
-#include <vector>
-#include "Suscripcion.h"
 
 
 /**
@@ -65,10 +61,10 @@ public:
 	void modificar_tel_em(std::string tel_em_nuevo); 
 	
 	/// @brief Metodo que validar que el telefono de emergencia es valido
-	std::string validar_datos_cl();
+	std::string validar_datos_cl() const;
 	
 	/// @brief Metodo para obtener atributo del dato
-	std::string ver_tel_emergencia();
+	std::string ver_tel_emergencia() const;
 	
 	/// @brief Metodos para registrar los datos de la clase
 	void guardar_en_binario(std::ofstream &archivo) override; 
@@ -85,11 +81,13 @@ bool CriterioClientesLocalidad(cliente p1, cliente p2);
 /// @brief Funcion que compara dos clientes por su edad
 bool CriterioClientesEdad(cliente p1, cliente p2);
 
-/// @brief Funcion que comprar dos clientes por su direccion de correo electronico
+/// @brief Funcion que compara dos clientes por su direccion de correo electronico
 bool CriterioClientesEmail(cliente p1, cliente p2);
 
+/// @brief Funcion que comprar dos clientes por su DNI
 bool CriterioClientesDNI(cliente p1, cliente p2);
 
+/// @brief Funcion que compara dos clientes por su telefono de emergencias
 bool CriterioClientesTelefonoEmergencias(cliente p1, cliente p2);
 #endif
 

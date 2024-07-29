@@ -14,7 +14,7 @@ suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::st
 	std::ofstream rutina("RutinasClientes/"+nombre_rutina);
 }
 
-fecha suscripcion::ver_fecha_pago(){
+fecha suscripcion::ver_fecha_pago() const{
 	return fecha_pago;
 }
 
@@ -24,20 +24,20 @@ fecha suscripcion::ver_fecha_pago(){
 * @return si la fecha no esta vencida, retorna la diferencia de dias faltantes 
 * antes del vencimiento de esta, sino retorna -1.
 **/	
-int suscripcion::dias_faltantes(){
+int suscripcion::dias_faltantes() const{
 		return DifDias(FechaHoy(),FechaVencimiento(fecha_pago));
 }
 
-std::string suscripcion::ver_DNI_couch(){
+std::string suscripcion::ver_DNI_couch() const{
 	return dni_couch;
 }
-std::string suscripcion::ver_DNI_cliente(){
+std::string suscripcion::ver_DNI_cliente()const{ 
 	return dni_cliente;
 }
-std::string suscripcion::ver_nombre_rutina(){
+std::string suscripcion::ver_nombre_rutina() const{
 	return nombre_rutina;
 }
-std::string suscripcion::ver_nombre_plan(){
+std::string suscripcion::ver_nombre_plan() const{
 	return p_subscrito;
 }
 
@@ -61,7 +61,7 @@ void suscripcion::guardar_en_binario(std::ofstream &archivo){
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroSuscripcion));
 }
 
-bool suscripcion::estado_suscripcion(){
+bool suscripcion::estado_suscripcion() const{
 	if(FechaVencimiento(fecha_pago) < FechaHoy()){
 		return false;
 	}else{
@@ -75,15 +75,15 @@ bool suscripcion::estado_suscripcion(){
 
 ///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
 ///para ordenar por fechas mas recientes deberiamos hacer lo contrario
-bool CriterioFechaPago(suscripcion sub1, suscripcion sub2){	
+bool CriterioSuscripcionFechaPago(suscripcion sub1, suscripcion sub2){	
 	return !(sub1.ver_fecha_pago()<sub2.ver_fecha_pago());
 }
-bool CriterioDNICouch(suscripcion sub1, suscripcion sub2){
+bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_DNI_couch()<sub2.ver_DNI_couch();
 }
-bool CriterioDNICliente(suscripcion sub1, suscripcion sub2){
+bool CriterioSuscripcionDNICliente(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_DNI_cliente()<sub2.ver_DNI_cliente();
 }
-bool CriterioNombre(suscripcion sub1, suscripcion sub2){
+bool CriterioSuscripcionNombre(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_nombre_plan()<sub2.ver_nombre_plan();
 }

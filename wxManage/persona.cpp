@@ -4,10 +4,6 @@
 **/
 
 #include "persona.h"
-#include "Utils.h"
-
-#include <string>
-#include <cstring>
 #include <fstream>
 
 /// Implementación del constructor de la clase persona
@@ -29,7 +25,7 @@ persona::persona(std::string nombre, std::string apellido, std::string email,
 	
 }
 /// Implementación del método que valida los datos
-std::string persona::validar_datos(){
+std::string persona::validar_datos() const{
 	std::string errores = "";
 	
 	if(nombre.size()==0){
@@ -88,40 +84,40 @@ std::string persona::validar_datos(){
 }
 
 /// Implementación de los métodos para obtener los atributos de la persona
-std::string persona::ver_nombre(){
+std::string persona::ver_nombre() const{
 	return nombre;
 }
-std::string persona::ver_apellido(){
+std::string persona::ver_apellido() const{
 	return apellido;
 }
-std::string persona::ver_email(){
+std::string persona::ver_email() const{
 	return email;
 }
-std::string persona::ver_tel(){
+std::string persona::ver_tel() const{
 	return telefono;
 }
-std::string persona::ver_dir(){
+std::string persona::ver_dir() const{
 	return direccion;
 }
-std::string persona::ver_DNI(){
+std::string persona::ver_DNI() const{
 	return dni;
 }
-std::string persona::ver_loc(){
+std::string persona::ver_loc() const{
 	return localidad;
 }
-std::string persona::ver_sexo(){
+std::string persona::ver_sexo() const{
 	return sexo;
 }
-int persona::ver_anioN(){
+int persona::ver_anioN() const{
 	return fecha_nacimiento.anio;
 }
-int persona::ver_mesN(){
+int persona::ver_mesN() const{
 	return fecha_nacimiento.mes;
 }
-int persona::ver_diaN(){
+int persona::ver_diaN() const{
 	return fecha_nacimiento.dia;
 }
-int persona::ver_edad(){
+int persona::ver_edad() const{
 	int edad;
 	fecha fecha_actual = FechaHoy();
 	edad = fecha_actual.anio - fecha_nacimiento.anio;
@@ -139,7 +135,7 @@ int persona::ver_edad(){
 
 
 /// Desarrollo de los métodos para modificar los atributos de la persona
-void persona::modificar_nombre(std::string nombre){
+void persona::modificar_nombre(std::string nombre) {
 	this->nombre = nombre;
 }
 void persona::modificar_apellido(std::string apellido){

@@ -3,7 +3,6 @@
 *@brief Implementación de los métodos de la clase Couch.
 **/
 #include "Couch.h"
-#include <string>
 #include <cstring>
 #include <fstream>
 
@@ -13,23 +12,25 @@ couch::couch(std::string nom, std::string ape, std::string mail, std::string sex
 			 std::string tel, std::string dir, std::string loc, std::string dni,
 			 int dia, int mes, int anio, std::string _cbu, std::string _alias):
 	persona(nom, ape, mail, sex, tel, dir, loc, dni, dia, mes, anio){
-	cbu=_cbu;
-	alias=_alias;
+	cbu = _cbu;
+	alias = _alias;
 }
 
 /// Implementación de los métodos para obtener los atributos de couch
-std::string couch::ver_cbu(){
+std::string couch::ver_cbu() const{
 	return cbu;
 }
-std::string couch::ver_alias(){
+std::string couch::ver_alias() const{
 	return alias;
 }
 
+
+///Implementacion de los metodos para modificar los atributos de couch
 void couch::modificar_cbu(std::string cbu){
-	this->cbu=cbu;
+	this->cbu = cbu;
 }
 void couch::modificar_alias(std::string alias){
-	this->alias=alias;
+	this->alias = alias;
 }
 
 /// Implementación del método para guardar un couch en un archivo binario
@@ -64,7 +65,7 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	fecha_nacimiento = registro.fecha_nac;
 }
 
-std::string couch::validar_datos_ch(){
+std::string couch::validar_datos_ch() const{
 	std::string errores=validar_datos();
 	if(cbu.size()>22){
 		errores+="El cbu es demaciado largo \n";
@@ -79,16 +80,26 @@ std::string couch::validar_datos_ch(){
 
 
 
-
-bool CriterioNombreApellido(couch c1, couch c2){
+/**
+* Devuelve true si la combinacion "apellido, nombre" de el primer couch esta
+* antes segun el orden alfabetico que el apellido y nombre de el segundo couch.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
+bool CriterioCouchNombreApellido(couch c1, couch c2){
 	std::string txt1 = c1.ver_nombre() + " " + c1.ver_apellido();
 	std::string txt2 = c2.ver_nombre() + " " + c2.ver_apellido();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
-}
+}	
 	
-bool CriterioLocalidad(couch c1, couch c2){
+	
+/**
+* Devuelve true si la localidad de el primer couch esta antes segun el 
+* orden alfabetico que la localidad de el segundo couch.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
+bool CriterioCouchLocalidad(couch c1, couch c2){
 	std::string txt1 = c1.ver_loc();
 	std::string txt2 = c2.ver_loc();
 	PasarMiniscula(txt1);
@@ -96,11 +107,22 @@ bool CriterioLocalidad(couch c1, couch c2){
 	return txt1 < txt2;
 }
 	
-bool CriterioEdad(couch c1, couch c2){
+	
+/**
+* Devuelve true si la edad de el primer couch es mas pequeña que la edad de
+* el segundo couch.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
+bool CriterioCouchEdad(couch c1, couch c2){
 	return c1.ver_edad() < c2.ver_edad();
 }
-	
-bool CriterioEmail(couch c1, couch c2){
+
+/**
+* Devuelve true si el email de el primer couch esta antes segun el 
+* orden alfabetico que el email de el segundo couch.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
+bool CriterioCouchEmail(couch c1, couch c2){
 	std::string txt1 = c1.ver_email();
 	std::string txt2 = c2.ver_email();
 	PasarMiniscula(txt1);

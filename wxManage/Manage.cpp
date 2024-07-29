@@ -4,9 +4,7 @@
 **/
 #include "Manage.h"
 #include <fstream>
-#include <vector>
 #include <algorithm>
-using namespace std;
 
 manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_clientes, std::string nombre_archivo_suscripciones, std::string nombre_archivo_planes){
 	
@@ -115,16 +113,16 @@ bool manage::guardar() {
 
 ///Implemetaciones de métodos para ver la cantidad de clientes, couchs, planes 
 ///y suscripciones
-int manage::cantidadCliente() {
+int manage::cantidadCliente() const{
 	return vector_de_clientes.size();
 }
-int manage::cantidadCouch(){
+int manage::cantidadCouch() const{
 	return vector_de_couchs.size();
 }
-int manage::cantidadPlanes(){
+int manage::cantidadPlanes() const{
 	return vector_de_planes.size();
 }
-int manage::cantidadSuscripciones(){
+int manage::cantidadSuscripciones() const{
 	return vector_de_suscripciones.size();
 }
 
@@ -162,7 +160,7 @@ void manage::borrarSuscripcion(int pos){
 }
 
 
-couch manage::buscarCouchsDNI(std::string DNI, int pos){
+couch manage::buscarCouchsDNI(std::string DNI, int pos) const{
 	couch ch;
 	for(int i=pos; i<vector_de_couchs.size(); i++){
 		if(vector_de_couchs[i].ver_DNI()==DNI) return vector_de_couchs[i];
@@ -170,7 +168,7 @@ couch manage::buscarCouchsDNI(std::string DNI, int pos){
 	return ch;
 }
 
-cliente manage::buscarClientesDNI(std::string DNI, int pos){
+cliente manage::buscarClientesDNI(std::string DNI, int pos) const{
 	cliente cl;
 	for(int i=pos; i<vector_de_clientes.size(); i++){
 		if(vector_de_clientes[i].ver_DNI()==DNI) return vector_de_clientes[i];
@@ -178,7 +176,7 @@ cliente manage::buscarClientesDNI(std::string DNI, int pos){
 	return cl;
 }
 
-plan manage::buscarPlanNombre(std::string nombre, int pos){
+plan manage::buscarPlanNombre(std::string nombre, int pos) const{
 	plan pl;
 	
 	for(int i=pos; i<vector_de_planes.size(); i++){
@@ -187,7 +185,7 @@ plan manage::buscarPlanNombre(std::string nombre, int pos){
 	return pl;
 }
 	
-suscripcion manage::buscarSub(std::string cliente_DNI, std::string nombre_plan, int pos){
+suscripcion manage::buscarSub(std::string cliente_DNI, std::string nombre_plan, int pos) const{
 	suscripcion sub;
 	for(int i=pos; i<vector_de_suscripciones.size(); i++){
 		if(vector_de_suscripciones[i].ver_nombre_plan()==nombre_plan 
@@ -200,20 +198,20 @@ cliente &manage::ObtenerCliente(int pos){
 	return vector_de_clientes[pos];
 }
 
-suscripcion &manage::obtenerSuscripcion(int pos){
+suscripcion &manage::obtenerSuscripcion(int pos) {
 	return vector_de_suscripciones[pos];
 }
 
-couch &manage::obtenerCouch(int pos){
+couch &manage::obtenerCouch(int pos) {
 	return vector_de_couchs[pos];
 }
 
-plan &manage::obtenerPlan(int pos){
+plan &manage::obtenerPlan(int pos) {
 	return vector_de_planes[pos];
 }
 
 
-std::string manage::planesSuscritos(std::string dni_cliente){
+std::string manage::planesSuscritos(std::string dni_cliente) const{
 	
 	std::string planes = "";
 	
@@ -228,7 +226,7 @@ std::string manage::planesSuscritos(std::string dni_cliente){
 	return planes;
 }
 
-int manage::buscarClientesNombre(std::string nomape, int pos){
+int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	PasarMiniscula(nomape);
 	if(nomape==""){
 		return -1;

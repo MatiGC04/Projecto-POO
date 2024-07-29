@@ -3,9 +3,7 @@
 * @brief Implementaciones de todo lo necesario para trabajar con la clase Plan.
 **/
 #include "Plan.h"
-#include <fstream>
 #include <cstring>
-#include <string>
 
 /// Implementación del constructor de la clase Plan
 plan::plan(std::string nombre, int precio){
@@ -20,7 +18,7 @@ plan::plan(std::string nombre, int precio){
 * El vector de couchs no es necesario pq ya posee un metodo propio
 * la clase cliente.
 **/
-std::string plan::validar_datos(){
+std::string plan::validar_datos() const{
 	std::string errores = "";
 	
 	if(nombre.size()==0){
@@ -39,30 +37,30 @@ std::string plan::validar_datos(){
 }
 
 /// Implementación del metodo para modificar el precio del plan.
-void plan::modificar_precio(int nuevo_precio){
+void plan::modificar_precio(int nuevo_precio) {
 	if(nuevo_precio>=0){ //si el precio es negativo no se modifica 
 	precio = nuevo_precio;
 	}
 }
 
 ///Implementaciónes de los métodos para obtener los atributos.
-int plan::ver_precio_plan(){
+int plan::ver_precio_plan() const{
 	return precio;
 }
 
-std::string plan::ver_couch_plan(int pos){
+std::string plan::ver_couch_plan(int pos) const{ 
 	return p_couchs[pos];
 }
 
-std::vector<std::string> plan::ver_couchs_plan(){
+std::vector<std::string> plan::ver_couchs_plan() const{
 	return p_couchs;
 }
 
-std::string plan::ver_nombre_plan(){
+std::string plan::ver_nombre_plan() const{
 	return nombre;
 }
 
-std::string plan::ver_nombre_rutina(){
+std::string plan::ver_nombre_rutina() const{
 	return nombre_rutina_base;
 }
 
@@ -102,6 +100,7 @@ void plan::guardar_en_binario(std::ofstream &archivo){
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroPlan));
 }
 
+///Implementacion del metodo que agrega un couch al arreglo que tiene el plan
 void plan::agregar_couch(std::string id_couch){
 	p_couchs.push_back(id_couch);
 }
@@ -111,6 +110,7 @@ void plan::agregar_couch(std::string id_couch){
 //No estoy seguro de si va a servir pero lo programo y dps si no hace falta
 //se descarta, segun yo despues podemos utilizar estas funciones para mandarle
 //un puntero a funcion a sort y que ordene el vector de manage con estos criterios
+///Implementacion de funciones para enviar como puntero a funcion a sort
 bool CriterioPrecioPlan(plan p1, plan p2){
 	return p1.ver_precio_plan()<p2.ver_precio_plan();
 }

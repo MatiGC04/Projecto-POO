@@ -10,11 +10,11 @@
 **/
 #ifndef PLAN_H
 #define PLAN_H
+
+
+#include <fstream>
 #include <string>
 #include <vector>
-#include "Couch.h"
-#include <fstream>
-
 /**
 * @brief Estructura auxiliar para usar con archivos binarios en la clase Plan.
 *
@@ -50,17 +50,17 @@ public:
 	plan(std::string nombre = "", int precio = 0);
 	
 	/// @brief Valida que los datos cargados sean correctos 
-	std::string validar_datos();
+	std::string validar_datos() const;
 	
 	/// @brief Método para modificar el precio del plan
 	void modificar_precio(int nuevo_precio);
 	
 	/// @brief Métodos para obtener los atributos de una suscripcion
-	int ver_precio_plan();
-	std::string ver_couch_plan(int pos);
-	std::vector<std::string> ver_couchs_plan(); ///< devuelve el vector completo de couchs
-	std::string ver_nombre_plan();
-	std::string ver_nombre_rutina();
+	int ver_precio_plan() const;
+	std::string ver_couch_plan(int pos) const; ///<devuelve identificativo del couch, el DNI
+	std::vector<std::string> ver_couchs_plan() const; ///< devuelve el vector completo de couchs
+	std::string ver_nombre_plan() const ;
+	std::string ver_nombre_rutina() const;
 	
 	/// @brief Métodos para leer/guardar su registro en un archivo binario
 	void leer_en_binario(std::ifstream &archivo);
@@ -71,6 +71,9 @@ public:
 	
 	
 };
+///@brief Funciones para comparar planes por precio y nombre
+bool CriterioPrecioPlan(plan p1, plan p2);
 
+bool CriterioNombre(plan p1, plan p2);
 #endif
 
