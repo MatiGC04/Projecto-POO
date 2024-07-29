@@ -77,16 +77,20 @@ public:
 };
 
 /// @brief Funcion que compara dos clientes por su nombre y apellido
-bool CriterioNombreApellido(cliente p1, cliente p2);
+bool CriterioClientesNombreApellido(cliente p1, cliente p2);
 
 /// @brief Funcion que compara dos clientes por su localidad
-bool CriterioLocalidad(cliente p1, cliente p2);
+bool CriterioClientesLocalidad(cliente p1, cliente p2);
 
 /// @brief Funcion que compara dos clientes por su edad
-bool CriterioEdad(cliente p1, cliente p2);
+bool CriterioClientesEdad(cliente p1, cliente p2);
 
 /// @brief Funcion que comprar dos clientes por su direccion de correo electronico
-bool CriterioEmail(cliente p1, cliente p2);
+bool CriterioClientesEmail(cliente p1, cliente p2);
+
+bool CriterioClientesDNI(cliente p1, cliente p2);
+
+bool CriterioClientesTelefonoEmergencias(cliente p1, cliente p2);
 #endif
 
 

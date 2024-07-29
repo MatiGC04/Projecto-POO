@@ -106,3 +106,19 @@ void HijaClientes::EnterBuscar( wxCommandEvent& event )  {
 	ClickBuscar(event);
 }
 
+void HijaClientes::DobleClickFila( wxGridEvent& event )  {
+	ClickEditar(event);
+}
+
+void HijaClientes::ClickFila( wxGridEvent& event )  {
+	int col = event.GetCol();
+	switch(col){
+	case 0: m_manage->OrdenarClientes(ORDEN_APELLIDO_Y_NOMBRE); break;
+	case 1: m_manage->OrdenarClientes(ORDEN_DNI); break;
+	case 2: m_manage->OrdenarClientes(ORDEN_EMAIL); break;
+	case 3: m_manage->OrdenarClientes(ORDEN_PLANES_SUSCRITOS); break;
+	case 4: m_manage->OrdenarClientes(ORDEN_TELEFONO_EMERGENCIAS); break;
+	}
+	for(int i=0; i<m_manage->cantidadCliente();i++) CargarFila(i);
+}
+

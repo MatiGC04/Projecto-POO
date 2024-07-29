@@ -1023,6 +1023,8 @@
             <property name="window_extra_style"></property>
             <property name="window_name"></property>
             <property name="window_style"></property>
+            <event name="OnGridCellLeftDClick">DobleClickFila</event>
+            <event name="OnGridLabelLeftClick">ClickFila</event>
           </object>
         </object>
         <object class="sizeritem" expanded="false">

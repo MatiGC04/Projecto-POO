@@ -10,6 +10,9 @@
 #include "Suscripcion.h"
 #include "Plan.h"
 
+/// @brief enumeración para los posibles criterios de ordenamiento
+/// es para pasar como argumento al método, queda más legible que un número
+enum CriterioOrdenClientes { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_EMAIL, ORDEN_PLANES_SUSCRITOS, ORDEN_TELEFONO_EMERGENCIAS };
 
 class manage{
 private:
@@ -71,5 +74,6 @@ public:
 	
 	std::string planesSuscritos(std::string dni_cliente);
 	/// @brief Ordenar vector (falta)
+	void OrdenarClientes(CriterioOrdenClientes criterio);
 };
 #endif

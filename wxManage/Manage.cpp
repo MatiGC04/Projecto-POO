@@ -5,6 +5,8 @@
 #include "Manage.h"
 #include <fstream>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
 manage::manage(std::string nombre_archivo_couchs, std::string nombre_archivo_clientes, std::string nombre_archivo_suscripciones, std::string nombre_archivo_planes){
 	
@@ -239,8 +241,19 @@ int manage::buscarClientesNombre(std::string nomape, int pos){
 	}
 	return -1;
 }
-
-
+void manage::OrdenarClientes(CriterioOrdenClientes criterio){
+	switch(criterio){
+	case ORDEN_APELLIDO_Y_NOMBRE:
+		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesNombreApellido); break;
+	case ORDEN_DNI:
+		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesDNI); break;
+	
+	case ORDEN_EMAIL:
+		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesEmail); break;
+	case ORDEN_TELEFONO_EMERGENCIAS:
+		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesTelefonoEmergencias); break;
+}
+}
 
 
 

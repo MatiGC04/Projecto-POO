@@ -74,7 +74,7 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 }
 
 
-bool CriterioNombreApellido(cliente p1, cliente p2){
+bool CriterioClientesNombreApellido(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_nombre() + " " + p1.ver_apellido();
 	std::string txt2 = p2.ver_nombre() + " " + p2.ver_apellido();
 	PasarMiniscula(txt1);
@@ -82,7 +82,7 @@ bool CriterioNombreApellido(cliente p1, cliente p2){
 	return txt1<txt2;	
 }
 	
-bool CriterioLocalidad(cliente p1, cliente p2){
+bool CriterioClientesLocalidad(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_loc();
 	std::string txt2 = p2.ver_loc();
 	PasarMiniscula(txt1);
@@ -90,14 +90,31 @@ bool CriterioLocalidad(cliente p1, cliente p2){
 	return txt1 < txt2;
 }
 	
-bool CriterioEdad(cliente p1, cliente p2){
+bool CriterioClientesEdad(cliente p1, cliente p2){
 	return p1.ver_edad() < p2.ver_edad();
 }
 
-bool CriterioEmail(cliente p1, cliente p2){
+bool CriterioClientesEmail(cliente p1, cliente p2){
 	std::string txt1 = p1.ver_email();
 	std::string txt2 = p2.ver_email();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
 }
+bool CriterioClientesDNI(cliente p1, cliente p2){
+	std::string txt1 = p1.ver_DNI();
+	std::string txt2 = p2.ver_DNI();
+	PasarMiniscula(txt1);
+	PasarMiniscula(txt2);
+	return txt1 < txt2;
+}
+	
+	
+bool CriterioClientesTelefonoEmergencias(cliente p1, cliente p2){
+	std::string txt1 = p1.ver_tel_emergencia();
+	std::string txt2 = p2.ver_tel_emergencia();
+	PasarMiniscula(txt1);
+	PasarMiniscula(txt2);
+	return txt1 < txt2;
+}
+	
