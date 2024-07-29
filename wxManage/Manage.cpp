@@ -240,13 +240,15 @@ int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	return -1;
 }
 
-bool manage::CriterioClientesPlanesSuscritos(cliente p1, cliente p2){
-	std::string aux1 = this->planesSuscritos(p1.ver_DNI());
-	std::string aux2 = this->planesSuscritos(p2.ver_DNI());
-	return aux1<aux2;
-}
 
 void manage::OrdenarClientes(CriterioOrdenClientes criterio){
+	auto CriterioClientesPlanesSuscritos = [this](const cliente &a, const cliente &b)->bool{
+		std::string aux1=this->planesSuscritos(a.ver_DNI());
+		std::string aux2=this->planesSuscritos(b.ver_DNI());
+		PasarMiniscula(aux1);
+		PasarMiniscula(aux2);
+		return aux1< aux2;
+	};
 	switch(criterio){
 	case ORDEN_APELLIDO_Y_NOMBRE:
 		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesNombreApellido); break;
@@ -258,14 +260,7 @@ void manage::OrdenarClientes(CriterioOrdenClientes criterio){
 		sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesTelefonoEmergencias); break;
 		//lambda 
 	case ORDEN_PLANES_SUSCRITOS:
-		std::sort(vector_de_clientes.begin(), vector_de_clientes.end(), 
-			[this](const cliente &a, const cliente &b) -> bool {
-			std::string aux1=this->planesSuscritos(a.ver_DNI());
-			std::string aux2=this->planesSuscritos(b.ver_DNI());
-			PasarMiniscula(aux1);
-			PasarMiniscula(aux2);
-			return aux1< aux2;
-		});
+		std::sort(vector_de_clientes.begin(), vector_de_clientes.end(), CriterioClientesPlanesSuscritos);
 		break;
 	}
 	this->guardar();

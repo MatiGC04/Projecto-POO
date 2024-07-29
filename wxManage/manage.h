@@ -74,8 +74,6 @@ public:
 	std::string planesSuscritos(std::string dni_cliente) const;
 	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
-	
-	bool CriterioClientesPlanesSuscritos(cliente p1, cliente p2);
 
 };
 #endif
