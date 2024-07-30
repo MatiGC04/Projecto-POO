@@ -226,28 +226,6 @@ std::string manage::planesSuscritos(std::string dni_cliente) const{
 	return planes;
 }
 
-std::string manage::planesResponsables(std::string dni_couch) const{
-	
-	std::string planes = "";
-	
-	for(int i = 0;i < vector_de_planes.size();i++) {
-		
-		for(int j=0;j<vector_de_planes[i].ver_couchs_plan().size();j++) { 
-			
-			if(vector_de_planes[i].ver_couch_plan(j) == dni_couch){
-				planes += vector_de_planes[i].ver_nombre_plan() + " ";
-				break;
-			}
-			
-		}
-		
-	}
-	
-	return planes;
-}
-
-
-
 int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	PasarMiniscula(nomape);
 	if(nomape==""){

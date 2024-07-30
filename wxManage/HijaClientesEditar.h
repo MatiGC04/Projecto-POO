@@ -2,6 +2,7 @@
 #define HIJACLIENTESEDITAR_H
 #include "wxfb_project.h"
 #include "manage.h"
+
 class HijaClientesEditar : public BaseClientesAgregar{
 private:
 	manage *m_manage;

@@ -68,44 +68,6 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	fecha_nacimiento = registro.fecha_nac;
 }
 
-bool cliente::operator==(cliente cl){
-	if(this->nombre!=cl.ver_nombre()){
-		return false;
-	}
-	if(this->apellido!=cl.ver_apellido()){
-		return false;
-	}
-	if(this->email!=cl.ver_email()){
-		return false;
-	}
-	if(this->sexo!=cl.ver_sexo()){
-		return false;
-	}
-	if(this->telefono!=cl.ver_tel()){
-		return false;
-	}
-	if(this->direccion!=cl.ver_dir()){
-		return false;
-	}
-	if(this->localidad!=cl.ver_loc()){
-		return false;
-	}
-	if(this->dni!=cl.ver_DNI()){
-		return false;
-	}
-	fecha aux;
-	aux.dia=cl.ver_diaN();
-	aux.mes=cl.ver_mesN();
-	aux.anio=cl.ver_anioN();
-	if(!(this->fecha_nacimiento==aux)){
-		return false;
-	}
-	if(this->tel_emergencias!=cl.ver_tel_emergencia()){
-		return false;
-	}
-	return true;
-}
-
 /**
 * Devuelve true si la combinacion "apellido, nombre" de el primer cliente esta
 * antes segun el orden alfabetico que el apellido y nombre de el segundo cliente.

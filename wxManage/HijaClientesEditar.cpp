@@ -3,9 +3,8 @@
 #include <wx/msgdlg.h>
 
 HijaClientesEditar::HijaClientesEditar(manage *aux, int pos, wxWindow *parent): BaseClientesAgregar(parent), m_manage(aux){
-	this->pos = pos;
-	cliente cl = m_manage->ObtenerCliente(pos);
-	
+	this->pos=pos;
+	cliente cl=m_manage->ObtenerCliente(pos);
 	m_nombre->SetValue(wx_to_std(cl.ver_nombre()));
 	m_apellido->SetValue(wx_to_std(cl.ver_apellido()));
 	m_DNI->SetValue(wx_to_std(cl.ver_DNI()));
@@ -22,20 +21,18 @@ HijaClientesEditar::HijaClientesEditar(manage *aux, int pos, wxWindow *parent): 
 void HijaClientesEditar::ClickAceptarRegistro( wxCommandEvent& event ){
 	std::string nombre,apellido,email,sexo,telefono,direccion,localidad,DNI,tel_emergencias;
 	long dia,mes,anio;
-	
-	nombre = wx_to_std(m_nombre->GetValue());
-	apellido = wx_to_std(m_apellido->GetValue());
-	email = wx_to_std(m_mail->GetValue());
-	sexo = wx_to_std(m_sexo->GetValue());
-	telefono = wx_to_std(m_telefono->GetValue());
-	direccion = wx_to_std(m_direccion->GetValue());
-	localidad = wx_to_std(m_localidad->GetValue());
+	nombre=wx_to_std(m_nombre->GetValue());
+	apellido=wx_to_std(m_apellido->GetValue());
+	email=wx_to_std(m_mail->GetValue());
+	sexo=wx_to_std(m_sexo->GetValue());
+	telefono=wx_to_std(m_telefono->GetValue());
+	direccion=wx_to_std(m_direccion->GetValue());
+	localidad=wx_to_std(m_localidad->GetValue());
 	DNI=wx_to_std(m_DNI->GetValue());
 	m_dia->GetValue().ToLong(&dia);
 	m_mes->GetValue().ToLong(&mes);
 	m_anio->GetValue().ToLong(&anio);
 	tel_emergencias = wx_to_std(m_telefono2->GetValue());
-	
 	if(m_dia->GetValue()==""){
 		dia=-1;
 	}
@@ -45,27 +42,17 @@ void HijaClientesEditar::ClickAceptarRegistro( wxCommandEvent& event ){
 	if(m_anio->GetValue()==""){
 		anio=-1;
 	}
+	
 	cliente cl(nombre,apellido,email,sexo,telefono,direccion,localidad,DNI,dia,mes,anio,tel_emergencias);
-	std::string errores = "";
-	errores = cl.validar_datos_cl();
-	cliente cl_original = m_manage->ObtenerCliente(pos);
+	std::string errores="";
+	errores= cl.validar_datos_cl();
 	if(errores.size()){
 		wxMessageBox(std_to_wx(errores),"Errores",wxOK|wxICON_ERROR,this);
 	}
 	else{
-		if((cl==cl_original)) EndModal(0);
-		else{
-			std::string aux= "¿Esta seguro de sobrescribir el registro de " + cl_original.ver_apellido() + ", " + cl_original.ver_nombre() + " ?";
-			int resultado = wxMessageBox(aux ,"Sobrescribir dato",wxYES_NO);
-			if(resultado==wxNO){
-				EndModal(0);
-			}
-			if(resultado==wxYES){
-				m_manage->ObtenerCliente(pos)=cl;
-				m_manage->guardar();
-				EndModal(1);
-			}
-		}
+		m_manage->ObtenerCliente(pos)=cl;
+		m_manage->guardar();
+		EndModal(1);
 	}
 }
 void HijaClientesEditar::ClickCancelarRegistro( wxCommandEvent& event ){

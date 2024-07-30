@@ -72,10 +72,6 @@ public:
 	plan &obtenerPlan(int plan) ;
 	
 	std::string planesSuscritos(std::string dni_cliente) const;
-	
-	std::string planesResponsables(std::string dni_couch) const;
-	
-	
 	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
 

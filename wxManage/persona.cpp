@@ -68,9 +68,6 @@ std::string persona::validar_datos() const{
 	if(sexo.size()>1){
 		errores+="El sexo ingresado es demasiado largo \n";
 	}
-	if(sexo.size()==0){
-		errores+="El sexo no debe estar vacio \n";
-	}
 	
 	
 	if(fecha_nacimiento.dia<0 || fecha_nacimiento.dia>31){
