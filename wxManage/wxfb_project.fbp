@@ -1381,7 +1381,7 @@
       <property name="minimum_size"></property>
       <property name="name">BaseCouchs</property>
       <property name="pos"></property>
-      <property name="size">660,472</property>
+      <property name="size">482,455</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
@@ -1716,7 +1716,7 @@
             <property name="drag_col_size">1</property>
             <property name="drag_grid_size">0</property>
             <property name="drag_row_size">1</property>
-            <property name="editing">1</property>
+            <property name="editing">0</property>
             <property name="enabled">1</property>
             <property name="fg"></property>
             <property name="floatable">1</property>
@@ -1751,7 +1751,7 @@
             <property name="row_label_values"></property>
             <property name="row_label_vert_alignment">wxALIGN_CENTER</property>
             <property name="row_sizes"></property>
-            <property name="rows">5</property>
+            <property name="rows">0</property>
             <property name="show">1</property>
             <property name="size"></property>
             <property name="subclass">; ; forward_declare</property>

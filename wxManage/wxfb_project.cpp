@@ -256,8 +256,8 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_grilla_couchs = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grilla_couchs->CreateGrid( 5, 5 );
-	m_grilla_couchs->EnableEditing( true );
+	m_grilla_couchs->CreateGrid( 0, 5 );
+	m_grilla_couchs->EnableEditing( false );
 	m_grilla_couchs->EnableGridLines( true );
 	m_grilla_couchs->EnableDragGridSize( false );
 	m_grilla_couchs->SetMargins( 0, 0 );
