@@ -111,13 +111,26 @@ class BaseCouchs : public wxFrame
 		wxTextCtrl* m_textCtrl2;
 		wxButton* m_button7;
 		wxGrid* m_grilla_couchs;
+		wxButton* m_button33;
 		wxButton* m_button9;
 		wxButton* m_button10;
 		wxButton* m_button8;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
+		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickSalirCouchs( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickVerEditar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
-		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,472 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseCouchs();
 
@@ -182,35 +195,42 @@ class BaseCouchsAgregar : public wxDialog
 	protected:
 		wxStaticText* m_staticText12;
 		wxStaticText* m_staticText13;
-		wxTextCtrl* m_textCtrl6;
+		wxTextCtrl* m_nombre_ch;
 		wxStaticText* m_staticText131;
-		wxTextCtrl* m_textCtrl61;
+		wxTextCtrl* m_apellido_ch;
 		wxStaticText* m_staticText1311;
-		wxTextCtrl* m_textCtrl611;
+		wxTextCtrl* m_DNI_ch;
 		wxStaticText* m_staticText13111;
-		wxTextCtrl* m_textCtrl6111;
+		wxTextCtrl* m_sexo_ch;
 		wxStaticText* m_staticText13112;
-		wxTextCtrl* m_textCtrl6112;
+		wxTextCtrl* m_mail_ch;
 		wxStaticText* m_staticText13113;
-		wxTextCtrl* m_textCtrl6113;
+		wxTextCtrl* m_telefono_ch;
 		wxStaticText* m_staticText13114;
-		wxTextCtrl* m_textCtrl6114;
+		wxTextCtrl* m_direccion_ch;
+		wxStaticText* m_staticText1311411;
+		wxTextCtrl* m_localidad_ch;
 		wxStaticText* m_staticText131141;
-		wxTextCtrl* m_textCtrl61141;
+		wxTextCtrl* m_CBU;
 		wxStaticText* m_staticText131143;
-		wxTextCtrl* m_textCtrl61143;
+		wxTextCtrl* m_alias;
 		wxStaticText* m_staticText131142;
-		wxTextCtrl* m_textCtrl61142;
+		wxTextCtrl* m_dia_ch;
 		wxStaticText* m_staticText53;
-		wxTextCtrl* m_textCtrl43;
+		wxTextCtrl* m_mes_ch;
 		wxStaticText* m_staticText54;
-		wxTextCtrl* m_textCtrl44;
+		wxTextCtrl* m_anio_ch;
 		wxButton* m_button24;
 		wxButton* m_button23;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickCancelarRegistro( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAceptarRegistro( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
-		BaseCouchsAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 546,419 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BaseCouchsAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 613,494 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseCouchsAgregar();
 

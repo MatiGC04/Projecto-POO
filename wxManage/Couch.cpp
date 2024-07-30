@@ -76,6 +76,7 @@ std::string couch::validar_datos_ch() const{
 	if(alias.size()<6){
 		errores+="El alias es demaciado corto \n";
 	}
+	return errores;
 }
 
 

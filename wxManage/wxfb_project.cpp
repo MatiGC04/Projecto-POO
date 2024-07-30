@@ -291,27 +291,64 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
 
+	wxBoxSizer* bSizer47;
+	bSizer47 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button33 = new wxButton( this, wxID_ANY, wxT("Salir"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer47->Add( m_button33, 0, wxALL, 5 );
+
+
+	bSizer10->Add( bSizer47, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer39;
+	bSizer39 = new wxBoxSizer( wxHORIZONTAL );
+
 	m_button9 = new wxButton( this, wxID_ANY, wxT("Ver/Editar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer10->Add( m_button9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer39->Add( m_button9, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_button10 = new wxButton( this, wxID_ANY, wxT("Eliminar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer10->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer39->Add( m_button10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_button8 = new wxButton( this, wxID_ANY, wxT("Agregar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer10->Add( m_button8, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer39->Add( m_button8, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
-	bSizer8->Add( bSizer10, 0, wxALIGN_RIGHT, 5 );
+	bSizer10->Add( bSizer39, 0, 0, 5 );
+
+
+	bSizer8->Add( bSizer10, 0, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer8 );
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseCouchs::ClickTamanio ) );
+	m_textCtrl2->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseCouchs::EnterBuscar ), NULL, this );
+	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickBuscar ), NULL, this );
+	m_grilla_couchs->Connect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BaseCouchs::DobleClickFila ), NULL, this );
+	m_grilla_couchs->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseCouchs::ClickColumna ), NULL, this );
+	m_button33->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickSalirCouchs ), NULL, this );
+	m_button9->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickVerEditar ), NULL, this );
+	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickEliminar ), NULL, this );
+	m_button8->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickAgregar ), NULL, this );
 }
 
 BaseCouchs::~BaseCouchs()
 {
+	// Disconnect Events
+	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseCouchs::ClickTamanio ) );
+	m_textCtrl2->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseCouchs::EnterBuscar ), NULL, this );
+	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickBuscar ), NULL, this );
+	m_grilla_couchs->Disconnect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BaseCouchs::DobleClickFila ), NULL, this );
+	m_grilla_couchs->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseCouchs::ClickColumna ), NULL, this );
+	m_button33->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickSalirCouchs ), NULL, this );
+	m_button9->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickVerEditar ), NULL, this );
+	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickEliminar ), NULL, this );
+	m_button8->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickAgregar ), NULL, this );
+
 }
 
 BaseClientesAgregar::BaseClientesAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -518,8 +555,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText13->Wrap( -1 );
 	bSizer22->Add( m_staticText13, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl6 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer22->Add( m_textCtrl6, 1, wxALL, 5 );
+	m_nombre_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer22->Add( m_nombre_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer22, 0, wxEXPAND, 5 );
@@ -531,8 +568,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText131->Wrap( -1 );
 	bSizer221->Add( m_staticText131, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl61 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer221->Add( m_textCtrl61, 1, wxALL, 5 );
+	m_apellido_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221->Add( m_apellido_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer221, 0, wxEXPAND, 5 );
@@ -544,8 +581,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText1311->Wrap( -1 );
 	bSizer2211->Add( m_staticText1311, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl611 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer2211->Add( m_textCtrl611, 1, wxALL, 5 );
+	m_DNI_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2211->Add( m_DNI_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer2211, 0, wxEXPAND, 5 );
@@ -557,8 +594,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText13111->Wrap( -1 );
 	bSizer22111->Add( m_staticText13111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl6111 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer22111->Add( m_textCtrl6111, 1, wxALL, 5 );
+	m_sexo_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer22111->Add( m_sexo_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer22111, 0, wxEXPAND, 5 );
@@ -570,8 +607,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText13112->Wrap( -1 );
 	bSizer22112->Add( m_staticText13112, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl6112 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer22112->Add( m_textCtrl6112, 1, wxALL, 5 );
+	m_mail_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer22112->Add( m_mail_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer22112, 0, wxEXPAND, 5 );
@@ -583,8 +620,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText13113->Wrap( -1 );
 	bSizer22113->Add( m_staticText13113, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl6113 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer22113->Add( m_textCtrl6113, 1, wxALL, 5 );
+	m_telefono_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer22113->Add( m_telefono_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer22113, 0, wxEXPAND, 5 );
@@ -596,11 +633,24 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText13114->Wrap( -1 );
 	bSizer22114->Add( m_staticText13114, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl6114 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer22114->Add( m_textCtrl6114, 1, wxALL, 5 );
+	m_direccion_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer22114->Add( m_direccion_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer22114, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer221144;
+	bSizer221144 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText1311411 = new wxStaticText( this, wxID_ANY, wxT("Localidad"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1311411->Wrap( -1 );
+	bSizer221144->Add( m_staticText1311411, 0, wxALL, 5 );
+
+	m_localidad_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221144->Add( m_localidad_ch, 1, wxALL, 5 );
+
+
+	bSizer21->Add( bSizer221144, 0, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer221141;
 	bSizer221141 = new wxBoxSizer( wxHORIZONTAL );
@@ -609,8 +659,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText131141->Wrap( -1 );
 	bSizer221141->Add( m_staticText131141, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl61141 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer221141->Add( m_textCtrl61141, 1, wxALL, 5 );
+	m_CBU = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221141->Add( m_CBU, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer221141, 0, wxEXPAND, 5 );
@@ -622,8 +672,8 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText131143->Wrap( -1 );
 	bSizer221143->Add( m_staticText131143, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl61143 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer221143->Add( m_textCtrl61143, 1, wxALL, 5 );
+	m_alias = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221143->Add( m_alias, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer221143, 0, wxEXPAND, 5 );
@@ -635,22 +685,22 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText131142->Wrap( -1 );
 	bSizer221142->Add( m_staticText131142, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl61142 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer221142->Add( m_textCtrl61142, 1, wxALL, 5 );
+	m_dia_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221142->Add( m_dia_ch, 1, wxALL, 5 );
 
 	m_staticText53 = new wxStaticText( this, wxID_ANY, wxT("/"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText53->Wrap( -1 );
 	bSizer221142->Add( m_staticText53, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl43 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer221142->Add( m_textCtrl43, 1, wxALL, 5 );
+	m_mes_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221142->Add( m_mes_ch, 1, wxALL, 5 );
 
 	m_staticText54 = new wxStaticText( this, wxID_ANY, wxT("/"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText54->Wrap( -1 );
 	bSizer221142->Add( m_staticText54, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl44 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer221142->Add( m_textCtrl44, 1, wxALL, 5 );
+	m_anio_ch = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer221142->Add( m_anio_ch, 1, wxALL, 5 );
 
 
 	bSizer21->Add( bSizer221142, 0, wxEXPAND, 5 );
@@ -665,15 +715,23 @@ BaseCouchsAgregar::BaseCouchsAgregar( wxWindow* parent, wxWindowID id, const wxS
 	bSizer76->Add( m_button23, 0, wxALL, 5 );
 
 
-	bSizer21->Add( bSizer76, 0, wxALIGN_RIGHT, 5 );
+	bSizer21->Add( bSizer76, 1, wxALL|wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer21 );
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button24->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchsAgregar::ClickCancelarRegistro ), NULL, this );
+	m_button23->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchsAgregar::ClickAceptarRegistro ), NULL, this );
 }
 
 BaseCouchsAgregar::~BaseCouchsAgregar()
 {
+	// Disconnect Events
+	m_button24->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchsAgregar::ClickCancelarRegistro ), NULL, this );
+	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchsAgregar::ClickAceptarRegistro ), NULL, this );
+
 }

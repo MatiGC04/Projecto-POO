@@ -8,7 +8,8 @@ HijaPresentacion::HijaPresentacion(manage *aux, wxWindow *parent) : BasePresenta
 HijaPresentacion::~HijaPresentacion() {
 	
 }
-/// @brief Al hacer click muestro la ventana de couch, le paso el puntero a manage
+
+/// @brief Al hacer click muestro la ventana de couch, le paso el puntero manage
 void HijaPresentacion::ClickClientes( wxCommandEvent& event )  {
 	HijaClientes *nueva_ventana=new HijaClientes(m_manage,this);
 	nueva_ventana->Show();
@@ -20,10 +21,12 @@ void HijaPresentacion::ClickCouchs( wxCommandEvent& event )  {
 	nueva_ventana->Show();
 }
 
+/// @brief Al hacer click muestro la ventana de Planes
 void HijaPresentacion::ClickPlanes( wxCommandEvent& event )  {
 	event.Skip();
 }
 
+/// @brief Al hacer click muestro la ventana de Suscripciones
 void HijaPresentacion::ClickSuscripciones( wxCommandEvent& event )  {
 	event.Skip();
 }
