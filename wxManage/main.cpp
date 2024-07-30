@@ -8,6 +8,7 @@
 #include "Suscripcion.h"
 #include <fstream>
 #include "manage.h"
+#include "Plan.h"
 using namespace std;
 /**(std::string nom, std::string ape, std::string mail, 
 std::string sex, std::string tel, std::string dir, 
@@ -17,6 +18,7 @@ persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio)*/
 
 
 int main (int argc, char *argv[]) {
+	
 	/*
 	int x=1;
 	std::string plan;
@@ -40,7 +42,8 @@ int main (int argc, char *argv[]) {
 		
 		cout<<"Si quiere salir aprete 0: "; cin>>x;
 	}	
-	*/
+	
+	
 	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
 	
 	for(int i=0;i<mister_manage.cantidadSuscripciones();i++){
@@ -52,9 +55,100 @@ int main (int argc, char *argv[]) {
 	cout<<endl<<endl<<endl;
 	
 	cout<<mister_manage.planesSuscritos("44556041");
+	*/
+	/*
+	int x=1;
+	std::string m_plan;
+	int precio;
+	
+	ofstream m_planes("planes.dat",ios::binary|ios::out|ios::app);
+	if(!m_planes.is_open()){
+		cout<<"No se pudo abrir el arhivo"<<endl;
+	}
+	
+	while(x != 0){
+		int k = 1;
+		std::string dni_couch;
+		
+		
+		cout<<"Agregar Plan: "<<endl;
+		
+		cout<<"Plan: "; cin>>m_plan; cout<<"Precio: "; cin>>precio;
+		
+		plan k_plan(m_plan,precio);
+		
+		while(k != 0){
+			cout<<"Agregar couch al plan: "<<endl;
+			cin>>dni_couch;
+			k_plan.agregar_couch(dni_couch);
+			cout<<"(couch)Si quiere salir aprete 0: "; cin>>k;
+		}
+		
+		
+		k_plan.guardar_en_binario(m_planes);
+		
+		cout<<"Si quiere salir aprete 0: "; cin>>x;
+	}	
+	*/
+	
+	
+	
+	/*
+	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
+	
+	for(int i=0;i<mister_manage.cantidadPlanes();i++){
+		cout<<"Plan: "<<mister_manage.obtenerPlan(i).ver_nombre_plan()<<endl;
+		cout<<"Precio: "<<mister_manage.obtenerPlan(i).ver_precio_plan()<<endl;
+		cout<<"Nombre rutina: "<<mister_manage.obtenerPlan(i).ver_nombre_rutina()<<endl;
+	}
+	
+	cout<<endl<<endl<<endl;
+	
+	cout<<mister_manage.planesResposables("50000000");
+	
+	for(int i=0;i<mister_manage.cantidadPlanes();i++) { 
+		plan m_plan = mister_manage.obtenerPlan(i);
+		
+		std::vector<std::string> auxiliar_couchs = m_plan.ver_couchs_plan();
+		
+		for(int j=0;j<auxiliar_couchs.size();j++){
+			cout<<"Plan"<<i<<" "<<auxiliar_couchs[j]<<endl;
+		}
+		
+	}
+	*/
+	
 	
 	return 0;	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///Prueba de la clase suscripcion (Funciona)
 /*
 ifstream couchs_2("couchs.dat",ios::binary|ios::in);

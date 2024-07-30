@@ -65,7 +65,7 @@ public:
 	
 	/// @brief Metodo para obtener atributo del dato
 	std::string ver_tel_emergencia() const;
-	
+	bool operator==(cliente cl);
 	/// @brief Metodos para registrar los datos de la clase
 	void guardar_en_binario(std::ofstream &archivo) override; 
 	void leer_en_binario(std::ifstream &archivo) override; 
