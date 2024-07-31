@@ -19,42 +19,104 @@ persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio)*/
 int main (int argc, char *argv[]) {
 	/*
 	int x=1;
-	std::string plan;
-	std::string dni_coach;
-	std::string dni_client;
+	std::string m_plan;
+	int precio;
 	
-	ofstream suscripciones("suscripciones.dat",ios::binary|ios::out|ios::app);
-	if(!suscripciones.is_open()){
-		cout<<"No se pudo abrir el arhivo"<<endl;
+	ofstream m_planes("planes.dat",ios::binary|ios::out|ios::app);
+	if(!m_planes.is_open()){
+	cout<<"No se pudo abrir el arhivo"<<endl;
 	}
 	
 	while(x != 0){
-		
-		cout<<"Agregar suscripcion: "<<endl;
-		
-		cout<<"Plan: "; cin>>plan; cout<<"Dni_coach: "; cin>>dni_coach; cout<<"Dni_client: "; cin>>dni_client;
-		
-		suscripcion sus(plan,dni_coach,dni_client);
-		
-		sus.guardar_en_binario(suscripciones);
-		
+		int k = 1;
+		std::string dni_couch;
+	
+		cout<<"Agregar Plan: "<<endl;
+	
+		cout<<"Plan: "; cin>>m_plan; cout<<"Precio: "; cin>>precio;
+	
+		plan k_plan(m_plan,precio);
+	
+		while(k != 0){
+			cout<<"Agregar couch al plan: "<<endl;
+			cin>>dni_couch;
+			k_plan.agregar_couch(dni_couch);
+			cout<<"(couch)Si quiere salir aprete 0: "; cin>>k;
+		}
+	
+	
+		k_plan.guardar_en_binario(m_planes);
+	
 		cout<<"Si quiere salir aprete 0: "; cin>>x;
 	}	
-	*/
-	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
-	
-	for(int i=0;i<mister_manage.cantidadSuscripciones();i++){
-		cout<<"Plan: "<<mister_manage.obtenerSuscripcion(i).ver_nombre_plan()<<endl;
-		cout<<"Dni_coach: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_couch()<<endl;
-		cout<<"Dni_client: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_cliente()<<endl;
+	*/	
+		
+		
+		/*
+		manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
+		/*
+		for(int i=0;i<mister_manage.cantidadPlanes();i++){
+		cout<<"Plan: "<<mister_manage.obtenerPlan(i).ver_nombre_plan()<<endl;
+		cout<<"Precio: "<<mister_manage.obtenerPlan(i).ver_precio_plan()<<endl;
+		cout<<"Nombre rutina: "<<mister_manage.obtenerPlan(i).ver_nombre_rutina()<<endl;
 	}
-	
-	cout<<endl<<endl<<endl;
-	
-	cout<<mister_manage.planesSuscritos("44556041");
-	
+		
+		cout<<endl<<endl<<endl;
+		
+		cout<<mister_manage.planesResponsables("44556041");
+		/*
+		for(int i=0;i<mister_manage.cantidadPlanes();i++) { 
+		plan m_plan = mister_manage.obtenerPlan(i);
+		
+		std::vector<std::string> auxiliar_couchs = m_plan.ver_couchs_plan();
+		
+		for(int j=0;j<auxiliar_couchs.size();j++){
+		cout<<"Plan"<<i<<" "<<auxiliar_couchs[j]<<endl;
+	}
+		
+	}
+	*/
 	return 0;	
 }
+/*
+int x=1;
+std::string plan;
+std::string dni_coach;
+std::string dni_client;
+
+ofstream suscripciones("suscripciones.dat",ios::binary|ios::out|ios::app);
+if(!suscripciones.is_open()){
+cout<<"No se pudo abrir el arhivo"<<endl;
+}
+
+while(x != 0){
+
+cout<<"Agregar suscripcion: "<<endl;
+
+cout<<"Plan: "; cin>>plan; cout<<"Dni_coach: "; cin>>dni_coach; cout<<"Dni_client: "; cin>>dni_client;
+
+suscripcion sus(plan,dni_coach,dni_client);
+
+sus.guardar_en_binario(suscripciones);
+
+cout<<"Si quiere salir aprete 0: "; cin>>x;
+}	
+
+manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
+
+for(int i=0;i<mister_manage.cantidadSuscripciones();i++){
+cout<<"Plan: "<<mister_manage.obtenerSuscripcion(i).ver_nombre_plan()<<endl;
+cout<<"Dni_coach: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_couch()<<endl;
+cout<<"Dni_client: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_cliente()<<endl;
+}
+
+cout<<endl<<endl<<endl;
+
+cout<<mister_manage.planesSuscritos("44556041");
+*/
+
+
+
 ///Prueba de la clase suscripcion (Funciona)
 /*
 ifstream couchs_2("couchs.dat",ios::binary|ios::in);

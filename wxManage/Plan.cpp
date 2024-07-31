@@ -77,7 +77,7 @@ void plan::leer_en_binario(std::ifstream &archivo){
 	//agregar elementos
 	
 	for (int i = 0; i < registro.num_couchs; ++i) {
-		std::string id_couch(registro.couchs[i],10);
+		std::string id_couch(registro.couchs[i],8);
 		p_couchs.push_back(id_couch);
 	}
 	

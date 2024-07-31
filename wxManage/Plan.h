@@ -33,8 +33,8 @@ struct registroPlan{
 	char rutina_base[100];
 	int precio;
 	int num_couchs; //tamaño del vector
-	char couchs[5][10]; //asumiendo un tamaño máximo para los DNIs, por ejemplo,
-	//10 caracteres y un número máximo de 5 couchs
+	char couchs[5][8]; //asumiendo un tamaño máximo para los DNIs, por ejemplo,
+	//8 caracteres y un número máximo de 5 couchs
 };
 
 class plan {
