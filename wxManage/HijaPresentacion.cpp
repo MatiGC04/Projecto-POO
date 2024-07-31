@@ -24,6 +24,8 @@ void HijaPresentacion::ClickCouchs( wxCommandEvent& event )  {
 
 /// @brief Al hacer click muestro la ventana de Planes
 void HijaPresentacion::ClickPlanes( wxCommandEvent& event )  {
+	HijaPlan *nueva_ventana = new HijaPlan(m_manage, this);
+	nueva_ventana->Show();
 }
 
 /// @brief Al hacer click muestro la ventana de Suscripciones
