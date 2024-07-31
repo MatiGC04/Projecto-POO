@@ -24,10 +24,9 @@
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
 #include <wx/grid.h>
-#include <wx/dialog.h>
 #include <wx/choice.h>
 #include <wx/bmpbuttn.h>
-#include <wx/richtext/richtextctrl.h>
+#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -74,7 +73,7 @@ class BaseClientes : public wxFrame
 		wxStaticText* m_staticText6;
 		wxStaticText* m_staticText2;
 		wxTextCtrl* m_buscar;
-		wxButton* m_button7;
+		wxButton* m_button50;
 		wxGrid* m_grilla_clientes;
 		wxButton* m_button33;
 		wxButton* m_button9;
@@ -98,6 +97,97 @@ class BaseClientes : public wxFrame
 		BaseClientes( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,472 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseClientes();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseCouchs
+///////////////////////////////////////////////////////////////////////////////
+class BaseCouchs : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText6;
+		wxStaticText* m_staticText2;
+		wxTextCtrl* m_textCtrl2;
+		wxButton* m_button7;
+		wxGrid* m_grilla_couchs;
+		wxButton* m_button33;
+		wxButton* m_button9;
+		wxButton* m_button10;
+		wxButton* m_button8;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
+		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickSalirCouchs( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickVerEditar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,455 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseCouchs();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BasePlan
+///////////////////////////////////////////////////////////////////////////////
+class BasePlan : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText38;
+		wxChoice* m_choice21;
+		wxBitmapButton* m_bpButton21;
+		wxBitmapButton* m_bpButton11;
+		wxButton* m_button36;
+		wxTextCtrl* m_textCtrl291;
+		wxButton* m_button201;
+		wxStaticText* m_staticText34;
+		wxStaticText* m_staticText35;
+		wxStaticText* m_staticText50;
+		wxGrid* m_grid4;
+		wxButton* m_button23;
+		wxButton* m_button22;
+		wxButton* m_button21;
+
+	public:
+
+		BasePlan( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 686,430 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BasePlan();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseSus
+///////////////////////////////////////////////////////////////////////////////
+class BaseSus : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText38;
+		wxGrid* m_grid7;
+		wxButton* m_button28;
+		wxButton* m_button29;
+		wxButton* m_button30;
+
+	public:
+
+		BaseSus( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseSus();
 
 };
 
@@ -147,44 +237,6 @@ class BaseClientesAgregar : public wxDialog
 		BaseClientesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 690,450 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseClientesAgregar();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BaseCouchs
-///////////////////////////////////////////////////////////////////////////////
-class BaseCouchs : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText6;
-		wxStaticText* m_staticText2;
-		wxTextCtrl* m_textCtrl2;
-		wxButton* m_button7;
-		wxGrid* m_grilla_couchs;
-		wxButton* m_button33;
-		wxButton* m_button9;
-		wxButton* m_button10;
-		wxButton* m_button8;
-
-		// Virtual event handlers, override them in your derived class
-		virtual void ClickTamanio( wxSizeEvent& event ) { event.Skip(); }
-		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
-		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
-		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
-		virtual void ClickSalirCouchs( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickVerEditar( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
-
-
-	public:
-
-		BaseCouchs( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 482,455 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
-		~BaseCouchs();
 
 };
 
@@ -240,37 +292,6 @@ class BaseCouchsAgregar : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class BasePlan
-///////////////////////////////////////////////////////////////////////////////
-class BasePlan : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText38;
-		wxChoice* m_choice2;
-		wxBitmapButton* m_bpButton1;
-		wxBitmapButton* m_bpButton2;
-		wxTextCtrl* m_textCtrl28;
-		wxTextCtrl* m_textCtrl29;
-		wxButton* m_button20;
-		wxStaticText* m_staticText34;
-		wxStaticText* m_staticText35;
-		wxRichTextCtrl* m_richText2;
-		wxGrid* m_grid4;
-		wxButton* m_button23;
-		wxButton* m_button22;
-		wxButton* m_button21;
-
-	public:
-
-		BasePlan( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 595,394 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
-		~BasePlan();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
 /// Class BasePlanAgregar_P
 ///////////////////////////////////////////////////////////////////////////////
 class BasePlanAgregar_P : public wxDialog
@@ -313,28 +334,6 @@ class BasePlanAgregar_Ch : public wxDialog
 		BasePlanAgregar_Ch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BasePlanAgregar_Ch();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BaseSus
-///////////////////////////////////////////////////////////////////////////////
-class BaseSus : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText38;
-		wxGrid* m_grid7;
-		wxButton* m_button28;
-		wxButton* m_button29;
-		wxButton* m_button30;
-
-	public:
-
-		BaseSus( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
-		~BaseSus();
 
 };
 
