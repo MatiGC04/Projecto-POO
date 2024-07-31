@@ -8,6 +8,7 @@ class HijaClientes : public BaseClientes {
 private:
 	manage *m_manage;
 protected:
+	
 	/// Cierra la ventana de clientes cuando sea clickea el boton de "Salir"
 	void ClickSalirClientes( wxCommandEvent& event )  override;
 	

@@ -7,13 +7,20 @@ class HijaCouchs : public BaseCouchs {
 private:
 	manage *m_manage;
 protected:
+	
+	void ClickEditar( wxCommandEvent& event )  override;
+	
+	/* ->nose pq esto esta creado<-
+	void ClickCancelarRegistro( wxCommandEvent& event )  override;
+	void ClickAceptarRegistro( wxCommandEvent& event )  override;
+	
+	*/
 	void ClickTamanio( wxSizeEvent& event )  override;
 	void EnterBuscar( wxCommandEvent& event )  override;
 	void ClickBuscar( wxCommandEvent& event )  override;
 	void DobleClickFila( wxGridEvent& event )  override;
 	void ClickColumna( wxGridEvent& event )  override;
 	void ClickEliminar( wxCommandEvent& event )  override;
-	void ClickVerEditar( wxCommandEvent& event )  override;
 	
 	/// Abrir ventana de Registro para agregar nuevo Couch
 	void ClickAgregar( wxCommandEvent& event )  override;

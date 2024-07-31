@@ -6,6 +6,7 @@
 #include "string_conv.h"
 #include "HijaClientesAgregar.h"
 #include "HijaCouchsAgregar.h"
+#include "HijaCouchsEditar.h"
 #include <wx/wx.h>
 #include <wx/msgdlg.h>
 
@@ -62,9 +63,6 @@ void HijaCouchs::ClickAgregar( wxCommandEvent& event )  {
 	}
 }
 
-void HijaCouchs::ClickVerEditar( wxCommandEvent& event )  {
-	event.Skip();
-}
 
 void HijaCouchs::ClickEliminar( wxCommandEvent& event )  {
 	int fila_actual = m_grilla_couchs->GetGridCursorRow();
@@ -110,4 +108,22 @@ void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
 		m_grilla_couchs->SetColSize(i,tamanios[i]*ancho_total_nuevo/ancho_total_viejo);
 	m_grilla_couchs->EndBatch();
 }
+/*
+void HijaCouchs::ClickCancelarRegistro( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void HijaCouchs::ClickAceptarRegistro( wxCommandEvent& event )  {
+	event.Skip();
+}
+*/
+void HijaCouchs::ClickEditar( wxCommandEvent& event )  {
+	int pos= m_grilla_couchs->GetGridCursorRow();
+	HijaCouchsEditar nueva_ventana(m_manage,pos,this);
+	if(nueva_ventana.ShowModal()==1){
+		CargarFila(pos);
+	}
+}
+
+
 

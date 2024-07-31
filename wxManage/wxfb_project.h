@@ -125,7 +125,7 @@ class BaseCouchs : public wxFrame
 		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickSalirCouchs( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickVerEditar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 
