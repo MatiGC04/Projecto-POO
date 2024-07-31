@@ -262,6 +262,19 @@ std::vector<couch> manage::CouchsInPlan(int pos_plan) const{
 	return aux;
 }
 
+int manage::buscarCouchsNombre(std::string nomape, int pos) const{
+	PasarMiniscula(nomape);
+	if(nomape==""){
+		return -1;
+	}
+	for(unsigned i=pos; i<vector_de_couchs.size(); i++){
+		couch ch = vector_de_couchs[i];
+		std::string aux=ch.ver_apellido() + ", " + ch.ver_nombre();
+		PasarMiniscula(aux);
+		if(aux.find(nomape,0)!=std::string::npos) return i;
+	}
+	return -1;
+}
 
 void manage::OrdenarClientes(CriterioOrdenClientes criterio){
 	auto CriterioClientesPlanesSuscritos = [this](const cliente &a, const cliente &b)->bool{
@@ -288,7 +301,40 @@ void manage::OrdenarClientes(CriterioOrdenClientes criterio){
 	this->guardar();
 }
 
+/**
+* enum CriterioOrdenCouchs { ORDEN_APELLIDO_Y_NOMBRE, 
+* ORDEN_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
 
+*/
+/*
+void manage::OrdenarCouchs(CriterioOrdenCouchs criterio){
+
+	auto CriterioCouchsPlanesResponsables = [this](const couch &a, const couch &b)->bool{
+		std::string aux1=this->planesResponsables(a.ver_DNI());
+		std::string aux2=this->planesResponsables(b.ver_DNI());
+		PasarMiniscula(aux1);
+		PasarMiniscula(aux2);
+		return aux1< aux2;
+	};
+	switch(criterio){
+	case ORDEN_APELLIDO_Y_NOMBRE:
+		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchNombreApellido); break;
+	case ORDEN_DNI:
+		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchDNI); break;
+	case ORDEN_EMAIL:
+		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchEmail); break;
+	case ORDEN_TELEFONO_EMERGENCIAS:
+		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchTelef); break;
+		//lambda 
+	case ORDEN_PLANES_RESPONSABLES:
+		std::sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioClientesPlanesSuscritos);
+		break;
+	}
+
+	this->guardar();
+
+}
+	*/
 
 
 

@@ -37,11 +37,11 @@ void HijaCouchs::CargarFila(int pos){
 	m_grilla_couchs->SetCellValue(pos,0,std_to_wx(ch.ver_apellido()+ ", " + ch.ver_nombre()));
 	//fila 1 con el dni
 	m_grilla_couchs->SetCellValue(pos,1,std_to_wx(ch.ver_DNI()));
-	//fila 2 con su email
-	m_grilla_couchs->SetCellValue(pos,2,std_to_wx(ch.ver_email()));
-	//fila 3 CBU
-	m_grilla_couchs->SetCellValue(pos,3,std_to_wx(ch.ver_cbu()));
-	m_grilla_couchs->SetCellValue(pos,4,std_to_wx(ch.ver_alias()));
+	//fila 2 con los planes que dicta
+	m_grilla_couchs->SetCellValue(pos,2,std_to_wx(m_manage->planesResponsables(ch.ver_DNI())));
+	//fila 3 telefono personal
+	m_grilla_couchs->SetCellValue(pos,3,std_to_wx(ch.ver_tel()));
+
 	//fila 4 con los planes en los que es responsable
 	//m_grilla_couchs->SetCellValue(pos,4,std_to_wx(m_manage->planesResponsable(ch.ver_DNI())));
 }
@@ -80,19 +80,44 @@ HijaCouchs::~HijaCouchs() {
 }
 
 void HijaCouchs::EnterBuscar( wxCommandEvent& event )  {
-	event.Skip();
+	ClickBuscar(event);
 }
 
 void HijaCouchs::ClickBuscar( wxCommandEvent& event )  {
-	event.Skip();
+	int fila_pos = m_grilla_couchs->GetGridCursorRow();
+	if (m_grilla_couchs->GetSelectedRows().GetCount()==0) fila_pos = -1;
+	if(m_grilla_couchs->GetSelectedRows().GetCount()>1){
+		wxMessageBox("Usted a seleccionado demasiadas filas, seleccione 1 o menos porfavor.\nTenga en cuenta que se empezara a buscar apartir de esa fila en adelante, en caso de tener seleccionada la ultima fila se comenzara desde el inicio de la grilla.");	
+		return;
+	}
+	std::string nomape = wx_to_std(m_buscar->GetValue());
+	int encontrado = m_manage->buscarCouchsNombre( nomape, fila_pos+1 );
+	if(encontrado==-1) encontrado = m_manage->buscarCouchsNombre(nomape,0);
+	if(encontrado==-1) wxMessageBox("No se encontraron coincidencias");
+	else{
+		m_grilla_couchs->SetGridCursor(encontrado,1);
+		m_grilla_couchs->SelectRow(encontrado);
+	}
+	
 }
 
 void HijaCouchs::DobleClickFila( wxGridEvent& event )  {
-	event.Skip();
+	ClickEditar(event);
 }
 
 void HijaCouchs::ClickColumna( wxGridEvent& event )  {
 	event.Skip();
+	/* ->terminar
+	int col = event.GetCol();
+	switch(col){
+	case 0: m_manage->OrdenarCouchs(ORDEN_APELLIDO_Y_NOMBRE); break;
+	case 1: m_manage->OrdenarCouchs(ORDEN_DNI); break;
+	case 2: m_manage->OrdenarCouchs(ORDEN_EMAIL); break;
+	case 3: m_manage->OrdenarCouchs(ORDEN_PLANES_SUSCRITOS); break;
+	case 4: m_manage->OrdenarCouchs(ORDEN_TELEFONO_EMERGENCIAS); break;
+	}
+	for(int i=0; i<m_manage->cantidadCouch();i++) CargarFila(i);
+*/	
 }
 
 void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
@@ -108,6 +133,7 @@ void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
 		m_grilla_couchs->SetColSize(i,tamanios[i]*ancho_total_nuevo/ancho_total_viejo);
 	m_grilla_couchs->EndBatch();
 }
+
 void HijaCouchs::ClickEditar( wxCommandEvent& event )  {
 	int pos= m_grilla_couchs->GetGridCursorRow();
 	HijaCouchsEditar nueva_ventana(m_manage,pos,this);

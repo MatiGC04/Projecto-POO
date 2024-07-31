@@ -13,7 +13,7 @@
 /// @brief enumeración para los posibles criterios de ordenamiento para la ventana
 ///  clientes con el fin de pasar como argumento al método, queda más legible que un número
 enum CriterioOrdenClientes { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_EMAIL, ORDEN_PLANES_SUSCRITOS, ORDEN_TELEFONO_EMERGENCIAS };
-
+//enum CriterioOrdenCouchs { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
 class manage{
 private:
 	/// @brief Atributos de la clase Manage
@@ -64,6 +64,7 @@ public:
 	plan buscarPlanNombre(std::string DNI, int pos=0) const;
 	suscripcion buscarSub(std::string DNI, std::string nombre_plan, int pos=0) const;
 	int buscarClientesNombre(std::string nombre, int pos=0) const;
+	int buscarCouchsNombre (std::string nombre, int pos=0) const;
 	
 	
 	cliente &ObtenerCliente(int pos);
@@ -73,9 +74,12 @@ public:
 	
 	std::string planesSuscritos(std::string dni_cliente) const;
 	std::string planesResponsables(std::string dni_couch) const;
+
 	std::vector<couch> CouchsInPlan(int pos_plan) const;
+
 	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
+	//void OrdenarCouchs(CriterioOrdenCouchs criterio);
 
 };
 #endif

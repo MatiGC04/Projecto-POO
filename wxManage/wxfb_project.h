@@ -110,7 +110,7 @@ class BaseCouchs : public wxFrame
 	protected:
 		wxStaticText* m_staticText6;
 		wxStaticText* m_staticText2;
-		wxTextCtrl* m_textCtrl2;
+		wxTextCtrl* m_buscar;
 		wxButton* m_button7;
 		wxGrid* m_grilla_couchs;
 		wxButton* m_button33;

@@ -245,8 +245,8 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_staticText2->Wrap( -1 );
 	bSizer9->Add( m_staticText2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_textCtrl2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
-	bSizer9->Add( m_textCtrl2, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_buscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	bSizer9->Add( m_buscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_button7 = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer9->Add( m_button7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
@@ -257,7 +257,7 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_grilla_couchs = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grilla_couchs->CreateGrid( 0, 5 );
+	m_grilla_couchs->CreateGrid( 0, 4 );
 	m_grilla_couchs->EnableEditing( false );
 	m_grilla_couchs->EnableGridLines( true );
 	m_grilla_couchs->EnableDragGridSize( false );
@@ -273,9 +273,8 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_grilla_couchs->EnableDragColSize( true );
 	m_grilla_couchs->SetColLabelValue( 0, wxT("Nombre y Apellido") );
 	m_grilla_couchs->SetColLabelValue( 1, wxT("DNI") );
-	m_grilla_couchs->SetColLabelValue( 2, wxT("Email") );
-	m_grilla_couchs->SetColLabelValue( 3, wxT("CBU") );
-	m_grilla_couchs->SetColLabelValue( 4, wxT("Alias") );
+	m_grilla_couchs->SetColLabelValue( 2, wxT("Planes (resp)") );
+	m_grilla_couchs->SetColLabelValue( 3, wxT("Telefono") );
 	m_grilla_couchs->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
@@ -327,7 +326,7 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 
 	// Connect Events
 	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseCouchs::ClickTamanio ) );
-	m_textCtrl2->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseCouchs::EnterBuscar ), NULL, this );
+	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseCouchs::EnterBuscar ), NULL, this );
 	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickBuscar ), NULL, this );
 	m_grilla_couchs->Connect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BaseCouchs::DobleClickFila ), NULL, this );
 	m_grilla_couchs->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseCouchs::ClickColumna ), NULL, this );
@@ -341,7 +340,7 @@ BaseCouchs::~BaseCouchs()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseCouchs::ClickTamanio ) );
-	m_textCtrl2->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseCouchs::EnterBuscar ), NULL, this );
+	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseCouchs::EnterBuscar ), NULL, this );
 	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseCouchs::ClickBuscar ), NULL, this );
 	m_grilla_couchs->Disconnect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BaseCouchs::DobleClickFila ), NULL, this );
 	m_grilla_couchs->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseCouchs::ClickColumna ), NULL, this );
@@ -388,7 +387,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_bpButton21 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton21->SetBitmap( wxBitmap( wxT("../../../../matig/Downloads/Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton21->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\eliminar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton21->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton21->SetMaxSize( wxSize( 25,25 ) );
 
@@ -396,7 +395,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_bpButton11 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton11->SetBitmap( wxBitmap( wxT("../../../../matig/Downloads/Logos/agregar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton11->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\agregar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
@@ -419,7 +418,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_button201 = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,27 ), 0 );
 
-	m_button201->SetBitmap( wxBitmap( wxT("../../../../matig/Downloads/Logos/buscar.png"), wxBITMAP_TYPE_ANY ) );
+	m_button201->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\buscar.png"), wxBITMAP_TYPE_ANY ) );
 	m_button201->SetMinSize( wxSize( 50,27 ) );
 	m_button201->SetMaxSize( wxSize( 50,27 ) );
 

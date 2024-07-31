@@ -7,18 +7,21 @@ class HijaCouchs : public BaseCouchs {
 private:
 	manage *m_manage;
 protected:
+	/// Abre el cuadro para editar los datos de un cliente 
 	void ClickEditar( wxCommandEvent& event )  override;
 	
-	
-	/* ->nose pq esto esta creado<-
-	void ClickCancelarRegistro( wxCommandEvent& event )  override;
-	void ClickAceptarRegistro( wxCommandEvent& event )  override;
-	
-	*/
+	/// Acomoda los tamaños de las columnas de la grilla cuando cambia el tamaño de la ventana
 	void ClickTamanio( wxSizeEvent& event )  override;
+	
+	/// Busca un nombre y apellido en la grilla cuando apretamos enter en el cuadro de busqueda
 	void EnterBuscar( wxCommandEvent& event )  override;
+	
+	/// Busca por nombre y apellido en la grilla cuando hacemos click en el boton "Buscar"
 	void ClickBuscar( wxCommandEvent& event )  override;
+	
+	/// Abre la ventana para editar un cliente cuando se hace doble click sobre el mismo
 	void DobleClickFila( wxGridEvent& event )  override;
+	
 	void ClickColumna( wxGridEvent& event )  override;
 	void ClickEliminar( wxCommandEvent& event )  override;
 	
