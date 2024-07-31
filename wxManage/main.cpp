@@ -18,16 +18,67 @@ persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio)*/
 
 int main (int argc, char *argv[]) {
 
+	int x=1;
+	std::string nombre;
+	std::string apellido;
+	std::string email;
+	std::string sexo;
+	std::string telefono;
+	std::string direccion;
+	std::string localidad;
+	std::string dni;
+	int dia_n;
+	int mes_n;
+	int anio_n;
+	std::string cbu;
+	std::string alias;
 	
+	
+	
+	ofstream couchs("couchs.dat",ios::binary|ios::out|ios::app);
+	if(!couchs.is_open()){
+		cout<<"No se pudo abrir el arhivo"<<endl;
+	}
+	
+	while(x != 0){
+		
+		cout<<"couch: "<<endl;
+		cout<<"Nombre: "; cin>>nombre;
+		cout<<"Apellido: "; cin>>apellido;
+		cout<<"Email: "; cin>>email;
+		cout<<"Sexo: "; cin>>sexo;
+		cout<<"Telefono: "; cin>>telefono;
+		cin.ignore();
+		cout<<"Direccion: "; getline(cin,direccion);
+		cout<<"Localidad: "; cin>>localidad;
+		cout<<"DNI: "; cin>>dni;
+		cout<<"Dia nacimiento: "; cin>>dia_n;
+		cout<<"Mes nacimiento: "; cin>>mes_n;
+		cout<<"Anio nacimiento: "; cin>>anio_n;
+		cout<<"CBU: "; cin>>cbu;
+		cout<<"Alias: "; cin>>alias;
+		
+		couch cou(nombre,apellido,email,sexo,telefono,direccion,localidad,
+				  dni,dia_n,mes_n,anio_n,cbu,alias);
+		
+		cou.guardar_en_binario(couchs);
+		
+		cout<<"Si quiere salir aprete 0: "; cin>>x;
+	}	
+	
+	/*
 	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
 	
-	cout<<mister_manage.planesSuscritos("42456315");
-	
-	
+	for(int i=0;i<mister_manage.cantidadSuscripciones();i++){
+		cout<<"Plan: "<<mister_manage.obtenerSuscripcion(i).ver_nombre_plan()<<endl;
+		cout<<"Dni_coach: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_couch()<<endl;
+		cout<<"Dni_client: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_cliente()<<endl;
+	}
+	*/
 	return 0;	
 }
 
-///guardar suscripciones
+///crear suscripciones
 /*
 int x=1;
 std::string plan;
