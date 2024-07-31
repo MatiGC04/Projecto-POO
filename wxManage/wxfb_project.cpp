@@ -388,7 +388,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_bpButton21 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton21->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\eliminar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton21->SetBitmap( wxBitmap( wxT("../../../../matig/Downloads/Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton21->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton21->SetMaxSize( wxSize( 25,25 ) );
 
@@ -396,7 +396,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_bpButton11 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton11->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\agregar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton11->SetBitmap( wxBitmap( wxT("../../../../matig/Downloads/Logos/agregar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
@@ -419,7 +419,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_button201 = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,27 ), 0 );
 
-	m_button201->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\buscar.png"), wxBITMAP_TYPE_ANY ) );
+	m_button201->SetBitmap( wxBitmap( wxT("../../../../matig/Downloads/Logos/buscar.png"), wxBITMAP_TYPE_ANY ) );
 	m_button201->SetMinSize( wxSize( 50,27 ) );
 	m_button201->SetMaxSize( wxSize( 50,27 ) );
 

@@ -7,8 +7,8 @@ class HijaCouchs : public BaseCouchs {
 private:
 	manage *m_manage;
 protected:
-	
 	void ClickEditar( wxCommandEvent& event )  override;
+	
 	
 	/* ->nose pq esto esta creado<-
 	void ClickCancelarRegistro( wxCommandEvent& event )  override;
