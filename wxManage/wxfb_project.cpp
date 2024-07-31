@@ -400,9 +400,9 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
-	bSizer70->Add( m_bpButton11, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
+	bSizer70->Add( m_bpButton11, 0, wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_button36 = new wxButton( this, wxID_ANY, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button36 = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer70->Add( m_button36, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
 
 

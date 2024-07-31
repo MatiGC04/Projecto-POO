@@ -70,6 +70,8 @@ public:
 	void guardar_en_binario(std::ofstream &archivo) override; 
 	void leer_en_binario(std::ifstream &archivo) override; 
 	
+	bool operator==(cliente cl);
+	
 };
 
 /// @brief Funcion que compara dos clientes por su nombre y apellido
