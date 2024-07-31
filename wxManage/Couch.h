@@ -30,7 +30,7 @@ struct registroCouch{
 	char telefono[25];
 	char direccion[100];
 	char localidad[100];
-	char sexo[1];
+	char sexo[2];
 	char dni[20];
 	char cbu[22];
 	char alias[20];

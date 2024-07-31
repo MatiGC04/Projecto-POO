@@ -41,7 +41,10 @@ void couch::guardar_en_binario(std::ofstream &archivo){
 	strcpy(registro.email,email.c_str());
 	strcpy(registro.telefono,telefono.c_str());
 	strcpy(registro.direccion,direccion.c_str());
+	strcpy(registro.localidad,localidad.c_str());
+	
 	strcpy(registro.sexo,sexo.c_str());
+	
 	strcpy(registro.dni,dni.c_str());
 	strcpy(registro.cbu,cbu.c_str());
 	strcpy(registro.alias,alias.c_str());
@@ -58,10 +61,13 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	email = registro.email;
 	telefono = registro.telefono;
 	direccion = registro.direccion;
+	localidad = registro.localidad;
+	
 	sexo = registro.sexo;
+	
 	dni = registro.dni;
 	cbu = registro.cbu;
-	alias = registro.dni;
+	alias = registro.alias;
 	fecha_nacimiento = registro.fecha_nac;
 }
 

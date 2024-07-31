@@ -17,7 +17,7 @@ persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio)*/
 
 
 int main (int argc, char *argv[]) {
-
+/*
 	int x=1;
 	std::string nombre;
 	std::string apellido;
@@ -65,16 +65,29 @@ int main (int argc, char *argv[]) {
 		
 		cout<<"Si quiere salir aprete 0: "; cin>>x;
 	}	
+	*/
 	
-	/*
 	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
 	
-	for(int i=0;i<mister_manage.cantidadSuscripciones();i++){
-		cout<<"Plan: "<<mister_manage.obtenerSuscripcion(i).ver_nombre_plan()<<endl;
-		cout<<"Dni_coach: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_couch()<<endl;
-		cout<<"Dni_client: "<<mister_manage.obtenerSuscripcion(i).ver_DNI_cliente()<<endl;
+	for(int i=0;i<mister_manage.cantidadCouch();i++){
+		
+		cout<<"couch: "<<endl;
+		cout<<"Nombre: "<<mister_manage.obtenerCouch(i).ver_nombre()<<endl;
+		cout<<"Apellido: "<<mister_manage.obtenerCouch(i).ver_apellido()<<endl;
+		cout<<"Email: "<<mister_manage.obtenerCouch(i).ver_email()<<endl;
+		cout<<"Sexo: "<<mister_manage.obtenerCouch(i).ver_sexo()<<endl;
+		cout<<"Telefono: "<<mister_manage.obtenerCouch(i).ver_tel()<<endl;
+		cout<<"Direccion: "<<mister_manage.obtenerCouch(i).ver_dir()<<endl;
+		cout<<"Localidad: "<<mister_manage.obtenerCouch(i).ver_loc()<<endl;
+		cout<<"DNI: "<<mister_manage.obtenerCouch(i).ver_DNI()<<endl;
+		cout<<"Dia nacimiento: "<<mister_manage.obtenerCouch(i).ver_diaN()<<endl;
+		cout<<"Mes nacimiento: "<<mister_manage.obtenerCouch(i).ver_mesN()<<endl;
+		cout<<"Anio nacimiento: "<<mister_manage.obtenerCouch(i).ver_anioN()<<endl;
+		cout<<"CBU: "<<mister_manage.obtenerCouch(i).ver_cbu()<<endl;
+		cout<<"Alias: "<<mister_manage.obtenerCouch(i).ver_alias()<<endl;
+		
 	}
-	*/
+	
 	return 0;	
 }
 
