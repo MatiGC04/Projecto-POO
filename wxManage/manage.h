@@ -73,6 +73,7 @@ public:
 	
 	std::string planesSuscritos(std::string dni_cliente) const;
 	std::string planesResponsables(std::string dni_couch) const;
+	std::vector<couch> CouchsInPlan(int pos_plan) const;
 	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
 

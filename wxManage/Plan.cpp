@@ -104,7 +104,9 @@ void plan::guardar_en_binario(std::ofstream &archivo){
 void plan::agregar_couch(std::string id_couch){
 	p_couchs.push_back(id_couch);
 }
-
+int plan::ver_cant_couchs() const{
+	return p_couchs.size();
+}
 
 
 //No estoy seguro de si va a servir pero lo programo y dps si no hace falta

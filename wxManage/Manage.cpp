@@ -257,6 +257,10 @@ int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	}
 	return -1;
 }
+std::vector<couch> manage::CouchsInPlan(int pos_plan) const{
+	std::vector<couch> aux;
+	return aux;
+}
 
 
 void manage::OrdenarClientes(CriterioOrdenClientes criterio){

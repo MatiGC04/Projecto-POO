@@ -57,6 +57,7 @@ public:
 	
 	/// @brief Métodos para obtener los atributos de una suscripcion
 	int ver_precio_plan() const;
+	int ver_cant_couchs() const;
 	std::string ver_couch_plan(int pos) const; ///<devuelve identificativo del couch, el DNI
 	std::vector<std::string> ver_couchs_plan() const; ///< devuelve el vector completo de couchs
 	std::string ver_nombre_plan() const ;

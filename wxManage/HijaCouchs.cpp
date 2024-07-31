@@ -108,15 +108,6 @@ void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
 		m_grilla_couchs->SetColSize(i,tamanios[i]*ancho_total_nuevo/ancho_total_viejo);
 	m_grilla_couchs->EndBatch();
 }
-/*
-void HijaCouchs::ClickCancelarRegistro( wxCommandEvent& event )  {
-	event.Skip();
-}
-
-void HijaCouchs::ClickAceptarRegistro( wxCommandEvent& event )  {
-	event.Skip();
-}
-*/
 void HijaCouchs::ClickEditar( wxCommandEvent& event )  {
 	int pos= m_grilla_couchs->GetGridCursorRow();
 	HijaCouchsEditar nueva_ventana(m_manage,pos,this);
