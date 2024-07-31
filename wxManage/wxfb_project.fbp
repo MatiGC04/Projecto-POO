@@ -875,7 +875,7 @@
                 <property name="auth_needed">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap"></property>
+                <property name="bitmap">Load From File; C:\Users\matig\Downloads\Logos\buscar.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -898,15 +898,15 @@
                 <property name="gripper">0</property>
                 <property name="hidden">0</property>
                 <property name="id">wxID_ANY</property>
-                <property name="label">Buscar</property>
+                <property name="label"></property>
                 <property name="margins"></property>
                 <property name="markup">0</property>
                 <property name="max_size"></property>
                 <property name="maximize_button">0</property>
-                <property name="maximum_size"></property>
+                <property name="maximum_size">50,30</property>
                 <property name="min_size"></property>
                 <property name="minimize_button">0</property>
-                <property name="minimum_size"></property>
+                <property name="minimum_size">50,30</property>
                 <property name="moveable">1</property>
                 <property name="name">m_button7</property>
                 <property name="pane_border">1</property>
@@ -919,7 +919,7 @@
                 <property name="pressed"></property>
                 <property name="resize">Resizable</property>
                 <property name="show">1</property>
-                <property name="size"></property>
+                <property name="size">50,30</property>
                 <property name="style"></property>
                 <property name="subclass">; ; forward_declare</property>
                 <property name="toolbar_pane">0</property>
@@ -6246,10 +6246,10 @@
                 <property name="markup">0</property>
                 <property name="max_size"></property>
                 <property name="maximize_button">0</property>
-                <property name="maximum_size">25,25</property>
+                <property name="maximum_size">27,27</property>
                 <property name="min_size"></property>
                 <property name="minimize_button">0</property>
-                <property name="minimum_size">25,25</property>
+                <property name="minimum_size">27,27</property>
                 <property name="moveable">1</property>
                 <property name="name">m_bpButton1</property>
                 <property name="pane_border">1</property>
@@ -6262,7 +6262,7 @@
                 <property name="pressed"></property>
                 <property name="resize">Resizable</property>
                 <property name="show">1</property>
-                <property name="size">25,25</property>
+                <property name="size">27,27</property>
                 <property name="style"></property>
                 <property name="subclass">; ; forward_declare</property>
                 <property name="toolbar_pane">0</property>
@@ -6320,10 +6320,10 @@
                 <property name="markup">0</property>
                 <property name="max_size"></property>
                 <property name="maximize_button">0</property>
-                <property name="maximum_size">25,25</property>
+                <property name="maximum_size">27,27</property>
                 <property name="min_size"></property>
                 <property name="minimize_button">0</property>
-                <property name="minimum_size">25,25</property>
+                <property name="minimum_size">27,27</property>
                 <property name="moveable">1</property>
                 <property name="name">m_bpButton2</property>
                 <property name="pane_border">1</property>
@@ -6336,7 +6336,7 @@
                 <property name="pressed"></property>
                 <property name="resize">Resizable</property>
                 <property name="show">1</property>
-                <property name="size">25,25</property>
+                <property name="size">27,27</property>
                 <property name="style"></property>
                 <property name="subclass">; ; forward_declare</property>
                 <property name="toolbar_pane">0</property>
@@ -6352,7 +6352,7 @@
             </object>
             <object class="sizeritem" expanded="false">
               <property name="border">5</property>
-              <property name="flag">wxALL</property>
+              <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
               <property name="proportion">0</property>
               <object class="wxTextCtrl" expanded="false">
                 <property name="BottomDockable">1</property>
@@ -6417,7 +6417,7 @@
             </object>
             <object class="sizeritem" expanded="false">
               <property name="border">5</property>
-              <property name="flag">wxTOP|wxBOTTOM|wxLEFT</property>
+              <property name="flag">wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_VERTICAL</property>
               <property name="proportion">1</property>
               <object class="wxTextCtrl" expanded="false">
                 <property name="BottomDockable">1</property>
@@ -6482,7 +6482,7 @@
             </object>
             <object class="sizeritem" expanded="false">
               <property name="border">5</property>
-              <property name="flag">wxTOP|wxBOTTOM|wxRIGHT</property>
+              <property name="flag">wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_VERTICAL</property>
               <property name="proportion">0</property>
               <object class="wxButton" expanded="false">
                 <property name="BottomDockable">1</property>
@@ -6496,7 +6496,7 @@
                 <property name="auth_needed">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap"></property>
+                <property name="bitmap">Load From File; C:\Users\matig\Downloads\Logos\buscar.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -6519,15 +6519,15 @@
                 <property name="gripper">0</property>
                 <property name="hidden">0</property>
                 <property name="id">wxID_ANY</property>
-                <property name="label">Buscar</property>
+                <property name="label"></property>
                 <property name="margins"></property>
                 <property name="markup">0</property>
                 <property name="max_size"></property>
                 <property name="maximize_button">0</property>
-                <property name="maximum_size"></property>
+                <property name="maximum_size">50,30</property>
                 <property name="min_size"></property>
                 <property name="minimize_button">0</property>
-                <property name="minimum_size"></property>
+                <property name="minimum_size">50,30</property>
                 <property name="moveable">1</property>
                 <property name="name">m_button20</property>
                 <property name="pane_border">1</property>
@@ -6540,7 +6540,7 @@
                 <property name="pressed"></property>
                 <property name="resize">Resizable</property>
                 <property name="show">1</property>
-                <property name="size"></property>
+                <property name="size">50,30</property>
                 <property name="style"></property>
                 <property name="subclass">; ; forward_declare</property>
                 <property name="toolbar_pane">0</property>
