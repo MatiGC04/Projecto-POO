@@ -17,79 +17,123 @@ persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio)*/
 
 
 int main (int argc, char *argv[]) {
-/*
+	/*
 	int x=1;
-	std::string nombre;
-	std::string apellido;
-	std::string email;
-	std::string sexo;
-	std::string telefono;
-	std::string direccion;
-	std::string localidad;
-	std::string dni;
-	int dia_n;
-	int mes_n;
-	int anio_n;
-	std::string cbu;
-	std::string alias;
+	std::string m_plan;
+	int precio;
 	
-	
-	
-	ofstream couchs("couchs.dat",ios::binary|ios::out|ios::app);
-	if(!couchs.is_open()){
+	ofstream m_planes("planes.dat",ios::binary|ios::out|ios::app);
+	if(!m_planes.is_open()){
 		cout<<"No se pudo abrir el arhivo"<<endl;
 	}
 	
 	while(x != 0){
+		int k = 1;
+		std::string dni_couch;
 		
-		cout<<"couch: "<<endl;
-		cout<<"Nombre: "; cin>>nombre;
-		cout<<"Apellido: "; cin>>apellido;
-		cout<<"Email: "; cin>>email;
-		cout<<"Sexo: "; cin>>sexo;
-		cout<<"Telefono: "; cin>>telefono;
-		cin.ignore();
-		cout<<"Direccion: "; getline(cin,direccion);
-		cout<<"Localidad: "; cin>>localidad;
-		cout<<"DNI: "; cin>>dni;
-		cout<<"Dia nacimiento: "; cin>>dia_n;
-		cout<<"Mes nacimiento: "; cin>>mes_n;
-		cout<<"Anio nacimiento: "; cin>>anio_n;
-		cout<<"CBU: "; cin>>cbu;
-		cout<<"Alias: "; cin>>alias;
+		cout<<"Agregar Plan: "<<endl;
 		
-		couch cou(nombre,apellido,email,sexo,telefono,direccion,localidad,
-				  dni,dia_n,mes_n,anio_n,cbu,alias);
+		cout<<"Plan: "; cin>>m_plan; cout<<"Precio: "; cin>>precio;
 		
-		cou.guardar_en_binario(couchs);
+		plan k_plan(m_plan,precio);
+		
+		while(k != 0){
+			cout<<"Agregar couch al plan: "<<endl;
+			cin>>dni_couch;
+			k_plan.agregar_couch(dni_couch);
+			cout<<"(couch)Si quiere salir aprete 0: "; cin>>k;
+		}
+		
+		
+		k_plan.guardar_en_binario(m_planes);
 		
 		cout<<"Si quiere salir aprete 0: "; cin>>x;
 	}	
-	*/
 	
+	*/
 	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
 	
-	for(int i=0;i<mister_manage.cantidadCouch();i++){
-		
-		cout<<"couch: "<<endl;
-		cout<<"Nombre: "<<mister_manage.obtenerCouch(i).ver_nombre()<<endl;
-		cout<<"Apellido: "<<mister_manage.obtenerCouch(i).ver_apellido()<<endl;
-		cout<<"Email: "<<mister_manage.obtenerCouch(i).ver_email()<<endl;
-		cout<<"Sexo: "<<mister_manage.obtenerCouch(i).ver_sexo()<<endl;
-		cout<<"Telefono: "<<mister_manage.obtenerCouch(i).ver_tel()<<endl;
-		cout<<"Direccion: "<<mister_manage.obtenerCouch(i).ver_dir()<<endl;
-		cout<<"Localidad: "<<mister_manage.obtenerCouch(i).ver_loc()<<endl;
-		cout<<"DNI: "<<mister_manage.obtenerCouch(i).ver_DNI()<<endl;
-		cout<<"Dia nacimiento: "<<mister_manage.obtenerCouch(i).ver_diaN()<<endl;
-		cout<<"Mes nacimiento: "<<mister_manage.obtenerCouch(i).ver_mesN()<<endl;
-		cout<<"Anio nacimiento: "<<mister_manage.obtenerCouch(i).ver_anioN()<<endl;
-		cout<<"CBU: "<<mister_manage.obtenerCouch(i).ver_cbu()<<endl;
-		cout<<"Alias: "<<mister_manage.obtenerCouch(i).ver_alias()<<endl;
-		
+	for(int i=0;i<mister_manage.cantidadPlanes();i++){
+		cout<<"Plan: "<<mister_manage.obtenerPlan(i).ver_nombre_plan()<<endl;
+		cout<<"Precio: "<<mister_manage.obtenerPlan(i).ver_precio_plan()<<endl;
+		cout<<"Nombre rutina: "<<mister_manage.obtenerPlan(i).ver_nombre_rutina()<<endl;
 	}
-	
 	return 0;	
 }
+///crear couch
+/*
+int x=1;
+std::string nombre;
+std::string apellido;
+std::string email;
+std::string sexo;
+std::string telefono;
+std::string direccion;
+std::string localidad;
+std::string dni;
+int dia_n;
+int mes_n;
+int anio_n;
+std::string cbu;
+std::string alias;
+
+
+
+ofstream couchs("couchs.dat",ios::binary|ios::out|ios::app);
+if(!couchs.is_open()){
+cout<<"No se pudo abrir el arhivo"<<endl;
+}
+
+while(x != 0){
+
+cout<<"couch: "<<endl;
+cout<<"Nombre: "; cin>>nombre;
+cout<<"Apellido: "; cin>>apellido;
+cout<<"Email: "; cin>>email;
+cout<<"Sexo: "; cin>>sexo;
+cout<<"Telefono: "; cin>>telefono;
+cin.ignore();
+cout<<"Direccion: "; getline(cin,direccion);
+cout<<"Localidad: "; cin>>localidad;
+cout<<"DNI: "; cin>>dni;
+cout<<"Dia nacimiento: "; cin>>dia_n;
+cout<<"Mes nacimiento: "; cin>>mes_n;
+cout<<"Anio nacimiento: "; cin>>anio_n;
+cout<<"CBU: "; cin>>cbu;
+cout<<"Alias: "; cin>>alias;
+
+couch cou(nombre,apellido,email,sexo,telefono,direccion,localidad,
+dni,dia_n,mes_n,anio_n,cbu,alias);
+
+cou.guardar_en_binario(couchs);
+
+cout<<"Si quiere salir aprete 0: "; cin>>x;
+}	
+
+
+manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
+
+for(int i=0;i<mister_manage.cantidadCouch();i++){
+
+cout<<"couch: "<<endl;
+cout<<"Nombre: "<<mister_manage.obtenerCouch(i).ver_nombre()<<endl;
+cout<<"Apellido: "<<mister_manage.obtenerCouch(i).ver_apellido()<<endl;
+cout<<"Email: "<<mister_manage.obtenerCouch(i).ver_email()<<endl;
+cout<<"Sexo: "<<mister_manage.obtenerCouch(i).ver_sexo()<<endl;
+cout<<"Telefono: "<<mister_manage.obtenerCouch(i).ver_tel()<<endl;
+cout<<"Direccion: "<<mister_manage.obtenerCouch(i).ver_dir()<<endl;
+cout<<"Localidad: "<<mister_manage.obtenerCouch(i).ver_loc()<<endl;
+cout<<"DNI: "<<mister_manage.obtenerCouch(i).ver_DNI()<<endl;
+cout<<"Dia nacimiento: "<<mister_manage.obtenerCouch(i).ver_diaN()<<endl;
+cout<<"Mes nacimiento: "<<mister_manage.obtenerCouch(i).ver_mesN()<<endl;
+cout<<"Anio nacimiento: "<<mister_manage.obtenerCouch(i).ver_anioN()<<endl;
+cout<<"CBU: "<<mister_manage.obtenerCouch(i).ver_cbu()<<endl;
+cout<<"Alias: "<<mister_manage.obtenerCouch(i).ver_alias()<<endl;
+
+}
+*/
+
+
 
 ///crear suscripciones
 /*
