@@ -102,6 +102,14 @@ void plan::guardar_en_binario(std::ofstream &archivo){
 void plan::agregar_couch(std::string id_couch){
 	p_couchs.push_back(id_couch);
 }
+
+void plan::eliminar_couch(std::string id_couch){
+	for(int i=0;i<p_couchs.size();i++){ 
+		if(id_couch == p_couchs[i]){
+			p_couchs.erase(p_couchs.begin()+i);
+		}
+	}
+}
 int plan::ver_cant_couchs() const{
 	return p_couchs.size();
 }

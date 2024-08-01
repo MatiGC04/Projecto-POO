@@ -70,7 +70,7 @@ public:
 	
 	void agregar_couch(std::string id_couch);
 	
-	
+	void eliminar_couch(std::string id_couch);
 	
 };
 ///@brief Funciones para comparar planes por precio y nombre
