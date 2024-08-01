@@ -4,6 +4,7 @@
 #include "Couch.h"
 #include <vector>
 #include "HijaPlanPrecio.h"
+#include "HijaPlanAgregar_Couch.h"
 
 void HijaPlan::refrescar(){
 	int pos_plan = m_desplegable->GetSelection();
@@ -44,6 +45,14 @@ void HijaPlan::CambioSeleccion( wxCommandEvent& event )  {
 void HijaPlan::ClickBotonPrecio( wxCommandEvent& event )  {
 	int pos_plan=m_desplegable->GetSelection();
 	HijaPlanPrecio nueva_ventana(m_manage, pos_plan ,this);
+	if(nueva_ventana.ShowModal()==1){
+		refrescar();
+	}
+}
+
+void HijaPlan::AgregarCouchToPlan( wxCommandEvent& event )  {
+	int pos_plan=m_desplegable->GetSelection();
+	HijaPlanAgregar_Couch nueva_ventana(m_manage, pos_plan ,this);
 	if(nueva_ventana.ShowModal()==1){
 		refrescar();
 	}

@@ -159,11 +159,12 @@ class BasePlan : public wxFrame
 		wxGrid* m_grilla;
 		wxButton* m_button23;
 		wxButton* m_button22;
-		wxButton* m_button21;
+		wxButton* m_agregar_couch;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void CambioSeleccion( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonPrecio( wxCommandEvent& event ) { event.Skip(); }
+		virtual void AgregarCouchToPlan( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -322,23 +323,34 @@ class BasePlanAgregar_P : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class BasePlanAgregar_Ch
+/// Class BasePlanAgregar_Couch
 ///////////////////////////////////////////////////////////////////////////////
-class BasePlanAgregar_Ch : public wxDialog
+class BasePlanAgregar_Couch : public wxDialog
 {
 	private:
 
 	protected:
-		wxStaticText* m_staticText38;
-		wxGrid* m_grid6;
-		wxButton* m_button26;
-		wxButton* m_button27;
+		wxStaticText* m_staticText6;
+		wxStaticText* m_staticText2;
+		wxTextCtrl* m_buscar;
+		wxButton* m_button7;
+		wxGrid* m_grilla;
+		wxButton* m_button10;
+		wxButton* m_button8;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
-		BasePlanAgregar_Ch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		BasePlanAgregar_Couch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 496,350 ), long style = wxDEFAULT_DIALOG_STYLE );
 
-		~BasePlanAgregar_Ch();
+		~BasePlanAgregar_Couch();
 
 };
 
