@@ -3,18 +3,19 @@
 #include <vector>
 
 HijaPlanAgregar_Couch::HijaPlanAgregar_Couch(manage *aux, int pos_plan, wxWindow *parent) : BasePlanAgregar_Couch(parent), m_manage(aux) {
-	std::vector<couch>v_couchs = m_manage->CouchsOutPlan(pos_plan);
-	this->pos_plan=pos_plan;
+	this->v_couchs = m_manage->CouchsOutPlan(pos_plan);
+	this->pos_plan = pos_plan;
 	m_grilla->AppendRows(v_couchs.size());
 	for(int i=0;i<v_couchs.size();++i){
-		m_grilla->SetCellValue(i,0,std_to_wx(v_couchs[i].ver_apellido()+ ", " + v_couchs[i].ver_nombre()));
-		m_grilla->SetCellValue(i,1,std_to_wx(v_couchs[i].ver_DNI()));
-		m_grilla->SetCellValue(i,2,std_to_wx(m_manage->planesResponsables(v_couchs[i].ver_DNI())));
-		m_grilla->SetCellValue(i,3,std_to_wx(v_couchs[i].ver_tel()));	}
+		CargarFila(i);
+	}
 	m_grilla->SetSelectionMode(wxGrid::wxGridSelectRows);
 }
 void HijaPlanAgregar_Couch::CargarFila(int pos){
-	return;
+	m_grilla->SetCellValue(pos,0,std_to_wx(v_couchs[pos].ver_apellido()+ ", " + v_couchs[pos].ver_nombre()));
+	m_grilla->SetCellValue(pos,1,std_to_wx(v_couchs[pos].ver_DNI()));
+	m_grilla->SetCellValue(pos,2,std_to_wx(m_manage->planesResponsables(v_couchs[pos].ver_DNI())));
+	m_grilla->SetCellValue(pos,3,std_to_wx(v_couchs[pos].ver_tel()));
 
 }
 

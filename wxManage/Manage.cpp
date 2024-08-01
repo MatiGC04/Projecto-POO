@@ -270,7 +270,6 @@ std::vector<couch> manage::CouchsInPlan(int pos_plan) {
 
 std::vector<couch> manage::CouchsOutPlan(int pos_plan){
 	std::vector<couch>v = this->CouchsInPlan(pos_plan);
-	
 	std::vector<couch>v2 = vector_de_couchs;
 	for(int i=0; i<v.size(); i++){
 		for(int j=0; j<v2.size();j++){
@@ -280,7 +279,6 @@ std::vector<couch> manage::CouchsOutPlan(int pos_plan){
 		}
 	}
 	return v2;
-	
 }
 
 int manage::buscarCouchsNombre(std::string nomape, int pos) const{

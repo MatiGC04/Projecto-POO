@@ -2,13 +2,14 @@
 #define HIJAPLANAGREGAR_COUCH_H
 #include "wxfb_project.h"
 #include "manage.h"
+#include <vector>
 
 class HijaPlanAgregar_Couch : public BasePlanAgregar_Couch {
 	
 private:
 	manage *m_manage;
 	int pos_plan;
-	
+	std::vector<couch> v_couchs;
 protected:
 	void EnterBuscar( wxCommandEvent& event )  override;
 	void ClickBuscar( wxCommandEvent& event )  override;
