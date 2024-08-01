@@ -10,6 +10,7 @@
 #include <string>
 #include <ctime>
 #include <iostream>
+#include <cctype>
 
 /**
 * @brief Estructura para almacenar fechas y operarlas
@@ -58,4 +59,8 @@ std::ostream &operator<<(std::ostream &o, fecha f1);
 ///@brief Funcion que pasa todos los caracteres de una cadena txt a minuscula
 void PasarMiniscula(std::string &txt);
 
+///@brief 
+bool contieneNumero(const std::string str);
+bool contieneLetra(const std::string srt);
+bool contieneSimbolo(const std::string str);
 #endif

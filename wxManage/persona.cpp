@@ -27,6 +27,15 @@ persona::persona(std::string nombre, std::string apellido, std::string email,
 /// Implementación del método que valida los datos
 std::string persona::validar_datos() const{
 	std::string errores = "";
+	///Verifico que los atributos no tengan numeros
+	if(contieneNumero(nombre)  or contieneSimbolo(nombre)) errores+="El nombre no debe contener numeros ni simbolos \n";
+	if(contieneNumero(apellido) or contieneSimbolo(apellido)) errores+="El apellido no debe contener numeros ni simbolos \n";
+	
+	if(contieneNumero(sexo)) errores+="El sexo no debe contener numero ni simbolo (M/F) \n";
+	
+	///Verifico que los atributos no tengan letras
+	if(contieneLetra(telefono)) errores+="El telefono no debe contener letras \n";
+	if(contieneLetra(dni)) errores+="El DNI no debe contener letras \n";
 	
 	if(nombre.size()==0){
 		errores+="El nombre no puede estar vacio \n";
@@ -47,6 +56,9 @@ std::string persona::validar_datos() const{
 	}
 	if(dni.size()<8){
 		errores+="El DNI debe tener contener 8 caracteres \n";
+	}
+	if(dni.size()==0){
+		errores+="El DNI debe no puede estar vacio \n";
 	}
 	
 	if(email.size()==0){
@@ -72,7 +84,6 @@ std::string persona::validar_datos() const{
 		errores+="El sexo no debe estar vacio \n";
 	}
 	
-	
 	if(fecha_nacimiento.dia<0 || fecha_nacimiento.dia>31){
 		errores+="El dia de nacimiento debe estar entre 1 y 31, o vacio \n";
 	}
@@ -82,7 +93,8 @@ std::string persona::validar_datos() const{
 	if(fecha_nacimiento.anio!=0 && fecha_nacimiento.anio<1900){
 		errores+="El año de nacimiento no debe ser menor a 1900 \n";
 	}
-
+	
+	
 	return errores;
 }
 

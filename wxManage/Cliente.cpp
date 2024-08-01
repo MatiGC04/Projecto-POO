@@ -5,6 +5,7 @@
 #include "Cliente.h"
 #include <cstring>
 #include <fstream>
+#include "Utils.h"
 /// Implementación del constructor de la clase cliente
 cliente::cliente (std::string nom, std::string ape, std::string mail, 
 				  std::string sex, std::string tel, std::string dir, 
@@ -16,6 +17,7 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 /// Implementacion del constructor de la clase cliente
 std::string cliente::validar_datos_cl() const{
 	std::string error=validar_datos();
+	if(contieneLetra(tel_emergencias)) error+="El telefono de emergencias no debe contener letras \n";
 	if(tel_emergencias.size()>25){
 		error+="El telefono de emergencias es demaciado largo \n";
 	}if(tel_emergencias==""){
@@ -23,6 +25,7 @@ std::string cliente::validar_datos_cl() const{
 	}
 	return error;
 }
+
 
 /// Implementacion del metodo para ver el tel de emergencias
 std::string cliente::ver_tel_emergencia() const{

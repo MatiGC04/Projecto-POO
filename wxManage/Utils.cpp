@@ -6,7 +6,7 @@
 #include "Utils.h"
 #include <string>
 #include <ctime>
-
+#include <cctype>
 /**
 * Utiliza la libreria ctime para obtener la fecha actual (tm_year cuenta a 
 * a partir de 1900 y tm_mon desde 0).
@@ -193,3 +193,31 @@ void PasarMiniscula(std::string &txt){
 		txt[i]=std::tolower(txt[i]);
 	}
 }
+	
+bool contieneNumero(const std::string str){
+	for (char c : str) {
+		if (isdigit(c)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool contieneLetra(const std::string str){
+	for (char c : str) {
+		if (isalpha(c)) {
+			return true;
+		}
+	}
+	return false;
+}
+bool contieneSimbolo(const std::string str){
+	for (char c : str) {
+		if (ispunct(c)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+

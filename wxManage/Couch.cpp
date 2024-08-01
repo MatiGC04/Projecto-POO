@@ -5,6 +5,7 @@
 #include "Couch.h"
 #include <cstring>
 #include <fstream>
+#include "Utils.h"
 
 
 /// Implementación del constructor de la clase couch
@@ -70,9 +71,9 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	alias = registro.alias;
 	fecha_nacimiento = registro.fecha_nac;
 }
-
 std::string couch::validar_datos_ch() const{
 	std::string errores=validar_datos();
+	if(contieneLetra(cbu)) errores+="El CBU no debe contener letras \n";
 	if(cbu.size()>22){
 		errores+="El cbu es demaciado largo \n";
 	}
