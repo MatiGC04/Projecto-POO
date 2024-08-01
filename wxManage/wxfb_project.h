@@ -56,7 +56,7 @@ class BasePresentacion : public wxFrame
 
 	public:
 
-		BasePresentacion( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1183,492 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BasePresentacion( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 906,368 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BasePresentacion();
 

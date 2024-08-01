@@ -31,10 +31,10 @@
     <property name="relative_path">1</property>
     <property name="use_microsoft_bom">0</property>
     <property name="use_native_eol">0</property>
-    <object class="Frame" expanded="false">
+    <object class="Frame" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
-      <property name="bg">wxSYS_COLOUR_GRAYTEXT</property>
+      <property name="bg">wxSYS_COLOUR_MENU</property>
       <property name="center">wxBOTH</property>
       <property name="context_help"></property>
       <property name="context_menu">1</property>
@@ -50,7 +50,7 @@
       <property name="minimum_size"></property>
       <property name="name">BasePresentacion</property>
       <property name="pos"></property>
-      <property name="size">1183,492</property>
+      <property name="size">906,368</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass"></property>
       <property name="title"></property>
@@ -60,7 +60,7 @@
       <property name="window_name"></property>
       <property name="window_style">wxTAB_TRAVERSAL</property>
       <property name="xrc_skip_sizer">1</property>
-      <object class="wxBoxSizer" expanded="false">
+      <object class="wxBoxSizer" expanded="true">
         <property name="minimum_size"></property>
         <property name="name">bSizer1</property>
         <property name="orient">wxVERTICAL</property>
@@ -89,7 +89,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Clientes2.png</property>
+                <property name="bitmap">Load From File; C:\Users\matig\Downloads\Logos\Nuevos Iconos\Clientes.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -148,7 +148,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Coachs2.png</property>
+                <property name="bitmap">Load From File; C:\Users\matig\Downloads\Logos\Nuevos Iconos\Couch.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -207,7 +207,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Planes.png</property>
+                <property name="bitmap">Load From File; C:\Users\matig\Downloads\Logos\Nuevos Iconos\plan.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -266,7 +266,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Suscripciones.png</property>
+                <property name="bitmap">Load From File; C:\Users\matig\Downloads\Logos\Nuevos Iconos\sus.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -312,7 +312,7 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxALIGN_CENTER_HORIZONTAL</property>
           <property name="proportion">0</property>
@@ -1027,7 +1027,7 @@
             <event name="OnGridLabelLeftClick">ClickColumna</event>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">0</property>

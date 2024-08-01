@@ -13,7 +13,7 @@ BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxStr
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	this->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
-	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_GRAYTEXT ) );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_MENU ) );
 
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
@@ -21,25 +21,25 @@ BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Clientes2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\Nuevos Iconos\\Clientes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap1->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap1->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap1, 0, wxALL, 5 );
 
-	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Coachs2.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\Nuevos Iconos\\Couch.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap2->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap2->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap2, 0, wxALL, 5 );
 
-	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Planes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\Nuevos Iconos\\plan.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap3->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap3->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap3, 0, wxALL, 5 );
 
-	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Suscripciones.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\Nuevos Iconos\\sus.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap4->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap4->SetMaxSize( wxSize( 200,200 ) );
 
