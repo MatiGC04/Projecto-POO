@@ -55,6 +55,7 @@ public:
 	/// @brief Método para modificar el precio del plan
 	void modificar_precio(int nuevo_precio);
 	
+	void operator=(plan pl);
 	/// @brief Métodos para obtener los atributos de una suscripcion
 	int ver_precio_plan() const;
 	int ver_cant_couchs() const;

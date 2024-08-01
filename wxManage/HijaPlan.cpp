@@ -45,7 +45,7 @@ void HijaPlan::ClickBotonPrecio( wxCommandEvent& event )  {
 	int pos_plan=m_desplegable->GetSelection();
 	HijaPlanPrecio nueva_ventana(m_manage, pos_plan ,this);
 	if(nueva_ventana.ShowModal()==1){
-		
+		refrescar();
 	}
 }
 

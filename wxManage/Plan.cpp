@@ -38,9 +38,7 @@ std::string plan::validar_datos() const{
 
 /// Implementación del metodo para modificar el precio del plan.
 void plan::modificar_precio(int nuevo_precio) {
-	if(nuevo_precio>=0){ //si el precio es negativo no se modifica 
 	precio = nuevo_precio;
-	}
 }
 
 ///Implementaciónes de los métodos para obtener los atributos.
@@ -118,5 +116,15 @@ bool CriterioPrecioPlan(plan p1, plan p2){
 }
 bool CriterioNombre(plan p1, plan p2){
 	return p1.ver_nombre_plan()<p2.ver_nombre_plan();
+}
+	
+void plan::operator=(plan pl){
+	this->nombre = pl.ver_nombre_plan();
+	this->nombre_rutina_base = pl.ver_nombre_rutina();
+	this->precio = pl.ver_precio_plan();
+	this->p_couchs.erase((this->p_couchs).begin(),(this->p_couchs).end());
+	for(int i=0; i<pl.ver_couchs_plan().size() ;i++){
+		(this->p_couchs).push_back(pl.ver_couch_plan(i));
+	}
 }
 

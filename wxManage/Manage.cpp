@@ -101,7 +101,7 @@ bool manage::guardar() {
 	std::ofstream archi_planes(nombre_archivo_planes.c_str(), std::ios::binary|std::ios::trunc);
 	if(!archi_planes.is_open()) return false;
 	for(unsigned i=0; i<vector_de_planes.size(); ++i){
-		vector_de_planes[i].guardar_en_binario(archi_suscripciones);
+		vector_de_planes[i].guardar_en_binario(archi_planes);
 	}
 	archi_planes.close();
 	
