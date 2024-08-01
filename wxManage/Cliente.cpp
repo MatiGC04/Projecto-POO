@@ -74,8 +74,8 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 * Se usa como argumento para la funcion sort para ordenar toda la lista.
 **/
 bool CriterioClientesNombreApellido(cliente p1, cliente p2){
-	std::string txt1 = p1.ver_nombre() + " " + p1.ver_apellido();
-	std::string txt2 = p2.ver_nombre() + " " + p2.ver_apellido();
+	std::string txt1 = p1.ver_apellido() + " " + p1.ver_nombre();
+	std::string txt2 = p2.ver_apellido() + " " + p2.ver_nombre();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
 	return txt1<txt2;	

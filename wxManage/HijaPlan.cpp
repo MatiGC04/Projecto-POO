@@ -62,3 +62,4 @@ void HijaPlan::ClickEliminar( wxCommandEvent& event )  {
 	event.Skip();
 }
 
+

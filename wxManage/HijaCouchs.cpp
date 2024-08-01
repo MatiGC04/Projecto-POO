@@ -106,7 +106,6 @@ void HijaCouchs::DobleClickFila( wxGridEvent& event )  {
 }
 
 void HijaCouchs::ClickColumna( wxGridEvent& event )  {
-	event.Skip();
 	int col = event.GetCol();
 	switch(col){
 	//recordar: enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};	

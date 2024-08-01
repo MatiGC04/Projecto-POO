@@ -93,8 +93,8 @@ std::string couch::validar_datos_ch() const{
 * Se usa como argumento para la funcion sort para ordenar toda la lista.
 **/
 bool CriterioCouchNombreApellido(couch c1, couch c2){
-	std::string txt1 = c1.ver_nombre() + " " + c1.ver_apellido();
-	std::string txt2 = c2.ver_nombre() + " " + c2.ver_apellido();
+	std::string txt1 = c1.ver_apellido() + " " + c1.ver_nombre();
+	std::string txt2 = c2.ver_apellido() + " " + c2.ver_nombre();
 	PasarMiniscula(txt1);
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
