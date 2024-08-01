@@ -122,14 +122,14 @@ void HijaCouchs::ClickColumna( wxGridEvent& event )  {
 
 void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
 	Layout();
-	int tamanios[5], ancho_total_viejo=0; 
-	for (int i=0;i<5;i++) { 
+	int tamanios[4], ancho_total_viejo=0; 
+	for (int i=0;i<4;i++) { 
 		tamanios[i] = m_grilla_couchs->GetColSize(i);
 		ancho_total_viejo += tamanios[i];
 	}
 	int ancho_total_nuevo=m_grilla_couchs->GetSize().GetWidth(); 
 	m_grilla_couchs->BeginBatch(); 
-	for (int i=0;i<5;i++) 
+	for (int i=0;i<4;i++) 
 		m_grilla_couchs->SetColSize(i,tamanios[i]*ancho_total_nuevo/ancho_total_viejo);
 	m_grilla_couchs->EndBatch();
 }

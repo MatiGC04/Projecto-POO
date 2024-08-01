@@ -265,10 +265,9 @@ BaseCouchs::BaseCouchs( wxWindow* parent, wxWindowID id, const wxString& title, 
 
 	// Columns
 	m_grilla_couchs->SetColSize( 0, 152 );
-	m_grilla_couchs->SetColSize( 1, 80 );
+	m_grilla_couchs->SetColSize( 1, 79 );
 	m_grilla_couchs->SetColSize( 2, 80 );
 	m_grilla_couchs->SetColSize( 3, 80 );
-	m_grilla_couchs->SetColSize( 4, 80 );
 	m_grilla_couchs->EnableDragColMove( false );
 	m_grilla_couchs->EnableDragColSize( true );
 	m_grilla_couchs->SetColLabelValue( 0, wxT("Nombre y Apellido") );
@@ -377,17 +376,17 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer70;
 	bSizer70 = new wxBoxSizer( wxHORIZONTAL );
 
-	wxArrayString m_choice21Choices;
-	m_choice21 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,25 ), m_choice21Choices, 0 );
-	m_choice21->SetSelection( 0 );
-	m_choice21->SetMinSize( wxSize( -1,25 ) );
-	m_choice21->SetMaxSize( wxSize( -1,25 ) );
+	wxArrayString m_desplegableChoices;
+	m_desplegable = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( -1,25 ), m_desplegableChoices, 0 );
+	m_desplegable->SetSelection( 0 );
+	m_desplegable->SetMinSize( wxSize( -1,25 ) );
+	m_desplegable->SetMaxSize( wxSize( -1,25 ) );
 
-	bSizer70->Add( m_choice21, 0, wxTOP|wxBOTTOM|wxLEFT|wxALIGN_BOTTOM, 5 );
+	bSizer70->Add( m_desplegable, 0, wxTOP|wxBOTTOM|wxLEFT|wxALIGN_BOTTOM, 5 );
 
 	m_bpButton21 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton21->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\eliminar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton21->SetBitmap( wxBitmap( wxT("../Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton21->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton21->SetMaxSize( wxSize( 25,25 ) );
 
@@ -395,14 +394,14 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_bpButton11 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton11->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\agregar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton11->SetBitmap( wxBitmap( wxT("../Logos/agregar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
 	bSizer70->Add( m_bpButton11, 0, wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_button36 = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer70->Add( m_button36, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
+	m_precio = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer70->Add( m_precio, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
 
 
 	bSizer40->Add( bSizer70, 1, wxEXPAND, 5 );
@@ -418,7 +417,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_button201 = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,27 ), 0 );
 
-	m_button201->SetBitmap( wxBitmap( wxT("C:\\Users\\matig\\Downloads\\Logos\\buscar.png"), wxBITMAP_TYPE_ANY ) );
+	m_button201->SetBitmap( wxBitmap( wxT("../Logos/buscar.png"), wxBITMAP_TYPE_ANY ) );
 	m_button201->SetMinSize( wxSize( 50,27 ) );
 	m_button201->SetMaxSize( wxSize( 50,27 ) );
 
@@ -472,34 +471,34 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer47;
 	bSizer47 = new wxBoxSizer( wxVERTICAL );
 
-	m_grid4 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_grilla = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grid4->CreateGrid( 0, 2 );
-	m_grid4->EnableEditing( false );
-	m_grid4->EnableGridLines( true );
-	m_grid4->EnableDragGridSize( false );
-	m_grid4->SetMargins( 0, 0 );
+	m_grilla->CreateGrid( 0, 2 );
+	m_grilla->EnableEditing( false );
+	m_grilla->EnableGridLines( true );
+	m_grilla->EnableDragGridSize( false );
+	m_grilla->SetMargins( 0, 0 );
 
 	// Columns
-	m_grid4->SetColSize( 0, 155 );
-	m_grid4->SetColSize( 1, 172 );
-	m_grid4->EnableDragColMove( false );
-	m_grid4->EnableDragColSize( true );
-	m_grid4->SetColLabelValue( 0, wxT("Nombre y apellido") );
-	m_grid4->SetColLabelValue( 1, wxT("DNI") );
-	m_grid4->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla->SetColSize( 0, 155 );
+	m_grilla->SetColSize( 1, 172 );
+	m_grilla->EnableDragColMove( false );
+	m_grilla->EnableDragColSize( true );
+	m_grilla->SetColLabelValue( 0, wxT("Nombre y apellido") );
+	m_grilla->SetColLabelValue( 1, wxT("DNI") );
+	m_grilla->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
-	m_grid4->EnableDragRowSize( true );
-	m_grid4->SetRowLabelSize( 0 );
-	m_grid4->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla->EnableDragRowSize( true );
+	m_grilla->SetRowLabelSize( 0 );
+	m_grilla->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Label Appearance
 
 	// Cell Defaults
-	m_grid4->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer47->Add( m_grid4, 1, wxALL, 5 );
+	m_grilla->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer47->Add( m_grilla, 1, wxALL, 5 );
 
 
 	bSizer44->Add( bSizer47, 1, wxEXPAND, 5 );
@@ -539,10 +538,18 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_desplegable->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
+	m_precio->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
 }
 
 BasePlan::~BasePlan()
 {
+	// Disconnect Events
+	m_desplegable->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
+	m_precio->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
+
 }
 
 BaseSus::BaseSus( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1238,4 +1245,55 @@ MyDialog5::MyDialog5( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 MyDialog5::~MyDialog5()
 {
+}
+
+BasePlanPrecio::BasePlanPrecio( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer70;
+	bSizer70 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer71;
+	bSizer71 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText45 = new wxStaticText( this, wxID_ANY, wxT("Precio:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText45->Wrap( -1 );
+	bSizer71->Add( m_staticText45, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_precio = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer71->Add( m_precio, 1, wxALL, 5 );
+
+
+	bSizer70->Add( bSizer71, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer72;
+	bSizer72 = new wxBoxSizer( wxHORIZONTAL );
+
+	buttonxd = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer72->Add( buttonxd, 0, wxALL|wxALIGN_BOTTOM, 5 );
+
+	button = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer72->Add( button, 0, wxALL|wxALIGN_BOTTOM, 5 );
+
+
+	bSizer70->Add( bSizer72, 1, wxALIGN_RIGHT, 5 );
+
+
+	this->SetSizer( bSizer70 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	buttonxd->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickPrecioCancelar ), NULL, this );
+	button->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickAceptarPrecio ), NULL, this );
+}
+
+BasePlanPrecio::~BasePlanPrecio()
+{
+	// Disconnect Events
+	buttonxd->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickPrecioCancelar ), NULL, this );
+	button->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickAceptarPrecio ), NULL, this );
+
 }

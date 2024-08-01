@@ -60,7 +60,7 @@ void HijaClientesEditar::ClickAceptarRegistro( wxCommandEvent& event ){
 				EndModal(0);
 			}
 			if(resultado==wxYES){
-				m_manage->ObtenerCliente(pos)=cl;
+				m_manage->ObtenerCliente(pos) = cl;
 				m_manage->guardar();
 				EndModal(1);
 			}

@@ -147,19 +147,24 @@ class BasePlan : public wxFrame
 
 	protected:
 		wxStaticText* m_staticText38;
-		wxChoice* m_choice21;
+		wxChoice* m_desplegable;
 		wxBitmapButton* m_bpButton21;
 		wxBitmapButton* m_bpButton11;
-		wxButton* m_button36;
+		wxButton* m_precio;
 		wxTextCtrl* m_textCtrl291;
 		wxButton* m_button201;
 		wxStaticText* m_staticText34;
 		wxStaticText* m_staticText35;
 		wxStaticText* m_staticText50;
-		wxGrid* m_grid4;
+		wxGrid* m_grilla;
 		wxButton* m_button23;
 		wxButton* m_button22;
 		wxButton* m_button21;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void CambioSeleccion( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonPrecio( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
@@ -360,6 +365,32 @@ class MyDialog5 : public wxDialog
 		MyDialog5( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 
 		~MyDialog5();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BasePlanPrecio
+///////////////////////////////////////////////////////////////////////////////
+class BasePlanPrecio : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText45;
+		wxTextCtrl* m_precio;
+		wxButton* buttonxd;
+		wxButton* button;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickPrecioCancelar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAceptarPrecio( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BasePlanPrecio( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 325,144 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BasePlanPrecio();
 
 };
 

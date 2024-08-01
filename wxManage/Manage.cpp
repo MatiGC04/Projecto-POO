@@ -257,8 +257,14 @@ int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	}
 	return -1;
 }
-std::vector<couch> manage::CouchsInPlan(int pos_plan) const{
+std::vector<couch> manage::CouchsInPlan(int pos_plan) {
+	plan plan_actual = this->obtenerPlan(pos_plan);
+	std::vector<std::string> DNI_couchs = plan_actual.ver_couchs_plan();
 	std::vector<couch> aux;
+	for(int i=0; i<DNI_couchs.size() ; i++){
+		couch ch1 = buscarCouchsDNI(DNI_couchs[i]);
+		aux.push_back(ch1);
+	}
 	return aux;
 }
 
