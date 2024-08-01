@@ -19,16 +19,8 @@ void HijaPlanAgregar_Couch::CargarFila(int pos){
 
 }
 
-void HijaPlanAgregar_Couch::EnterBuscar( wxCommandEvent& event )  {
-	event.Skip();
-}
-
-void HijaPlanAgregar_Couch::ClickBuscar( wxCommandEvent& event )  {
-	event.Skip();
-}
-
 void HijaPlanAgregar_Couch::DobleClickFila( wxGridEvent& event )  {
-	event.Skip();
+	ClickAgregar(event);
 }
 
 void HijaPlanAgregar_Couch::ClickColumna( wxGridEvent& event )  {
@@ -36,10 +28,14 @@ void HijaPlanAgregar_Couch::ClickColumna( wxGridEvent& event )  {
 }
 
 void HijaPlanAgregar_Couch::ClickAgregar( wxCommandEvent& event )  {
-	event.Skip();
+	int fila_grilla = m_grilla->GetGridCursorRow();
+	m_manage->obtenerPlan(pos_plan).agregar_couch(v_couchs[fila_grilla].ver_DNI());
+	m_manage->guardar();
+	EndModal(1);
 }
 
-HijaPlanAgregar_Couch::~HijaPlanAgregar_Couch() {
-	
+
+void HijaPlanAgregar_Couch::ClickCancelar( wxCommandEvent& event )  {
+	EndModal(0);
 }
 

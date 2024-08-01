@@ -164,6 +164,7 @@ class BasePlan : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void CambioSeleccion( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonPrecio( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void AgregarCouchToPlan( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -331,24 +332,20 @@ class BasePlanAgregar_Couch : public wxDialog
 
 	protected:
 		wxStaticText* m_staticText6;
-		wxStaticText* m_staticText2;
-		wxTextCtrl* m_buscar;
-		wxButton* m_button7;
 		wxGrid* m_grilla;
 		wxButton* m_button10;
 		wxButton* m_button8;
 
 		// Virtual event handlers, override them in your derived class
-		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void DobleClickFila( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickCancelar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		BasePlanAgregar_Couch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 496,350 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BasePlanAgregar_Couch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 506,362 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BasePlanAgregar_Couch();
 

@@ -58,3 +58,7 @@ void HijaPlan::AgregarCouchToPlan( wxCommandEvent& event )  {
 	}
 }
 
+void HijaPlan::ClickEliminar( wxCommandEvent& event )  {
+	event.Skip();
+}
+

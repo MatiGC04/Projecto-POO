@@ -555,6 +555,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	// Connect Events
 	m_desplegable->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
 	m_precio->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
+	m_button22->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
 	m_agregar_couch->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::AgregarCouchToPlan ), NULL, this );
 }
 
@@ -563,6 +564,7 @@ BasePlan::~BasePlan()
 	// Disconnect Events
 	m_desplegable->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
 	m_precio->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
+	m_button22->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
 	m_agregar_couch->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::AgregarCouchToPlan ), NULL, this );
 
 }
@@ -1123,22 +1125,6 @@ BasePlanAgregar_Couch::BasePlanAgregar_Couch( wxWindow* parent, wxWindowID id, c
 	m_staticText6->Wrap( -1 );
 	bSizer8->Add( m_staticText6, 0, wxALIGN_CENTER_HORIZONTAL|wxRIGHT|wxLEFT, 5 );
 
-	wxBoxSizer* bSizer9;
-	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText2 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText2->Wrap( -1 );
-	bSizer9->Add( m_staticText2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_buscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
-	bSizer9->Add( m_buscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_button7 = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_button7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-
-
-	bSizer8->Add( bSizer9, 0, wxEXPAND, 5 );
-
 	m_grilla = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
@@ -1197,20 +1183,18 @@ BasePlanAgregar_Couch::BasePlanAgregar_Couch( wxWindow* parent, wxWindowID id, c
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BasePlanAgregar_Couch::EnterBuscar ), NULL, this );
-	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Couch::ClickBuscar ), NULL, this );
 	m_grilla->Connect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BasePlanAgregar_Couch::DobleClickFila ), NULL, this );
 	m_grilla->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BasePlanAgregar_Couch::ClickColumna ), NULL, this );
+	m_button10->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Couch::ClickCancelar ), NULL, this );
 	m_button8->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Couch::ClickAgregar ), NULL, this );
 }
 
 BasePlanAgregar_Couch::~BasePlanAgregar_Couch()
 {
 	// Disconnect Events
-	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BasePlanAgregar_Couch::EnterBuscar ), NULL, this );
-	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Couch::ClickBuscar ), NULL, this );
 	m_grilla->Disconnect( wxEVT_GRID_CELL_LEFT_DCLICK, wxGridEventHandler( BasePlanAgregar_Couch::DobleClickFila ), NULL, this );
 	m_grilla->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BasePlanAgregar_Couch::ClickColumna ), NULL, this );
+	m_button10->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Couch::ClickCancelar ), NULL, this );
 	m_button8->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Couch::ClickAgregar ), NULL, this );
 
 }

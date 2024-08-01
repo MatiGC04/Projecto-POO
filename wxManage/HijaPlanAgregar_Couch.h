@@ -11,8 +11,7 @@ private:
 	int pos_plan;
 	std::vector<couch> v_couchs;
 protected:
-	void EnterBuscar( wxCommandEvent& event )  override;
-	void ClickBuscar( wxCommandEvent& event )  override;
+	void ClickCancelar( wxCommandEvent& event )  override;
 	void DobleClickFila( wxGridEvent& event )  override;
 	void ClickColumna( wxGridEvent& event )  override;
 	void ClickAgregar( wxCommandEvent& event )  override;
@@ -20,7 +19,6 @@ protected:
 public:
 	HijaPlanAgregar_Couch(manage *aux, int pos_plan, wxWindow *parent=NULL);
 	void CargarFila(int pos);
-	~HijaPlanAgregar_Couch();
 };
 
 #endif
