@@ -13,7 +13,7 @@
 /// @brief enumeración para los posibles criterios de ordenamiento para la ventana
 ///  clientes con el fin de pasar como argumento al método, queda más legible que un número
 enum CriterioOrdenClientes { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_EMAIL, ORDEN_PLANES_SUSCRITOS, ORDEN_TELEFONO_EMERGENCIAS };
-//enum CriterioOrdenCouchs { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
+enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
 class manage{
 private:
 	/// @brief Atributos de la clase Manage
@@ -79,7 +79,7 @@ public:
 	
 	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
-	//void OrdenarCouchs(CriterioOrdenCouchs criterio);
+	void OrdenarCouchs(CriterioOrdenCouchs criterio);
 
 };
 #endif

@@ -136,3 +136,9 @@ bool CriterioCouchEmail(couch c1, couch c2){
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
 }
+bool CriterioCouchTelefono(couch c1, couch c2){
+	return c1.ver_tel()<c2.ver_tel();
+}
+bool CriterioCouchDNI(couch c1, couch c2){
+	return c1.ver_DNI()<c2.ver_DNI();
+}

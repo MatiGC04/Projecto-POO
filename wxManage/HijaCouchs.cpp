@@ -107,17 +107,16 @@ void HijaCouchs::DobleClickFila( wxGridEvent& event )  {
 
 void HijaCouchs::ClickColumna( wxGridEvent& event )  {
 	event.Skip();
-	/* ->terminar
 	int col = event.GetCol();
 	switch(col){
-	case 0: m_manage->OrdenarCouchs(ORDEN_APELLIDO_Y_NOMBRE); break;
-	case 1: m_manage->OrdenarCouchs(ORDEN_DNI); break;
-	case 2: m_manage->OrdenarCouchs(ORDEN_EMAIL); break;
-	case 3: m_manage->OrdenarCouchs(ORDEN_PLANES_SUSCRITOS); break;
-	case 4: m_manage->OrdenarCouchs(ORDEN_TELEFONO_EMERGENCIAS); break;
+	//recordar: enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};	
+	case 0: m_manage->OrdenarCouchs(ORDEN_APENOMB); break;
+	case 1: m_manage->OrdenarCouchs(O_DNI); break;
+	case 2: m_manage->OrdenarCouchs(ORDEN_PLANES_RESPONSABLES); break;
+	case 3: m_manage->OrdenarCouchs(ORDEN_TELEFONO); break;
 	}
 	for(int i=0; i<m_manage->cantidadCouch();i++) CargarFila(i);
-*/	
+
 }
 
 void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {

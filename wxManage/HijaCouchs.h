@@ -22,8 +22,13 @@ protected:
 	/// Abre la ventana para editar un cliente cuando se hace doble click sobre el mismo
 	void DobleClickFila( wxGridEvent& event )  override;
 	
-	void ClickColumna( wxGridEvent& event )  override;
+
+	/// Elimina el couch que se haya elegido en la grilla
 	void ClickEliminar( wxCommandEvent& event )  override;
+	
+	
+	/// Reordena la grilla cuando se hace click sobre el titulo de una columna
+	void ClickColumna( wxGridEvent& event )  override;
 	
 	/// Abrir ventana de Registro para agregar nuevo Couch
 	void ClickAgregar( wxCommandEvent& event )  override;

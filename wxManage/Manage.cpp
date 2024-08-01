@@ -323,11 +323,9 @@ void manage::OrdenarClientes(CriterioOrdenClientes criterio){
 }
 
 /**
-* enum CriterioOrdenCouchs { ORDEN_APELLIDO_Y_NOMBRE, 
-* ORDEN_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
+* enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
 
 */
-/*
 void manage::OrdenarCouchs(CriterioOrdenCouchs criterio){
 
 	auto CriterioCouchsPlanesResponsables = [this](const couch &a, const couch &b)->bool{
@@ -338,24 +336,23 @@ void manage::OrdenarCouchs(CriterioOrdenCouchs criterio){
 		return aux1< aux2;
 	};
 	switch(criterio){
-	case ORDEN_APELLIDO_Y_NOMBRE:
+	case ORDEN_APENOMB:
 		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchNombreApellido); break;
-	case ORDEN_DNI:
+	case O_DNI:
 		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchDNI); break;
-	case ORDEN_EMAIL:
-		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchEmail); break;
-	case ORDEN_TELEFONO_EMERGENCIAS:
-		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchTelef); break;
-		//lambda 
 	case ORDEN_PLANES_RESPONSABLES:
-		std::sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioClientesPlanesSuscritos);
+		std::sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchsPlanesResponsables);
 		break;
+	case ORDEN_TELEFONO:
+		sort(vector_de_couchs.begin(), vector_de_couchs.end(), CriterioCouchTelefono); break;
+		//lambda 
+	
 	}
 
 	this->guardar();
 
 }
-	*/
+	
 
 
 

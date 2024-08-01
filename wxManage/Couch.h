@@ -86,5 +86,9 @@ bool CriterioCouchLocalidad(couch c1, couch c2);
 bool CriterioCouchEdad(couch c1, couch c2);
 ///@brief Funcion que compara dos couch por su email
 bool CriterioCouchEmail(couch c1, couch c2);
+
+bool CriterioCouchTelefono(couch c1, couch c2);
+
+bool CriterioCouchDNI(couch c1, couch c2);
 #endif
 
