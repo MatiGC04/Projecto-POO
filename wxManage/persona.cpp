@@ -42,11 +42,11 @@ std::string persona::validar_datos() const{
 		errores+="El apellido es demasiado largo \n";
 	}
 	
-	if (dni.size()>20){
+	if (dni.size()>8){
 		errores+="El DNI es demasiado largo \n";
 	}
-	if(dni.size()==0){
-		errores+="El DNI no puede estar vacio \n";
+	if(dni.size()<8){
+		errores+="El DNI debe tener contener 8 caracteres \n";
 	}
 	
 	if(email.size()==0){
