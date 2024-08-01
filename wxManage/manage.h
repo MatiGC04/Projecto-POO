@@ -60,7 +60,9 @@ public:
 	void borrarSuscripcion(int pos);
 	
 	cliente buscarClientesDNI(std::string DNI, int pos=0) const;
+	
 	couch buscarCouchsDNI(std::string DNI, int pos=0) const;
+	int buscarPosCouchsDNI(std::string DNI, int pos=0) const;
 	plan buscarPlanNombre(std::string DNI, int pos=0) const;
 	suscripcion buscarSub(std::string DNI, std::string nombre_plan, int pos=0) const;
 	int buscarClientesNombre(std::string nombre, int pos=0) const;

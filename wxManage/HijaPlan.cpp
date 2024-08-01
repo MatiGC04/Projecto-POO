@@ -51,7 +51,7 @@ void HijaPlan::ClickBotonPrecio( wxCommandEvent& event )  {
 }
 
 void HijaPlan::AgregarCouchToPlan( wxCommandEvent& event )  {
-	int pos_plan=m_desplegable->GetSelection();
+	int pos_plan = m_desplegable->GetSelection();
 	HijaPlanAgregar_Couch nueva_ventana(m_manage, pos_plan ,this);
 	if(nueva_ventana.ShowModal()==1){
 		refrescar();
@@ -59,7 +59,11 @@ void HijaPlan::AgregarCouchToPlan( wxCommandEvent& event )  {
 }
 
 void HijaPlan::ClickEliminar( wxCommandEvent& event )  {
-	event.Skip();
+	int fila_actual = m_grilla->GetGridCursorRow();
+	std::string dni_couch = wx_to_std(m_grilla->GetCellValue(fila_actual,1));
+	int pos_plan = m_desplegable->GetSelection();
+	m_manage->obtenerPlan(pos_plan).eliminar_couch(dni_couch);
+	m_manage->guardar();
+	refrescar();
 }
-
 

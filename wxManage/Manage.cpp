@@ -151,7 +151,6 @@ void manage::borrarCliente(int pos) {
 void manage::borrarCouch(int pos) {
 	vector_de_couchs.erase(vector_de_couchs.begin()+pos);
 }
-
 void manage::borrarPlan(int pos){
 	vector_de_planes.erase(vector_de_planes.begin()+pos);
 }
@@ -166,6 +165,14 @@ couch manage::buscarCouchsDNI(std::string DNI, int pos) const{
 		if(vector_de_couchs[i].ver_DNI()==DNI) return vector_de_couchs[i];
 	}
 	return ch;
+}
+
+int manage::buscarPosCouchsDNI(std::string DNI, int pos) const{
+	couch ch;
+	for(unsigned i=pos; i<vector_de_couchs.size(); i++){
+		if(vector_de_couchs[i].ver_DNI()==DNI) return i;
+	}
+	return -1;
 }
 
 cliente manage::buscarClientesDNI(std::string DNI, int pos) const{
