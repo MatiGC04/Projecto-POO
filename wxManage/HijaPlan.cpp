@@ -98,13 +98,17 @@ void HijaPlan::refrescar(){
 }
 
 void HijaPlan::ClickGuardarRutina( wxCommandEvent& event )  {
-	std::string texto = wx_to_std(m_rutina->GetValue());
-	int pos_plan = m_desplegable->GetSelection();
-	plan pl = m_manage->obtenerPlan(pos_plan);
-	std::ofstream archi("RutinasBases/rutina"+pl.ver_nombre_plan()+".txt");
-	archi<<texto;
-	archi.close();
-}
+	int resultado = wxMessageBox(std_to_wx("¿Esta seguro de sobrescribir la rutina base del plan?"), "VENTANA GUARDAR RUTINA BASE", wxYES_NO);
+	if(resultado==wxYES){
+		std::string texto = wx_to_std(m_rutina->GetValue());
+		int pos_plan = m_desplegable->GetSelection();
+		plan pl = m_manage->obtenerPlan(pos_plan);
+		std::ofstream archi("RutinasBases/rutina"+pl.ver_nombre_plan()+".txt");
+		archi<<texto;
+		archi.close();
+	}
+	}
+
 
 void HijaPlan::ClickBorrarPlan( wxCommandEvent& event )  {
 	int pos_plan = m_desplegable->GetSelection();
