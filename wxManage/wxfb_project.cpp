@@ -490,8 +490,8 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_grilla->SetMargins( 0, 0 );
 
 	// Columns
-	m_grilla->SetColSize( 0, 155 );
-	m_grilla->SetColSize( 1, 172 );
+	m_grilla->SetColSize( 0, 209 );
+	m_grilla->SetColSize( 1, 170 );
 	m_grilla->EnableDragColMove( false );
 	m_grilla->EnableDragColSize( true );
 	m_grilla->SetColLabelValue( 0, wxT("Nombre y apellido") );
@@ -508,13 +508,13 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	// Cell Defaults
 	m_grilla->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer47->Add( m_grilla, 1, wxALL, 5 );
+	bSizer47->Add( m_grilla, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer44->Add( bSizer47, 1, wxEXPAND, 5 );
 
 
-	bSizer39->Add( bSizer44, 1, 0, 5 );
+	bSizer39->Add( bSizer44, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer48;
 	bSizer48 = new wxBoxSizer( wxHORIZONTAL );
@@ -556,6 +556,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_precio->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
 	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BasePlan::EnterBuscar ), NULL, this );
 	m_button201->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBuscar ), NULL, this );
+	m_grilla->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BasePlan::ClickColumna ), NULL, this );
 	m_button23->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickGuardarRutina ), NULL, this );
 	m_button22->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
 	m_agregar_couch->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::AgregarCouchToPlan ), NULL, this );
@@ -570,6 +571,7 @@ BasePlan::~BasePlan()
 	m_precio->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
 	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BasePlan::EnterBuscar ), NULL, this );
 	m_button201->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBuscar ), NULL, this );
+	m_grilla->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BasePlan::ClickColumna ), NULL, this );
 	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickGuardarRutina ), NULL, this );
 	m_button22->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
 	m_agregar_couch->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::AgregarCouchToPlan ), NULL, this );

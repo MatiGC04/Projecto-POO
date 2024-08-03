@@ -2118,7 +2118,7 @@
       <property name="minimum_size"></property>
       <property name="name">BasePlan</property>
       <property name="pos"></property>
-      <property name="size">686,430</property>
+      <property name="size">788,531</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
@@ -2830,7 +2830,7 @@
         </object>
         <object class="sizeritem" expanded="false">
           <property name="border">5</property>
-          <property name="flag"></property>
+          <property name="flag">wxEXPAND</property>
           <property name="proportion">1</property>
           <object class="wxBoxSizer" expanded="false">
             <property name="minimum_size"></property>
@@ -2924,7 +2924,7 @@
                 <property name="permission">none</property>
                 <object class="sizeritem" expanded="false">
                   <property name="border">5</property>
-                  <property name="flag">wxALL</property>
+                  <property name="flag">wxALL|wxEXPAND</property>
                   <property name="proportion">1</property>
                   <object class="wxGrid" expanded="false">
                     <property name="BottomDockable">1</property>
@@ -2953,7 +2953,7 @@
                     <property name="col_label_values">&quot;Nombre y apellido&quot; &quot;DNI&quot;</property>
                     <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
                     <property name="cols">2</property>
-                    <property name="column_sizes">155,172</property>
+                    <property name="column_sizes">209,170</property>
                     <property name="context_help"></property>
                     <property name="context_menu">1</property>
                     <property name="default_pane">0</property>
@@ -3009,6 +3009,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
+                    <event name="OnGridLabelLeftClick">ClickColumna</event>
                   </object>
                 </object>
               </object>

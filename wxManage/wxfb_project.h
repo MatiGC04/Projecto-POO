@@ -168,6 +168,7 @@ class BasePlan : public wxFrame
 		virtual void ClickBotonPrecio( wxCommandEvent& event ) { event.Skip(); }
 		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickGuardarRutina( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void AgregarCouchToPlan( wxCommandEvent& event ) { event.Skip(); }
@@ -175,7 +176,7 @@ class BasePlan : public wxFrame
 
 	public:
 
-		BasePlan( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 686,430 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BasePlan( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 788,531 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BasePlan();
 
