@@ -2368,7 +2368,7 @@
                 </object>
                 <object class="sizeritem" expanded="false">
                   <property name="border">5</property>
-                  <property name="flag">wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_VERTICAL</property>
+                  <property name="flag">wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM</property>
                   <property name="proportion">0</property>
                   <object class="wxBitmapButton" expanded="false">
                     <property name="BottomDockable">1</property>
@@ -2443,7 +2443,7 @@
                 </object>
                 <object class="sizeritem" expanded="false">
                   <property name="border">5</property>
-                  <property name="flag">wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT</property>
+                  <property name="flag">wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxTOP</property>
                   <property name="proportion">0</property>
                   <object class="wxButton" expanded="false">
                     <property name="BottomDockable">1</property>
@@ -2485,10 +2485,10 @@
                     <property name="markup">0</property>
                     <property name="max_size"></property>
                     <property name="maximize_button">0</property>
-                    <property name="maximum_size"></property>
+                    <property name="maximum_size">-1,25</property>
                     <property name="min_size"></property>
                     <property name="minimize_button">0</property>
-                    <property name="minimum_size"></property>
+                    <property name="minimum_size">-1,25</property>
                     <property name="moveable">1</property>
                     <property name="name">m_precio</property>
                     <property name="pane_border">1</property>
@@ -2501,7 +2501,7 @@
                     <property name="pressed"></property>
                     <property name="resize">Resizable</property>
                     <property name="show">1</property>
-                    <property name="size"></property>
+                    <property name="size">-1,25</property>
                     <property name="style"></property>
                     <property name="subclass">; ; forward_declare</property>
                     <property name="toolbar_pane">0</property>
@@ -2595,7 +2595,7 @@
                 </object>
                 <object class="sizeritem" expanded="false">
                   <property name="border">5</property>
-                  <property name="flag">wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT</property>
+                  <property name="flag">wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxTOP</property>
                   <property name="proportion">0</property>
                   <object class="wxButton" expanded="false">
                     <property name="BottomDockable">1</property>

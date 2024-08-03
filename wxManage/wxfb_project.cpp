@@ -404,10 +404,13 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
-	bSizer70->Add( m_bpButton11, 0, wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer70->Add( m_bpButton11, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM, 5 );
 
-	m_precio = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer70->Add( m_precio, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
+	m_precio = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,25 ), 0 );
+	m_precio->SetMinSize( wxSize( -1,25 ) );
+	m_precio->SetMaxSize( wxSize( -1,25 ) );
+
+	bSizer70->Add( m_precio, 0, wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxTOP, 5 );
 
 
 	bSizer40->Add( bSizer70, 1, wxEXPAND, 5 );
@@ -427,7 +430,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_button201->SetMinSize( wxSize( 50,27 ) );
 	m_button201->SetMaxSize( wxSize( 50,27 ) );
 
-	bSizer68->Add( m_button201, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
+	bSizer68->Add( m_button201, 0, wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxTOP, 5 );
 
 
 	bSizer40->Add( bSizer68, 1, wxEXPAND, 5 );
