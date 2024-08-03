@@ -162,6 +162,7 @@ class BasePlan : public wxFrame
 		wxButton* m_agregar_couch;
 
 		// Virtual event handlers, override them in your derived class
+		virtual void CambiarTamanio( wxSizeEvent& event ) { event.Skip(); }
 		virtual void CambioSeleccion( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBorrarPlan( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickCrearPlan( wxCommandEvent& event ) { event.Skip(); }

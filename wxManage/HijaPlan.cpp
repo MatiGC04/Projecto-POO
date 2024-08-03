@@ -150,3 +150,21 @@ void HijaPlan::ClickBuscar( wxCommandEvent& event )  {
 	}
 }
 
+void HijaPlan::CambiarTamanio( wxSizeEvent& event )  {
+	Layout();
+	int tamanios[2], ancho_total_viejo=0; 
+	for (int i=0;i<2;i++) { 
+		tamanios[i] = m_grilla->GetColSize(i);
+		ancho_total_viejo += tamanios[i];
+	}
+	int ancho_total_nuevo = m_grilla->GetSize().GetWidth(); 
+	m_grilla->BeginBatch(); 
+	for (int i=0;i<2;i++) 
+		m_grilla->SetColSize(i,tamanios[i]*ancho_total_nuevo/ancho_total_viejo);
+	m_grilla->EndBatch();
+}
+
+void HijaPlan::ClickColumna( wxGridEvent& event )  {
+	event.Skip();
+}
+

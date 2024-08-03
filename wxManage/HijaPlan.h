@@ -8,6 +8,8 @@ class HijaPlan : public BasePlan {
 private:
 	manage *m_manage;
 protected:
+	void CambiarTamanio( wxSizeEvent& event )  override;
+	void ClickColumna( wxGridEvent& event )  override;
 	void ClickBuscar( wxCommandEvent& event )  override;
 	void EnterBuscar( wxCommandEvent& event )  override;
 	void ClickBorrarPlan( wxCommandEvent& event )  override;
