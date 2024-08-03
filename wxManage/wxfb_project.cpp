@@ -1237,7 +1237,7 @@ BasePlanAgregar_Couch::~BasePlanAgregar_Couch()
 
 }
 
-MyDialog5::MyDialog5( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
@@ -1317,7 +1317,7 @@ MyDialog5::MyDialog5( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Centre( wxBOTH );
 }
 
-MyDialog5::~MyDialog5()
+BaseSuscripcionesAgregar::~BaseSuscripcionesAgregar()
 {
 }
 
@@ -1369,5 +1369,52 @@ BasePlanPrecio::~BasePlanPrecio()
 	// Disconnect Events
 	buttonxd->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickPrecioCancelar ), NULL, this );
 	button->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickAceptarPrecio ), NULL, this );
+
+}
+
+BaseSuscripcionesEditar::BaseSuscripcionesEditar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer76;
+	bSizer76 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer77;
+	bSizer77 = new wxBoxSizer( wxVERTICAL );
+
+	m_textCtrl36 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	bSizer77->Add( m_textCtrl36, 1, wxALL|wxEXPAND, 5 );
+
+
+	bSizer76->Add( bSizer77, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer78;
+	bSizer78 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button37 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer78->Add( m_button37, 0, wxALL, 5 );
+
+	m_button38 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer78->Add( m_button38, 0, wxALL, 5 );
+
+
+	bSizer76->Add( bSizer78, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer76 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_button37->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesEditar::ClickAceptar ), NULL, this );
+	m_button38->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesEditar::ClickCancelar ), NULL, this );
+}
+
+BaseSuscripcionesEditar::~BaseSuscripcionesEditar()
+{
+	// Disconnect Events
+	m_button37->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesEditar::ClickAceptar ), NULL, this );
+	m_button38->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesEditar::ClickCancelar ), NULL, this );
 
 }

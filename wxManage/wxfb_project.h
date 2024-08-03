@@ -373,9 +373,9 @@ class BasePlanAgregar_Couch : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class MyDialog5
+/// Class BaseSuscripcionesAgregar
 ///////////////////////////////////////////////////////////////////////////////
-class MyDialog5 : public wxDialog
+class BaseSuscripcionesAgregar : public wxDialog
 {
 	private:
 
@@ -392,9 +392,9 @@ class MyDialog5 : public wxDialog
 
 	public:
 
-		MyDialog5( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 
-		~MyDialog5();
+		~BaseSuscripcionesAgregar();
 
 };
 
@@ -421,6 +421,31 @@ class BasePlanPrecio : public wxDialog
 		BasePlanPrecio( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 325,144 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BasePlanPrecio();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseSuscripcionesEditar
+///////////////////////////////////////////////////////////////////////////////
+class BaseSuscripcionesEditar : public wxDialog
+{
+	private:
+
+	protected:
+		wxTextCtrl* m_textCtrl36;
+		wxButton* m_button37;
+		wxButton* m_button38;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickAceptar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickCancelar( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BaseSuscripcionesEditar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 426,327 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BaseSuscripcionesEditar();
 
 };
 
