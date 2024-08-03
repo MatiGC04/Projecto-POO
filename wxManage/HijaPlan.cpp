@@ -7,20 +7,13 @@
 #include "HijaPlanAgregar_Couch.h"
 #include <fstream>
 #include "HijaPlanAgregar_Plan.h"
+#include <wx/msgdlg.h>
 
 
 
 HijaPlan::HijaPlan(manage *aux, wxWindow *parent) : BasePlan(parent), m_manage(aux) {
 	
-	for(int i=0; i<m_manage->cantidadPlanes(); ++i){
-		std::string dni = (m_manage->obtenerPlan(i)).ver_nombre_plan();
-		m_desplegable->Append(std_to_wx(dni));
-	}
-	
-	m_desplegable->SetSelection(0);
-	
 	refrescar();
-	
 	m_grilla->SetSelectionMode(wxGrid::wxGridSelectRows);
 }
 void HijaPlan::CargarFila(couch ch, int pos){
@@ -58,15 +51,28 @@ void HijaPlan::ClickEliminar( wxCommandEvent& event )  {
 	refrescar();
 }
 
-
+//Declaro variable pos_desplegable dado que con el clear se pierde la seleccion
 void HijaPlan::refrescar(){
+	//Actualizamos desplegable
+	int pos_desplegable = m_desplegable->GetSelection();
+	m_desplegable->Clear();
+	for(int i=0; i<m_manage->cantidadPlanes(); ++i){
+		std::string dni = (m_manage->obtenerPlan(i)).ver_nombre_plan();
+		m_desplegable->Append(std_to_wx(dni));
+	}
+	if(pos_desplegable == wxNOT_FOUND){
+		m_desplegable->SetSelection(0);
+		pos_desplegable = m_desplegable->GetSelection();
+	}
+	else{
+		m_desplegable->SetSelection(pos_desplegable);
+	}
+	
 	
 
 	
-	
-	
-	int pos_plan = m_desplegable->GetSelection();
 	//Actualizamos la rutina que se muestra
+	int pos_plan = pos_desplegable;
 	plan pl = m_manage->obtenerPlan(pos_plan);
 	std::ifstream archi("RutinasBases/rutina"+pl.ver_nombre_plan()+".txt");
 	std::string linea="", texto="";
@@ -102,15 +108,22 @@ void HijaPlan::ClickGuardarRutina( wxCommandEvent& event )  {
 
 void HijaPlan::ClickBorrarPlan( wxCommandEvent& event )  {
 	int pos_plan = m_desplegable->GetSelection();
-	m_manage->borrarPlan(pos_plan);
-	m_manage->guardar();
-	refrescar();
-	m_desplegable->SetSelection(0);
+	std::string mensaje = "Esta seguro de borrar el plan " + m_manage->obtenerPlan(pos_plan).ver_nombre_plan();
+	int resultado = wxMessageBox(std_to_wx(mensaje), "VENTANA BORRAR PLAN", wxYES_NO);
+	if(resultado==wxYES){
+		m_manage->borrarPlan(pos_plan);
+		m_manage->guardar();
+		m_desplegable->SetSelection(0);
+		refrescar();
+	}	
 }
 
 void HijaPlan::ClickCrearPlan( wxCommandEvent& event )  {
 	HijaPlanAgregar_Plan nueva_ventana(m_manage,this);
 	if(nueva_ventana.ShowModal()==1){
+		
+		refrescar();
+		m_desplegable->SetSelection(m_manage->cantidadPlanes()-1);
 		refrescar();
 	}
 }
