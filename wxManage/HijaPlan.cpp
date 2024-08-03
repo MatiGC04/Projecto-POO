@@ -5,23 +5,9 @@
 #include <vector>
 #include "HijaPlanPrecio.h"
 #include "HijaPlanAgregar_Couch.h"
+#include <fstream>
 
-void HijaPlan::refrescar(){
-	int pos_plan = m_desplegable->GetSelection();
-	std::vector<couch> couchs_grilla;
-	couchs_grilla = m_manage->CouchsInPlan(pos_plan);
-	
-	if(m_grilla->GetNumberRows()!=0){
-		m_grilla->DeleteRows(0,m_grilla->GetNumberRows());
-	}
-	m_grilla->AppendRows(couchs_grilla.size());
-	for(int i=0;i<couchs_grilla.size();i++){
-		CargarFila(couchs_grilla[i],i);
-	}
-	plan plan_actual = m_manage->obtenerPlan(pos_plan);
-	std::string precio =  "$" + std::to_string(plan_actual.ver_precio_plan());
-	m_precio->SetLabel(std_to_wx(precio));
-}
+
 
 HijaPlan::HijaPlan(manage *aux, wxWindow *parent) : BasePlan(parent), m_manage(aux) {
 	for(int i=0; i<m_manage->cantidadPlanes(); ++i){
@@ -65,5 +51,44 @@ void HijaPlan::ClickEliminar( wxCommandEvent& event )  {
 	m_manage->obtenerPlan(pos_plan).eliminar_couch(dni_couch);
 	m_manage->guardar();
 	refrescar();
+}
+
+
+void HijaPlan::refrescar(){
+	
+	
+	int pos_plan = m_desplegable->GetSelection();
+	//Actualizamos la rutina que se muestra
+	plan pl = m_manage->obtenerPlan(pos_plan);
+	std::ifstream archi("RutinasBases/rutina"+pl.ver_nombre_plan()+".txt");
+	std::string linea="", texto="";
+	while(std::getline(archi,linea)){
+		texto=texto+linea+"\n";
+	}
+	m_rutina->SetValue(std_to_wx(texto));
+	
+	
+	//Actualizamos la grilla que se muestra
+	std::vector<couch> couchs_grilla;
+	couchs_grilla = m_manage->CouchsInPlan(pos_plan);
+	if(m_grilla->GetNumberRows()!=0){
+		m_grilla->DeleteRows(0,m_grilla->GetNumberRows());
+	}
+	m_grilla->AppendRows(couchs_grilla.size());
+	for(int i=0;i<couchs_grilla.size();i++){
+		CargarFila(couchs_grilla[i],i);
+	}
+	plan plan_actual = m_manage->obtenerPlan(pos_plan);
+	std::string precio =  "$" + std::to_string(plan_actual.ver_precio_plan());
+	m_precio->SetLabel(std_to_wx(precio));
+}
+
+void HijaPlan::ClickGuardarRutina( wxCommandEvent& event )  {
+	std::string texto = wx_to_std(m_rutina->GetValue());
+	int pos_plan = m_desplegable->GetSelection();
+	plan pl = m_manage->obtenerPlan(pos_plan);
+	std::ofstream archi("RutinasBases/rutina"+pl.ver_nombre_plan()+".txt");
+	archi<<texto;
+	archi.close();
 }
 

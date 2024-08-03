@@ -8,6 +8,7 @@ class HijaPlan : public BasePlan {
 private:
 	manage *m_manage;
 protected:
+	void ClickGuardarRutina( wxCommandEvent& event )  override;
 	void ClickEliminar( wxCommandEvent& event )  override;
 	void AgregarCouchToPlan( wxCommandEvent& event )  override;
 	void ClickBotonPrecio( wxCommandEvent& event )  override;

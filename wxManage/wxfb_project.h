@@ -155,7 +155,7 @@ class BasePlan : public wxFrame
 		wxButton* m_button201;
 		wxStaticText* m_staticText34;
 		wxStaticText* m_staticText35;
-		wxStaticText* m_staticText50;
+		wxTextCtrl* m_rutina;
 		wxGrid* m_grilla;
 		wxButton* m_button23;
 		wxButton* m_button22;
@@ -164,6 +164,7 @@ class BasePlan : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void CambioSeleccion( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonPrecio( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickGuardarRutina( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void AgregarCouchToPlan( wxCommandEvent& event ) { event.Skip(); }
 

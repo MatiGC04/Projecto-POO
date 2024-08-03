@@ -471,11 +471,8 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer45;
 	bSizer45 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText50 = new wxStaticText( this, wxID_ANY, wxT("No me deja agregar el rich text"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText50->Wrap( -1 );
-	m_staticText50->SetForegroundColour( wxColour( 0, 0, 0 ) );
-
-	bSizer45->Add( m_staticText50, 1, wxALL|wxEXPAND, 5 );
+	m_rutina = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	bSizer45->Add( m_rutina, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer44->Add( bSizer45, 1, wxEXPAND, 5 );
@@ -525,7 +522,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer51;
 	bSizer51 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button23 = new wxButton( this, wxID_ANY, wxT("Editar Rutina"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button23 = new wxButton( this, wxID_ANY, wxT("Guardar rutina"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer51->Add( m_button23, 0, wxALL, 5 );
 
 
@@ -555,6 +552,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	// Connect Events
 	m_desplegable->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
 	m_precio->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
+	m_button23->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickGuardarRutina ), NULL, this );
 	m_button22->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
 	m_agregar_couch->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::AgregarCouchToPlan ), NULL, this );
 }
@@ -564,6 +562,7 @@ BasePlan::~BasePlan()
 	// Disconnect Events
 	m_desplegable->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
 	m_precio->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
+	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickGuardarRutina ), NULL, this );
 	m_button22->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
 	m_agregar_couch->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::AgregarCouchToPlan ), NULL, this );
 
