@@ -128,3 +128,25 @@ void HijaPlan::ClickCrearPlan( wxCommandEvent& event )  {
 	}
 }
 
+void HijaPlan::EnterBuscar( wxCommandEvent& event )  {
+	ClickBuscar(event);
+}
+
+void HijaPlan::ClickBuscar( wxCommandEvent& event )  {
+	int fila_pos = m_grilla->GetGridCursorRow();
+	if(m_grilla->GetSelectedRows().GetCount()==0) fila_pos = -1;
+	if(m_grilla->GetSelectedRows().GetCount()>1){
+		wxMessageBox("Usted a seleccionado demasiadas filas, seleccione 1 o menos porfavor.\nTenga en cuenta que se empezara a buscar apartir de esa fila en adelante, en caso de tener seleccionada la ultima fila se comenzara desde el inicio de la grilla.");	
+		return;
+	}
+	std::string nomape = wx_to_std(m_buscar->GetValue());
+	int pos_plan = m_desplegable->GetSelection();
+	int encontrado = m_manage->buscarCouchsNombre(pos_plan, nomape, fila_pos+1 );
+	if(encontrado==-1) encontrado = m_manage->buscarCouchsNombre(pos_plan,nomape,0);
+	if(encontrado==-1) wxMessageBox("No se encontraron coincidencias");
+	else{
+		m_grilla->SetGridCursor(encontrado,1);
+		m_grilla->SelectRow(encontrado);
+	}
+}
+

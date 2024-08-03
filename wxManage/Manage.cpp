@@ -264,7 +264,7 @@ int manage::buscarClientesNombre(std::string nomape, int pos) const{
 	}
 	return -1;
 }
-std::vector<couch> manage::CouchsInPlan(int pos_plan) {
+std::vector<couch> manage::CouchsInPlan(int pos_plan){
 	plan plan_actual = this->obtenerPlan(pos_plan);
 	std::vector<std::string> DNI_couchs = plan_actual.ver_couchs_plan();
 	std::vector<couch> aux;
@@ -301,6 +301,22 @@ int manage::buscarCouchsNombre(std::string nomape, int pos) const{
 	}
 	return -1;
 }
+
+int manage::buscarCouchsNombre(int pos_plan, std::string nomape, int pos){
+	std::vector<couch> couchs_plan = CouchsInPlan(pos_plan);
+	PasarMiniscula(nomape);
+	if(nomape==""){
+		return -1;
+	}
+	for(unsigned i=pos; i<couchs_plan.size(); i++){
+		couch ch = couchs_plan[i];
+		std::string aux=ch.ver_apellido() + ", " + ch.ver_nombre();
+		PasarMiniscula(aux);
+		if(aux.find(nomape,0)!=std::string::npos) return i;
+	}
+	return -1;
+}
+
 
 void manage::OrdenarClientes(CriterioOrdenClientes criterio){
 	auto CriterioClientesPlanesSuscritos = [this](const cliente &a, const cliente &b)->bool{

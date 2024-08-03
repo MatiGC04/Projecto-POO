@@ -151,7 +151,7 @@ class BasePlan : public wxFrame
 		wxBitmapButton* borrar;
 		wxBitmapButton* m_bpButton11;
 		wxButton* m_precio;
-		wxTextCtrl* m_textCtrl291;
+		wxTextCtrl* m_buscar;
 		wxButton* m_button201;
 		wxStaticText* m_staticText34;
 		wxStaticText* m_staticText35;
@@ -166,6 +166,8 @@ class BasePlan : public wxFrame
 		virtual void ClickBorrarPlan( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickCrearPlan( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonPrecio( wxCommandEvent& event ) { event.Skip(); }
+		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickGuardarRutina( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void AgregarCouchToPlan( wxCommandEvent& event ) { event.Skip(); }

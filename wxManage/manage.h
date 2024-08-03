@@ -66,8 +66,8 @@ public:
 	plan buscarPlanNombre(std::string DNI, int pos=0) const;
 	suscripcion buscarSub(std::string DNI, std::string nombre_plan, int pos=0) const;
 	int buscarClientesNombre(std::string nombre, int pos=0) const;
-	int buscarCouchsNombre (std::string nombre, int pos=0) const;
-	
+	int buscarCouchsNombre(std::string nombre, int pos=0) const;
+	int buscarCouchsNombre(int pos_plan, std::string nombre, int pos=0) ;
 	
 	cliente &ObtenerCliente(int pos);
 	suscripcion &obtenerSuscripcion(int pos);

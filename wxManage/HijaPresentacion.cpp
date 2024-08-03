@@ -4,6 +4,8 @@
 #include "HijaPlan.h"
 
 HijaPresentacion::HijaPresentacion(manage *aux, wxWindow *parent) : BasePresentacion(parent), m_manage(aux){
+	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
+	SetIcon(icon);
 }
 
 HijaPresentacion::~HijaPresentacion() {
