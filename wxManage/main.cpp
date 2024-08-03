@@ -50,14 +50,21 @@ int main (int argc, char *argv[]) {
 		cout<<"Si quiere salir aprete 0: "; cin>>x;
 	}	
 	
-	*/
+	*//*
 	manage mister_manage("couchs.dat","clientes.dat","suscripciones.dat","planes.dat");
 	
 	for(int i=0;i<mister_manage.cantidadPlanes();i++){
 		cout<<"Plan: "<<mister_manage.obtenerPlan(i).ver_nombre_plan()<<endl;
 		cout<<"Precio: "<<mister_manage.obtenerPlan(i).ver_precio_plan()<<endl;
 		cout<<"Nombre rutina: "<<mister_manage.obtenerPlan(i).ver_nombre_rutina()<<endl;
-	}
+	}*/
+	
+	suscripcion sus("musculacion","44556041","26542321");
+	
+	
+	
+	
+	
 	return 0;	
 }
 ///crear couch

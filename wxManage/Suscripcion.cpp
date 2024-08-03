@@ -5,6 +5,8 @@
 #include "suscripcion.h"
 #include <fstream>
 #include <cstring>
+#include <iomanip>
+
 suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::string dni_cliente){
 	this->p_subscrito = p_subscrito;
 	this->dni_cliente = dni_cliente;
@@ -12,6 +14,15 @@ suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::st
 	fecha_pago = FechaHoy();
 	nombre_rutina = FechaArchivo(fecha_pago)+"_"+dni_cliente+"_"+p_subscrito+".txt";
 	std::ofstream rutina("RutinasClientes/"+nombre_rutina);
+	
+	std::string linea;
+	
+	std::ifstream rutina_base("RutinasBases/rutina"+p_subscrito+".txt");
+	
+	while(std::getline(rutina_base,linea)){
+		rutina<<linea<<std::endl;
+	}
+	
 }
 
 fecha suscripcion::ver_fecha_pago() const{
