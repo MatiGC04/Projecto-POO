@@ -6,16 +6,21 @@
 #include "HijaPlanPrecio.h"
 #include "HijaPlanAgregar_Couch.h"
 #include <fstream>
+#include "HijaPlanAgregar_Plan.h"
 
 
 
 HijaPlan::HijaPlan(manage *aux, wxWindow *parent) : BasePlan(parent), m_manage(aux) {
+	
 	for(int i=0; i<m_manage->cantidadPlanes(); ++i){
 		std::string dni = (m_manage->obtenerPlan(i)).ver_nombre_plan();
 		m_desplegable->Append(std_to_wx(dni));
 	}
+	
 	m_desplegable->SetSelection(0);
+	
 	refrescar();
+	
 	m_grilla->SetSelectionMode(wxGrid::wxGridSelectRows);
 }
 void HijaPlan::CargarFila(couch ch, int pos){
@@ -56,6 +61,9 @@ void HijaPlan::ClickEliminar( wxCommandEvent& event )  {
 
 void HijaPlan::refrescar(){
 	
+
+	
+	
 	
 	int pos_plan = m_desplegable->GetSelection();
 	//Actualizamos la rutina que se muestra
@@ -90,5 +98,20 @@ void HijaPlan::ClickGuardarRutina( wxCommandEvent& event )  {
 	std::ofstream archi("RutinasBases/rutina"+pl.ver_nombre_plan()+".txt");
 	archi<<texto;
 	archi.close();
+}
+
+void HijaPlan::ClickBorrarPlan( wxCommandEvent& event )  {
+	int pos_plan = m_desplegable->GetSelection();
+	m_manage->borrarPlan(pos_plan);
+	m_manage->guardar();
+	refrescar();
+	m_desplegable->SetSelection(0);
+}
+
+void HijaPlan::ClickCrearPlan( wxCommandEvent& event )  {
+	HijaPlanAgregar_Plan nueva_ventana(m_manage,this);
+	if(nueva_ventana.ShowModal()==1){
+		refrescar();
+	}
 }
 

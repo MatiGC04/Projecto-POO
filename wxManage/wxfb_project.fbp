@@ -2128,16 +2128,16 @@
       <property name="window_name"></property>
       <property name="window_style">wxTAB_TRAVERSAL</property>
       <property name="xrc_skip_sizer">1</property>
-      <object class="wxBoxSizer" expanded="false">
+      <object class="wxBoxSizer" expanded="true">
         <property name="minimum_size"></property>
         <property name="name">bSizer39</property>
         <property name="orient">wxVERTICAL</property>
         <property name="permission">none</property>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">0</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer61</property>
             <property name="orient">wxVERTICAL</property>
@@ -2206,20 +2206,20 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">0</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer40</property>
             <property name="orient">wxHORIZONTAL</property>
             <property name="permission">none</property>
-            <object class="sizeritem" expanded="false">
+            <object class="sizeritem" expanded="true">
               <property name="border">5</property>
               <property name="flag">wxEXPAND</property>
               <property name="proportion">1</property>
-              <object class="wxBoxSizer" expanded="false">
+              <object class="wxBoxSizer" expanded="true">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer70</property>
                 <property name="orient">wxHORIZONTAL</property>
@@ -2339,7 +2339,7 @@
                     <property name="minimize_button">0</property>
                     <property name="minimum_size">25,25</property>
                     <property name="moveable">1</property>
-                    <property name="name">m_bpButton21</property>
+                    <property name="name">borrar</property>
                     <property name="pane_border">1</property>
                     <property name="pane_position"></property>
                     <property name="pane_size"></property>
@@ -2362,6 +2362,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
+                    <event name="OnButtonClick">ClickBorrarPlan</event>
                   </object>
                 </object>
                 <object class="sizeritem" expanded="false">
@@ -2436,6 +2437,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
+                    <event name="OnButtonClick">ClickCrearPlan</event>
                   </object>
                 </object>
                 <object class="sizeritem" expanded="false">
@@ -3271,7 +3273,7 @@
         </object>
       </object>
     </object>
-    <object class="Frame" expanded="false">
+    <object class="Frame" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg"></property>
@@ -3702,7 +3704,7 @@
         </object>
       </object>
     </object>
-    <object class="Dialog" expanded="false">
+    <object class="Dialog" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg"></property>
@@ -7624,7 +7626,7 @@
         </object>
       </object>
     </object>
-    <object class="Dialog" expanded="false">
+    <object class="Dialog" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg"></property>
@@ -7641,7 +7643,7 @@
       <property name="id">wxID_ANY</property>
       <property name="maximum_size"></property>
       <property name="minimum_size"></property>
-      <property name="name">BasePlanAgregar_P</property>
+      <property name="name">BasePlanAgregar_Plan</property>
       <property name="pos"></property>
       <property name="size"></property>
       <property name="style">wxDEFAULT_DIALOG_STYLE</property>
@@ -7842,7 +7844,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_textCtrl31</property>
+                <property name="name">m_nombre_plan</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -7980,7 +7982,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_textCtrl32</property>
+                <property name="name">m_precio_plan</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -8004,95 +8006,6 @@
                 <property name="window_style"></property>
               </object>
             </object>
-          </object>
-        </object>
-        <object class="sizeritem" expanded="false">
-          <property name="border">5</property>
-          <property name="flag">wxALL</property>
-          <property name="proportion">0</property>
-          <object class="wxGrid" expanded="false">
-            <property name="BottomDockable">1</property>
-            <property name="LeftDockable">1</property>
-            <property name="RightDockable">1</property>
-            <property name="TopDockable">1</property>
-            <property name="aui_layer">0</property>
-            <property name="aui_name"></property>
-            <property name="aui_position">0</property>
-            <property name="aui_row">0</property>
-            <property name="autosize_cols">0</property>
-            <property name="autosize_rows">0</property>
-            <property name="best_size"></property>
-            <property name="bg"></property>
-            <property name="caption"></property>
-            <property name="caption_visible">1</property>
-            <property name="cell_bg"></property>
-            <property name="cell_font"></property>
-            <property name="cell_horiz_alignment">wxALIGN_LEFT</property>
-            <property name="cell_text"></property>
-            <property name="cell_vert_alignment">wxALIGN_TOP</property>
-            <property name="center_pane">0</property>
-            <property name="close_button">1</property>
-            <property name="col_label_horiz_alignment">wxALIGN_CENTER</property>
-            <property name="col_label_size"></property>
-            <property name="col_label_values"></property>
-            <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
-            <property name="cols">5</property>
-            <property name="column_sizes"></property>
-            <property name="context_help"></property>
-            <property name="context_menu">1</property>
-            <property name="default_pane">0</property>
-            <property name="dock">Dock</property>
-            <property name="dock_fixed">0</property>
-            <property name="docking">Left</property>
-            <property name="drag_accept_files">0</property>
-            <property name="drag_col_move">0</property>
-            <property name="drag_col_size">1</property>
-            <property name="drag_grid_size">0</property>
-            <property name="drag_row_size">1</property>
-            <property name="editing">1</property>
-            <property name="enabled">1</property>
-            <property name="fg"></property>
-            <property name="floatable">1</property>
-            <property name="font"></property>
-            <property name="grid_line_color"></property>
-            <property name="grid_lines">1</property>
-            <property name="gripper">0</property>
-            <property name="hidden">0</property>
-            <property name="id">wxID_ANY</property>
-            <property name="label_bg"></property>
-            <property name="label_font"></property>
-            <property name="label_text"></property>
-            <property name="margin_height">0</property>
-            <property name="margin_width">0</property>
-            <property name="max_size"></property>
-            <property name="maximize_button">0</property>
-            <property name="maximum_size"></property>
-            <property name="min_size"></property>
-            <property name="minimize_button">0</property>
-            <property name="minimum_size"></property>
-            <property name="moveable">1</property>
-            <property name="name">m_grid5</property>
-            <property name="pane_border">1</property>
-            <property name="pane_position"></property>
-            <property name="pane_size"></property>
-            <property name="permission">protected</property>
-            <property name="pin_button">1</property>
-            <property name="pos"></property>
-            <property name="resize">Resizable</property>
-            <property name="row_label_horiz_alignment">wxALIGN_CENTER</property>
-            <property name="row_label_size">0</property>
-            <property name="row_label_values"></property>
-            <property name="row_label_vert_alignment">wxALIGN_CENTER</property>
-            <property name="row_sizes"></property>
-            <property name="rows">5</property>
-            <property name="show">1</property>
-            <property name="size"></property>
-            <property name="subclass">; ; forward_declare</property>
-            <property name="toolbar_pane">0</property>
-            <property name="tooltip"></property>
-            <property name="window_extra_style"></property>
-            <property name="window_name"></property>
-            <property name="window_style"></property>
           </object>
         </object>
         <object class="sizeritem" expanded="false">
@@ -8153,7 +8066,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_button24</property>
+                <property name="name">Aceptar</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -8176,6 +8089,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">Boton_aceptar_plan</event>
               </object>
             </object>
             <object class="sizeritem" expanded="false">
@@ -8227,7 +8141,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_button25</property>
+                <property name="name">Cancelar</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
                 <property name="pane_size"></property>
@@ -8250,13 +8164,14 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">Boton_cancelar_plan</event>
               </object>
             </object>
           </object>
         </object>
       </object>
     </object>
-    <object class="Dialog" expanded="false">
+    <object class="Dialog" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg"></property>

@@ -390,13 +390,13 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	bSizer70->Add( m_desplegable, 0, wxTOP|wxBOTTOM|wxLEFT|wxALIGN_BOTTOM, 5 );
 
-	m_bpButton21 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
+	borrar = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton21->SetBitmap( wxBitmap( wxT("../Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
-	m_bpButton21->SetMinSize( wxSize( 25,25 ) );
-	m_bpButton21->SetMaxSize( wxSize( 25,25 ) );
+	borrar->SetBitmap( wxBitmap( wxT("../Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
+	borrar->SetMinSize( wxSize( 25,25 ) );
+	borrar->SetMaxSize( wxSize( 25,25 ) );
 
-	bSizer70->Add( m_bpButton21, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM, 5 );
+	bSizer70->Add( borrar, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM, 5 );
 
 	m_bpButton11 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
@@ -551,6 +551,8 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	// Connect Events
 	m_desplegable->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
+	borrar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBorrarPlan ), NULL, this );
+	m_bpButton11->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickCrearPlan ), NULL, this );
 	m_precio->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
 	m_button23->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickGuardarRutina ), NULL, this );
 	m_button22->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
@@ -561,6 +563,8 @@ BasePlan::~BasePlan()
 {
 	// Disconnect Events
 	m_desplegable->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BasePlan::CambioSeleccion ), NULL, this );
+	borrar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBorrarPlan ), NULL, this );
+	m_bpButton11->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickCrearPlan ), NULL, this );
 	m_precio->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickBotonPrecio ), NULL, this );
 	m_button23->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickGuardarRutina ), NULL, this );
 	m_button22->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlan::ClickEliminar ), NULL, this );
@@ -1021,7 +1025,7 @@ BaseCouchsAgregar::~BaseCouchsAgregar()
 
 }
 
-BasePlanAgregar_P::BasePlanAgregar_P( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+BasePlanAgregar_Plan::BasePlanAgregar_Plan( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
@@ -1045,8 +1049,8 @@ BasePlanAgregar_P::BasePlanAgregar_P( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText36->Wrap( -1 );
 	bSizer53->Add( m_staticText36, 0, wxALL, 5 );
 
-	m_textCtrl31 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer53->Add( m_textCtrl31, 1, wxALL, 5 );
+	m_nombre_plan = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer53->Add( m_nombre_plan, 1, wxALL, 5 );
 
 
 	bSizer52->Add( bSizer53, 1, wxEXPAND, 5 );
@@ -1058,45 +1062,20 @@ BasePlanAgregar_P::BasePlanAgregar_P( wxWindow* parent, wxWindowID id, const wxS
 	m_staticText37->Wrap( -1 );
 	bSizer54->Add( m_staticText37, 0, wxALL, 5 );
 
-	m_textCtrl32 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer54->Add( m_textCtrl32, 1, wxALL, 5 );
+	m_precio_plan = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer54->Add( m_precio_plan, 1, wxALL, 5 );
 
 
 	bSizer52->Add( bSizer54, 1, wxEXPAND, 5 );
 
-	m_grid5 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-
-	// Grid
-	m_grid5->CreateGrid( 5, 5 );
-	m_grid5->EnableEditing( true );
-	m_grid5->EnableGridLines( true );
-	m_grid5->EnableDragGridSize( false );
-	m_grid5->SetMargins( 0, 0 );
-
-	// Columns
-	m_grid5->EnableDragColMove( false );
-	m_grid5->EnableDragColSize( true );
-	m_grid5->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
-
-	// Rows
-	m_grid5->EnableDragRowSize( true );
-	m_grid5->SetRowLabelSize( 0 );
-	m_grid5->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
-
-	// Label Appearance
-
-	// Cell Defaults
-	m_grid5->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer52->Add( m_grid5, 0, wxALL, 5 );
-
 	wxBoxSizer* bSizer55;
 	bSizer55 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button24 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer55->Add( m_button24, 0, wxALL, 5 );
+	Aceptar = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer55->Add( Aceptar, 0, wxALL, 5 );
 
-	m_button25 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer55->Add( m_button25, 0, wxALL, 5 );
+	Cancelar = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer55->Add( Cancelar, 0, wxALL, 5 );
 
 
 	bSizer52->Add( bSizer55, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -1107,10 +1086,18 @@ BasePlanAgregar_P::BasePlanAgregar_P( wxWindow* parent, wxWindowID id, const wxS
 	bSizer52->Fit( this );
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	Aceptar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Plan::Boton_aceptar_plan ), NULL, this );
+	Cancelar->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Plan::Boton_cancelar_plan ), NULL, this );
 }
 
-BasePlanAgregar_P::~BasePlanAgregar_P()
+BasePlanAgregar_Plan::~BasePlanAgregar_Plan()
 {
+	// Disconnect Events
+	Aceptar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Plan::Boton_aceptar_plan ), NULL, this );
+	Cancelar->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanAgregar_Plan::Boton_cancelar_plan ), NULL, this );
+
 }
 
 BasePlanAgregar_Couch::BasePlanAgregar_Couch( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
