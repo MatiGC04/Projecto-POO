@@ -184,24 +184,34 @@ class BasePlan : public wxFrame
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class BaseSus
+/// Class BaseSuscripciones
 ///////////////////////////////////////////////////////////////////////////////
-class BaseSus : public wxFrame
+class BaseSuscripciones : public wxFrame
 {
 	private:
 
 	protected:
 		wxStaticText* m_staticText38;
+		wxStaticText* m_staticText2;
+		wxTextCtrl* m_buscar;
+		wxButton* m_button7;
 		wxGrid* m_grid7;
 		wxButton* m_button28;
 		wxButton* m_button29;
 		wxButton* m_button30;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
-		BaseSus( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 542,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
-		~BaseSus();
+		~BaseSuscripciones();
 
 };
 

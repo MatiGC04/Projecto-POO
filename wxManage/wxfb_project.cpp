@@ -404,13 +404,10 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
-	bSizer70->Add( m_bpButton11, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM, 5 );
+	bSizer70->Add( m_bpButton11, 0, wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_precio = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,25 ), 0 );
-	m_precio->SetMinSize( wxSize( -1,25 ) );
-	m_precio->SetMaxSize( wxSize( -1,25 ) );
-
-	bSizer70->Add( m_precio, 0, wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxTOP, 5 );
+	m_precio = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer70->Add( m_precio, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
 
 
 	bSizer40->Add( bSizer70, 1, wxEXPAND, 5 );
@@ -430,7 +427,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_button201->SetMinSize( wxSize( 50,27 ) );
 	m_button201->SetMaxSize( wxSize( 50,27 ) );
 
-	bSizer68->Add( m_button201, 0, wxALIGN_CENTER_VERTICAL|wxBOTTOM|wxRIGHT|wxTOP, 5 );
+	bSizer68->Add( m_button201, 0, wxALIGN_CENTER_VERTICAL|wxTOP|wxBOTTOM|wxRIGHT, 5 );
 
 
 	bSizer40->Add( bSizer68, 1, wxEXPAND, 5 );
@@ -583,9 +580,10 @@ BasePlan::~BasePlan()
 
 }
 
-BaseSus::BaseSus( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_MENU ) );
 
 	wxBoxSizer* bSizer58;
 	bSizer58 = new wxBoxSizer( wxVERTICAL );
@@ -595,23 +593,53 @@ BaseSus::BaseSus( wxWindow* parent, wxWindowID id, const wxString& title, const 
 
 	m_staticText38 = new wxStaticText( this, wxID_ANY, wxT("SUSCRIPCIONES"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText38->Wrap( -1 );
+	m_staticText38->SetForegroundColour( wxColour( 0, 0, 0 ) );
+
 	bSizer61->Add( m_staticText38, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	bSizer58->Add( bSizer61, 0, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer9;
+	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText2 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText2->Wrap( -1 );
+	m_staticText2->SetForegroundColour( wxColour( 0, 0, 0 ) );
+
+	bSizer9->Add( m_staticText2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_buscar = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	bSizer9->Add( m_buscar, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_button7 = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer9->Add( m_button7, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer58->Add( bSizer9, 0, wxEXPAND, 5 );
+
 	m_grid7 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grid7->CreateGrid( 5, 5 );
-	m_grid7->EnableEditing( true );
+	m_grid7->CreateGrid( 0, 5 );
+	m_grid7->EnableEditing( false );
 	m_grid7->EnableGridLines( true );
 	m_grid7->EnableDragGridSize( false );
 	m_grid7->SetMargins( 0, 0 );
 
 	// Columns
+	m_grid7->SetColSize( 0, 129 );
+	m_grid7->SetColSize( 1, 91 );
+	m_grid7->SetColSize( 2, 80 );
+	m_grid7->SetColSize( 3, 107 );
+	m_grid7->SetColSize( 4, 108 );
 	m_grid7->EnableDragColMove( false );
 	m_grid7->EnableDragColSize( true );
+	m_grid7->SetColLabelValue( 0, wxT("Nombre y Apellido") );
+	m_grid7->SetColLabelValue( 1, wxT("DNI") );
+	m_grid7->SetColLabelValue( 2, wxT("Plan ") );
+	m_grid7->SetColLabelValue( 3, wxT("Fecha de Pago") );
+	m_grid7->SetColLabelValue( 4, wxT("Fecha de Venc.") );
 	m_grid7->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
@@ -620,10 +648,11 @@ BaseSus::BaseSus( wxWindow* parent, wxWindowID id, const wxString& title, const 
 	m_grid7->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Label Appearance
+	m_grid7->SetLabelBackgroundColour( wxColour( 151, 210, 187 ) );
 
 	// Cell Defaults
 	m_grid7->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer58->Add( m_grid7, 1, wxALL, 5 );
+	bSizer58->Add( m_grid7, 1, wxALL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer59;
 	bSizer59 = new wxBoxSizer( wxHORIZONTAL );
@@ -645,10 +674,22 @@ BaseSus::BaseSus( wxWindow* parent, wxWindowID id, const wxString& title, const 
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
+	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
+	m_button29->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickAgregar ), NULL, this );
+	m_button30->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEliminar ), NULL, this );
 }
 
-BaseSus::~BaseSus()
+BaseSuscripciones::~BaseSuscripciones()
 {
+	// Disconnect Events
+	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
+	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
+	m_button29->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickAgregar ), NULL, this );
+	m_button30->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEliminar ), NULL, this );
+
 }
 
 BaseClientesAgregar::BaseClientesAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
