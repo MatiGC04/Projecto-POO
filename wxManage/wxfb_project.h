@@ -409,10 +409,11 @@ class BaseSuscripcionesAgregar : public wxDialog
 		wxStaticText* m_staticText38;
 		wxStaticText* m_staticText39;
 		wxChoice* m_planes;
+		wxStaticText* m_staticText46;
 		wxStaticText* m_staticText391;
 		wxChoice* m_coachs;
 		wxStaticText* m_staticText3911;
-		wxTextCtrl* m_textCtrl33;
+		wxTextCtrl* m_cliente_DNI;
 		wxButton* m_button30;
 		wxButton* m_button29;
 
@@ -423,7 +424,7 @@ class BaseSuscripcionesAgregar : public wxDialog
 
 	public:
 
-		BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 254,191 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 275,213 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseSuscripcionesAgregar();
 

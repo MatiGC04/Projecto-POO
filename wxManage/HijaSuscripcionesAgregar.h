@@ -8,8 +8,8 @@ class HijaSuscripcionesAgregar : public BaseSuscripcionesAgregar {
 private:
 	manage *m_manage;
 protected:
-	void ClickDesplegablePlanes( wxCommandEvent& event )  override;
 	void ClickDesplegableCoachs( wxCommandEvent& event )  override;
+	void ClickDesplegablePlanes( wxCommandEvent& event )  override;
 	
 public:
 	HijaSuscripcionesAgregar(manage *aux ,wxWindow *parent=NULL);

@@ -1323,6 +1323,16 @@ BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID
 
 	bSizer60->Add( bSizer62, 1, wxEXPAND, 5 );
 
+	wxBoxSizer* bSizer77;
+	bSizer77 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText46 = new wxStaticText( this, wxID_ANY, wxT("Antes de seleccionar coach ingrese el plan"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText46->Wrap( -1 );
+	bSizer77->Add( m_staticText46, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer60->Add( bSizer77, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
 	wxBoxSizer* bSizer621;
 	bSizer621 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -1345,8 +1355,8 @@ BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID
 	m_staticText3911->Wrap( -1 );
 	bSizer6211->Add( m_staticText3911, 0, wxALL, 5 );
 
-	m_textCtrl33 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6211->Add( m_textCtrl33, 1, wxALL, 5 );
+	m_cliente_DNI = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6211->Add( m_cliente_DNI, 1, wxALL, 5 );
 
 
 	bSizer60->Add( bSizer6211, 1, wxEXPAND, 5 );
