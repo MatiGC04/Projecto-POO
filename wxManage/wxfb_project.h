@@ -203,6 +203,7 @@ class BaseSuscripciones : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }
 
@@ -440,7 +441,7 @@ class BaseSuscripcionesEditar : public wxDialog
 	private:
 
 	protected:
-		wxTextCtrl* m_textCtrl36;
+		wxTextCtrl* m_rutina;
 		wxButton* m_button37;
 		wxButton* m_button38;
 
@@ -451,7 +452,7 @@ class BaseSuscripcionesEditar : public wxDialog
 
 	public:
 
-		BaseSuscripcionesEditar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 426,327 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BaseSuscripcionesEditar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 399,327 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseSuscripcionesEditar();
 

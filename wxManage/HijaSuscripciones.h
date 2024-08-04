@@ -9,6 +9,7 @@ private:
 	manage *m_manage;
 	void CargarFila(int pos_fila);
 protected:
+	void ClickEditar( wxCommandEvent& event )  override;
 	void EnterBuscar( wxCommandEvent& event )  override;
 	void ClickBuscar( wxCommandEvent& event )  override;
 	void ClickAgregar( wxCommandEvent& event )  override;

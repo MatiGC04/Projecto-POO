@@ -682,6 +682,7 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 	// Connect Events
 	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
 	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
+	m_button28->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEditar ), NULL, this );
 	m_button29->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickAgregar ), NULL, this );
 	m_button30->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEliminar ), NULL, this );
 }
@@ -691,6 +692,7 @@ BaseSuscripciones::~BaseSuscripciones()
 	// Disconnect Events
 	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
 	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
+	m_button28->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEditar ), NULL, this );
 	m_button29->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickAgregar ), NULL, this );
 	m_button30->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEliminar ), NULL, this );
 
@@ -1407,8 +1409,8 @@ BaseSuscripcionesEditar::BaseSuscripcionesEditar( wxWindow* parent, wxWindowID i
 	wxBoxSizer* bSizer77;
 	bSizer77 = new wxBoxSizer( wxVERTICAL );
 
-	m_textCtrl36 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
-	bSizer77->Add( m_textCtrl36, 1, wxALL|wxEXPAND, 5 );
+	m_rutina = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	bSizer77->Add( m_rutina, 1, wxALL|wxEXPAND, 5 );
 
 
 	bSizer76->Add( bSizer77, 1, wxEXPAND, 5 );

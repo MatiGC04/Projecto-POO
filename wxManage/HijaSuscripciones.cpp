@@ -2,6 +2,7 @@
 #include "string_conv.h"
 #include <wx/msgdlg.h>
 #include "HijaSuscripcionesAgregar.h"
+#include "HijaSuscripcionesEditar.h"
 
 
 HijaSuscripciones::HijaSuscripciones(manage *aux, wxWindow *parent) : BaseSuscripciones(parent), m_manage(aux) {
@@ -78,5 +79,13 @@ void HijaSuscripciones::ClickEliminar( wxCommandEvent& event )  {
 
 HijaSuscripciones::~HijaSuscripciones() {
 	
+}
+
+void HijaSuscripciones::ClickEditar( wxCommandEvent& event )  {
+	int pos_sub = m_grilla->GetGridCursorRow();
+	HijaSuscripcionesEditar nueva_ventana(m_manage,pos_sub,this);
+	if(nueva_ventana.ShowModal()==1){
+		
+	}
 }
 
