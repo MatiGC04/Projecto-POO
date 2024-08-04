@@ -1,11 +1,13 @@
 #ifndef HIJASUSCRIPCIONES_H
 #define HIJASUSCRIPCIONES_H
 #include "wxfb_project.h"
+#include "manage.h"
 
 class HijaSuscripciones : public BaseSuscripciones {
 	
 private:
-	
+	manage *m_manage;
+	void CargarFila(int pos_fila);
 protected:
 	void EnterBuscar( wxCommandEvent& event )  override;
 	void ClickBuscar( wxCommandEvent& event )  override;
@@ -13,8 +15,9 @@ protected:
 	void ClickEliminar( wxCommandEvent& event )  override;
 	
 public:
-	HijaSuscripciones(wxWindow *parent=NULL);
+	HijaSuscripciones(manage *aux, wxWindow *parent=NULL);
 	~HijaSuscripciones();
+	
 };
 
 #endif

@@ -195,7 +195,7 @@ class BaseSuscripciones : public wxFrame
 		wxStaticText* m_staticText2;
 		wxTextCtrl* m_buscar;
 		wxButton* m_button7;
-		wxGrid* m_grid7;
+		wxGrid* m_grilla;
 		wxButton* m_button28;
 		wxButton* m_button29;
 		wxButton* m_button30;
@@ -209,7 +209,7 @@ class BaseSuscripciones : public wxFrame
 
 	public:
 
-		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 542,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 801,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseSuscripciones();
 
@@ -373,32 +373,6 @@ class BasePlanAgregar_Couch : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class BaseSuscripcionesAgregar
-///////////////////////////////////////////////////////////////////////////////
-class BaseSuscripcionesAgregar : public wxDialog
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText38;
-		wxStaticText* m_staticText39;
-		wxChoice* m_choice3;
-		wxStaticText* m_staticText391;
-		wxChoice* m_choice31;
-		wxStaticText* m_staticText3911;
-		wxTextCtrl* m_textCtrl33;
-		wxButton* m_button29;
-		wxButton* m_button30;
-
-	public:
-
-		BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
-
-		~BaseSuscripcionesAgregar();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
 /// Class BasePlanPrecio
 ///////////////////////////////////////////////////////////////////////////////
 class BasePlanPrecio : public wxDialog
@@ -421,6 +395,37 @@ class BasePlanPrecio : public wxDialog
 		BasePlanPrecio( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 325,144 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BasePlanPrecio();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseSuscripcionesAgregar
+///////////////////////////////////////////////////////////////////////////////
+class BaseSuscripcionesAgregar : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText38;
+		wxStaticText* m_staticText39;
+		wxChoice* m_planes;
+		wxStaticText* m_staticText391;
+		wxChoice* m_coachs;
+		wxStaticText* m_staticText3911;
+		wxTextCtrl* m_textCtrl33;
+		wxButton* m_button30;
+		wxButton* m_button29;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickDesplegablePlanes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickDesplegableCoachs( wxCommandEvent& event ) { event.Skip(); }
+
+
+	public:
+
+		BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 254,191 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BaseSuscripcionesAgregar();
 
 };
 

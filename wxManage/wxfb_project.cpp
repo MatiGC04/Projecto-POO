@@ -618,41 +618,44 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer58->Add( bSizer9, 0, wxEXPAND, 5 );
 
-	m_grid7 = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_grilla = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grid7->CreateGrid( 0, 5 );
-	m_grid7->EnableEditing( false );
-	m_grid7->EnableGridLines( true );
-	m_grid7->EnableDragGridSize( false );
-	m_grid7->SetMargins( 0, 0 );
+	m_grilla->CreateGrid( 0, 6 );
+	m_grilla->EnableEditing( false );
+	m_grilla->EnableGridLines( true );
+	m_grilla->EnableDragGridSize( false );
+	m_grilla->SetMargins( 0, 0 );
 
 	// Columns
-	m_grid7->SetColSize( 0, 129 );
-	m_grid7->SetColSize( 1, 91 );
-	m_grid7->SetColSize( 2, 80 );
-	m_grid7->SetColSize( 3, 107 );
-	m_grid7->SetColSize( 4, 108 );
-	m_grid7->EnableDragColMove( false );
-	m_grid7->EnableDragColSize( true );
-	m_grid7->SetColLabelValue( 0, wxT("Nombre y Apellido") );
-	m_grid7->SetColLabelValue( 1, wxT("DNI") );
-	m_grid7->SetColLabelValue( 2, wxT("Plan ") );
-	m_grid7->SetColLabelValue( 3, wxT("Fecha de Pago") );
-	m_grid7->SetColLabelValue( 4, wxT("Fecha de Venc.") );
-	m_grid7->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla->SetColSize( 0, 162 );
+	m_grilla->SetColSize( 1, 91 );
+	m_grilla->SetColSize( 2, 152 );
+	m_grilla->SetColSize( 3, 107 );
+	m_grilla->SetColSize( 4, 115 );
+	m_grilla->SetColSize( 5, 155 );
+	m_grilla->EnableDragColMove( false );
+	m_grilla->EnableDragColSize( true );
+	m_grilla->SetColLabelValue( 0, wxT("Nombre y Apellido (cl)") );
+	m_grilla->SetColLabelValue( 1, wxT("DNI (cl)") );
+	m_grilla->SetColLabelValue( 2, wxT("Nombre y apellido (ch)") );
+	m_grilla->SetColLabelValue( 3, wxT("DNI (ch)") );
+	m_grilla->SetColLabelValue( 4, wxT("Plan ") );
+	m_grilla->SetColLabelValue( 5, wxT("Fecha de Pago") );
+	m_grilla->SetColLabelValue( 6, wxT("Fecha de Venc.") );
+	m_grilla->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
-	m_grid7->EnableDragRowSize( true );
-	m_grid7->SetRowLabelSize( 0 );
-	m_grid7->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+	m_grilla->EnableDragRowSize( true );
+	m_grilla->SetRowLabelSize( 0 );
+	m_grilla->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Label Appearance
-	m_grid7->SetLabelBackgroundColour( wxColour( 151, 210, 187 ) );
+	m_grilla->SetLabelBackgroundColour( wxColour( 151, 210, 187 ) );
 
 	// Cell Defaults
-	m_grid7->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer58->Add( m_grid7, 1, wxALL|wxEXPAND, 5 );
+	m_grilla->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer58->Add( m_grilla, 1, wxALL|wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer59;
 	bSizer59 = new wxBoxSizer( wxHORIZONTAL );
@@ -1237,90 +1240,6 @@ BasePlanAgregar_Couch::~BasePlanAgregar_Couch()
 
 }
 
-BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* bSizer60;
-	bSizer60 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer61;
-	bSizer61 = new wxBoxSizer( wxVERTICAL );
-
-	m_staticText38 = new wxStaticText( this, wxID_ANY, wxT("Agregar Suscripcion"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText38->Wrap( -1 );
-	bSizer61->Add( m_staticText38, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-
-
-	bSizer60->Add( bSizer61, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer62;
-	bSizer62 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText39 = new wxStaticText( this, wxID_ANY, wxT("Plan"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText39->Wrap( -1 );
-	bSizer62->Add( m_staticText39, 0, wxALL, 5 );
-
-	wxArrayString m_choice3Choices;
-	m_choice3 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice3Choices, 0 );
-	m_choice3->SetSelection( 0 );
-	bSizer62->Add( m_choice3, 0, wxALL, 5 );
-
-
-	bSizer60->Add( bSizer62, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer621;
-	bSizer621 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText391 = new wxStaticText( this, wxID_ANY, wxT("Coachs"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText391->Wrap( -1 );
-	bSizer621->Add( m_staticText391, 0, wxALL, 5 );
-
-	wxArrayString m_choice31Choices;
-	m_choice31 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice31Choices, 0 );
-	m_choice31->SetSelection( 0 );
-	bSizer621->Add( m_choice31, 0, wxALL, 5 );
-
-
-	bSizer60->Add( bSizer621, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer6211;
-	bSizer6211 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText3911 = new wxStaticText( this, wxID_ANY, wxT("Cliente"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText3911->Wrap( -1 );
-	bSizer6211->Add( m_staticText3911, 0, wxALL, 5 );
-
-	m_textCtrl33 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer6211->Add( m_textCtrl33, 0, wxALL, 5 );
-
-
-	bSizer60->Add( bSizer6211, 1, wxEXPAND, 5 );
-
-	wxBoxSizer* bSizer59;
-	bSizer59 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_button29 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer59->Add( m_button29, 0, wxALL, 5 );
-
-	m_button30 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer59->Add( m_button30, 0, wxALL, 5 );
-
-
-	bSizer60->Add( bSizer59, 1, wxEXPAND, 5 );
-
-
-	this->SetSizer( bSizer60 );
-	this->Layout();
-	bSizer60->Fit( this );
-
-	this->Centre( wxBOTH );
-}
-
-BaseSuscripcionesAgregar::~BaseSuscripcionesAgregar()
-{
-}
-
 BasePlanPrecio::BasePlanPrecio( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -1369,6 +1288,97 @@ BasePlanPrecio::~BasePlanPrecio()
 	// Disconnect Events
 	buttonxd->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickPrecioCancelar ), NULL, this );
 	button->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BasePlanPrecio::ClickAceptarPrecio ), NULL, this );
+
+}
+
+BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer60;
+	bSizer60 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer61;
+	bSizer61 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText38 = new wxStaticText( this, wxID_ANY, wxT("Agregar Suscripcion"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText38->Wrap( -1 );
+	bSizer61->Add( m_staticText38, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer60->Add( bSizer61, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer62;
+	bSizer62 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText39 = new wxStaticText( this, wxID_ANY, wxT("Planes  "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText39->Wrap( -1 );
+	bSizer62->Add( m_staticText39, 0, wxALL, 5 );
+
+	wxArrayString m_planesChoices;
+	m_planes = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_planesChoices, 0 );
+	m_planes->SetSelection( 0 );
+	bSizer62->Add( m_planes, 1, wxALL, 5 );
+
+
+	bSizer60->Add( bSizer62, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer621;
+	bSizer621 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText391 = new wxStaticText( this, wxID_ANY, wxT("Coachs"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText391->Wrap( -1 );
+	bSizer621->Add( m_staticText391, 0, wxALL, 5 );
+
+	wxArrayString m_coachsChoices;
+	m_coachs = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_coachsChoices, 0 );
+	m_coachs->SetSelection( 0 );
+	bSizer621->Add( m_coachs, 1, wxALL, 5 );
+
+
+	bSizer60->Add( bSizer621, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer6211;
+	bSizer6211 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText3911 = new wxStaticText( this, wxID_ANY, wxT("Cliente (DNI): "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText3911->Wrap( -1 );
+	bSizer6211->Add( m_staticText3911, 0, wxALL, 5 );
+
+	m_textCtrl33 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6211->Add( m_textCtrl33, 1, wxALL, 5 );
+
+
+	bSizer60->Add( bSizer6211, 1, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer59;
+	bSizer59 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_button30 = new wxButton( this, wxID_ANY, wxT("Cancelar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer59->Add( m_button30, 0, wxALL, 5 );
+
+	m_button29 = new wxButton( this, wxID_ANY, wxT("Aceptar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer59->Add( m_button29, 0, wxALL, 5 );
+
+
+	bSizer60->Add( bSizer59, 0, wxALIGN_RIGHT, 5 );
+
+
+	this->SetSizer( bSizer60 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_planes->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegablePlanes ), NULL, this );
+	m_coachs->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegableCoachs ), NULL, this );
+}
+
+BaseSuscripcionesAgregar::~BaseSuscripcionesAgregar()
+{
+	// Disconnect Events
+	m_planes->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegablePlanes ), NULL, this );
+	m_coachs->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegableCoachs ), NULL, this );
 
 }
 

@@ -2,6 +2,7 @@
 #include "HijaClientes.h"
 #include "HijaCouchs.h"
 #include "HijaPlan.h"
+#include "HijaSuscripciones.h"
 
 HijaPresentacion::HijaPresentacion(manage *aux, wxWindow *parent) : BasePresentacion(parent), m_manage(aux){
 	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
@@ -32,7 +33,8 @@ void HijaPresentacion::ClickPlanes( wxCommandEvent& event )  {
 
 /// @brief Al hacer click muestro la ventana de Suscripciones
 void HijaPresentacion::ClickSuscripciones( wxCommandEvent& event )  {
-	event.Skip();
+	HijaSuscripciones *nueva_ventana = new HijaSuscripciones(m_manage, this);
+	nueva_ventana->Show();
 }
 
 
