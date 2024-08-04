@@ -23,8 +23,9 @@ void HijaSuscripciones::CargarFila(int pos_fila){
 	m_grilla->SetCellValue(pos_fila, 1, std_to_wx(cl.ver_DNI()));
 	m_grilla->SetCellValue(pos_fila, 2, std_to_wx(ch.ver_apellido() + ", " + ch.ver_nombre()));
 	m_grilla->SetCellValue(pos_fila, 3, std_to_wx(ch.ver_DNI()));
-	m_grilla->SetCellValue(pos_fila, 4, std_to_wx(FechaTexto(fech_pago)));
-	m_grilla->SetCellValue(pos_fila, 5, std_to_wx(FechaTexto(fech_venc)));
+	m_grilla->SetCellValue(pos_fila, 4, std_to_wx(nom_plan));
+	m_grilla->SetCellValue(pos_fila, 5, std_to_wx(FechaTexto(fech_pago)));
+	m_grilla->SetCellValue(pos_fila, 6, std_to_wx(FechaTexto(fech_venc)));
 }
 
 void HijaSuscripciones::EnterBuscar( wxCommandEvent& event )  {
@@ -38,7 +39,8 @@ void HijaSuscripciones::ClickBuscar( wxCommandEvent& event )  {
 void HijaSuscripciones::ClickAgregar( wxCommandEvent& event )  {
 	HijaSuscripcionesAgregar nueva_ventana(m_manage, this);
 	if(nueva_ventana.ShowModal()==1){
-		
+		m_grilla->AppendRows();
+		CargarFila(m_manage->cantidadSuscripciones()-1);
 	}
 	
 }

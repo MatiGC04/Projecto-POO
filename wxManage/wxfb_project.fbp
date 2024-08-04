@@ -3296,7 +3296,7 @@
       <property name="minimum_size"></property>
       <property name="name">BaseSuscripciones</property>
       <property name="pos"></property>
-      <property name="size">801,478</property>
+      <property name="size">823,478</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
@@ -3628,8 +3628,8 @@
             <property name="col_label_size"></property>
             <property name="col_label_values">&quot;Nombre y Apellido (cl)&quot; &quot;DNI (cl)&quot; &quot;Nombre y apellido (ch)&quot; &quot;DNI (ch)&quot; &quot;Plan &quot; &quot;Fecha de Pago&quot; &quot;Fecha de Venc.&quot;</property>
             <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
-            <property name="cols">6</property>
-            <property name="column_sizes">162,91,152,107,115,155</property>
+            <property name="cols">7</property>
+            <property name="column_sizes">162,91,152,107,100,90,101</property>
             <property name="context_help"></property>
             <property name="context_menu">1</property>
             <property name="default_pane">0</property>
@@ -9835,6 +9835,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">ClickAceptar</event>
               </object>
             </object>
           </object>

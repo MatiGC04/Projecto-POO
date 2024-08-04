@@ -209,7 +209,7 @@ class BaseSuscripciones : public wxFrame
 
 	public:
 
-		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 801,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 823,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseSuscripciones();
 
@@ -420,6 +420,7 @@ class BaseSuscripcionesAgregar : public wxDialog
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickDesplegablePlanes( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickDesplegableCoachs( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickAceptar( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:

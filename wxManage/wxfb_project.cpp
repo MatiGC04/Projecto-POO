@@ -621,7 +621,7 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 	m_grilla = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_grilla->CreateGrid( 0, 6 );
+	m_grilla->CreateGrid( 0, 7 );
 	m_grilla->EnableEditing( false );
 	m_grilla->EnableGridLines( true );
 	m_grilla->EnableDragGridSize( false );
@@ -632,8 +632,9 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 	m_grilla->SetColSize( 1, 91 );
 	m_grilla->SetColSize( 2, 152 );
 	m_grilla->SetColSize( 3, 107 );
-	m_grilla->SetColSize( 4, 115 );
-	m_grilla->SetColSize( 5, 155 );
+	m_grilla->SetColSize( 4, 100 );
+	m_grilla->SetColSize( 5, 90 );
+	m_grilla->SetColSize( 6, 101 );
 	m_grilla->EnableDragColMove( false );
 	m_grilla->EnableDragColSize( true );
 	m_grilla->SetColLabelValue( 0, wxT("Nombre y Apellido (cl)") );
@@ -1382,6 +1383,7 @@ BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID
 	// Connect Events
 	m_planes->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegablePlanes ), NULL, this );
 	m_coachs->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegableCoachs ), NULL, this );
+	m_button29->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickAceptar ), NULL, this );
 }
 
 BaseSuscripcionesAgregar::~BaseSuscripcionesAgregar()
@@ -1389,6 +1391,7 @@ BaseSuscripcionesAgregar::~BaseSuscripcionesAgregar()
 	// Disconnect Events
 	m_planes->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegablePlanes ), NULL, this );
 	m_coachs->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegableCoachs ), NULL, this );
+	m_button29->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickAceptar ), NULL, this );
 
 }
 
