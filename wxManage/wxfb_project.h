@@ -201,6 +201,7 @@ class BaseSuscripciones : public wxFrame
 		wxButton* m_button30;
 
 		// Virtual event handlers, override them in your derived class
+		virtual void CambiarTamanio( wxSizeEvent& event ) { event.Skip(); }
 		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
@@ -210,7 +211,7 @@ class BaseSuscripciones : public wxFrame
 
 	public:
 
-		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 823,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseSuscripciones( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 835,478 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseSuscripciones();
 

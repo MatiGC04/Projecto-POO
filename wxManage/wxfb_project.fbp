@@ -2099,7 +2099,7 @@
         </object>
       </object>
     </object>
-    <object class="Frame" expanded="false">
+    <object class="Frame" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg">wxSYS_COLOUR_MENU</property>
@@ -2129,7 +2129,7 @@
       <property name="window_style">wxTAB_TRAVERSAL</property>
       <property name="xrc_skip_sizer">1</property>
       <event name="OnSize">CambiarTamanio</event>
-      <object class="wxBoxSizer" expanded="false">
+      <object class="wxBoxSizer" expanded="true">
         <property name="minimum_size"></property>
         <property name="name">bSizer39</property>
         <property name="orient">wxVERTICAL</property>
@@ -2207,7 +2207,7 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">0</property>
@@ -2672,11 +2672,11 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">0</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer41</property>
             <property name="orient">wxHORIZONTAL</property>
@@ -2829,11 +2829,11 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">1</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer44</property>
             <property name="orient">wxHORIZONTAL</property>
@@ -3017,11 +3017,11 @@
             </object>
           </object>
         </object>
-        <object class="sizeritem" expanded="false">
+        <object class="sizeritem" expanded="true">
           <property name="border">5</property>
           <property name="flag">wxEXPAND</property>
           <property name="proportion">0</property>
-          <object class="wxBoxSizer" expanded="false">
+          <object class="wxBoxSizer" expanded="true">
             <property name="minimum_size"></property>
             <property name="name">bSizer48</property>
             <property name="orient">wxHORIZONTAL</property>
@@ -3296,7 +3296,7 @@
       <property name="minimum_size"></property>
       <property name="name">BaseSuscripciones</property>
       <property name="pos"></property>
-      <property name="size">823,478</property>
+      <property name="size">835,478</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
@@ -3306,6 +3306,7 @@
       <property name="window_name"></property>
       <property name="window_style">wxTAB_TRAVERSAL</property>
       <property name="xrc_skip_sizer">1</property>
+      <event name="OnSize">CambiarTamanio</event>
       <object class="wxBoxSizer" expanded="false">
         <property name="minimum_size"></property>
         <property name="name">bSizer58</property>
@@ -3629,7 +3630,7 @@
             <property name="col_label_values">&quot;Nombre y Apellido (cl)&quot; &quot;DNI (cl)&quot; &quot;Nombre y apellido (ch)&quot; &quot;DNI (ch)&quot; &quot;Plan &quot; &quot;Fecha de Pago&quot; &quot;Fecha de Venc.&quot;</property>
             <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
             <property name="cols">7</property>
-            <property name="column_sizes">162,91,152,107,100,90,101</property>
+            <property name="column_sizes">162,91,152,107,100,90,114</property>
             <property name="context_help"></property>
             <property name="context_menu">1</property>
             <property name="default_pane">0</property>

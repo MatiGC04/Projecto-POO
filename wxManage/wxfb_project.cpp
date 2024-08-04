@@ -634,7 +634,7 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 	m_grilla->SetColSize( 3, 107 );
 	m_grilla->SetColSize( 4, 100 );
 	m_grilla->SetColSize( 5, 90 );
-	m_grilla->SetColSize( 6, 101 );
+	m_grilla->SetColSize( 6, 114 );
 	m_grilla->EnableDragColMove( false );
 	m_grilla->EnableDragColSize( true );
 	m_grilla->SetColLabelValue( 0, wxT("Nombre y Apellido (cl)") );
@@ -680,6 +680,7 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseSuscripciones::CambiarTamanio ) );
 	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
 	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
 	m_button28->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEditar ), NULL, this );
@@ -690,6 +691,7 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 BaseSuscripciones::~BaseSuscripciones()
 {
 	// Disconnect Events
+	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseSuscripciones::CambiarTamanio ) );
 	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
 	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
 	m_button28->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEditar ), NULL, this );
