@@ -1383,6 +1383,7 @@ BaseSuscripcionesAgregar::BaseSuscripcionesAgregar( wxWindow* parent, wxWindowID
 	// Connect Events
 	m_planes->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegablePlanes ), NULL, this );
 	m_coachs->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegableCoachs ), NULL, this );
+	m_button30->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickCancelar ), NULL, this );
 	m_button29->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickAceptar ), NULL, this );
 }
 
@@ -1391,6 +1392,7 @@ BaseSuscripcionesAgregar::~BaseSuscripcionesAgregar()
 	// Disconnect Events
 	m_planes->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegablePlanes ), NULL, this );
 	m_coachs->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickDesplegableCoachs ), NULL, this );
+	m_button30->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickCancelar ), NULL, this );
 	m_button29->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripcionesAgregar::ClickAceptar ), NULL, this );
 
 }

@@ -68,6 +68,7 @@ public:
 	int buscarClientesNombre(std::string nombre, int pos=0) const;
 	int buscarCouchsNombre(std::string nombre, int pos=0) const;
 	int buscarCouchsNombre(int pos_plan, std::string nombre, int pos=0) ;
+	int buscarClientesEnSub(std::string nomape, int pos=0);
 	
 	cliente &ObtenerCliente(int pos);
 	suscripcion &obtenerSuscripcion(int pos);

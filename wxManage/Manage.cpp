@@ -287,6 +287,27 @@ std::vector<couch> manage::CouchsOutPlan(int pos_plan){
 	}
 	return v2;
 }
+int manage::buscarClientesEnSub(std::string nomape, int pos){
+	PasarMiniscula(nomape);
+	if(nomape==""){
+		return -1;
+	}
+	for(unsigned i=pos; i<vector_de_suscripciones.size(); i++){
+		
+		std::string dni_a_buscar = vector_de_suscripciones[i].ver_DNI_cliente();
+		
+		cliente cl = buscarClientesDNI(dni_a_buscar);
+		
+		std::string aux = cl.ver_apellido() + ", " + cl.ver_nombre();
+		
+		PasarMiniscula(aux);
+		
+		if(aux.find(nomape,0)!=std::string::npos) return i;
+	}
+	return -1;
+}
+
+
 
 int manage::buscarCouchsNombre(std::string nomape, int pos) const{
 	PasarMiniscula(nomape);

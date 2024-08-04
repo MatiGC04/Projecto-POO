@@ -51,3 +51,7 @@ void HijaSuscripcionesAgregar::ClickAceptar( wxCommandEvent& event )  {
 	EndModal(1);
 }
 
+void HijaSuscripcionesAgregar::ClickCancelar( wxCommandEvent& event )  {
+	EndModal(0);
+}
+

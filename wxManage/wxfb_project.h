@@ -420,6 +420,7 @@ class BaseSuscripcionesAgregar : public wxDialog
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickDesplegablePlanes( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickDesplegableCoachs( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickCancelar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAceptar( wxCommandEvent& event ) { event.Skip(); }
 
 
