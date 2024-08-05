@@ -11,27 +11,36 @@
 #include "Plan.h"
 
 /// @brief enumeración para los posibles criterios de ordenamiento para la ventana
-///  clientes con el fin de pasar como argumento al método, queda más legible que un número
 enum CriterioOrdenClientes { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_EMAIL, ORDEN_PLANES_SUSCRITOS, ORDEN_TELEFONO_EMERGENCIAS };
 enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
 enum CriterioOrdenSuscripcion { O_APENOM_CL, O_DNI_CL, O_APENOM_CH, O_DNI_CH, O_PLAN, O_FECH_PAGO, O_FECH_VENC };
+
+
 class manage{
 private:
-	/// @brief Atributos de la clase Manage
+	/// @brief Nombre del archivo de donde se leen y escriben los datos referentes a los coachs
 	std::string nombre_archivo_couchs;
 	
+	/// @brief Nombre del archivo de donde se leen y escriben los datos referentes a los clientes
 	std::string nombre_archivo_clientes;
 	
+	/// @brief Nombre del archivo de donde se leen y escriben los datos referentes a las suscripciones
 	std::string nombre_archivo_suscripciones;
 	
+	/// @brief Nombre del archivo de donde se leen y escriben los datos referentes a los planes
 	std::string nombre_archivo_planes;
 	
+	
+	/// @brief Contenedor para los datos de los coachs
 	std::vector<couch> vector_de_couchs;
 
+	/// @brief Contenedor para los datos de los clientes
 	std::vector<cliente> vector_de_clientes;
 	
+	/// @brief Contenedor para los datos de las suscripciones
 	std::vector<suscripcion> vector_de_suscripciones;
 	
+	/// @brief Contenedor para los datos de los planes
 	std::vector<plan> vector_de_planes;
 	
 	
@@ -60,28 +69,27 @@ public:
 	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
 	
-	cliente buscarClientesDNI(std::string DNI, int pos=0) const;
 	
+	cliente buscarClientesDNI(std::string DNI, int pos=0) const;
 	couch buscarCouchsDNI(std::string DNI, int pos=0) const;
 	int buscarPosCouchsDNI(std::string DNI, int pos=0) const;
 	plan buscarPlanNombre(std::string DNI, int pos=0) const;
 	suscripcion buscarSub(std::string DNI, std::string nombre_plan, int pos=0) const;
 	int buscarClientesNombre(std::string nombre, int pos=0) const;
 	int buscarCouchsNombre(std::string nombre, int pos=0) const;
-	int buscarCouchsNombre(int pos_plan, std::string nombre, int pos=0) ;
+	int buscarCouchsNombre(int pos_plan, std::string nombre, int pos=0);
 	int buscarClientesEnSub(std::string nomape, int pos=0);
 	
 	cliente &ObtenerCliente(int pos);
 	suscripcion &obtenerSuscripcion(int pos);
-	couch &obtenerCouch(int pos) ;
-	plan &obtenerPlan(int plan) ;
+	couch &obtenerCouch(int pos);
+	plan &obtenerPlan(int plan);
 	
 	std::string planesSuscritos(std::string dni_cliente) const;
 	std::string planesResponsables(std::string dni_couch) const;
 	std::vector<couch> CouchsInPlan(int pos_plan);
 	std::vector<couch> CouchsOutPlan(int pos_plan);
 	
-	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
 	void OrdenarCouchs(CriterioOrdenCouchs criterio);
 	void OrdenarSuscripciones(CriterioOrdenSuscripcion criterio);
