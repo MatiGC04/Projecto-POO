@@ -71,7 +71,7 @@ bool AnioBiciesto(fecha f1){
 
 	
 /**
-* Confirma que la fecha ingresada es valida
+* @brief Confirma que la fecha ingresada es valida
 * @param variable tipo fecha
 **/		
 bool ConfirmacionFecha(fecha f1){
@@ -120,27 +120,37 @@ int DifDias(fecha f1, fecha f2){
 
 	
 /**
-* Calcula la fecha de vencimiento del pago abonado agregandole 31 dias a la 
+* @brief Calcula la fecha de vencimiento dada una fecha
+* Calcula la fecha de vencimiento agregandole 31 dias a la 
 * fecha en la que paga.
-* @param dato tipo fecha
-* @return dato tipo fecha
+* @param fecha f1 Struct tipo 'fecha' para calcular el vencimiento
+* @return fecha fech_vencimiento Struct tipo 'fecha' con los valores de la fecha
+*		  de vencimiento
 **/	
 fecha FechaVencimiento(fecha f1){
 	time_t time_pago = ObtenerTime(f1);
 	time_pago = time_pago + 31*24*60*60;
 	tm *vencimiento = localtime(&time_pago);
-	fecha fech_pago;
-	fech_pago.anio = vencimiento->tm_year + 1900;
-	fech_pago.mes = vencimiento->tm_mon + 1;
-	fech_pago.dia = vencimiento->tm_mday;
-	return fech_pago;
+	fecha fech_vencimiento;
+	fech_vencimiento.anio = vencimiento->tm_year + 1900;
+	fech_vencimiento.mes = vencimiento->tm_mon + 1;
+	fech_vencimiento.dia = vencimiento->tm_mday;
+	return fech_vencimiento;
 }
 
 	
 /**
-* Sobrecarga del operador menor 
-* @param datos tipo fecha
-**/	
+* @brief Compara dos structs de tipo `fecha` para determinar si uno es menor a
+* otro.
+*
+* Este operador sobrecargado verifica si fecha f1 es menor a fecha f2
+* comparando sus atributos `anio`, `mes` y `dia`.
+*
+* @param f1 El primer struct `fecha` a comparar.
+* @param f2 El segundo struct `fecha` a comparar.
+* @return `true` si fecha f1 es una fecha anterior a fecha f2, 
+* 		  `false` en caso contrario.
+*/
 bool operator<(fecha f1, fecha f2){
 	if(f1.anio<f2.anio){
 		return true;
@@ -156,9 +166,16 @@ bool operator<(fecha f1, fecha f2){
 
 
 /**
-* Sobrecarga del operador igual
-* @param datos tipo fecha
-**/
+* @brief Compara dos structs de tipo `fecha` para determinar si son iguales.
+*
+* Este operador sobrecargado verifica si dos structs `fecha` son iguales
+* comparando sus atributos `anio`, `mes` y `dia`.
+*
+* @param fecha f1 El primer struct `fecha` a comparar.
+* @param fecha f2 El segundo struct `fecha` a comparar.
+* @return `true` si los structs `fecha` tienen los mismos valores para `anio`, 
+*         `mes` y `dia`, `false` en caso contrario.
+*/
 bool operator==(fecha f1,fecha f2){
 	if(f1.anio!=f2.anio){
 		return false;
@@ -174,7 +191,7 @@ bool operator==(fecha f1,fecha f2){
 
 
 /**
-* Sobrecarga del operador de salida para mostrar por pantalla
+* @brief Sobrecarga del operador de salida para mostrar por pantalla
 * @param dato tipo ostream por referencia y variable tipo fecha.
 * @return dato tipo ostream que muestra el dato tipo fecha formato dd/mm/aaaa
 **/	
@@ -184,8 +201,13 @@ std::ostream &operator<<(std::ostream &o, fecha f1){
 }
 
 /**
-* Funcion auxiliar que convierte los caracteres de una cadena a minuscula.
-* @param variable tipo string 
+* @brief Funcion auxiliar que convierte los caracteres de una cadena a minuscula.
+*
+* Esta funcion recorre cada carácter de la cadena proporcionada y lo convierte
+* a minuscula
+*
+* @param std::string &txt La cadena solicitada por referencia para pasar a 
+* minuscula 
 **/
 void PasarMiniscula(std::string &txt){
 	int tam = txt.size();
@@ -194,6 +216,16 @@ void PasarMiniscula(std::string &txt){
 	}
 }
 	
+/**
+* @brief Verifica si una cadena contiene al menos un dígito numérico.
+*
+* Esta función recorre cada carácter de la cadena proporcionada y 
+* verifica si alguno de ellos es un dígito numérico. 
+*
+* @param std::string str La cadena de caracteres a ser verificada.
+* @return `true` si la cadena contiene al menos un dígito numérico, 
+*         `false` en caso contrario.
+*/
 bool contieneNumero(const std::string str){
 	for (char c : str) {
 		if (isdigit(c)) {
@@ -202,7 +234,16 @@ bool contieneNumero(const std::string str){
 	}
 	return false;
 }
-
+/**
+* @brief Verifica si una cadena contiene al menos una letra.
+*
+* Esta función recorre cada carácter de la cadena proporcionada y 
+* verifica si alguno de ellos es una letra.
+*
+* @param std::string str La cadena de caracteres a ser verificada.
+* @return `true` si la cadena contiene al menos una letra, 
+*         `false` en caso contrario.
+*/
 bool contieneLetra(const std::string str){
 	for (char c : str) {
 		if (isalpha(c)) {
@@ -211,6 +252,17 @@ bool contieneLetra(const std::string str){
 	}
 	return false;
 }
+/**
+* @brief Verifica si una cadena contiene al menos un simbolo.
+*
+* Esta función recorre cada carácter de la cadena proporcionada y 
+* verifica si alguno de ellos es un simbolo.
+*
+* @param std::string str La cadena de caracteres a ser verificada.
+* @return `true` si la cadena contiene al menos un simbolo, 
+*         `false` en caso contrario.
+*/	
+	
 bool contieneSimbolo(const std::string str){
 	for (char c : str) {
 		if (ispunct(c)) {

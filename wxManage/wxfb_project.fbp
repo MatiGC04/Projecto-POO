@@ -31,7 +31,7 @@
     <property name="relative_path">1</property>
     <property name="use_microsoft_bom">0</property>
     <property name="use_native_eol">0</property>
-    <object class="Frame" expanded="false">
+    <object class="Frame" expanded="true">
       <property name="aui_managed">0</property>
       <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
       <property name="bg">wxSYS_COLOUR_MENU</property>
@@ -60,7 +60,7 @@
       <property name="window_name"></property>
       <property name="window_style">wxTAB_TRAVERSAL</property>
       <property name="xrc_skip_sizer">1</property>
-      <object class="wxBoxSizer" expanded="false">
+      <object class="wxBoxSizer" expanded="true">
         <property name="minimum_size"></property>
         <property name="name">bSizer1</property>
         <property name="orient">wxVERTICAL</property>
@@ -89,7 +89,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Nuevos logos/Clientes.png</property>
+                <property name="bitmap">Load From File; Logos/Nuevos logos/Clientes.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -148,7 +148,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Nuevos logos/Couch.png</property>
+                <property name="bitmap">Load From File; Logos/Nuevos logos/Couch.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -207,7 +207,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Nuevos logos/plan.png</property>
+                <property name="bitmap">Load From File; Logos/Nuevos logos/plan.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -266,7 +266,7 @@
                 <property name="aui_row">0</property>
                 <property name="best_size"></property>
                 <property name="bg"></property>
-                <property name="bitmap">Load From File; ../Logos/Nuevos logos/sus.png</property>
+                <property name="bitmap">Load From File; Logos/Nuevos logos/sus.png</property>
                 <property name="caption"></property>
                 <property name="caption_visible">1</property>
                 <property name="center_pane">0</property>
@@ -2307,7 +2307,7 @@
                     <property name="auth_needed">0</property>
                     <property name="best_size"></property>
                     <property name="bg"></property>
-                    <property name="bitmap">Load From File; ../Logos/eliminar.png</property>
+                    <property name="bitmap">Load From File; Logos/eliminar.png</property>
                     <property name="caption"></property>
                     <property name="caption_visible">1</property>
                     <property name="center_pane">0</property>
@@ -2382,7 +2382,7 @@
                     <property name="auth_needed">0</property>
                     <property name="best_size"></property>
                     <property name="bg"></property>
-                    <property name="bitmap">Load From File; ../Logos/agregar.png</property>
+                    <property name="bitmap">Load From File; Logos/agregar.png</property>
                     <property name="caption"></property>
                     <property name="caption_visible">1</property>
                     <property name="center_pane">0</property>
@@ -2609,7 +2609,7 @@
                     <property name="auth_needed">0</property>
                     <property name="best_size"></property>
                     <property name="bg"></property>
-                    <property name="bitmap">Load From File; ../Logos/buscar.png</property>
+                    <property name="bitmap">Load From File; Logos/buscar.png</property>
                     <property name="caption"></property>
                     <property name="caption_visible">1</property>
                     <property name="center_pane">0</property>

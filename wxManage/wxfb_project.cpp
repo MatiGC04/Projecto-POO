@@ -21,25 +21,25 @@ BasePresentacion::BasePresentacion( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Nuevos logos/Clientes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap1 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Logos/Nuevos logos/Clientes.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap1->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap1->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap1, 0, wxALL, 5 );
 
-	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Nuevos logos/Couch.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap2 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Logos/Nuevos logos/Couch.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap2->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap2->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap2, 0, wxALL, 5 );
 
-	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Nuevos logos/plan.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap3 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Logos/Nuevos logos/plan.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap3->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap3->SetMaxSize( wxSize( 200,200 ) );
 
 	bSizer2->Add( m_bitmap3, 0, wxALL, 5 );
 
-	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("../Logos/Nuevos logos/sus.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
+	m_bitmap4 = new wxStaticBitmap( this, wxID_ANY, wxBitmap( wxT("Logos/Nuevos logos/sus.png"), wxBITMAP_TYPE_ANY ), wxDefaultPosition, wxDefaultSize, 0 );
 	m_bitmap4->SetMinSize( wxSize( 200,200 ) );
 	m_bitmap4->SetMaxSize( wxSize( 200,200 ) );
 
@@ -392,7 +392,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	borrar = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	borrar->SetBitmap( wxBitmap( wxT("../Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
+	borrar->SetBitmap( wxBitmap( wxT("Logos/eliminar.png"), wxBITMAP_TYPE_ANY ) );
 	borrar->SetMinSize( wxSize( 25,25 ) );
 	borrar->SetMaxSize( wxSize( 25,25 ) );
 
@@ -400,7 +400,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_bpButton11 = new wxBitmapButton( this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxSize( 25,25 ), wxBU_AUTODRAW|0 );
 
-	m_bpButton11->SetBitmap( wxBitmap( wxT("../Logos/agregar.png"), wxBITMAP_TYPE_ANY ) );
+	m_bpButton11->SetBitmap( wxBitmap( wxT("Logos/agregar.png"), wxBITMAP_TYPE_ANY ) );
 	m_bpButton11->SetMinSize( wxSize( 25,25 ) );
 	m_bpButton11->SetMaxSize( wxSize( 25,25 ) );
 
@@ -423,7 +423,7 @@ BasePlan::BasePlan( wxWindow* parent, wxWindowID id, const wxString& title, cons
 
 	m_button201 = new wxButton( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,27 ), 0 );
 
-	m_button201->SetBitmap( wxBitmap( wxT("../Logos/buscar.png"), wxBITMAP_TYPE_ANY ) );
+	m_button201->SetBitmap( wxBitmap( wxT("Logos/buscar.png"), wxBITMAP_TYPE_ANY ) );
 	m_button201->SetMinSize( wxSize( 50,27 ) );
 	m_button201->SetMaxSize( wxSize( 50,27 ) );
 
