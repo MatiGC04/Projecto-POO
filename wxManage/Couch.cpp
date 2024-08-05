@@ -71,6 +71,8 @@ void couch::leer_en_binario(std::ifstream &archivo){
 	alias = registro.alias;
 	fecha_nacimiento = registro.fecha_nac;
 }
+
+/// Implementacion del metodo que valida los atributos del couch
 std::string couch::validar_datos_ch() const{
 	std::string errores=validar_datos();
 	if(contieneLetra(cbu)) errores+="El CBU no debe contener letras \n";
@@ -137,9 +139,22 @@ bool CriterioCouchEmail(couch c1, couch c2){
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
 }
+	
+	
+/**
+* Devuelve true si el telefono de el primer couch esta antes segun el 
+* orden alfabetico que el telefono de el segundo couch.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
 bool CriterioCouchTelefono(couch c1, couch c2){
 	return c1.ver_tel()<c2.ver_tel();
 }
+	
+/**
+* Devuelve true si el DNI de el primer couch esta antes segun el 
+* orden alfabetico que el DNI de el segundo couch.
+* Se usa como argumento para la funcion sort para ordenar toda la lista.
+**/
 bool CriterioCouchDNI(couch c1, couch c2){
 	return c1.ver_DNI()<c2.ver_DNI();
 }

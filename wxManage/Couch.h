@@ -46,8 +46,9 @@ struct registroCouch{
 
 class couch : public persona{
 private:
-	/// @brief Atributos de couch
+	/// @brief Cbu del couch
 	std::string cbu;
+	/// @brief Alias del couch
 	std::string alias;
 	
 public:
@@ -86,9 +87,9 @@ bool CriterioCouchLocalidad(couch c1, couch c2);
 bool CriterioCouchEdad(couch c1, couch c2);
 ///@brief Funcion que compara dos couch por su email
 bool CriterioCouchEmail(couch c1, couch c2);
-
+///@brief Funcion que compara dos couch por su telefono
 bool CriterioCouchTelefono(couch c1, couch c2);
-
+///@brief Funcion que compara dos couch por su DNI
 bool CriterioCouchDNI(couch c1, couch c2);
 #endif
 
