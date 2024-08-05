@@ -6,7 +6,8 @@
 #include <cstring>
 #include <fstream>
 #include "Utils.h"
-/// Implementación del constructor de la clase cliente
+
+/// Implementacion del constructor de la clase cliente
 cliente::cliente (std::string nom, std::string ape, std::string mail, 
 				  std::string sex, std::string tel, std::string dir, 
 				  std::string loc, std::string dni, 
@@ -14,7 +15,9 @@ cliente::cliente (std::string nom, std::string ape, std::string mail,
 	persona(nom, ape, mail , sex, tel, dir, loc, dni, dia, mes, anio){
 	this->tel_emergencias = tel_emergencias;
 }
-/// Implementacion del constructor de la clase cliente
+
+
+/// Implementacion del metodo que valida los atributos del cliente
 std::string cliente::validar_datos_cl() const{
 	std::string error=validar_datos();
 	if(contieneLetra(tel_emergencias)) error+="El telefono de emergencias no debe contener letras \n";
@@ -27,18 +30,19 @@ std::string cliente::validar_datos_cl() const{
 }
 
 
-/// Implementacion del metodo para ver el tel de emergencias
+/// Implementacion del metodo para ver el tel de emergencia del cliente
 std::string cliente::ver_tel_emergencia() const{
 	return tel_emergencias;
 }
 
 
-/// Implementación de los métodos para modificar atributos 
+/// Implementación del metodo para modificar el tel de emergencia del cliente
 void cliente::modificar_tel_em(std::string tel_em_nuevo){
 	tel_emergencias=tel_em_nuevo;
 }
 
-///Implementación del metódo que guarda el registro en un archivo binario
+
+///Implementación del metódo que guarda el registro de un cliente en un archivo binario
 void cliente::guardar_en_binario(std::ofstream &archivo){
 	registroCliente registro;
 	strcpy(registro.nombre,nombre.c_str());
@@ -55,7 +59,7 @@ void cliente::guardar_en_binario(std::ofstream &archivo){
 }
 
 
-///Implementacion del metodo que lee el registro de un archivo binario
+///Implementacion del metodo que lee el registro de un cliente de un archivo binario
 void cliente::leer_en_binario(std::ifstream &archivo){
 	registroCliente registro;
 	archivo.read(reinterpret_cast<char*>(&registro), sizeof(registro));
@@ -71,6 +75,7 @@ void cliente::leer_en_binario(std::ifstream &archivo){
 	fecha_nacimiento = registro.fecha_nac;
 }
 
+
 /**
 * Devuelve true si la combinacion "apellido, nombre" de el primer cliente esta
 * antes segun el orden alfabetico que el apellido y nombre de el segundo cliente.
@@ -84,6 +89,7 @@ bool CriterioClientesNombreApellido(cliente p1, cliente p2){
 	return txt1<txt2;	
 }
 
+	
 /**
 * Devuelve true si el email de el primer cliente esta antes segun el 
 * orden alfabetico que el email de el segundo cliente.
@@ -96,6 +102,7 @@ bool CriterioClientesEmail(cliente p1, cliente p2){
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
 }
+
 	
 /**
 * Devuelve true si el DNI de el primer cliente esta antes segun el 
@@ -110,6 +117,7 @@ bool CriterioClientesDNI(cliente p1, cliente p2){
 	return txt1 < txt2;
 }
 	
+	
 /**
 * Devuelve true si el telefono de eme. de el primer cliente esta antes segun el 
 * orden alfabetico que el telefono de eme. de el segundo cliente.
@@ -122,7 +130,8 @@ bool CriterioClientesTelefonoEmergencias(cliente p1, cliente p2){
 	PasarMiniscula(txt2);
 	return txt1 < txt2;
 }
-	
+
+/// Implementacion de sobrecarga del operador == para validar si dos clientes son iguales
 bool cliente::operator==(cliente cl){
 	if(this->nombre!=cl.ver_nombre()){
 		return false;

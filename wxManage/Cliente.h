@@ -23,7 +23,6 @@
 * puntero y no la informacion a la que apunta. Esta estructura sirve de 
 * intermediaria para guardar y escribir los datos de una persona.
 **/
-
 struct registroCliente{
 	char nombre[100];
 	char apellido[100];
@@ -48,16 +47,18 @@ struct registroCliente{
 
 class cliente : public persona{
 private:
+	
+	/// @brief Telefono de emergencias del cliente 
 	std::string tel_emergencias;
 	
 public:
-	/// Constructor de la clase cliente con sus paramentros por defecto
+	/// @brief Constructor de la clase cliente con sus paramentros por defecto
 	cliente(std::string nombre = "", std::string apellido = "",
 			std::string email = "", std::string sexo = "", std::string telefono = "",
 			std::string direccion = "", std::string localidad = "", std::string dni = "",
 			int dia = 0, int mes = 0, int anio = 0, std::string _tel_emergencias="");
 	
-	/// @brief Metodos para editar o agregar datos 
+	/// @brief Metodo para editar o agregar datos 
 	void modificar_tel_em(std::string tel_em_nuevo); 
 	
 	/// @brief Metodo que validar que el telefono de emergencia es valido
@@ -66,10 +67,13 @@ public:
 	/// @brief Metodo para obtener atributo del dato
 	std::string ver_tel_emergencia() const;
 	
-	/// @brief Metodos para registrar los datos de la clase
-	void guardar_en_binario(std::ofstream &archivo) override; 
+	/// @brief Metodo para guardar un registro de un cliente en un binario
+	void guardar_en_binario(std::ofstream &archivo) override;
+	
+	/// @brief Metodo para leer un registro de cliente desde un binario
 	void leer_en_binario(std::ifstream &archivo) override; 
 	
+	/// @brief Metodo comparar si dos clientes son iguales
 	bool operator==(cliente cl);
 	
 };

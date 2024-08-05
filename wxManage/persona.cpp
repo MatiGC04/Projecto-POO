@@ -24,16 +24,21 @@ persona::persona(std::string nombre, std::string apellido, std::string email,
 	fecha_nacimiento.anio=anio;
 	
 }
-/// Implementación del método que valida los datos
+
+/**
+* Implementación del método que valida los datos
+* @return std::string errores Cadena que representa todos los errores 
+* correspondientes a datos invalidos ingresados para el persona.
+**/
 std::string persona::validar_datos() const{
 	std::string errores = "";
-	///Verifico que los atributos no tengan numeros
+	
+	
 	if(contieneNumero(nombre)  or contieneSimbolo(nombre)) errores+="El nombre no debe contener numeros ni simbolos \n";
 	if(contieneNumero(apellido) or contieneSimbolo(apellido)) errores+="El apellido no debe contener numeros ni simbolos \n";
 	
 	if(contieneNumero(sexo)) errores+="El sexo no debe contener numero ni simbolo (M/F) \n";
-	
-	///Verifico que los atributos no tengan letras
+
 	if(contieneLetra(telefono)) errores+="El telefono no debe contener letras \n";
 	if(contieneLetra(dni)) errores+="El DNI no debe contener letras \n";
 	
@@ -98,7 +103,8 @@ std::string persona::validar_datos() const{
 	return errores;
 }
 
-/// Implementación de los métodos para obtener los atributos de la persona
+
+/// Implementación de los métodos para devolver los atributos de la persona
 std::string persona::ver_nombre() const{
 	return nombre;
 }
