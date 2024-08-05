@@ -9,12 +9,23 @@ HijaClientesAgregar::HijaClientesAgregar(manage *aux, wxWindow *parent) : BaseCl
 HijaClientesAgregar::~HijaClientesAgregar() {
 	
 }
-
+/***
+* Evento del boton para cancelar el registro
+*
+* Devuelve EndModal(0)
+*
+*/
 
 void HijaClientesAgregar::ClickCancelarRegistro( wxCommandEvent& event )  {
 	EndModal(0);
 }
-
+/***
+* Evento del boton para aceptar el registro
+*
+* Al clickear el boton carga los datos de las celdas en un cliente, este se
+* guarda en el vector de clientes de la clase manage y devuelve EndModal(1)
+*
+*/
 void HijaClientesAgregar::ClickAceptarRegistro( wxCommandEvent& event )  {
 	std::string nombre,apellido,email,sexo,telefono,direccion,localidad,DNI,tel_emergencias;
 	long dia,mes,anio;

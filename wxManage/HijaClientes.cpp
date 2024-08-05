@@ -151,7 +151,7 @@ void HijaClientes::ClickColumna( wxGridEvent& event )  {
 	for(int i=0; i<m_manage->cantidadCliente();i++) CargarFila(i);
 }
 
-///Todavia no se que hace, codigo adaptado del de novara
+///Evento que ajusta la grilla segun el tamanio de la ventana y la proporcion que mantenia la grilla
 void HijaClientes::ClickTamanio( wxSizeEvent& event )  {
 	Layout();
 	int tamanios[5], ancho_total_viejo=0; 

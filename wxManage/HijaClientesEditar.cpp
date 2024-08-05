@@ -1,7 +1,13 @@
 #include "HijaClientesEditar.h"
 #include "string_conv.h"
 #include <wx/msgdlg.h>
-
+/**
+* Constructor de la clase HijaClientesEditar
+* 
+* Recibe la posicion del cliente a editar, se crea una copia de este y se cargan
+* los datos en las celdas de la ventana
+*
+*/
 HijaClientesEditar::HijaClientesEditar(manage *aux, int pos, wxWindow *parent): BaseClientesAgregar(parent), m_manage(aux){
 	this->pos = pos;
 	cliente cl = m_manage->ObtenerCliente(pos);
@@ -18,6 +24,17 @@ HijaClientesEditar::HijaClientesEditar(manage *aux, int pos, wxWindow *parent): 
 	if(cl.ver_mesN()!=0) m_mes->SetValue(wx_to_std(std::to_string(cl.ver_mesN())));
 	if(cl.ver_anioN()!=0) m_anio->SetValue(wx_to_std(std::to_string(cl.ver_anioN())));
 }
+
+/**
+* Evento del boton para aceptar el registro
+* 
+* Al clickear el boton carga los datos de las celdas en un cliente, si este fue
+* modificado pregunta si quiere guardar los cambios, en caso aceptar copia estos
+* nuevos datos en la posicion del cliente seleccionado y retorna EndModal(1), 
+* caso contrario devuelve EndModal(0)
+* 
+*
+*/
 void HijaClientesEditar::ClickAceptarRegistro( wxCommandEvent& event ){
 	std::string nombre,apellido,email,sexo,telefono,direccion,localidad,DNI,tel_emergencias;
 	long dia,mes,anio;
@@ -67,7 +84,14 @@ void HijaClientesEditar::ClickAceptarRegistro( wxCommandEvent& event ){
 		}
 	}
 }
-	
+
+/***
+* Evento del boton para cancelar el registro
+*
+* Devuelve EndModal(0)
+*
+*/
+
 void HijaClientesEditar::ClickCancelarRegistro( wxCommandEvent& event ){
 	EndModal(0);
 }
