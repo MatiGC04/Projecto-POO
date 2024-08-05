@@ -103,6 +103,7 @@ void plan::agregar_couch(std::string id_couch){
 	p_couchs.push_back(id_couch);
 }
 
+///Implementacion del metodo para eliminar un ouch del arreglo
 void plan::eliminar_couch(std::string id_couch){
 	for(int i=0;i<p_couchs.size();i++){ 
 		if(id_couch == p_couchs[i]){
@@ -110,14 +111,14 @@ void plan::eliminar_couch(std::string id_couch){
 		}
 	}
 }
+
+///Implementacion dle metodo para ver la cantidad de couchs del arreglo
 int plan::ver_cant_couchs() const{
 	return p_couchs.size();
 }
 
 
-//No estoy seguro de si va a servir pero lo programo y dps si no hace falta
-//se descarta, segun yo despues podemos utilizar estas funciones para mandarle
-//un puntero a funcion a sort y que ordene el vector de manage con estos criterios
+
 ///Implementacion de funciones para enviar como puntero a funcion a sort
 bool CriterioPrecioPlan(plan p1, plan p2){
 	return p1.ver_precio_plan()<p2.ver_precio_plan();
@@ -126,6 +127,7 @@ bool CriterioNombre(plan p1, plan p2){
 	return p1.ver_nombre_plan()<p2.ver_nombre_plan();
 }
 	
+///Implementacion de metodo para sobrecargar el operador = para la clase plan
 void plan::operator=(plan pl){
 	this->nombre = pl.ver_nombre_plan();
 	this->nombre_rutina_base = pl.ver_nombre_rutina();

@@ -33,8 +33,8 @@ struct registroPlan{
 	char rutina_base[100];
 	int precio;
 	int num_couchs; //tamaño del vector
-	char couchs[5][8]; //asumiendo un tamaño máximo para los DNIs, por ejemplo,
-	//8 caracteres y un número máximo de 5 couchs
+	char couchs[10][8]; //asumiendo un tamaño máximo para los DNIs, por ejemplo,
+	//8 caracteres y un número máximo de 10 couchs
 };
 
 class plan {
@@ -57,8 +57,8 @@ public:
 	
 	void operator=(plan pl);
 	/// @brief Métodos para obtener los atributos de una suscripcion
-	int ver_precio_plan() const;
-	int ver_cant_couchs() const;
+	int ver_precio_plan() const; 
+	int ver_cant_couchs() const; 
 	std::string ver_couch_plan(int pos) const; ///<devuelve identificativo del couch, el DNI
 	std::vector<std::string> ver_couchs_plan() const; ///< devuelve el vector completo de couchs
 	std::string ver_nombre_plan() const ;
@@ -68,8 +68,10 @@ public:
 	void leer_en_binario(std::ifstream &archivo);
 	void guardar_en_binario(std::ofstream &archivo);
 	
+	/// @brief Método para agregar un couch al vector
 	void agregar_couch(std::string id_couch);
 	
+	/// @brief Método para eliminar un couch del vector
 	void eliminar_couch(std::string id_couch);
 	
 };

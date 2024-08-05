@@ -37,7 +37,7 @@ suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::st
 }
 /**
 * @brief Metodo para obtener la fecha de pago
-* @return fecha_pago 
+* @return fecha fecha_pago Retorna la fecha pago
 */
 fecha suscripcion::ver_fecha_pago() const{
 	return fecha_pago;
@@ -54,18 +54,46 @@ int suscripcion::dias_faltantes() const{
 		return DifDias(FechaHoy(),FechaVencimiento(fecha_pago));
 }
 
+/**
+* @brief Metodo para obtener el dni del coach
+* @return std::string dni_couch Retorna el dni del coach 
+*/
 std::string suscripcion::ver_DNI_couch() const{
 	return dni_couch;
 }
+
+/**
+* @brief Metodo para obtener el dni del cliente
+* @return std::string dni_cliente Retorna el dni del cliente
+*/
 std::string suscripcion::ver_DNI_cliente()const{ 
 	return dni_cliente;
 }
+
+/**
+* @brief Metodo para obtener el nombre de la rutina
+* @return std::string nombre_rutina Retorna el nombre de la rutina
+*/
 std::string suscripcion::ver_nombre_rutina() const{
 	return nombre_rutina;
 }
+
+/**
+* @brief Metodo para obtener el nombre del plan subscrito
+* @return std::string p_subscrito Retorna el nombre del plan subscrito
+*/
 std::string suscripcion::ver_nombre_plan() const{
 	return p_subscrito;
 }
+
+/**
+* @brief Metodo para leer un registro de una suscripcion desde un binario
+*
+* Este metodo lee el contenido del archivo en un registroSuscripcion y copia
+* los valores en los atributos de la suscripcion
+*
+* @param std::ifstream &archivo Recibe un archivo del cual leer una suscripcion
+*/
 
 void suscripcion::leer_en_binario(std::ifstream &archivo){
 	registroSuscripcion registro;
@@ -76,6 +104,17 @@ void suscripcion::leer_en_binario(std::ifstream &archivo){
 	this->p_subscrito = registro.id_plan;
 	this->fecha_pago = registro.fecha_pago;
 }
+
+/**
+* @brief Metodo para guardar un registro de una suscripcion desde un binario
+*
+* Este metodo guarda los valores de los atributos en un registroSuscripcion
+* para luego guardarlo en un archivo binario
+*
+* @param std::ofstream &archivo Recibe un archivo en el cual se guardara un 
+* 		 registro
+*/
+
 void suscripcion::guardar_en_binario(std::ofstream &archivo){
 	registroSuscripcion registro;
 	strcpy(registro.nombre_rutina, this->nombre_rutina.c_str());
@@ -87,6 +126,13 @@ void suscripcion::guardar_en_binario(std::ofstream &archivo){
 	archivo.write(reinterpret_cast<char*>(&registro), sizeof(registroSuscripcion));
 }
 
+/**
+* @brief Metodo para saber si la suscripcion esta vencida
+*
+* @return 'true' si la fecha de vencimiento es mayor al día de hoy, 'false'
+*		  en caso contrario
+*/
+
 bool suscripcion::estado_suscripcion() const{
 	if(FechaVencimiento(fecha_pago) < FechaHoy()){
 		return false;
@@ -96,17 +142,46 @@ bool suscripcion::estado_suscripcion() const{
 }
 
 
-///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
-///para ordenar por fechas mas recientes deberiamos hacer lo contrario
+/**
+* @brief Funcion para comparar dos suscripciones 'sub1' y 'sub2' por su fecha
+* de pago
+*
+* Una fecha es menor que otra cuando la otra es mas reciente, es decir que 
+* para ordenar por fechas mas recientes deberiamos hacer lo contrario
+*
+* @return 'true' si la fecha de sub1 es mas reciente a la fecha de sub2, 'false'
+* 		  en caso contrario
+*/
 bool CriterioSuscripcionFecha(suscripcion sub1, suscripcion sub2){	
 	return !(sub1.ver_fecha_pago()<sub2.ver_fecha_pago());
 }
+/**
+* @brief Funcion para comparar dos suscripciones 'sub1' y 'sub2' por los DNI
+* de los coachs
+*
+* @return 'true' si el DNI del coach de sub1 es menor al DNI del coach de sub2,
+* 		  'false' en caso contrario
+*/	
 bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_DNI_couch()<sub2.ver_DNI_couch();
 }
+/**
+* @brief Funcion para comparar dos suscripciones 'sub1' y 'sub2' por los DNI
+* de los clientes
+*
+* @return 'true' si el DNI del cliente de sub1 es menor al DNI del cliente de sub2,
+* 		  'false' en caso contrario
+*/		
 bool CriterioSuscripcionDNICliente(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_DNI_cliente()<sub2.ver_DNI_cliente();
 }
+/**
+* @brief Funcion para comparar dos suscripciones 'sub1' y 'sub2' por el nombre
+* del plan asociado
+*
+* @return 'true' si el plan de la sub1 es menor al plan de sub2, 'false' en caso
+* 		  contrario
+*/		
 bool CriterioSuscripcionPlan(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_nombre_plan()<sub2.ver_nombre_plan();
 }
