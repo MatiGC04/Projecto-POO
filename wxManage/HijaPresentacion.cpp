@@ -9,11 +9,8 @@ HijaPresentacion::HijaPresentacion(manage *aux, wxWindow *parent) : BasePresenta
 	SetIcon(icon);
 }
 
-HijaPresentacion::~HijaPresentacion() {
-	
-}
 
-/// @brief Al hacer click muestro la ventana de couch, le paso el puntero manage
+/// @brief Al hacer click muestro la ventana de Clientes
 void HijaPresentacion::ClickClientes( wxCommandEvent& event )  {
 	HijaClientes *nueva_ventana=new HijaClientes(m_manage,this);
 	nueva_ventana->Show();

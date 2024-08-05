@@ -12,6 +12,8 @@
 
 
 HijaPlan::HijaPlan(manage *aux, wxWindow *parent) : BasePlan(parent), m_manage(aux) {
+	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
+	SetIcon(icon);
 	
 	refrescar();
 	m_grilla->SetSelectionMode(wxGrid::wxGridSelectRows);

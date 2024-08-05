@@ -11,6 +11,9 @@
 * las propiedades adicionales de la tabla.
 **/
 HijaClientes::HijaClientes(manage *aux,wxWindow *parent) : BaseClientes(parent), m_manage(aux) {
+	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
+	SetIcon(icon);
+	
 	int cant_clientes=m_manage->cantidadCliente();
 	m_grilla_clientes->AppendRows(cant_clientes);
 	for(int i=0;i<cant_clientes;++i){

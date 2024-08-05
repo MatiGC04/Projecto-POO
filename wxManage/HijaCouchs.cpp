@@ -16,6 +16,9 @@
 * cantidad de couchs guardados.
 */
 HijaCouchs::HijaCouchs(manage *aux,wxWindow *parent) : BaseCouchs(parent), m_manage(aux) {
+	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
+	SetIcon(icon);
+	
 	int cant_couchs = m_manage->cantidadCouch();
 	m_grilla_couchs->AppendRows(cant_couchs);
 	for(int i=0;i<cant_couchs;++i){

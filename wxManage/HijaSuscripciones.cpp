@@ -6,6 +6,9 @@
 
 
 HijaSuscripciones::HijaSuscripciones(manage *aux, wxWindow *parent) : BaseSuscripciones(parent), m_manage(aux) {
+	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
+	SetIcon(icon);
+	
 	int cant_suscripciones = m_manage->cantidadSuscripciones();
 	m_grilla->AppendRows(cant_suscripciones);
 	for(int i=0; i<cant_suscripciones ; i++) CargarFila(i);
