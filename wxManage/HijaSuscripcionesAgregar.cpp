@@ -11,9 +11,6 @@ HijaSuscripcionesAgregar::HijaSuscripcionesAgregar(manage *aux, wxWindow *parent
 	}
 }
 
-HijaSuscripcionesAgregar::~HijaSuscripcionesAgregar() {
-	
-}
 
 void HijaSuscripcionesAgregar::ClickDesplegablePlanes( wxCommandEvent& event )  {
 	m_coachs->Clear();

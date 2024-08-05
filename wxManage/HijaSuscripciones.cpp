@@ -4,7 +4,10 @@
 #include "HijaSuscripcionesAgregar.h"
 #include "HijaSuscripcionesEditar.h"
 
-
+/**
+* Implementacion del constructor de la ventana suscripciones.
+* Inicializa la grilla con datos.
+**/
 HijaSuscripciones::HijaSuscripciones(manage *aux, wxWindow *parent) : BaseSuscripciones(parent), m_manage(aux) {
 	wxIcon icon("icono.ico", wxBITMAP_TYPE_ICO);
 	SetIcon(icon);
@@ -15,6 +18,9 @@ HijaSuscripciones::HijaSuscripciones(manage *aux, wxWindow *parent) : BaseSuscri
 	m_grilla->SetSelectionMode(wxGrid::wxGridSelectRows);
 }
 
+
+
+/// Implementacion del metodo para cargar una fila apartir de la posicion enviada.
 void HijaSuscripciones::CargarFila(int pos_fila){
 	suscripcion sub = m_manage->obtenerSuscripcion(pos_fila);
 	cliente cl = m_manage->buscarClientesDNI(sub.ver_DNI_cliente());
@@ -32,10 +38,21 @@ void HijaSuscripciones::CargarFila(int pos_fila){
 	m_grilla->SetCellValue(pos_fila, 6, std_to_wx(FechaTexto(fech_venc)));
 }
 
+
+/**
+* Implementacion del evento enter en la barra de busqueda.
+* Realiza el mismo procedimiento que el click en el boton de buscar.
+**/
 void HijaSuscripciones::EnterBuscar( wxCommandEvent& event )  {
 	ClickBuscar(event);
 }
 
+
+/**
+* Implementacion del evento de click en el boton buscar
+* Busca el nombre del cliente ingresado en la barra de texto en la grilla
+* apartir de donde esta el cursor en adelante.
+**/
 void HijaSuscripciones::ClickBuscar( wxCommandEvent& event )  {
 	
 	int fila_pos = m_grilla->GetGridCursorRow();
@@ -54,7 +71,10 @@ void HijaSuscripciones::ClickBuscar( wxCommandEvent& event )  {
 	}
 	
 }
-
+/**
+* Implementacion del evento de click en el boton agregar.
+* Muestra la ventana para agregar una suscripcion con el metodo ShowModal().
+**/
 void HijaSuscripciones::ClickAgregar( wxCommandEvent& event )  {
 	HijaSuscripcionesAgregar nueva_ventana(m_manage, this);
 	if(nueva_ventana.ShowModal()==1){
@@ -64,6 +84,11 @@ void HijaSuscripciones::ClickAgregar( wxCommandEvent& event )  {
 	
 }
 
+/**
+* Implementacion del evento de click en el boton eliminar
+* Segun donde este posicionado el cursor de la grilla borra el registro tanto
+* de la grilla como de la base de datos.
+**/
 void HijaSuscripciones::ClickEliminar( wxCommandEvent& event )  {
 	int fila_actual = m_grilla->GetGridCursorRow();
 	std::string nomape = wx_to_std(m_grilla->GetCellValue(fila_actual, 0));
@@ -80,10 +105,11 @@ void HijaSuscripciones::ClickEliminar( wxCommandEvent& event )  {
 	
 }
 
-HijaSuscripciones::~HijaSuscripciones() {
-	
-}
 
+/**
+* Implementacion del evento de click en el boton editar.
+* Muesta la ventana donde se edita la rutina de la suscripcion del cliente.
+**/
 void HijaSuscripciones::ClickEditar( wxCommandEvent& event )  {
 	int pos_sub = m_grilla->GetGridCursorRow();
 	HijaSuscripcionesEditar nueva_ventana(m_manage,pos_sub,this);
@@ -93,7 +119,7 @@ void HijaSuscripciones::ClickEditar( wxCommandEvent& event )  {
 }
 
 
-
+/// Evento que ajusta la grilla segun el tamanio de la ventana y la proporcion que mantenia la grilla
 void HijaSuscripciones::CambiarTamanio( wxSizeEvent& event )  {
 	Layout();
 	int tamanios[7], ancho_total_viejo=0; 
@@ -108,6 +134,12 @@ void HijaSuscripciones::CambiarTamanio( wxSizeEvent& event )  {
 	m_grilla->EndBatch();
 }
 
+
+/**
+* Si se hace click en la cabecera de alguna columna, la tabla se ordena segun
+* ese dato. Para esto, se le pide a la base de datos que ordene, y luego 
+* se recargan los datos de todas las filas.
+**/
 void HijaSuscripciones::ClickColumna( wxGridEvent& event )  {
 	int col = event.GetCol();
 	switch(col){
