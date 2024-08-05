@@ -74,6 +74,7 @@ void HijaSuscripciones::ClickBuscar( wxCommandEvent& event )  {
 /**
 * Implementacion del evento de click en el boton agregar.
 * Muestra la ventana para agregar una suscripcion con el metodo ShowModal().
+* en caso de recibir showModal()==1 actualiza la grilla
 **/
 void HijaSuscripciones::ClickAgregar( wxCommandEvent& event )  {
 	HijaSuscripcionesAgregar nueva_ventana(m_manage, this);

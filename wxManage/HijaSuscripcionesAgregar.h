@@ -13,8 +13,6 @@ protected:
 	void ClickCancelar( wxCommandEvent& event )  override;
 	/// Evento para el click en el boton de aceptar
 	void ClickAceptar( wxCommandEvent& event )  override;
-	/// Evento para el click en alguno de los items del desplegable de coachs
-	void ClickDesplegableCoachs( wxCommandEvent& event )  override;
 	/// Evento para el click en alguno de los items del desplegable de planes
 	void ClickDesplegablePlanes( wxCommandEvent& event )  override;
 	
