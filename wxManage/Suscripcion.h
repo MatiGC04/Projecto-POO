@@ -60,9 +60,9 @@ public:
 	void guardar_en_binario(std::ofstream &archivo);
 };
 
-bool CriterioSuscripcionFechaPago(suscripcion sub1, suscripcion sub2);
+bool CriterioSuscripcionFecha(suscripcion sub1, suscripcion sub2);
 bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2);
 bool CriterioSuscripcionDNICliente(suscripcion sub1, suscripcion sub2);
-bool CriterioSuscripcionNombre(suscripcion sub1, suscripcion sub2);
+bool CriterioSuscripcionPlan(suscripcion sub1, suscripcion sub2);
 
 #endif

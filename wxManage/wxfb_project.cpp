@@ -683,6 +683,7 @@ BaseSuscripciones::BaseSuscripciones( wxWindow* parent, wxWindowID id, const wxS
 	this->Connect( wxEVT_SIZE, wxSizeEventHandler( BaseSuscripciones::CambiarTamanio ) );
 	m_buscar->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
 	m_button7->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
+	m_grilla->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseSuscripciones::ClickColumna ), NULL, this );
 	m_button28->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEditar ), NULL, this );
 	m_button29->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickAgregar ), NULL, this );
 	m_button30->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEliminar ), NULL, this );
@@ -694,6 +695,7 @@ BaseSuscripciones::~BaseSuscripciones()
 	this->Disconnect( wxEVT_SIZE, wxSizeEventHandler( BaseSuscripciones::CambiarTamanio ) );
 	m_buscar->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseSuscripciones::EnterBuscar ), NULL, this );
 	m_button7->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickBuscar ), NULL, this );
+	m_grilla->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( BaseSuscripciones::ClickColumna ), NULL, this );
 	m_button28->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEditar ), NULL, this );
 	m_button29->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickAgregar ), NULL, this );
 	m_button30->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseSuscripciones::ClickEliminar ), NULL, this );

@@ -86,7 +86,7 @@ bool suscripcion::estado_suscripcion() const{
 
 ///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
 ///para ordenar por fechas mas recientes deberiamos hacer lo contrario
-bool CriterioSuscripcionFechaPago(suscripcion sub1, suscripcion sub2){	
+bool CriterioSuscripcionFecha(suscripcion sub1, suscripcion sub2){	
 	return !(sub1.ver_fecha_pago()<sub2.ver_fecha_pago());
 }
 bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2){
@@ -95,6 +95,6 @@ bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2){
 bool CriterioSuscripcionDNICliente(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_DNI_cliente()<sub2.ver_DNI_cliente();
 }
-bool CriterioSuscripcionNombre(suscripcion sub1, suscripcion sub2){
+bool CriterioSuscripcionPlan(suscripcion sub1, suscripcion sub2){
 	return sub1.ver_nombre_plan()<sub2.ver_nombre_plan();
 }

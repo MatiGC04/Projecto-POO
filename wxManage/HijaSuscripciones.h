@@ -9,6 +9,7 @@ private:
 	manage *m_manage;
 	void CargarFila(int pos_fila);
 protected:
+	void ClickColumna( wxGridEvent& event )  override;
 	void CambiarTamanio( wxSizeEvent& event )  override;
 	void ClickEditar( wxCommandEvent& event )  override;
 	void EnterBuscar( wxCommandEvent& event )  override;

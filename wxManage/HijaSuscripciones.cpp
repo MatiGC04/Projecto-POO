@@ -105,3 +105,17 @@ void HijaSuscripciones::CambiarTamanio( wxSizeEvent& event )  {
 	m_grilla->EndBatch();
 }
 
+void HijaSuscripciones::ClickColumna( wxGridEvent& event )  {
+	int col = event.GetCol();
+	switch(col){
+	case 0: m_manage->OrdenarSuscripciones(O_APENOM_CL); break;
+	case 1:	m_manage->OrdenarSuscripciones(O_DNI_CL); break;
+	case 2:	m_manage->OrdenarSuscripciones(O_APENOM_CH); break;
+	case 3:	m_manage->OrdenarSuscripciones(O_DNI_CH); break;
+	case 4:	m_manage->OrdenarSuscripciones(O_PLAN); break;
+	case 5:	m_manage->OrdenarSuscripciones(O_FECH_PAGO); break;
+	case 6:	m_manage->OrdenarSuscripciones(O_FECH_VENC); break;
+	}
+	for(int i=0; i<m_manage->cantidadSuscripciones();i++) CargarFila(i);
+}
+

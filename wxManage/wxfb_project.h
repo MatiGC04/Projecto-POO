@@ -204,6 +204,7 @@ class BaseSuscripciones : public wxFrame
 		virtual void CambiarTamanio( wxSizeEvent& event ) { event.Skip(); }
 		virtual void EnterBuscar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBuscar( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickColumna( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickEditar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickAgregar( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickEliminar( wxCommandEvent& event ) { event.Skip(); }

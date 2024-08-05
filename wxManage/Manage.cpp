@@ -394,9 +394,47 @@ void manage::OrdenarCouchs(CriterioOrdenCouchs criterio){
 	this->guardar();
 
 }
+
+void manage::OrdenarSuscripciones(CriterioOrdenSuscripcion criterio){
+	auto CriterioNombreApellidoCouch = [this](const suscripcion &a, const suscripcion &b)->bool{
+		couch ch_1=this->buscarCouchsDNI(a.ver_DNI_couch());
+		couch ch_2=this->buscarCouchsDNI(b.ver_DNI_couch());
+		std::string aux1 = ch_1.ver_apellido() + " " + ch_1.ver_nombre();
+		std::string aux2 = ch_2.ver_apellido() + " " + ch_2.ver_nombre();
+		PasarMiniscula(aux1);
+		PasarMiniscula(aux2);
+		return aux1< aux2;
+	};
+	auto CriterioNombreApellidoCliente = [this](const suscripcion &a, const suscripcion &b)->bool{
+		cliente cl_1=this->buscarClientesDNI(a.ver_DNI_cliente());
+		cliente cl_2=this->buscarClientesDNI(b.ver_DNI_cliente());
+		std::string aux1 = cl_1.ver_apellido() + " " + cl_1.ver_nombre();
+		std::string aux2 = cl_2.ver_apellido() + " " + cl_2.ver_nombre();
+		PasarMiniscula(aux1);
+		PasarMiniscula(aux2);
+		return aux1< aux2;
+	};
 	
-
-
+	switch(criterio){
+	case O_APENOM_CL:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioNombreApellidoCliente); break;
+	case O_DNI_CL:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioSuscripcionDNICliente); break;
+	case O_APENOM_CH:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioNombreApellidoCouch); break;
+	case O_DNI_CH:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioSuscripcionDNICouch); break;
+	case O_PLAN:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioSuscripcionPlan); break;
+	case O_FECH_PAGO:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioSuscripcionFecha); break;
+	case O_FECH_VENC:
+		sort(vector_de_suscripciones.begin(), vector_de_suscripciones.end(), CriterioSuscripcionFecha); break;
+	}
+	
+	this->guardar();
+	
+}
 
 
 

@@ -14,6 +14,7 @@
 ///  clientes con el fin de pasar como argumento al método, queda más legible que un número
 enum CriterioOrdenClientes { ORDEN_APELLIDO_Y_NOMBRE, ORDEN_DNI, ORDEN_EMAIL, ORDEN_PLANES_SUSCRITOS, ORDEN_TELEFONO_EMERGENCIAS };
 enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};
+enum CriterioOrdenSuscripcion { O_APENOM_CL, O_DNI_CL, O_APENOM_CH, O_DNI_CH, O_PLAN, O_FECH_PAGO, O_FECH_VENC };
 class manage{
 private:
 	/// @brief Atributos de la clase Manage
@@ -83,6 +84,6 @@ public:
 	/// @brief Ordenar vector (falta)
 	void OrdenarClientes(CriterioOrdenClientes criterio);
 	void OrdenarCouchs(CriterioOrdenCouchs criterio);
-
+	void OrdenarSuscripciones(CriterioOrdenSuscripcion criterio);
 };
 #endif
