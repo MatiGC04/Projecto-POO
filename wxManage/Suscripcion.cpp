@@ -7,6 +7,17 @@
 #include <cstring>
 #include <iomanip>
 
+/**
+* @brief Constructor de la clase suscripcion
+*
+* Toma los valores de string de los parametros y los guarda en los atributos
+* de la clase, ademas crea la rutina como un archivo de texto y este le copia
+* los datos de la rutina del plan base
+*
+* @param std::string p_subscrito Cadena que representa el plan susbcrito
+*		 std::string dni_couch Cadena que representa el dni del coach responsable
+*		 std::string dni_cliente Cadena que representa el dni del cliente
+**/ 
 suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::string dni_cliente){
 	this->p_subscrito = p_subscrito;
 	this->dni_cliente = dni_cliente;
@@ -24,14 +35,18 @@ suscripcion::suscripcion(std::string p_subscrito, std::string dni_couch, std::st
 	}
 	
 }
-
+/**
+* @brief Metodo para obtener la fecha de pago
+* @return fecha_pago 
+*/
 fecha suscripcion::ver_fecha_pago() const{
 	return fecha_pago;
 }
 
 /**
-* Implementación del método para obtener los días faltantes antes del
-* vencimiento de la cuota.
+* @brief Método para obtener los días faltantes antes del vencimiento de la 
+* cuota.
+* 
 * @return si la fecha no esta vencida, retorna la diferencia de dias faltantes 
 * antes del vencimiento de esta, sino retorna -1.
 **/	
@@ -80,9 +95,6 @@ bool suscripcion::estado_suscripcion() const{
 	}
 }
 
-//No estoy seguro de si va a servir pero lo programo y dps si no hace falta
-//se descarta, segun yo despues podemos utilizar estas funciones para mandarle
-//un puntero a funcion a sort y que ordene el vector de manage con estos criterios
 
 ///Una fecha es menor que otra cuando la otra es mas reciente, es decir que
 ///para ordenar por fechas mas recientes deberiamos hacer lo contrario

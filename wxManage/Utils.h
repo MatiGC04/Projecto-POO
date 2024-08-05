@@ -26,7 +26,7 @@ struct fecha{
 ///@brief Funcion que devuelve la fecha de hoy
 fecha FechaHoy();
 
-
+///@brief Convierte un struct `fecha` a un objeto `time_t`.
 std::time_t ObtenerTime(fecha fech);
 
 ///@brief Funcion que recibe una fecha y retorna un string en formato dd/mm/aaaa
@@ -59,8 +59,12 @@ std::ostream &operator<<(std::ostream &o, fecha f1);
 ///@brief Funcion que pasa todos los caracteres de una cadena txt a minuscula
 void PasarMiniscula(std::string &txt);
 
-///@brief 
+///@brief Funcion para saber si una cadena std::string str contiene un numero
 bool contieneNumero(const std::string str);
+
+///@brief Funcion para saber si una cadena std::string str contiene una letra
 bool contieneLetra(const std::string srt);
+
+///@brief Funcion para saber si una cadena std::string str contiene un simbolo
 bool contieneSimbolo(const std::string str);
 #endif

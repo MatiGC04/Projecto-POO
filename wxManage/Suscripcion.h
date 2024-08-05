@@ -31,7 +31,7 @@ struct registroSuscripcion{
 class suscripcion{
 	
 private:
-	/// @brief Atributos de la clase Suscripcion
+	/// @brief Fecha de pago de la suscripcion
 	fecha fecha_pago;
 	/// @brief Nombre del plan subscripto
 	std::string p_subscrito;
@@ -48,10 +48,10 @@ public:
 	/// @brief  Métodos para obtener los atributos de una suscripcion
 	fecha ver_fecha_pago() const;			///< devuelve la fecha en la que se pago
 	int dias_faltantes() const; 			///< devuelve los dias que le quedan pagos
-	std::string ver_DNI_couch() const;
-	std::string ver_DNI_cliente() const;
-	std::string ver_nombre_rutina() const;
-	std::string ver_nombre_plan() const;
+	std::string ver_DNI_couch() const;		///< devuelve el DNI del coach
+	std::string ver_DNI_cliente() const;	///< devuelve el DNI del cliente
+	std::string ver_nombre_rutina() const;	///< devuelve el nombre de la rutina
+	std::string ver_nombre_plan() const;	///< devuleve el nombre del plan asociado a la suscripcion
 	
 	bool estado_suscripcion() const;
 	
@@ -59,7 +59,7 @@ public:
 	void leer_en_binario(std::ifstream &archivo);
 	void guardar_en_binario(std::ofstream &archivo);
 };
-
+///@brief Funciones para comparar suscripciones dependiendo el criterio
 bool CriterioSuscripcionFecha(suscripcion sub1, suscripcion sub2);
 bool CriterioSuscripcionDNICouch(suscripcion sub1, suscripcion sub2);
 bool CriterioSuscripcionDNICliente(suscripcion sub1, suscripcion sub2);

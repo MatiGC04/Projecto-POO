@@ -27,7 +27,15 @@ fecha FechaHoy(){
 }
 
 
-//insertar documentacion
+/**
+* @brief Convierte un struct `fecha` a un objeto `time_t`.
+*
+* Esta función toma un struct `fecha` y la convierte a un objeto `time_t` 
+* que representa el tiempo en segundos desde el 1 de enero de 1970 (época Unix).
+*
+* @param fech Struct `fecha` que contiene el año, mes y día a convertir.
+* @return Un objeto `time_t` que representa el tiempo correspondiente a la fecha proporcionada.
+*/
 time_t ObtenerTime(fecha fech){
 	time_t hoy = time(nullptr);
 	tm *f=localtime(&hoy);
@@ -38,28 +46,38 @@ time_t ObtenerTime(fecha fech){
 	f->tm_mon=fech.mes-1;
 	f->tm_year=fech.anio-1900;
 	return mktime(f);				
-
 }
 	
 /**
-* Funcion para convertir fecha a string
-* @param variable tipo fecha
-* @return variable tipo string
+* @brief Funcion para convertir fecha a string
+* @param fecha f1 Struct 'fecha' a pasar a string
+* @return std::string Devuelve un string para mostrar la fecha dd/mm/anio
 **/	
 std::string FechaTexto(fecha f1){
 	return std::to_string(f1.dia)+"/"+std::to_string(f1.mes)+"/"+
 	std::to_string(f1.anio);
 }
-
+	
+/**
+* @brief Funcion para convertir fecha a string para usar en archivo
+* @param fecha f1 Struct 'fecha' a pasar a string
+* @return std::string Devuelve un string para mostrar la fecha dd_mm_anio
+**/	
 std::string FechaArchivo(fecha f1){
 	return std::to_string(f1.dia)+"_"+std::to_string(f1.mes)+"_"+
 		std::to_string(f1.anio);
 }
 	
 /**
-* Verifica si el anio es biciesto o no
-* @param variable tipo fecha
-**/	
+* @brief Verifica si el año en un struct `fecha` es bisiesto.
+*
+* Esta función determina si el año especificado en el struct `fecha` es un año bisiesto.
+* Un año es bisiesto si es divisible por 4, excepto aquellos años que son divisibles por 100
+* pero no por 400.
+*
+* @param fecha f1 Struct `fecha` que contiene el año a verificar.
+* @return `true` si el año es bisiesto, `false` en caso contrario.
+*/
 bool AnioBiciesto(fecha f1){
 	if(f1.anio%100==0){
 		if(f1.anio%400==0)return true;
@@ -72,7 +90,14 @@ bool AnioBiciesto(fecha f1){
 	
 /**
 * @brief Confirma que la fecha ingresada es valida
-* @param variable tipo fecha
+*	
+* La funcion toma un struct tipo fecha y primero se fija si es año biciesto
+* en caso de ser así, se le asigna 29 días a febrero. Luego compara si el año y
+* mes son validos, en caso de serlos corrobora que el dia ingresado pueda estar	
+* dentro de ese mes
+*	
+* @param fecha f1 Struct tipo 'fecha' a validar
+* @return 'true' en caso de ser un fecha validad, 'false' en caso contrario
 **/		
 bool ConfirmacionFecha(fecha f1){
 	int dias_feb = 28;
