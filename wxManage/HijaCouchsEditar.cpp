@@ -2,7 +2,13 @@
 #include "string_conv.h"
 #include <wx/msgdlg.h>
 
-///Constuctor
+/**
+* Constructor de la clase HijaCouchsEditar
+* 
+* Recibe la posicion del couch a editar, se crea una copia de este y se cargan
+* los datos en las celdas de la ventana
+*
+*/
 HijaCouchsEditar::HijaCouchsEditar(manage *aux, int pos, wxWindow *parent): BaseCouchsAgregar(parent), m_manage(aux){
 	this->pos=pos;
 	couch ch=m_manage->obtenerCouch(pos);
@@ -23,6 +29,16 @@ HijaCouchsEditar::HijaCouchsEditar(manage *aux, int pos, wxWindow *parent): Base
 	if(ch.ver_anioN()!=0)m_anio_ch->SetValue(wx_to_std(std::to_string(ch.ver_anioN())));
 }
 
+/**
+* Evento del boton para aceptar el registro
+* 
+* Al clickear el boton carga los datos de las celdas en un couch, si este fue
+* modificado pregunta si quiere guardar los cambios, en caso aceptar copia estos
+* nuevos datos en la posicion del couch seleccionado y retorna EndModal(1), 
+* caso contrario devuelve EndModal(0)
+* 
+*
+*/
 void HijaCouchsEditar::ClickAceptarRegistro(wxCommandEvent& event){
 	std::string nombre,apellido,email,sexo,telefono,
 		direccion,localidad,DNI,CBU,alias;
@@ -66,6 +82,12 @@ void HijaCouchsEditar::ClickAceptarRegistro(wxCommandEvent& event){
 	}
 }
 
+/***
+* Evento del boton para cancelar el registro
+*
+* Devuelve EndModal(0)
+*
+*/
 void HijaCouchsEditar::ClickCancelarRegistro( wxCommandEvent& event ){
 	EndModal(0);
 }

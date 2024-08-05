@@ -9,16 +9,22 @@ HijaCouchsAgregar::HijaCouchsAgregar(manage *aux ,wxWindow *parent) : BaseCouchs
 HijaCouchsAgregar::~HijaCouchsAgregar() {
 	
 }
-
+/***
+* Evento del boton para aceptar el registro
+*
+* Al clickear el boton carga los datos de las celdas en un couch, este se
+* guarda en el vector de coach de la clase manage y devuelve EndModal(1)
+*
+*/
 void HijaCouchsAgregar::ClickAceptarRegistro( wxCommandEvent& event )  {
-	//utilizo variables auxiliares para guardar los datos
-	std::string nombre,apellido,email,sexo,telefono, //datos de persona
+	
+	std::string nombre,apellido,email,sexo,telefono, 
 		direccion,localidad,DNI, 
-		CBU,alias; 									//datos particulares para couch
+		CBU,alias; 									
 	
 	long dia,mes,anio;
 	
-	//los copio
+	
 	nombre=wx_to_std(m_nombre_ch->GetValue());
 	apellido=wx_to_std(m_apellido_ch->GetValue());
 	email=wx_to_std(m_mail_ch->GetValue());
@@ -35,7 +41,7 @@ void HijaCouchsAgregar::ClickAceptarRegistro( wxCommandEvent& event )  {
 	CBU = wx_to_std(m_CBU->GetValue());
 	alias=wx_to_std(m_alias->GetValue());
 	
-	//valido que la fecha de nacimiento este bien ingresada
+	
 	if(m_dia_ch->GetValue()==""){
 		dia=-1;
 	}
@@ -49,8 +55,7 @@ void HijaCouchsAgregar::ClickAceptarRegistro( wxCommandEvent& event )  {
 	couch ch(nombre,apellido,email,sexo,telefono,direccion,localidad,DNI,
 			 dia,mes,anio,
 			 CBU,alias);
-	//chequeo que los datos de couch esten bien ingresados antes de guardarlo
-	//en binario
+	
 	std::string errores="";
 	errores=ch.validar_datos_ch();
 	if(errores.size()){
@@ -64,7 +69,13 @@ void HijaCouchsAgregar::ClickAceptarRegistro( wxCommandEvent& event )  {
 		
 }
 
-///
+/***
+* Evento del boton para cancelar el registro
+*
+* Devuelve EndModal(0)
+*
+*/
+
 void HijaCouchsAgregar::ClickCancelarRegistro( wxCommandEvent& event )  {
 	EndModal(0);
 }

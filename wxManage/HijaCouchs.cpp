@@ -1,7 +1,3 @@
-/**
-* @file HijaCouchs.cpp
-* @brief Declaraciones de todo lo necesario para trabajar con la clase HijaCouchs
-**/
 #include "HijaCouchs.h"
 #include "string_conv.h"
 #include "HijaClientesAgregar.h"
@@ -36,20 +32,18 @@ HijaCouchs::HijaCouchs(manage *aux,wxWindow *parent) : BaseCouchs(parent), m_man
 **/
 void HijaCouchs::CargarFila(int pos){
 	couch ch = m_manage->obtenerCouch(pos);
-	//fila 0 con nomb+apellido
+	
 	m_grilla_couchs->SetCellValue(pos,0,std_to_wx(ch.ver_apellido()+ ", " + ch.ver_nombre()));
-	//fila 1 con el dni
+	
 	m_grilla_couchs->SetCellValue(pos,1,std_to_wx(ch.ver_DNI()));
-	//fila 2 con los planes que dicta
+	
 	m_grilla_couchs->SetCellValue(pos,2,std_to_wx(m_manage->planesResponsables(ch.ver_DNI())));
-	//fila 3 telefono personal
+	
 	m_grilla_couchs->SetCellValue(pos,3,std_to_wx(ch.ver_tel()));
 
-	//fila 4 con los planes en los que es responsable
-	//m_grilla_couchs->SetCellValue(pos,4,std_to_wx(m_manage->planesResponsable(ch.ver_DNI())));
 }
 
-/// Cierra la ventana de couchs
+/// Evento que cierra la ventana de couchs
 void HijaCouchs::ClickSalirCouchs( wxCommandEvent& event )  {
 	this->Close();
 }
@@ -66,7 +60,11 @@ void HijaCouchs::ClickAgregar( wxCommandEvent& event )  {
 	}
 }
 
-
+/**
+* Implementacion del evento de click en el boton eliminar
+* Segun donde este posicionado el cursor de la grilla borra el registro tanto
+* de la grilla como de la base de datos.
+*/
 void HijaCouchs::ClickEliminar( wxCommandEvent& event )  {
 	int fila_actual = m_grilla_couchs->GetGridCursorRow();
 	int res = wxMessageBox(c_to_wx("¿Eliminar el registro?"), m_grilla_couchs->GetCellValue(fila_actual,0),wxYES_NO);
@@ -82,10 +80,20 @@ HijaCouchs::~HijaCouchs() {
 	
 }
 
+/**
+* El enter en el cuadro de texto equivale al click en el boton "Buscar".
+**/
 void HijaCouchs::EnterBuscar( wxCommandEvent& event )  {
 	ClickBuscar(event);
 }
 
+/**
+* Cuando se hace click en buscar, se busca desde el couch que esta seleccionado
+* en la tabla, en adelante, algun nombre y apellido que contenga lo que indica
+* el cuadro de busqueda (puede contenerlo en cualquier parte, y la busqueda no
+* distingue mayusculas y minusculas).
+* Si hay mas de uno que coinciden, cada click en buscar nos lleva al siguiente.
+**/
 void HijaCouchs::ClickBuscar( wxCommandEvent& event )  {
 	int fila_pos = m_grilla_couchs->GetGridCursorRow();
 	if (m_grilla_couchs->GetSelectedRows().GetCount()==0) fila_pos = -1;
@@ -104,14 +112,21 @@ void HijaCouchs::ClickBuscar( wxCommandEvent& event )  {
 	
 }
 
+/**
+* El doble click en la m_grilla equivale al click en el boton "Editar".
+**/
 void HijaCouchs::DobleClickFila( wxGridEvent& event )  {
 	ClickEditar(event);
 }
 
+/**
+* Si se hace click en la cabecera de alguna columna, la tabla se ordena segun
+* ese dato. Para esto, se le pide a la base de datos que ordene, y luego 
+* se recargan los datos de todas las filas.
+**/
 void HijaCouchs::ClickColumna( wxGridEvent& event )  {
 	int col = event.GetCol();
 	switch(col){
-	//recordar: enum CriterioOrdenCouchs { ORDEN_APENOMB, O_DNI, ORDEN_PLANES_RESPONSABLES, ORDEN_TELEFONO};	
 	case 0: m_manage->OrdenarCouchs(ORDEN_APENOMB); break;
 	case 1: m_manage->OrdenarCouchs(O_DNI); break;
 	case 2: m_manage->OrdenarCouchs(ORDEN_PLANES_RESPONSABLES); break;
@@ -121,6 +136,7 @@ void HijaCouchs::ClickColumna( wxGridEvent& event )  {
 
 }
 
+/// Evento que ajusta la grilla segun el tamanio de la ventana y la proporcion que mantenia la grilla
 void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
 	Layout();
 	int tamanios[4], ancho_total_viejo=0; 
@@ -135,6 +151,13 @@ void HijaCouchs::ClickTamanio( wxSizeEvent& event )  {
 	m_grilla_couchs->EndBatch();
 }
 
+/**
+* Al hacer click en "Editar", se abre de forma modal la ventana para ver y/o
+* modificar los datos. En forma modal significa que esta ventana espera a que 
+* termine la otra. Cuando termina, el codigo de retorno me indica si la otra 
+* ventana modifico o no los datos (el usuario puede hacer click en Agregar o
+* en Cancelar) En caso afirmativo, esta ventana debe actualizar la m_grilla_couchs.
+**/
 void HijaCouchs::ClickEditar( wxCommandEvent& event )  {
 	int pos= m_grilla_couchs->GetGridCursorRow();
 	HijaCouchsEditar nueva_ventana(m_manage,pos,this);
