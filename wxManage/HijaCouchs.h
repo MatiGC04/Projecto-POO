@@ -6,6 +6,7 @@ class HijaCouchs : public BaseCouchs {
 	
 private:
 	manage *m_manage;
+	void CargarFila(int pos);
 protected:
 	/// Abre el cuadro para editar los datos de un cliente 
 	void ClickEditar( wxCommandEvent& event )  override;
@@ -21,11 +22,9 @@ protected:
 	
 	/// Abre la ventana para editar un cliente cuando se hace doble click sobre el mismo
 	void DobleClickFila( wxGridEvent& event )  override;
-	
 
 	/// Elimina el couch que se haya elegido en la grilla
 	void ClickEliminar( wxCommandEvent& event )  override;
-	
 	
 	/// Reordena la grilla cuando se hace click sobre el titulo de una columna
 	void ClickColumna( wxGridEvent& event )  override;
@@ -36,8 +35,7 @@ protected:
 	void ClickSalirCouchs( wxCommandEvent& event )  override;
 public:
 	HijaCouchs(manage *aux,wxWindow *parent=NULL);
-	~HijaCouchs();
-	void CargarFila(int pos);
+
 	
 };
 

@@ -14,7 +14,6 @@ protected:
 	
 public:
 	HijaCouchsAgregar(manage *aux, wxWindow *parent=NULL);
-	~HijaCouchsAgregar();
 };
 
 #endif

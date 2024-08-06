@@ -6,9 +6,6 @@ HijaCouchsAgregar::HijaCouchsAgregar(manage *aux ,wxWindow *parent) : BaseCouchs
 
 }
 
-HijaCouchsAgregar::~HijaCouchsAgregar() {
-	
-}
 /***
 * Evento del boton para aceptar el registro
 *

@@ -76,10 +76,6 @@ void HijaCouchs::ClickEliminar( wxCommandEvent& event )  {
 }
 
 
-HijaCouchs::~HijaCouchs() {
-	
-}
-
 /**
 * El enter en el cuadro de texto equivale al click en el boton "Buscar".
 **/

@@ -6,9 +6,6 @@ HijaPlanAgregar_Plan::HijaPlanAgregar_Plan(manage *aux,wxWindow *parent) : BaseP
 	
 }
 
-HijaPlanAgregar_Plan::~HijaPlanAgregar_Plan() {
-	
-}
 
 /**
 * Implementacion del evento de click en el boton aceptar.

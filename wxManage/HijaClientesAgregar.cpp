@@ -6,9 +6,6 @@ HijaClientesAgregar::HijaClientesAgregar(manage *aux, wxWindow *parent) : BaseCl
 	
 }
 
-HijaClientesAgregar::~HijaClientesAgregar() {
-	
-}
 /***
 * Evento del boton para cancelar el registro
 *

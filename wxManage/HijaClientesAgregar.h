@@ -15,7 +15,6 @@ protected:
 	
 public:
 	HijaClientesAgregar(manage *aux, wxWindow *parent=NULL);
-	~HijaClientesAgregar();
 };
 
 

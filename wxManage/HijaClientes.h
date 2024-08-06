@@ -7,6 +7,10 @@ class HijaClientes : public BaseClientes {
 	
 private:
 	manage *m_manage;
+	
+	/// Copia los datos de un cliente de la base de datos a la tabla
+	void CargarFila(int pos);
+	
 protected:
 	
 	/// Cierra la ventana de clientes cuando sea clickea el boton de "Salir"
@@ -40,8 +44,7 @@ public:
 	/// Inicializa la ventana llenando la grilla con los datos que hay en manage
 	HijaClientes(manage *aux, wxWindow *parent=NULL);
 	
-	/// Copia los datos de un cliente de la base de datos a la tabla
-	void CargarFila(int pos);
+
 };
 
 #endif

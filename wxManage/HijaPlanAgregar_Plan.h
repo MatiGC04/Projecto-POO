@@ -15,7 +15,6 @@ protected:
 	
 public:
 	HijaPlanAgregar_Plan(manage *aux,wxWindow *parent=NULL);
-	~HijaPlanAgregar_Plan();
 };
 
 #endif

@@ -7,6 +7,8 @@ class HijaPlan : public BasePlan {
 	
 private:
 	manage *m_manage;
+	void CargarFila(couch ch, int pos);
+	void refrescar();
 protected:
 	/// Evento para cuando se cambia el tamanio de la ventana
 	void CambiarTamanio( wxSizeEvent& event )  override;
@@ -34,8 +36,7 @@ protected:
 	
 public:
 	HijaPlan(manage *aux, wxWindow *parent=NULL);
-	void CargarFila(couch ch, int pos);
-	void refrescar();
+
 };
 
 #endif

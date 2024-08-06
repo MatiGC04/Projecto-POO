@@ -10,6 +10,9 @@ private:
 	manage *m_manage;
 	int pos_plan;
 	std::vector<couch> v_couchs;
+	
+	
+	void CargarFila(int pos);
 protected:
 	/// Evento para el click en el boton de cancelar
 	void ClickCancelar( wxCommandEvent& event )  override;
@@ -22,7 +25,7 @@ protected:
 	
 public:
 	HijaPlanAgregar_Couch(manage *aux, int pos_plan, wxWindow *parent=NULL);
-	void CargarFila(int pos);
+
 };
 
 #endif
