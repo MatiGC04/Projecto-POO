@@ -2,8 +2,10 @@
 ClasesYFunciones/Debug/
 ClasesYFunciones/Manage.zpr
 
+
 #ignorar carpeta  /debug.w32/
 wxManage/debug.w32/
 *.docx
 *.o
 /wxManage/debug.w32
+
