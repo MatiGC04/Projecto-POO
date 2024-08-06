@@ -69,27 +69,38 @@ public:
 	void borrarPlan(int pos);
 	void borrarSuscripcion(int pos);
 	
-	
+	/// @brief Metodos para buscar un cliente o couch por su DNI
 	cliente buscarClientesDNI(std::string DNI, int pos=0) const;
 	couch buscarCouchsDNI(std::string DNI, int pos=0) const;
+	
+	/// @brief Metodo para buscar la posicion en la que se encuentra un couch por su DNI
 	int buscarPosCouchsDNI(std::string DNI, int pos=0) const;
+	
+	/// @brief Metodos para buscar por su nombre  por su nombre
 	plan buscarPlanNombre(std::string DNI, int pos=0) const;
 	suscripcion buscarSub(std::string DNI, std::string nombre_plan, int pos=0) const;
+	
+	/// @brief Metodos para buscar la posicion en la que se encuentra por su nombre
 	int buscarClientesNombre(std::string nombre, int pos=0) const;
 	int buscarCouchsNombre(std::string nombre, int pos=0) const;
 	int buscarCouchsNombre(int pos_plan, std::string nombre, int pos=0);
 	int buscarClientesEnSub(std::string nomape, int pos=0);
 	
+	/// @brief Metodos para devolver un dato de los vectores
 	cliente &ObtenerCliente(int pos);
 	suscripcion &obtenerSuscripcion(int pos);
 	couch &obtenerCouch(int pos);
 	plan &obtenerPlan(int plan);
 	
+	/// @brief Metodos para saber en que planes esta suscripto un Cliente, devuelve como string
 	std::string planesSuscritos(std::string dni_cliente) const;
 	std::string planesResponsables(std::string dni_couch) const;
+	
+	/// @brief Metodos que nos permite saber cuales couchs estan o no en un plan (IN/OUT)
 	std::vector<couch> CouchsInPlan(int pos_plan);
 	std::vector<couch> CouchsOutPlan(int pos_plan);
 	
+	/// @brief Metodos que nos permite ordenar los datos de las distintas entidades por medio de criterios
 	void OrdenarClientes(CriterioOrdenClientes criterio);
 	void OrdenarCouchs(CriterioOrdenCouchs criterio);
 	void OrdenarSuscripciones(CriterioOrdenSuscripcion criterio);

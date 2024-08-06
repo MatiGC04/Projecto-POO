@@ -1,2 +1,56 @@
-Salto de cuerda 4x50
-Abdomen Crunch 30x3
+Lunes:
+- Calentamiento: 5 minutos de saltar la cuerda
+- Circuito (3 rondas):
+  - 10 Sentadillas con salto
+  - 10 Flexiones
+  - 20 Estocadas (10 por pierna)
+  - 15 Kettlebell Swings
+  - 30 segundos de Plancha
+
+Martes:
+- Calentamiento: 5 minutos de trote ligero
+- Circuito (3 rondas):
+  - 15 Burpees
+  - 20 Russian Twists (10 por lado)
+  - 15 Flexiones de triceps (Diamante)
+  - 20 Mountain Climbers (10 por pierna)
+  - 30 segundos de Descanso
+
+Miércoles:
+- Calentamiento: 5 minutos de remo
+- Circuito (3 rondas):
+  - 10 Thrusters (peso ligero)
+  - 15 Jumping Jacks
+  - 20 Abmat Sit-ups
+  - 15 Push Press (peso ligero)
+  - 30 segundos de Descanso
+
+Jueves:
+- Calentamiento: 5 minutos de bicicleta
+- Circuito (3 rondas):
+  - 10 Dominadas o Remo invertido
+  - 20 Step-ups (10 por pierna)
+  - 15 Russian Kettlebell Swings
+  - 20 Plank Shoulder Taps (10 por lado)
+  - 30 segundos de Plancha lateral (15 segundos por lado)
+
+Viernes:
+- Calentamiento: 5 minutos de saltar la cuerda
+- Circuito (3 rondas):
+  - 10 Burpees
+  - 20 Air Squats
+  - 15 Kettlebell Deadlifts
+  - 20 Bicycle Crunches (10 por lado)
+  - 30 segundos de Descanso
+
+Sábado:
+- Calentamiento: 5 minutos de trote ligero
+- Circuito (3 rondas):
+  - 15 Push-ups con rotación (alternando lados)
+  - 20 Lunges (10 por pierna)
+  - 15 Renegade Rows (peso ligero)
+  - 20 Toe Touches
+  - 30 segundos de Plancha
+
+Domingo:
+- Descanso
