@@ -134,7 +134,7 @@ int manage::cantidadSuscripciones() const{
 
 
 /** 
-* @brief Implemetacion de métodos para agregar clientes, couchs, planes y suscripciones de los vectores.
+* @brief Implemetacion de métodos para agregar clientes, couchs, planes y suscripciones a los vectores.
 */	
 void manage::agregarCliente(const cliente &cl) {
 	vector_de_clientes.push_back(cl);
@@ -328,7 +328,7 @@ int manage::buscarClientesNombre(std::string nomape, int pos) const{
 }
 
 /**
-* @brief Implementacion del metodo para buscar todos los couchs que estan registrado en cierto plan
+* @brief Implementacion del metodo para buscar todos los couchs que estan registrado en cierto plan.
 */
 std::vector<couch> manage::CouchsInPlan(int pos_plan){
 	plan plan_actual = this->obtenerPlan(pos_plan);
@@ -361,7 +361,7 @@ std::vector<couch> manage::CouchsOutPlan(int pos_plan){
 }
 
 /**
-* @brief Implementacion del metodo para buscar los clientes que se encuentran en un plan.
+* @brief Implementacion del metodo para buscar los clientes que se encuentran en una suscripcion.
 * Como los clientes y las suscripciones estan en dos vectores distintos, por medio de un for
 * va recorriendo el vector de suscripciones y almacena en una variable auxiliar el apellido y nombre 
 * concatenados para luego buscarlos con la funcion find, y si se encuentra devuelve su posicion del for.
